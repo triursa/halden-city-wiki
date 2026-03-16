@@ -1,0 +1,170 @@
+# Halden City — Wiki Index
+### Master Reference for Claude Project Context
+
+> This file is the fast-load canon reference for the Halden City superhero setting.
+> Full wiki lives at: C:\Users\kaleb\Documents\Claude\halden-city-wiki\
+> For deep lookups, reference individual files in that directory.
+
+---
+
+## The Setting
+
+**Halden City** — Mid-Atlantic metropolis, population ~8–10 million. Between New York and D.C. A hundred years of metahuman history. The city tolerates its heroes. It does not worship them.
+
+**Primary use:** Novel/novella fiction + Masks: The Next Generation TTRPG campaign ("Legacy of Halden City")
+**Tone:** Character-driven, noir-grounded, morally complex. Powers are metaphors. Heroism is exhausting. No one is purely anything. No em dashes in prose.
+
+---
+
+## Districts
+
+| District | Character |
+|---|---|
+| **Crownpoint** | Corporate glass and steel. A.E.G.I.S. HQ beneath Crownpoint Federal Tower. Vane Capital's domain. |
+| **The Ironworks** | Post-industrial. Shuttered factories, active shipyards. Persico's crime network. Law feels thinner here. |
+| **Riverside Ward** | Row houses, transit, real people. Riley and Adrian's home ground. Where Halden actually lives. |
+| **The Glass District** | Labs, cover-ups, ethical shadows. Every miracle here has a cost. Founded 1968, secretly underwritten by A.E.G.I.S. |
+| **Monument Circle** | Grand plaza, hero statues, protests and press conferences. Where the city tells itself what it wants to be. |
+| **Blackwater Harbor (Dockside)** | Fog, shipping cranes, dark water. Documented and undocumented cargo. Shroud's territory. |
+
+---
+
+## Factions
+
+### A.E.G.I.S. — Advanced Expert Group for Intervention and Security
+Federal metahuman agency. Founded 1925. HQ beneath Crownpoint Federal Tower (public front: FEMA office).
+Not malevolent — bureaucratic. Values stability, expands its own authority quietly, does not love surprises.
+
+**Halden Regional Command:**
+- Regional Director: **Evelyn Shaw**
+- Deputy Director of Operations: Colonel Marcus Hale
+- Deputy Director of Intelligence: Dr. Samira Kadeem
+
+**Divisions:** MTR (Mercer), ACAD (Voss), SMAB (Kadeem), MANIFEST (Ortega)
+
+### The Alliance
+Halden City's premiere independent hero team. Founded 2015 by Paragon. Cooperative with A.E.G.I.S. but not subordinate.
+HQ: Alliance Tower. Core members: Paragon, Recluse, Riftfire, Quantum, Starfall, The Vanguard.
+
+### Vane Capital Group
+Private infrastructure firm. Near-monopoly on Crownpoint construction. CEO: Casimir Vane (b. 1974, raised in Ironworks).
+Growth is suspiciously fast for a firm without obvious institutional backing. Antagonist thread — backing unknown.
+
+---
+
+## Characters — Core Roster
+
+### Riley Thomas / Recluse
+**DOB:** July 30, 1990 | **Age:** 35 | **File:** AEGIS-RCL-002
+Black hair (greying at temples), blue eyes, 5'11"/190 lbs. Extensive scarring.
+**Powers:** Spider-derived genetics — wall adhesion, enhanced agility, ~8x body weight strength, one-second precognitive flash. Web shooters are mechanical, not biological. Elite martial artist, detective-class aptitude.
+**Key facts:** Operated unsanctioned for 15 years before Paragon sponsored him. The 2006 Vega Incident (Sandra Vega's death) is the founding guilt of his heroism. Visits her grave annually. Trained her son Adrian. Has a documented precognitive blind spot around a subject called Scythe (file AEGIS-SYC-REDACTED) — A.E.G.I.S. knows; he doesn't. Currently hiding physical deterioration (slow healing, stiff joints). Voice: direct, dry, understated. No em dashes.
+
+### Ethan Roberts / Paragon
+**DOB:** March 14, 1981 | **Age:** 45
+Former Air Force pilot. Reluctant Paragon Force host since 2005. Methodical, acutely aware of his predecessor's failures.
+Powers: Flight, super strength, super speed, heat vision, x-ray vision, extreme durability.
+**Key secret:** Has known how to end the Paragon cycle and chosen not to act (Virek cache revelation).
+
+### Elena "Lena" Marquez / Riftfire
+**DOB:** October 3, 1992 | **Age:** 33 | **File:** AEGIS-RFT-003
+High school physics teacher in Riverside Ward by day. Alliance core member by night.
+Powers: Kinetic and potential energy manipulation — teleportation, force redirection, high-speed locomotion. Self-limiting; true ceiling unestablished.
+
+### Dr. Javier Mendez / Quantum
+**DOB:** February 9, 1970 | **Age:** 56 | **File:** AEGIS-QNT-004
+Brilliant physicist scattered across quantum states. Requires containment suit outside controlled conditions.
+Powers: Teleportation, matter phasing, accelerated cognition, limited duplication (extended use causes local reality instability). Also: Avi's biological father — departed before Avi was born.
+
+### Kiara Je-rach / Starfall
+**Age:** Unknown (engineered cosmic envoy, no birth date)
+Defected from the Auditors after Paragon asked her what she believed instead of fighting her. Marked "defective." Resident in Alliance Tower.
+Powers: Energy projection, limited matter restructuring, localized gravity manipulation, near-invulnerability, super-intelligence.
+
+### Natalia Orlov / The Vanguard
+**DOB:** December 1, 1966 | **Age:** 59
+Former black-ops enhanced asset. Defected after concluding all institutions corrupt themselves. A.E.G.I.S. made her; she left anyway.
+Powers: Electricity manifestation via additional organs, gene-locked muscle density, neural implants, pain suppression, uploaded combat training.
+
+### Adrian Vega / Breakpoint
+**DOB:** May 6, 2004 | **Age:** 21 | **File:** AEGIS-BKP-010
+Son of Sandra Vega — Riley's defining guilt. Grew up without her. Found Riley, asked to be trained instead of exposing him. Where Riley fights from guilt, Adrian fights from clarity. Most tactically precise partnership in the Alliance network.
+Powers: Hyper-cognitive stress response — time dilation perception, trajectory calculation, physiological reading, collateral modeling. Peak conditioning + martial arts (trained by Recluse).
+
+### Sloane Callahan / Arachne
+**DOB:** February 14, 2004 | **Age:** 21
+Hacked a Glass District server out of boredom. Found something she couldn't unknow. Riley showed up four days later. She said yes; still not entirely sure why. Intel/support backbone of Recluse's network.
+Capabilities: Weaver drones (surveillance across Riverside Ward and Dockside), hacking, looping feeds, pulling files. Perfect memory — every file, face, frequency retained instantly. She assumes this is just how her brain works. (It may not be.)
+
+### Darius Cole / Aegis Prime
+**DOB:** August 17, 1988 | **Age:** 37 | **File:** AEGIS-AGP-007
+Marine officer caught in the 2020 Glass District gravity core disaster. A.E.G.I.S. stabilized the anomaly inside him and built a public symbol around it. Believes power must answer to structure. Ideological friction with most Alliance members.
+Powers: Gravitational force manipulation — immobilization, momentum nullification, compression shielding, vector perception.
+
+### Marcus Harrow / Shroud
+**DOB:** June 30, 1996 | **Age:** 29
+Hunts the things A.E.G.I.S. has no language for — not aliens or lab accidents, the older things in Halden City's forgotten infrastructure. Operates along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident.
+
+### Signal
+Real name unknown. Former Renegade Force host — voluntarily relinquished the Force as part of his ideological plan. Currently an ordinary human with no residual powers ("ordinary human" in public records is a half-truth). Master hacker and social engineer. Orchestrates public crises for revelation, not chaos. Cult-of-personality antagonist. Already holds a recording of Riley threatening Carter Williams. Building toward a public exposure event. Voice: focused, cold, measured — places a question and exits.
+
+### Casimir Vane
+**DOB:** October 31, 1974 | **Age:** 52
+CEO of Vane Capital Group. Self-made billionaire from the Ironworks. Public philanthropist (funds police and public defender galas). Private reality: his growth is too fast to explain cleanly. Antagonist thread.
+
+### Carter Williams / Renegade Force Host
+Current Renegade Force host. Was paralyzed from the waist down prior to bonding; the Force healed him on binding. Personal history tied to Avi's backstory. Currently being used as a pawn by Signal.
+
+---
+
+## Cosmic Lore
+
+### The Paragon Force
+Cosmic intelligence bonded to a single host. Transfers only on host's death. Grants: flight, super strength, super speed, heat vision, x-ray vision, extreme durability. Quantum's theory: a balancing principle — heroism embedded into the universe's fabric.
+
+### The Renegade Force
+Equal and opposite to the Paragon Force. Can be voluntarily relinquished (unlike the Paragon Force). When relinquished, host retains no abilities. Current host: Carter Williams.
+
+### The Virek Papers
+Compiled by Dr. Gabriel Virek — evidence of Paragon's extralegal interventions across decades. A 2022 partially decrypted cache confirmed election interference. Still mostly encrypted. Publication delayed by legal injunction. Contains the revelation that Ethan Roberts has known how to end the Paragon cycle and chose not to act.
+
+---
+
+## Active Plot Threads
+
+| Thread | Status | Stakes |
+|---|---|---|
+| **Riley's physical deterioration** | Active, hidden | Slower healing, stiff joints. Hiding from A.E.G.I.S. What breaks first — body, cover, or relationships? |
+| **Signal's recorded evidence** | Active | Signal recorded Riley threatening Carter in the hospital. Building toward a public exposure event. |
+| **Scythe blind spot (AEGIS-SYC-REDACTED)** | Seeded | Riley's precognition is blind to Scythe. A.E.G.I.S. knows and is withholding this from him. |
+| **The Virek Papers** | Active | Still mostly encrypted. The Paragon/end-cycle revelation is out there but not yet public. |
+| **Carter Williams / Renegade Force** | Active | Healed by the Force on bonding. Signal is using him. Personal history with Avi. |
+| **Persico's return** | Seeded | Released from prison 2025. Re-establishing Dockside network. |
+| **Three missing Glass District researchers** | Seeded | SMAB has no confirmed causal link as of 2025. Pattern being suppressed or unrecognized. |
+| **Casimir Vane's backing** | Seeded | Growth too fast to explain. Who or what is behind Vane Capital? |
+
+---
+
+## Wiki File Locations
+
+All files at: `C:\Users\kaleb\Documents\Claude\halden-city-wiki\`
+
+| File | Contents |
+|---|---|
+| `characters/riley-thomas-recluse.md` | Full Riley dossier |
+| `characters/adrian-vega-breakpoint.md` | Adrian full file |
+| `characters/sloane-callahan-arachne.md` | Sloane full file |
+| `characters/signal.md` | Signal dossier |
+| `factions/aegis.md` | A.E.G.I.S. full breakdown incl. divisions |
+| `factions/the-alliance.md` | Alliance roster and history |
+| `factions/vane-capital-group.md` | Vane Capital |
+| `locations/districts.md` | All six districts with key locations |
+| `lore/world-history.md` | Full 100-year timeline |
+| `lore/paragon-renegade-forces.md` | Cosmic lore, all known hosts |
+| `plot/open-threads.md` | Active threads with stakes |
+| `meta/tone-guide.md` | Prose and tone rules |
+
+---
+
+*Last updated: March 2026*
+*To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*

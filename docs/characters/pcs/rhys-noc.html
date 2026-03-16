@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhys / Noc — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  280px;
+  --font-mono:  'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-body:  'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1.3;
+}
+
+.sidebar-subtitle {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+.sidebar-nav {
+  padding: 12px 0 24px;
+  flex: 1;
+}
+
+.nav-home {
+  display: block;
+  padding: 8px 20px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  border-left: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.nav-home:hover, .nav-home.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--bg-hover);
+}
+
+.nav-section {
+  margin-top: 16px;
+}
+
+.nav-section-header {
+  padding: 6px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-section-icon {
+  color: var(--accent-dim);
+  font-size: 12px;
+}
+
+.nav-section-icon.pc-icon {
+  color: var(--accent-pc);
+}
+
+.nav-link {
+  display: block;
+  padding: 6px 20px 6px 28px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  border-left: 2px solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: var(--bg-hover);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--bg-hover);
+}
+
+.nav-link.pc-link.active {
+  color: var(--accent-pc);
+  border-left-color: var(--accent-pc);
+}
+
+.nav-link.pc-link:hover {
+  color: var(--accent-pc);
+}
+
+/* ── Main ── */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 48px 64px;
+  max-width: 900px;
+}
+
+.breadcrumb {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.breadcrumb a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+
+/* ── PC badge ── */
+.pc-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-pc);
+  border: 1px solid var(--accent-pc);
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 12px;
+  vertical-align: middle;
+  opacity: 0.8;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-head);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.content h2 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin: 40px 0 12px;
+  text-transform: uppercase;
+}
+
+.content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-head);
+  margin: 28px 0 8px;
+}
+
+.content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin: 20px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.content p { margin-bottom: 14px; color: var(--text); }
+
+.content a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-dim);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.content a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+/* ── Tables ── */
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+}
+
+.content thead th {
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--bg-surface);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.content tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+.content tbody tr:hover { background: var(--bg-hover); }
+
+.content tbody td {
+  padding: 10px 14px;
+  color: var(--text);
+  vertical-align: top;
+}
+
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--code-bg);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.content pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* ── Blockquotes ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim);
+  margin: 20px 0;
+  padding: 12px 20px;
+  background: var(--bg-surface);
+  color: var(--text-dim);
+  font-style: italic;
+  border-radius: 0 4px 4px 0;
+}
+
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+
+/* ── Hr ── */
+.content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    z-index: 100;
+    transition: left 0.25s;
+    height: 100dvh;
+  }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: fixed;
+    top: 12px;
+    left: 16px;
+    z-index: 200;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: var(--accent);
+    font-size: 12px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    letter-spacing: 0.08em;
+  }
+  .main { padding-top: 56px; }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle { display: none; }
+}
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon pc-icon">★</span>Player Characters</div>
+  <a href="../../characters/pcs/avi-park-nova.html" class="nav-link pc-link" title="Avi Park / Nova">Avi Park / Nova</a>
+  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc-link" title="Jason / Apollo">Jason / Apollo</a>
+  <a href="../../characters/pcs/rhys-noc.html" class="nav-link pc-link active" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc-link" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
+  <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
+  <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
+  <a href="../../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
+  <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
+  <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◉</span>Factions</div>
+  <a href="../../factions/aegis.html" class="nav-link" title="A.E.G.I.S.">A.E.G.I.S.</a>
+  <a href="../../factions/eclipse.html" class="nav-link" title="Eclipse">Eclipse</a>
+  <a href="../../factions/the-alliance.html" class="nav-link" title="The Alliance">The Alliance</a>
+  <a href="../../factions/vane-capital-group.html" class="nav-link" title="Vane Capital Group">Vane Capital Group</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
+  <a href="../../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
+  <a href="../../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
+  <a href="../../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span>Player Characters<span class="sep">/</span>Rhys / Noc <span class="pc-badge">Player Character</span></div>
+    <article class="content">
+      <h1>Rhys / Noc</h1>
+<blockquote>
+<p><strong>PLAYER CHARACTER — Do not over-document internal states or future development. This file is a GM reference for arc planning, not a character bible.</strong></p>
+</blockquote>
+<hr />
+<h2>At a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hero Name</strong></td>
+<td>Noc (also written "Noch" in some field notes)</td>
+</tr>
+<tr>
+<td><strong>Civilian Name</strong></td>
+<td>Rhys</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>~18–19 (left Pine's school at 18)</td>
+</tr>
+<tr>
+<td><strong>Occupation</strong></td>
+<td>Halden University student — music major, percussion focus. Plays in a band called Neon Orchard.</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>Alliance — new team (Legacy of Halden City)</td>
+</tr>
+<tr>
+<td><strong>Mentor</strong></td>
+<td>Riftfire / Elena Marquez OR Recluse / Riley Thomas — [to be confirmed]</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active — hunted asset (Eclipse has not found them yet)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Biological Status</h2>
+<p><strong>Blind.</strong> Optic nerves destroyed in the bomb blast that killed their mother. Total and permanent. Visual sense replaced by:
+- <strong>Tactile spatial mapping</strong> — vibrations through feet and fingertips, learned in Ivan's lab with sonic emitter infrastructure
+- <strong>Acute hearing</strong> — near-superhuman sensitivity; can track heartbeat, breathing pattern, and subtle physiological tells in a conversation or a fight
+- <strong>Proprioception</strong> — precise body awareness in three dimensions; they navigate via sound and vibration the way sighted people use sight</p>
+<hr />
+<h2>Powers</h2>
+<p><strong>Quantum phase displacement</strong> — result of Eclipse's experimental compound injected into Rhys's carotid artery by Dr. Ivan Romneya to prevent death after the bomb blast.</p>
+<ul>
+<li><strong>Short-range phasing</strong> — body desynchronizes from reality and reasserts nearby. Current documented range: approximately 5 feet. Cannot phase farther; the reassertion is non-negotiable.</li>
+<li><strong>Enhanced physical durability</strong> — far beyond baseline human. The compound reinforced cellular integrity systemically.</li>
+<li><strong>Uncontrolled onset, originally</strong> — waking embedded in furniture, reappearing mid-fall. Now mostly trained into a precise tactical tool.</li>
+</ul>
+<p><strong>Compound origin:</strong> Eclipse biotech research arm. Ivan's work was on battlefield survivability. The compound was unstable and untested at the time of injection. Rhys is the only documented survivor of a live application.</p>
+<hr />
+<h2>Origin</h2>
+<p>Rhys's mother was a public defender who took lost causes. She was assigned to a mob accountant who knew enough to be dangerous. Certain people decided to erase the variable.</p>
+<p>The bomb killed her in the parking lot. Rhys was ten steps away.</p>
+<p>Dr. Ivan Romneya — Rhys's uncle, an Eclipse-funded researcher — reached them first. He injected the compound to prevent their death. It worked. It took their sight and gave them something else.</p>
+<p>Ivan hid them for months. Falsified death records. Trained them to adapt to blindness using the lab's sonic infrastructure. When Eclipse noticed the research irregularities and sent retrieval operatives, Ivan told Rhys to run. He was tortured for access and identifiers. He gave them nothing. His body disappeared.</p>
+<p><strong>Rhys ran.</strong> Months living in Halden's infrastructure — train tunnels, rooftops, abandoned spaces. Eventually Master Pine found them sleeping in an alley.</p>
+<p>Pine's training was brutal and impersonal. He trained them like a weapon being sharpened, never like a grieving child. Rhys hated him for it. The training was effective anyway. They left at 18 without a goodbye.</p>
+<p><strong>Now:</strong> Music major. Drummer in Neon Orchard. Rakish off-stage persona. At night, Noc — breaking up gun deals and loan shark operations in the Ironworks and Dockside, five feet at a time.</p>
+<hr />
+<h2>Eclipse — Direct Connection</h2>
+<p>Eclipse is not an abstract antagonist for Rhys. Eclipse funded Ivan's research. Eclipse's biotech compound is the reason Rhys is alive and the reason Ivan is dead. Eclipse sent the operatives who tortured and killed him.</p>
+<p>Rhys does not know the full scope of what Eclipse is. They know Eclipse as the organization that took their uncle and wants them back as an asset. The upgrade of Eclipse from "institutional pattern" to "named enemy" is personal.</p>
+<p><strong>Eclipse still wants them.</strong> The compound running through Rhys's system is proprietary research. Retrieving the asset is likely still an active directive, even years later.</p>
+<hr />
+<h2>Key Relationships</h2>
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mother (deceased)</strong></td>
+<td>Public defender. Took the lost causes. The moral north star Rhys operates by, even now.</td>
+</tr>
+<tr>
+<td><strong>Dr. Ivan Romneya (deceased)</strong></td>
+<td>Uncle. Saved Rhys's life and lost his own for it. The debt is not abstract.</td>
+</tr>
+<tr>
+<td><strong>Master Pine</strong></td>
+<td>Former trainer. Effective. Cold. Rhys left without looking back and has not forgiven him for treating survival as a technical problem.</td>
+</tr>
+<tr>
+<td><strong>Eclipse</strong></td>
+<td>The enemy. Personal.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Field Notes — Operating Style</h2>
+<p>From observed scene (player fiction):
+- Uses a handheld recorder in the field. Tactical.
+- Reads targets through sound: heartbeat, breath, weight shift, pulse spike under pressure. "I'll know" is not a bluff.
+- Violence is precise and purposeful — arm broken to disarm, jaw broken to complete a task, phone left as evidence. Not gratuitous. Efficient.
+- Dry, direct voice in the field. Calm. The calm is trained, not natural.
+- Civilian persona: rakish, relaxed, socially capable. The contrast is notable.</p>
+<hr />
+<h2>GM Arc Notes</h2>
+<p><strong>What the story should give them:</strong>
+- Eclipse moving — either escalating a search for the asset or Rhys stumbling into an Eclipse operation while running a street-level job
+- Ivan's research surfacing — whatever Eclipse was doing with the compound exists in files somewhere. Rhys finding those files (or someone else finding them) is a significant thread
+- Master Pine reappearing — not as a villain, but as an unresolved relationship. The training was real. The coldness was real. Both things are true.
+- Something that costs them the solo framing — Noc operates alone by design. The team is going to challenge that.</p>
+<p><strong>What to avoid:</strong>
+- Restoring their sight as a reward or resolution — the blindness is fundamental to how Rhys experiences the world and it's a source of genuine characterization
+- Making Eclipse purely an action threat — the personal dimension (Ivan, the compound in their body, being someone's asset) is more interesting than a retrieval squad</p>
+<hr />
+<h2>Open Questions</h2>
+<ul>
+<li>[ ] What is Rhys's last name?</li>
+<li>[ ] Does Eclipse know Rhys is in Halden City attending university, or do they believe the death record Ivan falsified?</li>
+<li>[ ] What happened to Ivan's research after Eclipse recovered the lab?</li>
+<li>[ ] Does Rhys know anything about what the compound was designed for beyond what Ivan told them?</li>
+<li>[ ] What is the band Neon Orchard like — is it a genuine outlet or another layer of persona?</li>
+</ul>
+<hr />
+<p><em>Last updated: March 2026</em>
+<em>Source: Player-authored origin fiction</em></p>
+    </article>
+    <div class="footer">
+      Halden City Wiki &mdash; Last built March 2026
+    </div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

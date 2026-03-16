@@ -16,29 +16,74 @@ from datetime import datetime
 REPO_ROOT = Path(__file__).parent
 DOCS_DIR = REPO_ROOT / "docs"
 
-# Folder display names and order
-SECTION_CONFIG = {
-    "characters": {"label": "Characters", "icon": "◈", "order": 1},
-    "factions":   {"label": "Factions",   "icon": "◉", "order": 2},
-    "locations":  {"label": "Locations",  "icon": "◎", "order": 3},
-    "lore":       {"label": "Lore",       "icon": "◇", "order": 4},
-    "plot":       {"label": "Plot",       "icon": "◆", "order": 5},
-    "meta":       {"label": "Meta",       "icon": "◌", "order": 6},
-}
+# Section config — supports both flat folders and subfolders.
+# For subfolders, set "subfolder" to the path relative to REPO_ROOT.
+# "folder" is the top-level directory (used for output path prefix).
+SECTION_CONFIG = [
+    {
+        "key":      "pcs",
+        "label":    "Player Characters",
+        "icon":     "★",
+        "folder":   "characters",
+        "subfolder": "characters/pcs",
+    },
+    {
+        "key":      "npcs",
+        "label":    "Characters",
+        "icon":     "◈",
+        "folder":   "characters",
+        "subfolder": "characters/npcs",
+    },
+    {
+        "key":      "factions",
+        "label":    "Factions",
+        "icon":     "◉",
+        "folder":   "factions",
+        "subfolder": None,
+    },
+    {
+        "key":      "locations",
+        "label":    "Locations",
+        "icon":     "◎",
+        "folder":   "locations",
+        "subfolder": None,
+    },
+    {
+        "key":      "lore",
+        "label":    "Lore",
+        "icon":     "◇",
+        "folder":   "lore",
+        "subfolder": None,
+    },
+    {
+        "key":      "plot",
+        "label":    "Plot",
+        "icon":     "◆",
+        "folder":   "plot",
+        "subfolder": None,
+    },
+    {
+        "key":      "meta",
+        "label":    "Meta",
+        "icon":     "◌",
+        "folder":   "meta",
+        "subfolder": None,
+    },
+]
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
-def slugify(path: Path) -> str:
-    """Convert a file path to a URL-safe slug."""
-    return str(path).replace("\\", "/").replace(" ", "-")
-
 def page_title(path: Path) -> str:
-    """Derive a display title from filename or first H1 in file."""
+    """Derive a display title from first H1 in file, or filename."""
     try:
         text = path.read_text(encoding="utf-8")
         m = re.search(r"^#\s+(.+)$", text, re.MULTILINE)
         if m:
-            return m.group(1).strip()
+            # Strip bold markers and quotes from title
+            t = m.group(1).strip()
+            t = re.sub(r"\*+", "", t)
+            t = t.strip('"').strip("'")
+            return t
     except Exception:
         pass
     name = path.stem.replace("-", " ").replace("_", " ")
@@ -46,50 +91,54 @@ def page_title(path: Path) -> str:
 
 def collect_pages():
     """Walk the wiki directory and collect all content pages."""
-    pages = {}   # slug -> {path, title, section, section_label}
-    nav = {}     # section -> [{slug, title}]
+    pages = {}   # slug -> {path, title, section_key, section_label, section_icon}
+    nav = {}     # section_key -> [{slug, title}]
 
-    # Homepage: WIKI-INDEX.md
+    # Homepage
     index_path = REPO_ROOT / "WIKI-INDEX.md"
     if index_path.exists():
         pages["index"] = {
             "path": index_path,
             "title": "Home",
-            "section": None,
+            "section_key": None,
         }
 
-    for folder, cfg in sorted(SECTION_CONFIG.items(), key=lambda x: x[1]["order"]):
-        folder_path = REPO_ROOT / folder
-        if not folder_path.is_dir():
+    for cfg in SECTION_CONFIG:
+        key = cfg["key"]
+        source_dir = REPO_ROOT / (cfg["subfolder"] if cfg["subfolder"] else cfg["folder"])
+        out_prefix = cfg["subfolder"] if cfg["subfolder"] else cfg["folder"]
+
+        if not source_dir.is_dir():
             continue
-        nav[folder] = []
-        for md_file in sorted(folder_path.glob("*.md")):
+
+        nav[key] = []
+        for md_file in sorted(source_dir.glob("*.md")):
             if md_file.stem.startswith("_"):
-                continue  # skip templates
-            slug = f"{folder}/{md_file.stem}"
+                continue
+            slug = out_prefix + "/" + md_file.stem
             title = page_title(md_file)
             pages[slug] = {
                 "path": md_file,
                 "title": title,
-                "section": folder,
+                "section_key": key,
+                "section_label": cfg["label"],
+                "section_icon": cfg["icon"],
             }
-            nav[folder].append({"slug": slug, "title": title})
+            nav[key].append({"slug": slug, "title": title})
 
     return pages, nav
 
 def render_markdown(md_text: str) -> str:
-    """Convert markdown to HTML with useful extensions."""
+    """Convert markdown to HTML."""
     md = markdown.Markdown(
-        extensions=[
-            "tables",
-            "fenced_code",
-            "attr_list",
-            "def_list",
-            "pymdownx.superfences",
-        ],
-        extension_configs={},
+        extensions=["tables", "fenced_code", "attr_list", "def_list"],
     )
     return md.convert(md_text)
+
+def depth_prefix(slug: str) -> str:
+    """Return ../ prefix to reach docs root from this page's depth."""
+    depth = slug.count("/")
+    return "../" * depth
 
 # ── HTML Template ──────────────────────────────────────────────────────────────
 
@@ -101,6 +150,7 @@ STYLE = """
   --border:     #2a2a35;
   --accent:     #c8a96e;
   --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
   --text:       #d4d0c8;
   --text-dim:   #7a7870;
   --text-head:  #e8e4dc;
@@ -123,7 +173,6 @@ html, body {
   line-height: 1.7;
 }
 
-/* ── Layout ── */
 .layout {
   display: flex;
   min-height: 100vh;
@@ -208,6 +257,10 @@ html, body {
   font-size: 12px;
 }
 
+.nav-section-icon.pc-icon {
+  color: var(--accent-pc);
+}
+
 .nav-link {
   display: block;
   padding: 6px 20px 6px 28px;
@@ -232,7 +285,16 @@ html, body {
   background: var(--bg-hover);
 }
 
-/* ── Main content ── */
+.nav-link.pc-link.active {
+  color: var(--accent-pc);
+  border-left-color: var(--accent-pc);
+}
+
+.nav-link.pc-link:hover {
+  color: var(--accent-pc);
+}
+
+/* ── Main ── */
 .main {
   flex: 1;
   min-width: 0;
@@ -254,8 +316,23 @@ html, body {
 }
 
 .breadcrumb a:hover { color: var(--accent); }
-
 .breadcrumb .sep { margin: 0 8px; }
+
+/* ── PC badge ── */
+.pc-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-pc);
+  border: 1px solid var(--accent-pc);
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 12px;
+  vertical-align: middle;
+  opacity: 0.8;
+}
 
 /* ── Typography ── */
 .content h1 {
@@ -270,14 +347,12 @@ html, body {
 }
 
 .content h2 {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--accent);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1em;
   margin: 40px 0 12px;
   text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 0.1em;
 }
 
 .content h3 {
@@ -296,10 +371,7 @@ html, body {
   letter-spacing: 0.08em;
 }
 
-.content p {
-  margin-bottom: 14px;
-  color: var(--text);
-}
+.content p { margin-bottom: 14px; color: var(--text); }
 
 .content a {
   color: var(--link);
@@ -346,9 +418,7 @@ html, body {
   vertical-align: top;
 }
 
-.content tbody td strong {
-  color: var(--text-head);
-}
+.content tbody td strong { color: var(--text-head); }
 
 /* ── Code ── */
 .content code {
@@ -392,11 +462,7 @@ html, body {
 .content blockquote p { margin-bottom: 0; }
 
 /* ── Lists ── */
-.content ul, .content ol {
-  padding-left: 24px;
-  margin-bottom: 14px;
-}
-
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
 .content li { margin-bottom: 4px; }
 
 /* ── Hr ── */
@@ -499,62 +565,67 @@ document.addEventListener('click', function(e) {{
 </html>
 """
 
-# ── Build ──────────────────────────────────────────────────────────────────────
+# ── Build functions ────────────────────────────────────────────────────────────
 
 def build_sidebar(nav, current_slug, pages):
     lines = []
 
-    # Home link
     is_home = current_slug == "index"
     home_class = "nav-home active" if is_home else "nav-home"
-    home_href = "index.html" if is_home else depth_prefix(current_slug) + "index.html"
+    prefix = depth_prefix(current_slug)
+    home_href = "index.html" if is_home else prefix + "index.html"
     lines.append(f'<a href="{home_href}" class="{home_class}">Home</a>')
 
-    prefix = depth_prefix(current_slug)
-
-    for folder, cfg in sorted(SECTION_CONFIG.items(), key=lambda x: x[1]["order"]):
-        if folder not in nav or not nav[folder]:
+    for cfg in SECTION_CONFIG:
+        key = cfg["key"]
+        if key not in nav or not nav[key]:
             continue
+
         icon = cfg["icon"]
         label = cfg["label"]
-        lines.append(f'<div class="nav-section">')
-        lines.append(f'  <div class="nav-section-header"><span class="nav-section-icon">{icon}</span>{label}</div>')
-        for item in nav[folder]:
+        is_pc_section = key == "pcs"
+        icon_class = "nav-section-icon pc-icon" if is_pc_section else "nav-section-icon"
+
+        lines.append('<div class="nav-section">')
+        lines.append(f'  <div class="nav-section-header"><span class="{icon_class}">{icon}</span>{label}</div>')
+
+        for item in nav[key]:
             slug = item["slug"]
             title = item["title"]
             is_active = slug == current_slug
-            cls = "nav-link active" if is_active else "nav-link"
+            link_extra = " pc-link" if is_pc_section else ""
+            cls = f"nav-link{link_extra}{' active' if is_active else ''}"
             href = prefix + slug + ".html"
             lines.append(f'  <a href="{href}" class="{cls}" title="{title}">{title}</a>')
+
         lines.append('</div>')
 
     return "\n".join(lines)
 
-def depth_prefix(slug):
-    """Return ../ prefix needed to reach root from this page's depth."""
-    depth = slug.count("/")
-    return "../" * depth
 
-def build_breadcrumb(slug, pages, nav):
+def build_breadcrumb(slug, pages):
     if slug == "index":
         return ""
     prefix = depth_prefix(slug)
-    parts = [f'<a href="{prefix}index.html">Home</a>']
     page = pages.get(slug, {})
-    section = page.get("section")
-    if section and section in SECTION_CONFIG:
-        cfg = SECTION_CONFIG[section]
-        parts.append(f'<span class="sep">/</span>{cfg["label"]}')
+    section_label = page.get("section_label", "")
     title = page.get("title", slug)
-    parts.append(f'<span class="sep">/</span>{title}')
+    is_pc = page.get("section_key") == "pcs"
+
+    badge = ' <span class="pc-badge">Player Character</span>' if is_pc else ""
+    parts = [f'<a href="{prefix}index.html">Home</a>']
+    if section_label:
+        parts.append(f'<span class="sep">/</span>{section_label}')
+    parts.append(f'<span class="sep">/</span>{title}{badge}')
     return f'<div class="breadcrumb">{"".join(parts)}</div>'
+
 
 def write_page(slug, pages, nav, build_date):
     page = pages[slug]
     md_text = page["path"].read_text(encoding="utf-8")
     content_html = render_markdown(md_text)
     sidebar_html = build_sidebar(nav, slug, pages)
-    breadcrumb_html = build_breadcrumb(slug, pages, nav)
+    breadcrumb_html = build_breadcrumb(slug, pages)
 
     html = PAGE_TEMPLATE.format(
         page_title=page["title"],
@@ -565,29 +636,28 @@ def write_page(slug, pages, nav, build_date):
         build_date=build_date,
     )
 
-    # Determine output path
     out_path = DOCS_DIR / (slug + ".html")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
     print(f"  Built: {out_path.relative_to(REPO_ROOT)}")
 
+
 def main():
     build_date = datetime.utcnow().strftime("%B %Y")
-
     print(f"Building Halden City Wiki → {DOCS_DIR}")
+
     if DOCS_DIR.exists():
         shutil.rmtree(DOCS_DIR)
     DOCS_DIR.mkdir()
 
     pages, nav = collect_pages()
-    print(f"Found {len(pages)} pages")
+    print(f"Found {len(pages)} pages across {len([k for k in nav if nav[k]])} sections\n")
 
     for slug in pages:
         write_page(slug, pages, nav, build_date)
 
-    # Redirect: root index.html → docs/index.html (already in docs/)
-    # GitHub Pages serves from docs/, so index.html is the homepage.
     print(f"\nDone. {len(pages)} pages written to docs/")
+
 
 if __name__ == "__main__":
     main()

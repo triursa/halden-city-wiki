@@ -52,6 +52,9 @@ HQ: Alliance Tower. Core members: Paragon, Recluse, Riftfire, Quantum, Starfall,
 Private infrastructure firm. Near-monopoly on Crownpoint construction. CEO: Casimir Vane (b. 1974, raised in Ironworks).
 Growth is suspiciously fast for a firm without obvious institutional backing. Antagonist thread — backing unknown.
 
+### Eclipse
+Antagonist organization — scope and structure undetermined. Operates by embedding itself in existing legitimate structures rather than building its own. Known connections: 2020 Glass District gravity core collapse (flagged, unconfirmed), Vane Capital Group (possible backing). No public profile. Not a known entity to the general public.
+
 ---
 
 ## Characters — Core Roster
@@ -103,7 +106,7 @@ Capabilities: Weaver drones (surveillance across Riverside Ward and Dockside), h
 Marine officer caught in the 2020 Glass District gravity core disaster. A.E.G.I.S. stabilized the anomaly inside him and built a public symbol around it. Believes power must answer to structure. Ideological friction with most Alliance members.
 Powers: Gravitational force manipulation — immobilization, momentum nullification, compression shielding, vector perception.
 
-### Marcus Harrow / Shroud
+### Declan Harrow / Shroud
 **DOB:** June 30, 1996 | **Age:** 29
 Hunts the things A.E.G.I.S. has no language for — not aliens or lab accidents, the older things in Halden City's forgotten infrastructure. Operates along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident.
 
@@ -116,6 +119,24 @@ CEO of Vane Capital Group. Self-made billionaire from the Ironworks. Public phil
 
 ### Carter Williams / Renegade Force Host
 Current Renegade Force host. Was paralyzed from the waist down prior to bonding; the Force healed him on binding. Personal history tied to Avi's backstory. Currently being used as a pawn by Signal.
+
+### Zara Thorne / Filament
+**Age:** ~34 | Persian | Retired hero, choreographer, runs a dance studio in Riverside Ward.
+Genetically entangled with Riley's spider gene — passively receives a somatic distress signal when Riley is injured or under physical strain. The signal is intensifying as Riley's condition worsens. She does not know why. Powers: filament generation, enhanced agility. Assists Recluse network on her own terms.
+
+### Marcus Webb / Requiem
+**Age:** ~28 | Origin: The Ironworks.
+Spider-derived powers (distinct from Riley's). Killed publicly by Perdition. Resurrected via a classified Glass District experiment — procedure Riley authorized. Marcus is alive, functional, and has not forgiven anyone for it, including Riley. The guilt dynamic is active and unresolved.
+
+### Darcy Cole / Rampart
+**Age:** 26 | High school gym teacher and track coach.
+Powers: kinetic absorption and redistribution — incoming force doesn't hurt her; she can send it back. Manifested in a building fire. Genuinely warm, no armor. Riley relaxes around her in ways that register with Avi as a quiet wound.
+
+### Darius Cole / Aegis Prime
+**DOB:** August 17, 1988 | **Age:** 37 | **File:** AEGIS-AGP-007
+Marine officer caught in the 2020 Glass District gravity core disaster. A.E.G.I.S. stabilized the anomaly inside him and built a public symbol around it. Believes power must answer to structure. Ideological friction with most Alliance members. Possible Eclipse connection to the 2020 event: flagged, unconfirmed.
+Powers: gravitational force manipulation — immobilization, momentum nullification, compression shielding, vector perception.
+**Note:** Surname shared with Darcy Cole (Rampart). Relationship TBD.
 
 ---
 
@@ -141,6 +162,7 @@ Compiled by Dr. Gabriel Virek — evidence of Paragon's extralegal interventions
 | **Scythe blind spot (AEGIS-SYC-REDACTED)** | Seeded | Riley's precognition is blind to Scythe. A.E.G.I.S. knows and is withholding this from him. |
 | **The Virek Papers** | Active | Still mostly encrypted. The Paragon/end-cycle revelation is out there but not yet public. |
 | **Carter Williams / Renegade Force** | Active | Healed by the Force on bonding. Signal is using him. Personal history with Avi. |
+| **Riley's parasite arc** | Seeded — not yet active | Parasite contracted on Darkstar's ship. Targets Riley's spider gene specifically. Goal: strip moral restraint, not kill. Zara's distress signal is amplifying. Darkstar is a passive observer. Full file: `plot/riley-parasite-arc.md` |
 | **Persico's return** | Seeded | Released from prison 2025. Re-establishing Dockside network. |
 | **Three missing Glass District researchers** | Seeded | SMAB has no confirmed causal link as of 2025. Pattern being suppressed or unrecognized. |
 | **Casimir Vane's backing** | Seeded | Growth too fast to explain. Who or what is behind Vane Capital? |
@@ -156,17 +178,27 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 | `characters/riley-thomas-recluse.md` | Full Riley dossier |
 | `characters/adrian-vega-breakpoint.md` | Adrian full file |
 | `characters/sloane-callahan-arachne.md` | Sloane full file |
+| `characters/zara-thorne-filament.md` | Zara Thorne / Filament — retired hero, spider-gene entanglement with Riley, parasite arc connection |
+| `characters/marcus-webb-requiem.md` | Marcus Webb / Requiem — Ironworks, killed by Perdition, resurrected via Glass District experiment |
+| `characters/darcy-cole-rampart.md` | Darcy Cole / Rampart — gym teacher, kinetic absorption, Recluse network |
+| `characters/darius-cole-aegis-prime.md` | Darius Cole / Aegis Prime — A.E.G.I.S. sanctioned, Glass District disaster origin |
+| `characters/avi-park-nova.md` | Avi Park / Nova — PC. Emotionally-triggered telekinesis. Carter Williams origin connection. Quantum's unknown child. |
+| `characters/jason-apollo.md` | Jason / Apollo — PC. Photokinesis + inherited shadow power (unstable). Artemis deceased. Hunting Nightfall. |
+| `characters/sterling-slate-cosmic-knight.md` | Sterling Slate / Cosmic Knight — PC. Half-Umbraeon. Darkstar's engineered son, defected. Dark matter manipulation. |
+| `characters/rhys-noc.md` | Rhys / Noc — PC. Blind. Eclipse compound, quantum phase displacement. Ivan deceased. Eclipse wants them back. |
 | `characters/signal.md` | Signal dossier |
 | `factions/aegis.md` | A.E.G.I.S. full breakdown incl. divisions |
 | `factions/the-alliance.md` | Alliance roster and history |
 | `factions/vane-capital-group.md` | Vane Capital |
+| `factions/eclipse.md` | Eclipse — antagonist org, embedded in infrastructure, confirmed connections to Glass District and Vane Capital |
 | `locations/districts.md` | All six districts with key locations |
 | `lore/world-history.md` | Full 100-year timeline |
 | `lore/paragon-renegade-forces.md` | Cosmic lore, all known hosts |
 | `plot/open-threads.md` | Active threads with stakes |
+| `plot/riley-parasite-arc.md` | Riley's parasite arc — seeded, not yet active; Darkstar connection, Zara entanglement |
 | `meta/tone-guide.md` | Prose and tone rules |
 
 ---
 
-*Last updated: March 2026*
+*Last updated: March 2026 — Session 2: Added Zara Thorne, Marcus Webb, Darcy Cole, Darius Cole, Eclipse faction, Riley parasite arc file.*
 *To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*

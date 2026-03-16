@@ -53,6 +53,21 @@
 
 ---
 
+## PC-Adjacent Threads — Tied to Player Character Backstories
+
+| Thread | PC | What Was Planted | Stakes |
+|---|---|---|---|
+| **Jason's countdown** | Apollo | Holding both photokinesis and Artemis's shadow power; no one was meant to carry both. He can feel it. | Does he find a reason to live past Nightfall, or is this a death mission? |
+| **Nightfall / Mary's death** | Apollo | Nightfall killed Artemis and left Jason a warning he didn't hear. Connection: Morgan Vale, 2022 manifestation, Ironworks A.E.G.I.S. materials lab. | Apollo joined the team for this. The hunt is the frame. The question is what he finds when he gets there. |
+| **Darkstar / Sterling's defection** | Cosmic Knight | Sterling is Darkstar's engineered son. He defected. Darkstar knows. The observation Darkstar has been doing now includes watching a defected asset on the new Alliance team. | Darkstar's personal stake in the team is no longer passive. |
+| **Celeste Timber** | Cosmic Knight | Sterling's first target. He couldn't do it. She doesn't know he exists. | Whether and how this surfaces is the player's call — but she's out there. |
+| **Eclipse / Rhys's compound** | Noc | Eclipse's biotech compound is running through Rhys's body. Ivan is dead. Eclipse wants the asset back. The death record Ivan falsified may or may not be holding. | Eclipse has a direct, personal claim on Rhys that has never been resolved. |
+| **Ivan's research** | Noc | Whatever Eclipse was doing with the compound exists in files somewhere. | If those files surface — through Rhys, through someone else, through SMAB — the compound becomes a larger story. |
+| **Carter Williams / Avi's origin** | Nova | Carter's paralysis came from the incident at the party. The Force healed him on bonding. Avi does not know the connection. Riley knows. Signal knows. | The person who assaulted Avi is now the Renegade Force host. That fact has to come out eventually. |
+| **Quantum / Avi's parentage** | Nova | Dr. Javier Mendez is Avi's biological father. Quantum does not know Avi exists. They are on the same team. | Slow burn. Earns its weight through relationship development, not a reveal scene. |
+
+---
+
 ## Resolved Threads
 
 *(None yet)*

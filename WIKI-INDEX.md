@@ -2,8 +2,10 @@
 ### Master Reference for Claude Project Context
 
 > This file is the fast-load canon reference for the Halden City superhero setting.
-> Full wiki lives at: C:\Users\kaleb\Documents\Claude\halden-city-wiki\
+> Full wiki lives at: D:\Kaleb\halden-city-wiki\ (GitHub: https://github.com/triursa/halden-city-wiki)
 > For deep lookups, reference individual files in that directory.
+>
+> **Claude instructions:** At the start of each session, check the GitHub repo for the latest committed state. When any canon is added or changed during a session, update the relevant file(s) in D:\Kaleb\halden-city-wiki\ using the Filesystem tools, then prompt Kaleb to commit and push via GitHub Desktop.
 
 ---
 
@@ -147,7 +149,7 @@ Compiled by Dr. Gabriel Virek — evidence of Paragon's extralegal interventions
 
 ## Wiki File Locations
 
-All files at: `C:\Users\kaleb\Documents\Claude\halden-city-wiki\`
+All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/halden-city-wiki)
 
 | File | Contents |
 |---|---|

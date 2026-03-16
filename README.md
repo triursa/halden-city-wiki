@@ -96,3 +96,5 @@ halden-city-wiki/
 ---
 
 *Last updated: March 2026*
+
+claude

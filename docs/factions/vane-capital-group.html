@@ -20,365 +20,124 @@
   --link-hover: #e8c88a;
   --code-bg:    #1a1a20;
   --sidebar-w:  280px;
-  --font-mono:  'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-  --font-body:  'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
 
-html, body {
-  height: 100%;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.7;
-}
+.layout { display: flex; min-height: 100vh; }
 
-.layout {
-  display: flex;
-  min-height: 100vh;
-}
+/* sidebar */
+.sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden; }
+.sidebar-header { padding: 24px 20px 16px; border-bottom: 1px solid var(--border); }
+.sidebar-title { font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3; }
+.sidebar-subtitle { font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+.sidebar-nav { padding: 12px 0 24px; flex: 1; }
 
-/* ── Sidebar ── */
-.sidebar {
-  width: var(--sidebar-w);
-  min-width: var(--sidebar-w);
-  background: var(--bg-surface);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
+.nav-home { display: block; padding: 8px 20px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+.nav-home:hover, .nav-home.active { color: var(--accent); border-left-color: var(--accent);
+  background: var(--bg-hover); }
 
-.sidebar-header {
-  padding: 24px 20px 16px;
-  border-bottom: 1px solid var(--border);
-}
+.nav-section { margin-top: 16px; }
+.nav-section-header { padding: 6px 20px; font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim);
+  display: flex; align-items: center; gap: 8px; }
+.nav-section-icon { color: var(--accent-dim); font-size: 12px; }
+.nav-section-icon.pc { color: var(--accent-pc); }
 
-.sidebar-title {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  line-height: 1.3;
-}
+.nav-link { display: block; padding: 6px 20px 6px 28px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover); }
+.nav-link.pc:hover { color: var(--accent-pc); }
+.nav-link.pc.active { color: var(--accent-pc); border-left-color: var(--accent-pc); }
 
-.sidebar-subtitle {
-  font-size: 11px;
-  color: var(--text-dim);
-  margin-top: 4px;
-  letter-spacing: 0.04em;
-}
-
-.sidebar-nav {
-  padding: 12px 0 24px;
-  flex: 1;
-}
-
-.nav-home {
-  display: block;
-  padding: 8px 20px;
-  color: var(--text-dim);
-  text-decoration: none;
-  font-size: 13px;
-  letter-spacing: 0.03em;
-  border-left: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.nav-home:hover, .nav-home.active {
-  color: var(--accent);
-  border-left-color: var(--accent);
-  background: var(--bg-hover);
-}
-
-.nav-section {
-  margin-top: 16px;
-}
-
-.nav-section-header {
-  padding: 6px 20px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.nav-section-icon {
-  color: var(--accent-dim);
-  font-size: 12px;
-}
-
-.nav-section-icon.pc-icon {
-  color: var(--accent-pc);
-}
-
-.nav-link {
-  display: block;
-  padding: 6px 20px 6px 28px;
-  color: var(--text-dim);
-  text-decoration: none;
-  font-size: 13px;
-  border-left: 2px solid transparent;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.15s, background 0.15s, border-color 0.15s;
-}
-
-.nav-link:hover {
-  color: var(--text);
-  background: var(--bg-hover);
-}
-
-.nav-link.active {
-  color: var(--accent);
-  border-left-color: var(--accent);
-  background: var(--bg-hover);
-}
-
-.nav-link.pc-link.active {
-  color: var(--accent-pc);
-  border-left-color: var(--accent-pc);
-}
-
-.nav-link.pc-link:hover {
-  color: var(--accent-pc);
-}
-
-/* ── Main ── */
-.main {
-  flex: 1;
-  min-width: 0;
-  padding: 48px 64px;
-  max-width: 900px;
-}
-
-.breadcrumb {
-  font-size: 11px;
-  color: var(--text-dim);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 32px;
-}
-
-.breadcrumb a {
-  color: var(--text-dim);
-  text-decoration: none;
-}
-
+/* main */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 900px; }
+.breadcrumb { font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px; }
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb .sep { margin: 0 8px; }
+.pc-badge { display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8; }
 
-/* ── PC badge ── */
-.pc-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent-pc);
-  border: 1px solid var(--accent-pc);
-  padding: 2px 8px;
-  border-radius: 3px;
-  margin-left: 12px;
-  vertical-align: middle;
-  opacity: 0.8;
-}
-
-/* ── Typography ── */
-.content h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-head);
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-  line-height: 1.2;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 16px;
-}
-
-.content h2 {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-  margin: 40px 0 12px;
-  text-transform: uppercase;
-}
-
-.content h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-head);
-  margin: 28px 0 8px;
-}
-
-.content h4 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-dim);
-  margin: 20px 0 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
+/* typography */
+.content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+.content h2 { font-size: 13px; font-weight: 700; color: var(--accent);
+  letter-spacing: .1em; margin: 40px 0 12px; text-transform: uppercase; }
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 { font-size: 14px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em; }
 .content p { margin-bottom: 14px; color: var(--text); }
+.content a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s; }
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
 
-.content a {
-  color: var(--link);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent-dim);
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.content a:hover {
-  color: var(--link-hover);
-  border-bottom-color: var(--link-hover);
-}
-
-/* ── Tables ── */
-.content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 13px;
-}
-
-.content thead th {
-  text-align: left;
-  padding: 10px 14px;
-  background: var(--bg-surface);
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--border);
-}
-
-.content tbody tr {
-  border-bottom: 1px solid var(--border);
-  transition: background 0.1s;
-}
-
+/* tables */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th { text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
 .content tbody tr:hover { background: var(--bg-hover); }
-
-.content tbody td {
-  padding: 10px 14px;
-  color: var(--text);
-  vertical-align: top;
-}
-
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
 .content tbody td strong { color: var(--text-head); }
 
-/* ── Code ── */
-.content code {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  background: var(--code-bg);
-  color: var(--accent);
-  padding: 2px 6px;
-  border-radius: 3px;
-  border: 1px solid var(--border);
-}
+/* code */
+.content code { font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border); }
+.content pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0; }
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
 
-.content pre {
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 16px 20px;
-  overflow-x: auto;
-  margin: 16px 0;
-}
-
-.content pre code {
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--text);
-  font-size: 13px;
-}
-
-/* ── Blockquotes ── */
-.content blockquote {
-  border-left: 3px solid var(--accent-dim);
-  margin: 20px 0;
-  padding: 12px 20px;
-  background: var(--bg-surface);
-  color: var(--text-dim);
-  font-style: italic;
-  border-radius: 0 4px 4px 0;
-}
-
+/* blockquote */
+.content blockquote { border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0; }
 .content blockquote p { margin-bottom: 0; }
 
-/* ── Lists ── */
+/* lists */
 .content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
 .content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
 
-/* ── Hr ── */
-.content hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 32px 0;
-}
+/* hr */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
 
-/* ── Footer ── */
-.footer {
-  margin-top: 64px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  font-size: 11px;
-  color: var(--text-dim);
-  letter-spacing: 0.04em;
-}
+/* footer */
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em; }
 
-/* ── Mobile ── */
+/* mobile */
 @media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    left: -100%;
-    z-index: 100;
-    transition: left 0.25s;
-    height: 100dvh;
-  }
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
   .sidebar.open { left: 0; }
   .main { padding: 24px 20px; }
-  .menu-toggle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: fixed;
-    top: 12px;
-    left: 16px;
-    z-index: 200;
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 8px 12px;
-    color: var(--accent);
-    font-size: 12px;
-    font-family: var(--font-body);
-    cursor: pointer;
-    letter-spacing: 0.08em;
-  }
+  .menu-toggle { display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
 }
-
-@media (min-width: 769px) {
-  .menu-toggle { display: none; }
-}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
 </head>
 <body>
@@ -392,18 +151,21 @@ html, body {
     <div class="sidebar-nav">
       <a href="../index.html" class="nav-home">Home</a>
 <div class="nav-section">
-  <div class="nav-section-header"><span class="nav-section-icon pc-icon">★</span>Player Characters</div>
-  <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc-link" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc-link" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../characters/pcs/rhys-noc.html" class="nav-link pc-link" title="Rhys / Noc">Rhys / Noc</a>
-  <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc-link" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+  <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
+  <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
+  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
+  <a href="../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
   <a href="../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
   <a href="../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
   <a href="../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
@@ -427,6 +189,7 @@ html, body {
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
 </div>
@@ -441,19 +204,14 @@ html, body {
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span>Factions<span class="sep">/</span>Vane Capital Group</div>
     <article class="content">
       <h1>Vane Capital Group</h1>
-<blockquote>
-<p>"Casimir has never forgotten what it meant to have someone in his corner."</p>
-</blockquote>
-<hr />
+<blockquote><p>"Casimir has never forgotten what it meant to have someone in his corner."</p></blockquote>
+<hr>
 <h2>At a Glance</h2>
 <table>
-<thead>
-<tr>
+<thead><tr>
 <th>Field</th>
 <th>Value</th>
-</tr>
-</thead>
-<tbody>
+</tr></thead><tbody>
 <tr>
 <td><strong>Type</strong></td>
 <td>Private infrastructure development firm</td>
@@ -470,22 +228,18 @@ html, body {
 <td><strong>Status</strong></td>
 <td>Active — dominant presence in Crownpoint</td>
 </tr>
-</tbody>
-</table>
-<hr />
+</tbody></table>
+<hr>
 <h2>What Vane Capital Is</h2>
 <p>A private infrastructure firm with a near-monopoly on construction contracts in the Crownpoint District. Publicly, it is a success story: a self-made billionaire from the Ironworks who built something that transformed the city's skyline.</p>
 <p>Industry insiders note that Vane Capital's growth has been unusually fast for a firm without obvious institutional backing. When asked, Casimir smiles and says the Ironworks taught him how to build things that last.</p>
-<hr />
+<hr>
 <h2>Casimir Vane</h2>
 <table>
-<thead>
-<tr>
+<thead><tr>
 <th>Field</th>
 <th>Value</th>
-</tr>
-</thead>
-<tbody>
+</tr></thead><tbody>
 <tr>
 <td><strong>Born</strong></td>
 <td>October 31, 1974 (age 52)</td>
@@ -502,22 +256,14 @@ html, body {
 <td><strong>Private Reality</strong></td>
 <td>Growth that fast, without obvious backing, means something. What that something is has not been confirmed.</td>
 </tr>
-</tbody>
-</table>
-<hr />
+</tbody></table>
+<hr>
 <h2>Open Questions</h2>
-<ul>
-<li>[ ] Who or what is backing Vane Capital's unusual growth?</li>
-<li>[ ] What is Casimir Vane's actual relationship to A.E.G.I.S., the Alliance, or Eclipse?</li>
-<li>[ ] Is the philanthropic persona a cover, genuine, or both?</li>
-<li>[ ] What does Vane want from Halden City long-term?</li>
-</ul>
-<hr />
+<ul><li><input type="checkbox" disabled> Who or what is backing Vane Capital's unusual growth?</li><li><input type="checkbox" disabled> What is Casimir Vane's actual relationship to A.E.G.I.S., the Alliance, or Eclipse?</li><li><input type="checkbox" disabled> Is the philanthropic persona a cover, genuine, or both?</li><li><input type="checkbox" disabled> What does Vane want from Halden City long-term?</li></ul>
+<hr>
 <p><em>Last updated: March 2026</em></p>
     </article>
-    <div class="footer">
-      Halden City Wiki &mdash; Last built March 2026
-    </div>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
   </main>
 </div>
 <script>
@@ -525,9 +271,10 @@ function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 document.addEventListener('click', function(e) {
-  const sidebar = document.getElementById('sidebar');
-  const toggle = document.querySelector('.menu-toggle');
-  if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
     sidebar.classList.remove('open');
   }
 });

@@ -66,4 +66,10 @@ He is two steps ahead. He is waiting for the right moment. When he finally acts,
 
 ---
 
+## Masks Villain Sheet
+
+[plot/villain-sheets/signal.md](../../plot/villain-sheets/signal.md)
+
+---
+
 *Last updated: March 2026*

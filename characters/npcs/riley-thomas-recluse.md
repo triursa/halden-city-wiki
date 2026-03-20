@@ -60,9 +60,17 @@ He still calls Alliance people "family." That word is deliberate. It marks what 
 |---|---|
 | The Vega guilt | Sandra's death is the founding fact of his heroism. Adrian's presence both resolves and reopens it. |
 | Institutional vs. personal loyalty | A.E.G.I.S. gives resources and legitimacy. The Alliance gave identity. He belongs fully to neither. |
-| Hiding the decline | Something is wrong — physically, not just emotionally. He won't ask for help. This will come to a head. |
+| Hiding the decline | Something is wrong — physically, not just emotionally. He won't ask for help. He believes A.E.G.I.S. doesn't know. He is wrong. |
 | Mentorship as displacement | Investing in Adrian and Avi may be partially about not having to deal with himself. |
-| The Scythe blind spot | His precognition has a documented gap around an entity called Scythe. A.E.G.I.S. knows. He doesn't. |
+| The Scythe blind spot | His precognition has a documented gap around an entity called Scythe. A.E.G.I.S. knows. He doesn't. Scythe is Adrian's girlfriend. |
+
+---
+
+## What Riley Doesn't Know — Campaign Start
+
+Riley believes his physical deterioration is a secret. It is not. Shaw has clinical observations filed by Casey Holt (AEGIS-SYC-REDACTED) — Adrian's girlfriend, a nursing student and EMT who has read his decline with professional precision. Adrian told Casey that Riley is Recluse. Casey reported it. Riley has no idea any of this has occurred.
+
+The person he trusts most in the world inadvertently gave A.E.G.I.S. exactly what Riley has spent years keeping from them — not through betrayal, but through the ordinary intimacy of a relationship Riley encouraged Adrian to have.
 
 ---
 
@@ -70,10 +78,10 @@ He still calls Alliance people "family." That word is deliberate. It marks what 
 
 | Person | Relationship |
 |---|---|
-| **Adrian Vega / Breakpoint** | Mentee, surrogate son, guilt made productive. The most tactically precise partnership in the Alliance network. |
+| **Adrian Vega / Breakpoint** | Mentee, surrogate son, guilt made productive. The most tactically precise partnership in the Alliance network. Riley knows Adrian is dating someone named Casey — a nursing student, seems good for him. That is the extent of what he knows. |
 | **Sloane Callahan / Arachne** | Handler/intel partner. She teases him mercilessly. He tolerates it and is quietly glad she's there. |
 | **Paragon / Ethan Roberts** | Sponsor. Riley respects Ethan but chafes at the Boy Scout framing. Complicated admiration. |
-| **A.E.G.I.S. Medical** | Active evasion. They would want to know about his decline. He will not tell them. |
+| **A.E.G.I.S. Medical** | Active evasion. They would want to know about his decline. He will not tell them. He does not know they already do. |
 
 ---
 
@@ -91,9 +99,9 @@ He still calls Alliance people "family." That word is deliberate. It marks what 
 ## Open Questions
 
 - [ ] What is causing the physical deterioration — natural aging, power instability, or something external?
-- [ ] Full nature of the Scythe blind spot (AEGIS-SYC-REDACTED)
-- [ ] What would Riley do if A.E.G.I.S. discovered his condition before he told them?
-- [ ] Does anyone currently suspect the extent of the decline?
+- [ ] Full nature of the Scythe blind spot (AEGIS-SYC-REDACTED) — Riley suspects something exists; he doesn't know it's Casey
+- [ ] When Shaw's knowledge of his deterioration surfaces, what does that do to his relationship with A.E.G.I.S.?
+- [ ] When he learns Casey is Scythe, what does that do to his relationship with Adrian?
 
 ---
 

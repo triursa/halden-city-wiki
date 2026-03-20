@@ -23,7 +23,10 @@
 - Riley's precognitive ability has a documented blind spot relative to a subject called Scythe
 - A.E.G.I.S. knows about this gap. They are deliberately not briefing Riley.
 - Sloane has referenced this; it is already on Riley's radar as a concern
-- **Stakes:** Scythe is a threat Riley cannot see coming. A.E.G.I.S. is withholding the information.
+- **Scythe is Adrian Vega's girlfriend.** Second-generation MANIFEST asset, built post-2010 restructuring as a contingency for the day Recluse becomes a liability. Dormant — not yet activated.
+- The blind spot is not a power. It is a conditioning discipline: she generates none of the physiological tells Riley's flash depends on.
+- Shaw sanctioned the deepened relationship as operationally advantageous. Scythe believes it doesn't compromise her. She has never been deployed to find out.
+- **Stakes:** When this surfaces it doesn't just compromise Riley operationally — it destroys the one relationship he's built that he feels unambiguously good about. And it puts Adrian in the middle.
 
 ### The Virek Papers
 - Still mostly encrypted. A 2022 data cache confirmed Paragon's 1971 election intervention.
@@ -50,6 +53,7 @@
 | Casimir Vane's backing | Vane Capital's growth is too fast to explain cleanly | Who or what is actually behind Vane Capital |
 | 2020 Glass District disaster / Eclipse connection | Flagged but unconfirmed | Eclipse's footprint in Halden City's institutional infrastructure |
 | Wraith's leak campaign | Dani Whittaker has already been responsible for three major document leaks | She finds something that can't be contained |
+| Natalia / Scythe mirror | Natalia doesn't know Scythe exists. Two women, same program, opposite conclusions. | If Natalia ever learns A.E.G.I.S. ran MANIFEST again after she left — and what it produced — that information lands differently than anything else could. |
 
 ---
 
@@ -65,6 +69,7 @@
 | **Ivan's research** | Noc | Whatever Eclipse was doing with the compound exists in files somewhere. | If those files surface — through Rhys, through someone else, through SMAB — the compound becomes a larger story. |
 | **Carter Williams / Avi's origin** | Nova | Carter's paralysis came from the incident at the party. The Force healed him on bonding. Avi does not know the connection. Riley knows. Signal knows. | The person who assaulted Avi is now the Renegade Force host. That fact has to come out eventually. |
 | **Quantum / Avi's parentage** | Nova | Dr. Javier Mendez is Avi's biological father. Quantum does not know Avi exists. They are on the same team. | Slow burn. Earns its weight through relationship development, not a reveal scene. |
+| **Scythe / Adrian's relationship** | Breakpoint | Scythe is Adrian's girlfriend. She is a dormant MANIFEST asset built to neutralize Riley. Adrian doesn't know. Riley doesn't know. | When this surfaces it hits Adrian hardest — he fights from clarity. This is the thing that will compromise it. |
 
 ---
 

@@ -59,6 +59,7 @@ His relationship with Riley is the defining mentorship in the story — but it i
 |---|---|
 | **Riley / Recluse** | Mentor. Surrogate son dynamic, unspoken. Complicated admiration. "He acts all prickly but he's a softie." |
 | **Avi** | Emerging friendship. Genuine warmth, no agenda. Offered his base as a safe space; means it. |
+| **Scythe** | His girlfriend. He does not know what she is. She is a dormant A.E.G.I.S. MANIFEST asset built as a contingency against Riley — inserted into his life as a proximity vector. The relationship developed past what the program designed. Adrian has no reason to suspect anything. This is the thing that will compromise his clarity when it surfaces. |
 
 ---
 
@@ -68,6 +69,14 @@ His relationship with Riley is the defining mentorship in the story — but it i
 - Anchoring presence — doesn't perform stability, actually has it
 - Teases Riley about being old with real affection
 - Knows when to push and when to let something sit
+
+---
+
+## Open Questions
+
+- [ ] How long has he been with Scythe — months, over a year?
+- [ ] Has he introduced her to Riley directly, or does Riley only know she exists in passing?
+- [ ] Does his hyper-cognitive stress response give him any edge in reading people under normal conditions — and has anything about her ever felt slightly off without him being able to name why?
 
 ---
 

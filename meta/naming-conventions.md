@@ -13,7 +13,7 @@ Partially established. Add to this file as patterns emerge.
 
 ## Organizations
 
-- **A.E.G.I.S.** — All caps, periods between letters. Full name TBD. When abbreviated in prose: A.E.G.I.S. (not AEGIS or Aegis).
+- **A.E.G.I.S.** — Acronym for **Advanced Expert Group for Intervention and Security**. All caps, periods between letters. When abbreviated in prose: A.E.G.I.S. (not AEGIS or Aegis).
 - **The Alliance** — Title case. Always "The Alliance" (with "The"), not just "the Alliance" in formal reference.
 
 ---
@@ -33,7 +33,7 @@ Working hypothesis: names are grounded and realistic, not fantastical. Avoid nam
 
 ## Locations
 
-- **The Danger Room** — Standard English, functional name. A.E.G.I.S. appears to use straightforward institutional naming.
+- **The Danger Room** — Training facility for metahumans to test and develop their powers. A.E.G.I.S. technology, but the Danger Room referenced in fiction is the installation inside **Alliance Tower**, not an A.E.G.I.S. facility.
 - **Halden City** — "Halden" is distinctive but not fantastical. Nordic origin (meaning "half-Dane"). Mid-Atlantic flavor.
 
 ---

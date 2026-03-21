@@ -86,7 +86,7 @@ Fog rolls low over shipping cranes and dark water that never seems entirely calm
 | Location | Notes |
 |---|---|
 | **Alliance Tower** | The Alliance's base. Darius Cole maintains liaison quarters here. |
-| **The Danger Room** | A.E.G.I.S. training facility. Riley and Avi train here. |
+| **The Danger Room** | Metahuman training facility built with A.E.G.I.S. technology, located inside Alliance Tower. Riley and Avi train here. |
 | **Halden City General Hospital** | Where Allison Bryne (Carrion) works as a trauma surgeon. |
 
 ---

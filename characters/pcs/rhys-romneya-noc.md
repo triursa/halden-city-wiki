@@ -9,7 +9,7 @@
 | Field | Value |
 |---|---|
 | **Hero Name** | Noc (also written "Noch" in some field notes) |
-| **Civilian Name** | Rhys |
+| **Civilian Name** | Rhys Romneya |
 | **Age** | ~18–19 (left Pine's school at 18) |
 | **Occupation** | Halden University student — music major, percussion focus. Plays in a band called Neon Orchard. |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |

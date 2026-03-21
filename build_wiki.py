@@ -13,8 +13,16 @@ from datetime import datetime
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 
-REPO_ROOT = Path(__file__).parent
-DOCS_DIR  = REPO_ROOT / "docs"
+REPO_ROOT  = Path(__file__).parent
+DOCS_DIR   = REPO_ROOT / "docs"
+IMAGES_SRC = REPO_ROOT / "images"          # source image tree
+IMAGES_DST = DOCS_DIR  / "images"          # destination inside docs/
+
+# Extensions checked in order when looking for a character portrait.
+IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp"]
+
+# Sections that get portrait injection (keyed by SECTION_CONFIG "key").
+PORTRAIT_SECTIONS = {"pcs", "npcs"}
 
 SECTION_CONFIG = [
     {
@@ -61,6 +69,79 @@ SECTION_CONFIG = [
     },
 ]
 
+# ── Image helpers ──────────────────────────────────────────────────────────────
+
+def find_image(stem: str):
+    """
+    Look for images/characters/<stem>.<ext> for each supported extension.
+    Returns the Path if found, else None.
+    """
+    base = IMAGES_SRC / "characters"
+    for ext in IMAGE_EXTENSIONS:
+        candidate = base / (stem + ext)
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def portrait_html(stem: str, title: str, prefix: str) -> str:
+    """
+    Return the HTML for a character portrait block, or '' if no images found.
+
+    Priority / layout rules:
+      1. Both -civilian and -super exist  ->  two images side by side, labelled
+      2. Only one of -civilian / -super   ->  single image, labelled
+      3. Neither suffix, plain stem       ->  single image, no label
+      4. Nothing found                    ->  empty string
+    """
+    base_url = prefix + "images/characters/"
+
+    civilian = find_image(stem + "-civilian")
+    super_   = find_image(stem + "-super")
+    plain    = find_image(stem)
+
+    if civilian and super_:
+        return (
+            f'<div class="portrait-wrap portrait-dual">'
+            f'<div class="portrait-panel">'
+            f'<img src="{base_url}{civilian.name}" alt="{title} — Civilian" class="portrait-img">'
+            f'<span class="portrait-label">Civilian</span>'
+            f'</div>'
+            f'<div class="portrait-panel">'
+            f'<img src="{base_url}{super_.name}" alt="{title} — Superhero" class="portrait-img">'
+            f'<span class="portrait-label">Superhero</span>'
+            f'</div>'
+            f'</div>\n'
+        )
+
+    single = civilian or super_ or plain
+    if single is None:
+        return ""
+
+    label_html = (
+        f'<span class="portrait-label">{"Civilian" if civilian else "Superhero"}</span>'
+        if (civilian or super_) else ""
+    )
+    alt_suffix = " — Civilian" if civilian else (" — Superhero" if super_ else "")
+    return (
+        f'<div class="portrait-wrap">'
+        f'<img src="{base_url}{single.name}" alt="{title}{alt_suffix}" class="portrait-img">'
+        f'{label_html}'
+        f'</div>\n'
+    )
+
+
+def copy_images():
+    """Copy the entire images/ source tree into docs/images/ if it exists."""
+    if not IMAGES_SRC.exists():
+        return
+    if IMAGES_DST.exists():
+        shutil.rmtree(IMAGES_DST)
+    shutil.copytree(IMAGES_SRC, IMAGES_DST)
+    count = sum(1 for _ in IMAGES_DST.rglob("*") if _.is_file())
+    print(f"  Copied {count} image(s) → docs/images/")
+
+
 # ── Markdown renderer (stdlib only) ───────────────────────────────────────────
 
 def escape_html(s):
@@ -68,7 +149,6 @@ def escape_html(s):
 
 def inline(text):
     """Process inline markdown: bold, italic, code, links, strikethrough."""
-    # Inline code (do first to protect contents)
     parts = re.split(r'(`+)', text)
     result = []
     i = 0
@@ -83,20 +163,18 @@ def inline(text):
             chunk = re.sub(r'\*(.+?)\*',          lambda m: f'<em>{escape_html(m.group(1))}</em>', chunk)
             chunk = re.sub(r'~~(.+?)~~',          lambda m: f'<del>{escape_html(m.group(1))}</del>', chunk)
             chunk = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', lambda m: f'<a href="{m.group(2)}">{escape_html(m.group(1))}</a>', chunk)
-            # escape remaining HTML in non-code text
             chunk = re.sub(r'(?<!<)&(?!amp;|lt;|gt;|#)', '&amp;', chunk)
             result.append(chunk)
             i += 1
     return "".join(result)
 
 def render_table(lines):
-    """Render a markdown table to HTML."""
     html = ['<table>']
     header_done = False
-    for i, line in enumerate(lines):
+    for line in lines:
         line = line.strip()
         if re.match(r'^\|[-| :]+\|$', line):
-            continue  # separator row
+            continue
         cells = [c.strip() for c in line.strip('|').split('|')]
         if not header_done:
             html.append('<thead><tr>')
@@ -113,7 +191,6 @@ def render_table(lines):
     return '\n'.join(html)
 
 def render_markdown(md_text):
-    """Convert markdown to HTML — covers all constructs used in the wiki."""
     lines = md_text.splitlines()
     html_parts = []
     i = 0
@@ -129,7 +206,7 @@ def render_markdown(md_text):
     in_code_block = False
     code_buf = []
     code_lang = ''
-    in_list = None   # 'ul' or 'ol'
+    in_list = None
     list_buf = []
     in_table = False
     table_buf = []
@@ -152,125 +229,78 @@ def render_markdown(md_text):
     while i < len(lines):
         line = lines[i]
 
-        # Fenced code block
         if line.strip().startswith('```'):
             if in_code_block:
                 code_html = escape_html('\n'.join(code_buf))
                 lang_class = f' class="language-{code_lang}"' if code_lang else ''
                 html_parts.append(f'<pre><code{lang_class}>{code_html}</code></pre>')
-                code_buf = []
-                code_lang = ''
-                in_code_block = False
+                code_buf = []; code_lang = ''; in_code_block = False
             else:
-                flush_paragraph(paragraph_buf)
-                flush_list()
-                flush_table()
+                flush_paragraph(paragraph_buf); flush_list(); flush_table()
                 code_lang = line.strip()[3:].strip()
                 in_code_block = True
-            i += 1
-            continue
+            i += 1; continue
 
         if in_code_block:
-            code_buf.append(line)
-            i += 1
-            continue
+            code_buf.append(line); i += 1; continue
 
-        # Table detection
         if '|' in line and i + 1 < len(lines) and re.match(r'^\|[-| :]+\|', lines[i+1].strip()):
-            flush_paragraph(paragraph_buf)
-            flush_list()
-            in_table = True
-            table_buf.append(line)
-            i += 1
-            continue
+            flush_paragraph(paragraph_buf); flush_list()
+            in_table = True; table_buf.append(line); i += 1; continue
 
         if in_table:
             if '|' in line:
-                table_buf.append(line)
-                i += 1
-                continue
+                table_buf.append(line); i += 1; continue
             else:
                 flush_table()
 
-        # Headings
         m = re.match(r'^(#{1,6})\s+(.*)', line)
         if m:
-            flush_paragraph(paragraph_buf)
-            flush_list()
+            flush_paragraph(paragraph_buf); flush_list()
             level = len(m.group(1))
-            text = inline(m.group(2))
+            text  = inline(m.group(2))
             html_parts.append(f'<h{level}>{text}</h{level}>')
-            i += 1
-            continue
+            i += 1; continue
 
-        # Horizontal rule
         if re.match(r'^[-*_]{3,}\s*$', line):
-            flush_paragraph(paragraph_buf)
-            flush_list()
-            html_parts.append('<hr>')
-            i += 1
-            continue
+            flush_paragraph(paragraph_buf); flush_list()
+            html_parts.append('<hr>'); i += 1; continue
 
-        # Blockquote
         if line.startswith('>'):
-            flush_paragraph(paragraph_buf)
-            flush_list()
+            flush_paragraph(paragraph_buf); flush_list()
             bq_lines = []
             while i < len(lines) and lines[i].startswith('>'):
-                bq_lines.append(lines[i][1:].strip())
-                i += 1
+                bq_lines.append(lines[i][1:].strip()); i += 1
             inner = render_markdown('\n'.join(bq_lines))
-            html_parts.append(f'<blockquote>{inner}</blockquote>')
-            continue
+            html_parts.append(f'<blockquote>{inner}</blockquote>'); continue
 
-        # Unordered list
         m = re.match(r'^[-*+]\s+(.*)', line)
         if m:
             flush_paragraph(paragraph_buf)
-            if in_list != 'ul':
-                flush_list()
-                in_list = 'ul'
+            if in_list != 'ul': flush_list(); in_list = 'ul'
             item = m.group(1)
-            # Checkbox
             item = re.sub(r'^\[x\]\s*', '<input type="checkbox" checked disabled> ', item, flags=re.I)
             item = re.sub(r'^\[ \]\s*', '<input type="checkbox" disabled> ', item)
-            list_buf.append(item)
-            i += 1
-            continue
+            list_buf.append(item); i += 1; continue
 
-        # Ordered list
         m = re.match(r'^\d+\.\s+(.*)', line)
         if m:
             flush_paragraph(paragraph_buf)
-            if in_list != 'ol':
-                flush_list()
-                in_list = 'ol'
-            list_buf.append(m.group(1))
-            i += 1
-            continue
+            if in_list != 'ol': flush_list(); in_list = 'ol'
+            list_buf.append(m.group(1)); i += 1; continue
 
-        # Blank line
         if line.strip() == '':
-            flush_paragraph(paragraph_buf)
-            flush_list()
-            flush_table()
-            i += 1
-            continue
+            flush_paragraph(paragraph_buf); flush_list(); flush_table()
+            i += 1; continue
 
-        # Normal paragraph text
-        paragraph_buf.append(line)
-        i += 1
+        paragraph_buf.append(line); i += 1
 
-    flush_paragraph(paragraph_buf)
-    flush_list()
-    flush_table()
-
+    flush_paragraph(paragraph_buf); flush_list(); flush_table()
     return '\n'.join(html_parts)
 
 # ── Page collection ────────────────────────────────────────────────────────────
 
 def page_title(path):
-    """Derive display title from first H1, or filename."""
     try:
         text = path.read_text(encoding="utf-8")
         m = re.search(r'^#\s+(.+)$', text, re.MULTILINE)
@@ -284,15 +314,18 @@ def page_title(path):
 
 def collect_pages():
     pages = {}
-    nav = {}
+    nav   = {}
 
     index_path = REPO_ROOT / "WIKI-INDEX.md"
     if index_path.exists():
-        pages["index"] = {"path": index_path, "title": "Home", "section_key": None,
-                          "section_label": None, "section_icon": None}
+        pages["index"] = {
+            "path": index_path, "title": "Home",
+            "section_key": None, "section_label": None, "section_icon": None,
+            "stem": None,
+        }
 
     for cfg in SECTION_CONFIG:
-        key = cfg["key"]
+        key        = cfg["key"]
         source_dir = REPO_ROOT / cfg["subfolder"]
         if not source_dir.is_dir():
             continue
@@ -300,14 +333,15 @@ def collect_pages():
         for md_file in sorted(source_dir.glob("*.md")):
             if md_file.stem.startswith("_"):
                 continue
-            slug = cfg["subfolder"].replace("\\", "/") + "/" + md_file.stem
+            slug  = cfg["subfolder"].replace("\\", "/") + "/" + md_file.stem
             title = page_title(md_file)
             pages[slug] = {
-                "path": md_file,
-                "title": title,
-                "section_key": key,
+                "path":          md_file,
+                "title":         title,
+                "section_key":   key,
                 "section_label": cfg["label"],
-                "section_icon": cfg["icon"],
+                "section_icon":  cfg["icon"],
+                "stem":          md_file.stem,   # used for portrait lookup
             }
             nav[key].append({"slug": slug, "title": title})
 
@@ -388,6 +422,58 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -450,6 +536,9 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 """
@@ -478,8 +567,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </nav>
   <main class="main">
     {breadcrumb_html}
-    <article class="content">
-      {content_html}
+    <article class="content clearfix">
+      {portrait_html}{content_html}
     </article>
     <div class="footer">Halden City Wiki &mdash; Last built {build_date}</div>
   </main>
@@ -505,10 +594,10 @@ document.addEventListener('click', function(e) {{
 
 def build_sidebar(nav, current_slug, pages):
     prefix = depth_prefix(current_slug)
-    lines = []
+    lines  = []
 
     is_home = current_slug == "index"
-    cls = "nav-home active" if is_home else "nav-home"
+    cls  = "nav-home active" if is_home else "nav-home"
     href = "index.html" if is_home else prefix + "index.html"
     lines.append(f'<a href="{href}" class="{cls}">Home</a>')
 
@@ -516,18 +605,22 @@ def build_sidebar(nav, current_slug, pages):
         key = cfg["key"]
         if key not in nav or not nav[key]:
             continue
-        is_pc = key == "pcs"
+        is_pc    = key == "pcs"
         icon_cls = "nav-section-icon pc" if is_pc else "nav-section-icon"
         lines.append('<div class="nav-section">')
-        lines.append(f'  <div class="nav-section-header">'
-                     f'<span class="{icon_cls}">{cfg["icon"]}</span>{cfg["label"]}</div>')
+        lines.append(
+            f'  <div class="nav-section-header">'
+            f'<span class="{icon_cls}">{cfg["icon"]}</span>{cfg["label"]}</div>'
+        )
         for item in nav[key]:
-            slug = item["slug"]
+            slug   = item["slug"]
             active = " active" if slug == current_slug else ""
             pc_cls = " pc" if is_pc else ""
             link_href = prefix + slug + ".html"
-            lines.append(f'  <a href="{link_href}" class="nav-link{pc_cls}{active}" '
-                         f'title="{item["title"]}">{item["title"]}</a>')
+            lines.append(
+                f'  <a href="{link_href}" class="nav-link{pc_cls}{active}" '
+                f'title="{item["title"]}">{item["title"]}</a>'
+            )
         lines.append('</div>')
 
     return "\n".join(lines)
@@ -537,12 +630,12 @@ def build_breadcrumb(slug, pages):
     if slug == "index":
         return ""
     prefix = depth_prefix(slug)
-    page = pages.get(slug, {})
-    label = page.get("section_label", "")
-    title = page.get("title", slug)
-    is_pc = page.get("section_key") == "pcs"
-    badge = ' <span class="pc-badge">Player Character</span>' if is_pc else ""
-    parts = [f'<a href="{prefix}index.html">Home</a>']
+    page   = pages.get(slug, {})
+    label  = page.get("section_label", "")
+    title  = page.get("title", slug)
+    is_pc  = page.get("section_key") == "pcs"
+    badge  = ' <span class="pc-badge">Player Character</span>' if is_pc else ""
+    parts  = [f'<a href="{prefix}index.html">Home</a>']
     if label:
         parts.append(f'<span class="sep">/</span>{label}')
     parts.append(f'<span class="sep">/</span>{title}{badge}')
@@ -552,17 +645,27 @@ def build_breadcrumb(slug, pages):
 # ── Build ──────────────────────────────────────────────────────────────────────
 
 def write_page(slug, pages, nav, build_date):
-    page = pages[slug]
-    md_text = page["path"].read_text(encoding="utf-8")
-    content_html  = render_markdown(md_text)
-    sidebar_html  = build_sidebar(nav, slug, pages)
+    page     = pages[slug]
+    md_text  = page["path"].read_text(encoding="utf-8")
+
+    content_html    = render_markdown(md_text)
+    sidebar_html    = build_sidebar(nav, slug, pages)
     breadcrumb_html = build_breadcrumb(slug, pages)
+    prefix          = depth_prefix(slug)
+
+    # Portrait injection for character sections only
+    section_key = page.get("section_key")
+    stem        = page.get("stem")
+    p_html = ""
+    if section_key in PORTRAIT_SECTIONS and stem:
+        p_html = portrait_html(stem, page["title"], prefix)
 
     html = PAGE_TEMPLATE.format(
         page_title=page["title"],
         style=STYLE,
         sidebar_html=sidebar_html,
         breadcrumb_html=breadcrumb_html,
+        portrait_html=p_html,
         content_html=content_html,
         build_date=build_date,
     )
@@ -570,7 +673,9 @@ def write_page(slug, pages, nav, build_date):
     out_path = DOCS_DIR / (slug + ".html")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
-    print(f"  Built: {out_path.relative_to(REPO_ROOT)}")
+
+    portrait_note = " [+portrait]" if p_html else ""
+    print(f"  Built: {out_path.relative_to(REPO_ROOT)}{portrait_note}")
 
 
 def main():
@@ -581,8 +686,12 @@ def main():
         shutil.rmtree(DOCS_DIR)
     DOCS_DIR.mkdir()
 
+    # Copy images before building pages
+    copy_images()
+    print()
+
     pages, nav = collect_pages()
-    total_pages = len(pages)
+    total_pages    = len(pages)
     total_sections = sum(1 for k in nav if nav[k])
     print(f"Found {total_pages} pages across {total_sections} sections\n")
 

@@ -7,7 +7,7 @@
 ## ERA I: THE SECRET AGE (1925–1959)
 
 **1925 — A.E.G.I.S. Founded in Secrecy** [CONFIRMED CANON]
-Quietly chartered by executive order, buried in the War Department. Founding mandate: catalogue, contain, neutralize anomalous human phenomena. First sub-level command bunker excavated beneath what will become Crownpoint Federal Tower.
+Quietly chartered by executive order, buried in the War Department. Founding mandate: catalogue, contain, neutralize anomalous human phenomena. First sub-level command bunker excavated beneath what will become Crownpoint Federal Tower. The Crale family — old money, East Coast — is present at the founding, part of the institutional architecture from the beginning. Their influence is quiet, unacknowledged, and will erode over the following generations.
 
 **1940 — The Paragon Force Enters History** [CONFIRMED CANON]
 A.E.G.I.S. documents "The Mantle" — a cosmic energy bonding to a single host, granting extraordinary ability. First confirmed Paragon fights with Allied forces, classified as "Asset CROWN."
@@ -16,7 +16,7 @@ A.E.G.I.S. documents "The Mantle" — a cosmic energy bonding to a single host, 
 Soviet-adjacent operative exhibiting abilities that mirror and counter Asset CROWN. A.E.G.I.S. begins modeling the two forces as paired cosmic principles. Containment fails. File remains open for decades.
 
 **1953 — Operation MANIFEST** [CONFIRMED CANON]
-Black-site super-soldier enhancement program authorized. Objective: produce a state asset capable of neutralizing a rogue Paragon-class individual. Natalia Orlov is a eventual product of this program.
+Black-site super-soldier enhancement program authorized. Objective: produce a state asset capable of neutralizing a rogue Paragon-class individual. Natalia Orlov is an eventual product of this program.
 
 **1958 — Halden City's First Public Superhuman Incident** [CONFIRMED CANON]
 Cargo ship explosion at Blackwater Harbor. Eyewitnesses describe a figure walking through fire. A.E.G.I.S. clears the scene in four hours. City government issues no official statement. The dockworkers' union begins keeping its own records.
@@ -69,7 +69,7 @@ Glass District physicist attempts to experimentally harness quantum probability.
 Teenager Lena "borrows" a friend's parents' car and loses control. Before the crash, she is standing on the shoulder of the road unharmed. She spends years quietly training the ability.
 
 **2008 — Casimir Vane Founds Vane Capital Group** [CONFIRMED CANON]
-Self-made entrepreneur from the Ironworks consolidates a near-monopoly on Crownpoint construction contracts. Growth is unusually fast for a firm without obvious institutional backing.
+Self-made entrepreneur from the Ironworks consolidates a near-monopoly on Crownpoint construction contracts. Growth is unusually fast — backed by Eclipse, though this is not publicly known. Vane is an early investing partner in Eclipse's PROMETHEUS program and a knowing ideological participant.
 
 **2009 — Starfall: Kiara Je-rach Arrives and Defects** [CONFIRMED CANON]
 Cosmic envoy arrives in low orbit with an audit determination that Earth should be removed from the cosmic record. Paragon intercepts her and, instead of force, asks her what she believes. She defects. Marked "defective" by the Auditors. Takes residence in Alliance Tower.
@@ -105,6 +105,9 @@ Anonymous tip leads a journalist to a partially decrypted data cache in Blackwat
 **2023 — Breakpoint: Adrian Vega Trained and Active (age 19)** [CONFIRMED CANON]
 Adrian confronts Riley Thomas — not with rage but clarity. Riley agrees to train him. They become the Alliance network's most tactically precise partnership.
 
+**2023 — Requiem: Marcus Webb Killed and Resurrected** [CONFIRMED CANON]
+Marcus Webb — Ironworks-origin, spider-derived powers, trained by Recluse — is killed publicly by Perdition. Riley Thomas authorizes an experimental resurrection procedure through Dr. Selin Adeyemi, an independent Glass District researcher he had previously rescued from a Persico operation. The procedure is conducted entirely off A.E.G.I.S. books. Marcus is brought back. Adeyemi disappears shortly after — Eclipse identified the unauthorized use of research adjacent to PROMETHEUS and sent someone. Riley does not know what happened to her.
+
 **2023 — Shroud: Marcus Harrow Established (age 27)** [CONFIRMED CANON]
 Has spent years hunting the things A.E.G.I.S. has no language for. Established presence along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident.
 
@@ -124,6 +127,9 @@ Slower healing, stiff joints, injuries that don't recover as fast. He is hiding 
 **[Ongoing] — Signal's Campaign** [CONFIRMED CANON]
 Signal is building. His hospital recording of Riley threatening Carter Williams is in hand. He is two steps ahead and waiting for the right moment.
 
+**[Ongoing] — Eclipse / PROMETHEUS** [CONFIRMED CANON]
+Eclipse operates as a legitimate biotech company while running PROMETHEUS underneath — a black program developing superhuman deterrence, controlled synthetic human assets, and manufactured metahuman powers. CEO Edmund Crale (Crale family, A.E.G.I.S. founding lineage) has kept it invisible for years using institutional knowledge his family accumulated across a century. Casimir Vane is an early investing partner. Rhys/Noc is an unclosed asset. The program has never appeared in any public filing or leaked document.
+
 ---
 
-*Last updated: March 2026*
+*Last updated: March 2026 — Added Crale family footnote to 1925 founding. Updated Vane 2008 entry. Added Requiem resurrection 2023 entry. Added Eclipse/PROMETHEUS ongoing entry.*

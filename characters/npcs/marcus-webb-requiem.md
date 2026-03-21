@@ -26,7 +26,7 @@
 - **Omni-directional threat sense** — not a precognitive flash; a persistent ambient awareness of everything within a radius. Harder to surprise, harder to sneak past, harder to suppress. Where Riley's premonition is a one-second window forward, Marcus's sense is a constant 360-degree present.
 - Martial arts (trained by Recluse)
 
-**Post-resurrection note:** Whether the Glass District experiment affected his powers in any measurable way is undocumented. Marcus says they feel the same. Whether that's accurate or whether he just doesn't want to examine it too closely is an open question.
+**Post-resurrection note:** Whether the procedure affected his powers in any measurable way is undocumented. Marcus says they feel the same. Whether that's accurate or whether he just doesn't want to examine it too closely is an open question.
 
 ---
 
@@ -36,9 +36,13 @@ Marcus Webb grew up in the Ironworks and found his way into Recluse's network th
 
 **The public death:** Perdition killed Marcus in public. Not quietly — visibly, on a street in the Ironworks, in front of people. It was a message. The message was received.
 
-**The Glass District experiment:** A.E.G.I.S. had a file on Marcus. Someone in the Glass District had an idea. He was brought back through an experimental resurrection procedure — the specifics are classified and the ethics are somewhere between complicated and indefensible. He is alive. He functions. He knows what was done to him and has not forgiven anyone for doing it, including Riley, who signed off on allowing it to happen.
+**The resurrection:** Riley did not go to A.E.G.I.S. He didn't trust them with Marcus's life, or with the exposure. He called in an old debt instead — a Glass District researcher named Dr. Selin Adeyemi, whom he had pulled out of a Persico operation years before. She had the theoretical framework for cellular regrowth and renewal. The procedure worked.
 
-The guilt dynamic between Riley and Marcus is real and ongoing. Riley made a call. Marcus is alive because of it. Marcus did not consent to the procedure. These things are all simultaneously true and none of them resolve the others.
+Adeyemi disappeared shortly after. Dead or taken; Riley doesn't know. He may not have looked hard enough to find out.
+
+Marcus knows he was brought back through an experimental procedure by someone Riley trusted and went to quietly, off A.E.G.I.S. books. He does not know who Adeyemi was, what happened to her, or what her involvement with Eclipse may have cost her. The full shape of what his resurrection required is information Riley has not volunteered.
+
+The guilt dynamic between Riley and Marcus is real and ongoing. Riley made a call. Marcus is alive because of it. Marcus did not consent. These things are all simultaneously true and none of them resolve the others.
 
 ---
 
@@ -58,17 +62,18 @@ He is still figuring out what he owes anyone. He does not owe Riley forgiveness.
 
 | Person | Relationship |
 |---|---|
-| **Riley Thomas / Recluse** | Mentor, but complicated by the resurrection. Riley signed off on it. Marcus knows. Neither has fully confronted this. Debt and grievance running in the same direction. |
+| **Riley Thomas / Recluse** | Mentor, complicated by the resurrection. Riley went outside A.E.G.I.S. to bring Marcus back and called in a debt to do it. The person he called is gone. Marcus knows Riley made a call and doesn't fully know what it cost. Neither has confronted this directly. |
 
 ---
 
 ## Open Questions
 
-- [ ] Does Marcus know the full extent of what the Glass District experiment involved, or only that it happened?
-- [ ] What specifically did Riley sign off on — was he given a full picture of the procedure?
+- [ ] Does Marcus know the full extent of what the resurrection involved, or only that it happened off-books?
+- [ ] Will he ever find out who Adeyemi was and what happened to her?
 - [ ] Is the guilt dynamic something that will eventually rupture, or does it calcify into something else?
 - [ ] Does the post-resurrection physiology differ from pre-death in ways Marcus is not acknowledging?
 - [ ] What is Perdition's current status relative to Marcus — does Perdition know Marcus is alive?
+- [ ] Does Eclipse have an active file on Marcus as a result of Adeyemi's work?
 
 ---
 

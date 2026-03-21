@@ -108,7 +108,7 @@ Adrian confronts Riley Thomas — not with rage but clarity. Riley agrees to tra
 **2023 — Requiem: Marcus Webb Killed and Resurrected** [CONFIRMED CANON]
 Marcus Webb — Ironworks-origin, spider-derived powers, trained by Recluse — is killed publicly by Perdition. Riley Thomas authorizes an experimental resurrection procedure through Dr. Selin Adeyemi, an independent Glass District researcher he had previously rescued from a Persico operation. The procedure is conducted entirely off A.E.G.I.S. books. Marcus is brought back. Adeyemi disappears shortly after — Eclipse identified the unauthorized use of research adjacent to PROMETHEUS and sent someone. Riley does not know what happened to her.
 
-**2023 — Shroud: Marcus Harrow Established (age 27)** [CONFIRMED CANON]
+**2023 — Shroud: Declan Harrow Established (age 27)** [CONFIRMED CANON]
 Has spent years hunting the things A.E.G.I.S. has no language for. Established presence along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident.
 
 ---

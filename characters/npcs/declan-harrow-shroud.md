@@ -1,4 +1,4 @@
-# Marcus Harrow / Shroud
+# Declan Harrow / Shroud
 
 ---
 
@@ -6,7 +6,7 @@
 
 | Field | Value |
 |---|---|
-| **Full Name** | Marcus Harrow |
+| **Full Name** | Declan Harrow |
 | **Hero Name** | Shroud |
 | **A.E.G.I.S. File** | Heavily redacted — quietly misfiled. This is not an accident. |
 | **DOB** | June 30, 1996 |
@@ -26,7 +26,7 @@
 
 ## Background
 
-Marcus Harrow operates in the parts of Halden City the metahuman framework doesn't have language for. Not aliens. Not lab accidents. Not cosmic forces. The older things: living in the forgotten infrastructure, the deep tunnels, the buildings that change hands too often.
+Declan Harrow operates in the parts of Halden City the metahuman framework doesn't have language for. Not aliens. Not lab accidents. Not cosmic forces. The older things: living in the forgotten infrastructure, the deep tunnels, the buildings that change hands too often.
 
 He has been doing this for years, alone. No sponsorship. No announcement. No press profile, no confirmed sightings, no public file.
 
@@ -53,14 +53,14 @@ He operates at the edges of everything — not in the Alliance's network, not un
 | Person | Relationship |
 |---|---|
 | **Recluse network** | Adjacent. Riley is aware of him; the relationship is not formalized. |
-| **Augie Ferreira** | The union steward who leaves a light on. Knows Marcus works the waterfront; has never asked what Marcus does. |
+| **Augie Ferreira** | The union steward who leaves a light on. Knows Declan works the waterfront; has never asked what Declan does. |
 | **A.E.G.I.S.** | They have a file. The file is misfiled. Something was decided. |
 
 ---
 
 ## Open Questions
 
-- [ ] What exactly is Marcus hunting, and what has he found in Halden City's infrastructure?
+- [ ] What exactly is Declan hunting, and what has he found in Halden City's infrastructure?
 - [ ] What are his actual abilities, and where did they come from?
 - [ ] Why is the A.E.G.I.S. file misfiled deliberately — whose decision was it?
 - [ ] What is his relationship to the things that pre-date the metahuman framework — the older presences in the city?
@@ -69,4 +69,4 @@ He operates at the edges of everything — not in the Alliance's network, not un
 
 ---
 
-*Last updated: March 2026*
+*Last updated: March 2026 — Name corrected: Marcus Harrow → Declan Harrow (canonical first name confirmed).*

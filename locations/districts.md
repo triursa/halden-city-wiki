@@ -77,7 +77,7 @@ Fog rolls low over shipping cranes and dark water that never seems entirely calm
 - **Persico's dockside operation** — re-establishing as of 2025
 - **Virek Papers cache drop site** — a partially decrypted data cache was found here in 2022
 
-**Notable:** Marcus Harrow (Shroud) operates primarily along Blackwater Harbor. Dockworkers know that certain problems resolve before response teams arrive. The city's 1958 first public superhuman incident happened here — a cargo ship explosion, a figure walking through fire.
+**Notable:** Declan Harrow (Shroud) operates primarily along Blackwater Harbor. Dockworkers know that certain problems resolve before response teams arrive. The city's 1958 first public superhuman incident happened here — a cargo ship explosion, a figure walking through fire.
 
 ---
 

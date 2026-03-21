@@ -24,7 +24,7 @@ halden-city-wiki/
 │   ├── sloane-callahan-arachne.md
 │   ├── — Other Heroes —
 │   ├── darius-cole-aegis-prime.md
-│   ├── marcus-harrow-shroud.md
+│   ├── declan-harrow-shroud.md
 │   ├── — Villains & Antagonists —
 │   ├── signal.md
 │   ├── casimir-vane.md

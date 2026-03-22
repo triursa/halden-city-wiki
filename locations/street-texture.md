@@ -186,7 +186,7 @@ Diner attached to the working waterfront, open from 4am. Fishermen, dock crews, 
 **Pier 19 — The Slip**
 An inactive pier at the edge of the commercial dock zone, technically owned by a holding company that hasn’t responded to city correspondence in six years. The slip beneath the pier is accessible by water and has an interior staging area — old dock equipment, dry enough. The mask community knows it as a dead drop and emergency meeting point for anything that needs to stay off the grid entirely.
 
-Marcus Harrow uses it. Recluse’s network uses it. Persico’s people used it before Persico went to prison and it’s unclear whether they know it was repurposed while he was gone.
+Declan Harrow uses it. Recluse’s network uses it. Persico’s people used it before Persico went to prison and it’s unclear whether they know it was repurposed while he was gone.
 
 *That’s a potential collision course. Whether and when it goes off is up to the table.*
 

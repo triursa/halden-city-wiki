@@ -32,6 +32,7 @@ Once the beating industrial heart of the city, now a sprawl of shuttered factori
 **Key Locations:**
 - **Persico's network** — Joseph Persico's organized crime operation is re-establishing itself here post-2025 release
 - **Abandoned A.E.G.I.S. materials lab** — where Morgan Vale (Nightfall) was transformed in 2022
+- **The Hall (Ironworkers' Local 44)** — former union hall at Dolan and Renner, Ironworks/Riverside border. Now the player team's HQ; Alliance satellite. See `locations/hq-ironworkers-hall.md`.
 
 **History:** The 1987 deindustrialization gutted the district. Factories closed, shipyards contracted. The Persico family filled the vacuum left by legitimate employers.
 

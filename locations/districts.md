@@ -86,7 +86,7 @@ Fog rolls low over shipping cranes and dark water that never seems entirely calm
 
 | Location | Notes |
 |---|---|
-| **Alliance Tower** | The Alliance's base. Darius Cole maintains liaison quarters here. |
+| **Alliance Tower** | The Alliance's base, 1 Vantage Plaza, Crownpoint South. Paragon's floor 34 office. Starfall lives here. Aegis Prime maintains liaison quarters. A.E.G.I.S. has presence on floors 21–30 per the 2015 cooperative framework. See `locations/alliance-tower.md`. |
 | **The Danger Room** | Enhanced individual training facility built with A.E.G.I.S. technology, located inside Alliance Tower. Riley and Avi train here. |
 | **Halden City General Hospital** | Where Allison Bryne (Carrion) works as a trauma surgeon. |
 

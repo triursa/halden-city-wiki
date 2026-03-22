@@ -26,7 +26,7 @@ A cosmic intelligence that grants a single host immense power. Quantum's working
 
 ## The Renegade Force
 
-The equal and opposite principle. Where the Paragon Force embeds heroism, the Renegade Force embeds something darker — challenge, opposition, the pressure that tests whether heroism is real.
+The equal and opposite principle. Where the Paragon Force embeds heroism, the Renegade Force embeds defiance — challenge, opposition, the pressure that tests whether heroism is real.
 
 **Rules:**
 - Also bonds to a single host
@@ -37,10 +37,23 @@ The equal and opposite principle. Where the Paragon Force embeds heroism, the Re
 | Host | Era | Notes |
 |---|---|---|
 | Soviet-adjacent operative | 1947 | First documented manifestation. Vanished. File open for decades. |
-| Nemesis | ~1980s–1999 | Assembled the Virek Papers evidence. Died in the 1999 West Coast Broadcast. |
-| Dr. Gabriel Virek | ~1982 onward | Began "hearing a frequency" while compiling the Papers. Possibly host or influenced by the Force. |
-| Signal | [Undisclosed era] | Was briefly a Renegade host, operating underground. Voluntarily relinquished. Now an ordinary human — no residual powers. His "ordinary human" public status is a half-truth. |
-| Carter Williams | Current | Paralyzed from the waist down prior to bonding. The Force healed him upon binding. Personal history tied to Avi's backstory. |
+| Dr. Gabriel Virek / Nemesis | ~1982–1999 | Began "hearing a frequency" while compiling the Virek Papers. Assembled classified evidence of Paragon's interventions. Died in the 1999 West Coast Broadcast. |
+| Signal | [Undisclosed era] | Was briefly a Renegade host, operating underground. Voluntarily relinquished as part of his ideological plan — holding a cosmic power while building a movement against super-dependence would undermine his own message. Now an ordinary human. No residual powers. |
+| Carter Williams | Current | Paralyzed by Avi's power manifesting at a high school party. The Force healed him on bonding. He understands his selection as cosmic confirmation of his grievance. Signal is using that. |
+
+---
+
+## Ending the Cycle
+
+The Virek Papers contain a revelation: Ethan Roberts has known how to end the Paragon cycle and has chosen not to act.
+
+**What it means:** If the Paragon and Renegade Forces are simultaneously rejected by human hosts — both relinquished at the same moment — the cosmic mechanism reads it as humanity declaring itself capable of self-determination. The Forces withdraw. No new hosts are chosen. Earth is no longer a planet with a Paragon.
+
+**Why Ethan hasn't done it:** The choice requires a willing Renegade host to relinquish at the same moment. Ethan cannot act unilaterally — and every Renegade host he has encountered has either died in conflict or, in Signal's case, relinquished the Force for their own reasons and vanished before Ethan could reach them. There may also be something the Force itself does, quietly, to complicate the clarity of the moment.
+
+**What it costs:** Ending the cycle means no more Paragon. It means humanity faces whatever comes next without the balancing principle Quantum believes is embedded in the universe's fabric. Ethan has not been willing to make that bet on behalf of everyone else.
+
+**The unresolved question:** Whether his hesitation is principled caution or the Force protecting itself through him.
 
 ---
 
@@ -60,10 +73,10 @@ Dr. Gabriel Virek spent decades compiling evidence of Paragon's extralegal inter
 
 ## Open Questions
 
-- [ ] What exactly does it mean to "end the Paragon cycle"? What would that require?
-- [ ] Why did Ethan Roberts choose not to act on this knowledge?
-- [ ] What happened to the Renegade Force after Signal relinquished it — how did it find Carter Williams?
-- [ ] Is there a pattern to who the Forces choose, or is it more random than that?
+- [ ] What happened to the Renegade Force after Signal relinquished it — how did it find Carter Williams specifically?
+- [ ] Is there a pattern to who the Forces choose, beyond grievance and capacity for belief?
+- [ ] Does the Force influence its host's cognition, or only their capability?
+- [ ] If Ethan disclosed the end-cycle mechanism to the Alliance, would any of them support it?
 
 ---
 

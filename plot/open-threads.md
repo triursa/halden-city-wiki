@@ -67,7 +67,7 @@
 
 | Thread | What Was Planted | Potential Payoff |
 |---|---|---|
-| Three missing Glass District researchers | SMAB has no confirmed causal link; as of 2025. Possible Eclipse connection — unconfirmed. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS, the researchers may have stumbled into something they weren't supposed to see. |
+| Three missing Glass District researchers | SEIB has no confirmed causal link; as of 2025. Possible Eclipse connection — unconfirmed. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS, the researchers may have stumbled into something they weren't supposed to see. |
 | Darkstar's long game | Engineering stress-test scenarios since 2012. Passive observer — but observation now includes a defected son on the new team and an active parasite experiment on Riley. | When Darkstar decides to stop observing. His data set is thirteen years deep. |
 | Joseph Persico's return | Released from prison; re-establishing his Dockside network | First major street-level confrontation with the new team |
 | Casimir Vane's backing | Resolved — backing is Eclipse/PROMETHEUS. Vane is a knowing ideological partner. Not resolved: how deep his operational involvement goes, and whether he becomes a liability or an asset as PROMETHEUS approaches exposure. | |
@@ -102,3 +102,4 @@
 ---
 
 *Last updated: March 2026*
+

@@ -50,7 +50,7 @@ Working hypothesis: names are grounded and realistic, not fantastical. Avoid nam
 
 **What to avoid:** "metahuman" — carries DC Comics IP association and has been removed from the setting entirely. Do not reintroduce it.
 
-**Institutional division names are exceptions:** MTR (Metahuman Threat Response) and SMAB (Strategic Metahuman Analytics Bureau) retain "metahuman" in their full names as proper nouns — these are bureaucratic designations that predate any terminology decision and have not been formally renamed. In prose, refer to them by acronym.
+**A.E.G.I.S. division acronyms in use:** ETR (Enhanced Threat Response), SEIB (Strategic Enhanced-Individual Bureau), ACAD (Advanced Containment & Artifacts Division), MANIFEST (Youth Manifestation & Intervention Program). In prose, refer to divisions by acronym.
 
 ---
 
@@ -63,3 +63,4 @@ Working hypothesis: names are grounded and realistic, not fantastical. Avoid nam
 ---
 
 *Last updated: March 2026*
+

@@ -9,7 +9,7 @@
 | Field | Value |
 |---|---|
 | **Full Name** | Advanced Expert Group for Intervention and Security |
-| **Type** | Federal metahuman agency — quasi-military, quasi-intelligence |
+| **Type** | Federal enhanced-individual agency — quasi-military, quasi-intelligence |
 | **Founded** | 1925 — secretly chartered by executive order, buried in the War Department |
 | **HQ** | Sub-level complex beneath Crownpoint Federal Tower |
 | **Public Front** | FEMA & Enhanced Individual Response Office |
@@ -41,9 +41,9 @@ A.E.G.I.S. is the institutional infrastructure layer of the enhanced individual 
 
 | Division | Director | Function |
 |---|---|---|
-| **MTR** — Metahuman Threat Response | Captain Jonah Mercer | Fields responses to superhuman incidents |
+| **ETR** — Enhanced Threat Response | Captain Jonah Mercer | Fields responses to superhuman incidents |
 | **ACAD** — Advanced Containment & Artifacts | Dr. Helena Voss | Anomalous materials, artifacts, containment |
-| **SMAB** — Strategic Metahuman Analytics Bureau | Dr. Samira Kadeem | Intelligence, analysis, threat modeling |
+| **SEIB** — Strategic Enhanced-Individual Bureau | Dr. Samira Kadeem | Intelligence, analysis, threat modeling |
 | **MANIFEST** — Youth Manifestation & Intervention | Agent Lila Ortega | Tracks emerging enhanced individuals; has flagged Adrian Vega for assessment |
 
 ---
@@ -105,3 +105,4 @@ Darius Cole (Aegis Prime) is the closest thing A.E.G.I.S. has to an ideologicall
 ---
 
 *Last updated: March 2026*
+

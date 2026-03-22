@@ -117,7 +117,7 @@ Has spent years hunting the things A.E.G.I.S. has no language for. Established p
 
 **2025 — The City at the Edge** [CONFIRMED CANON]
 - Joseph Persico, released from prison, re-establishing his Dockside network
-- Three Glass District researchers missing in eight months; SMAB has no confirmed causal link
+- Three Glass District researchers missing in eight months; SEIB has no confirmed causal link
 - The Alliance holds; A.E.G.I.S. watches; the Virek Papers are still mostly encrypted
 - Monument Circle booked through the end of the year
 
@@ -133,3 +133,4 @@ Eclipse operates as a legitimate biotech company while running PROMETHEUS undern
 ---
 
 *Last updated: March 2026 — Added Crale family footnote to 1925 founding. Updated Vane 2008 entry. Added Requiem resurrection 2023 entry. Added Eclipse/PROMETHEUS ongoing entry.*
+

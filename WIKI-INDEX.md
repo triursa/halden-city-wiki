@@ -44,7 +44,7 @@ Not malevolent — bureaucratic. Values stability, expands its own authority qui
 - Deputy Director of Operations: Colonel Marcus Hale
 - Deputy Director of Intelligence: Dr. Samira Kadeem
 
-**Divisions:** MTR (Mercer), ACAD (Voss), SMAB (Kadeem), MANIFEST (Ortega)
+**Divisions:** ETR (Mercer), ACAD (Voss), SEIB (Kadeem), MANIFEST (Ortega)
 
 ### The Alliance
 Halden City's premiere independent hero team. Founded 2015 by Paragon. Cooperative with A.E.G.I.S. but not subordinate.
@@ -212,7 +212,7 @@ Kiara's creators. Believe themselves auditors of cosmic stability — Earth's in
 | **Carter Williams / Renegade Force** | Active | Healed by the Force on bonding. Signal is using him. Personal history with Avi — Avi doesn't know. |
 | **Eclipse / PROMETHEUS** | Seeded | Black program running beneath a legitimate biotech company. Rhys is an unclosed asset. Edmund Crale is the hidden center. |
 | **Persico's return** | Seeded | Released from prison 2025. Re-establishing Dockside network. |
-| **Three missing Glass District researchers** | Seeded | SMAB has no confirmed causal link. May connect to Eclipse. |
+| **Three missing Glass District researchers** | Seeded | SEIB has no confirmed causal link. May connect to Eclipse. |
 | **The Hall — locked room (3/F)** | Seeded | Key not transferred with the building. Room is larger than the 1938 building plans indicate. |
 | **Local 44 records (3/F)** | Seeded | Six boxes, 1938–present. Unexamined. Could contain records of early Ironworks enhanced individual history. |
 
@@ -301,3 +301,4 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 
 *Last updated: March 2026 — Session 4: WIKI-INDEX fully restructured. Casey Holt / Scythe added to roster and file table. The Hall added to districts and locations. Character tables split into PCs / NPCs-Alliance / NPCs-Antagonists. Macro arc structure added to index. All current wiki files catalogued. Villain-sheets subfolder documented.*
 *To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*
+

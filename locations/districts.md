@@ -56,7 +56,7 @@ Pristine labs, private campuses, and carefully worded press releases. Breakthrou
 **Key Locations:**
 - **Quantum's research facility** — Dr. Mendez's primary base, also has quarters in Alliance Tower
 - **Singularity labs** — where Danielle Whittaker (Wraith) was transformed in 2022; her parents' employer
-- **Three missing researchers** — as of 2025, three Glass District researchers have gone missing in eight months; SMAB has no confirmed causal link
+- **Three missing researchers** — as of 2025, three Glass District researchers have gone missing in eight months; SEIB has no confirmed causal link
 
 **History:** Founded 1968 by a consortium quietly underwritten by A.E.G.I.S. Stated purpose: medical and materials research. Actual mandate included enhanced individual study, artifact analysis, and power-source exploitation. The first serious ethical breaches began almost immediately and were systematically buried.
 
@@ -93,3 +93,4 @@ Fog rolls low over shipping cranes and dark water that never seems entirely calm
 ---
 
 *Last updated: March 2026*
+

@@ -1,4 +1,4 @@
-# Scythe
+# Casey Holt / Scythe
 
 > *"Someone has to be the answer."*
 

@@ -271,6 +271,8 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 |---|---|
 | `locations/districts.md` | All six districts with key locations |
 | `locations/hq-ironworkers-hall.md` | The Hall — player HQ, Ironworkers' Local 44 |
+| `locations/alliance-tower.md` | Alliance Tower — full build, layout, culture, personnel |
+| `locations/aegis-halden-regional-command.md` | A.E.G.I.S. Regional Command — full build, 7 sub-levels, personnel, culture |
 | `locations/street-texture.md` | Named civilian locations, recurring faces, shadow infrastructure by district |
 
 ### Lore

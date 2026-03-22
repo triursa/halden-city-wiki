@@ -66,12 +66,15 @@ He announces his initiative: one secret revealed per day until humanity decides 
 Signal surfaces evidence that Kiara Je-rach was engineered as a weapon and sent to Earth to determine whether it should be destroyed. She defected. But Signal's framing: *The Alliance's cosmic ally was built to kill you. She changed her mind. You're welcome to trust that.*
 
 **Reveal 2 — Sterling / Darkstar:**
-Signal reveals that Cosmic Knight is the biological son of Darkstar — the alien threat currently in the news. Engineered in his lab. Designed for a purpose. *The new team's heavy hitter was built by the enemy. Ask him what he was built to do.*
+Signal reveals publicly that Cosmic Knight is the biological son of Darkstar — the alien threat currently in the news. Engineered in his lab. Designed for a purpose. *The new team's heavy hitter was built by the enemy. Ask him what he was built to do.*
+
+Sterling already knows. Kiara knows. The rest of the team does not, and neither does the public. Signal is not breaking this to Sterling — he is breaking it to everyone else while Sterling watches it happen in real time.
 
 **GM Notes:**
-- Reveal 1 damages the Alliance's credibility abstractly; Reveal 2 hits Sterling personally and publicly
-- Jason's reaction to Sterling matters here — does he trust him, or does Nightfall's kill of Artemis make him suspicious of anything alien-adjacent?
-- Sterling doesn't have to respond to the team immediately; let it sit
+- The reveal's sting is the loss of control, not the information itself — Sterling knew this was out there and didn't tell his teammates. That's the fracture.
+- Reveal 1 damages the Alliance abstractly; Reveal 2 exposes a withheld truth to Sterling's own team
+- Jason's reaction matters here — does he trust Sterling, or does Nightfall's kill of Artemis make him suspicious of anything alien-adjacent?
+- The team's response to Sterling is their call; don't script it
 
 ---
 
@@ -112,10 +115,12 @@ Signal publishes evidence that the Paragon Force can be consciously released and
 **Reveal 4 — Half-Life / Decay:**
 Signal outs Casper's history as Decay. The villain record. The people hurt. Whatever A.E.G.I.S. has on file. *One of your new heroes has a file. Read it.*
 
+Casper knows who he was. His player is running the Reformed playbook — this is not a secret from the character, it is a secret from the public. Signal is not revealing something Casper had buried. He is stripping away the wall between who Casper is now and who he was, and making the team watch.
+
 **GM Notes:**
 - Reveal 3 is the setup for the climax — plant it here so it lands when Signal uses it at the end
-- Reveal 4 is Casper's personal crisis and a team trust moment — does the team already know? Do they respond with doubt or solidarity?
-- These two in the same session creates a compressed pressure — the team is managing Ethan's public credibility problem while also absorbing a revelation about one of their own
+- Reveal 4 is not a crisis of memory or identity for Casper — it is a crisis of exposure and trust. The question is whether the team already knew, and how they respond now that the public does.
+- These two in the same session creates compressed pressure — the team is managing Ethan's public credibility problem while absorbing a revelation about one of their own
 
 ---
 
@@ -162,13 +167,13 @@ Signal moves on all fronts simultaneously.
 
 ## Signal's Reveal Schedule (Summary)
 
-| Session | Reveal | Target |
-|---|---|---|
-| Early | Starfall engineered as a weapon | Alliance credibility |
-| Early | Sterling is Darkstar's son | Cosmic Knight, personally |
-| Mid | Paragon Force can be released / Ethan was chosen | Paragon's legitimacy; climax setup |
-| Mid | Half-Life was Decay | Casper, personally; team trust |
-| Endgame | Riley/Carter tape | Recluse's moral authority; held as the final weapon |
+| Session | Reveal | Who Knew Before | Signal's Weapon |
+|---|---|---|---|
+| Early | Starfall engineered as a weapon | Kiara, Paragon | Public trust in the Alliance |
+| Early | Sterling is Darkstar's son | Sterling, Kiara | Sterling's withheld truth; team fracture |
+| Mid | Paragon Force can be released / Ethan was chosen | Ethan | Paragon's legitimacy; climax setup |
+| Mid | Half-Life was Decay | Casper (player) | Public exposure; team trust |
+| Endgame | Riley/Carter tape | Signal, Riley | Recluse's moral authority; held as the final weapon |
 
 ---
 

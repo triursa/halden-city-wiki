@@ -19,7 +19,7 @@
 
 ## Powers / Capabilities
 
-Not a metahuman in the traditional sense — her capabilities are technical and cognitive.
+Not enhanced in the traditional sense — her capabilities are technical and cognitive.
 
 - **Weaver drones** — eyes on half of Riverside Ward and most of Dockside
 - **Hacking and surveillance** — can loop a security feed, ghost a signal, pull a personnel file before most people finish reading the question

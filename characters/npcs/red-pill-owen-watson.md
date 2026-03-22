@@ -12,7 +12,7 @@
 | **Age** | 25 |
 | **Status** | Active — recurring city-level threat |
 | **Affiliation** | None confirmed |
-| **Origin** | Possible Glass District biotech trial, black-market enhancement, or latent metahuman gene triggered by stress |
+| **Origin** | Possible Glass District biotech trial, black-market enhancement, or latent enhanced gene triggered by stress |
 
 ---
 

@@ -22,13 +22,13 @@
 
 **Extensively enhanced — Operation MANIFEST, final generation.** Enhanced over four years (1990–1994): neural implants, gene-locked muscle density, bioelectric organ integration that allows her to manifest electricity, pain suppression protocols, and adaptive combat training uploaded to her subconscious.
 
-She is not a metahuman in the conventional sense. She is what the first generation of deliberate human engineering produced. The scars are the visible record of it.
+She is not enhanced in the conventional sense. She is what the first generation of deliberate human engineering produced. The scars are the visible record of it.
 
 ---
 
 ## Background
 
-Selected at 24 as the most viable subject across two generations of program candidates. Enhancements spanned four years. Deployed on assassinations, government destabilization operations, and suppression of metahuman emergence in adversarial states.
+Selected at 24 as the most viable subject across two generations of program candidates. Enhancements spanned four years. Deployed on assassinations, government destabilization operations, and suppression of enhanced individual emergence in adversarial states.
 
 She ran missions for years before the pattern recognition caught up. The conclusion she reached: all institutions fail and corrupt themselves — even those that claim to protect humanity. She had no doubt that A.E.G.I.S. would eventually reach the same endpoint.
 

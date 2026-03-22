@@ -41,7 +41,7 @@ halden-city-wiki/
 ├── lore/
 │   ├── world-history.md
 │   ├── paragon-renegade-forces.md
-│   └── metahuman-taxonomy.md
+│   └── enhanced-individual-taxonomy.md
 ├── plot/
 │   ├── open-threads.md
 │   └── timeline.md
@@ -71,7 +71,7 @@ halden-city-wiki/
 
 | Organization | Role |
 |---|---|
-| **A.E.G.I.S.** | The Advanced Expert Group for Intervention and Security. Primary governmental metahuman agency, WWII roots. Medical, intelligence, oversight, containment. HQ beneath Crownpoint Federal Tower. |
+| **A.E.G.I.S.** | The Advanced Expert Group for Intervention and Security. Primary governmental agency for enhanced individuals, WWII roots. Medical, intelligence, oversight, containment. HQ beneath Crownpoint Federal Tower. |
 | **The Alliance** | Halden City's premiere independent hero team. Paragon, Recluse, Riftfire, Quantum, Starfall, The Vanguard. Cooperative but not subordinate to A.E.G.I.S. |
 | **Vane Capital Group** | Private infrastructure firm. Near-monopoly on Crownpoint construction. CEO Casimir Vane. Growth is suspiciously fast. |
 

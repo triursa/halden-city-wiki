@@ -12,19 +12,19 @@
 | **Type** | Federal metahuman agency — quasi-military, quasi-intelligence |
 | **Founded** | 1925 — secretly chartered by executive order, buried in the War Department |
 | **HQ** | Sub-level complex beneath Crownpoint Federal Tower |
-| **Public Front** | FEMA & Metahuman Response Office |
+| **Public Front** | FEMA & Enhanced Individual Response Office |
 | **Status** | Active |
 
 ---
 
 ## What A.E.G.I.S. Does
 
-A.E.G.I.S. is the institutional infrastructure layer of the metahuman world. Its founding mandate: catalogue, contain, and if necessary neutralize anomalous human phenomena. That mandate has expanded considerably.
+A.E.G.I.S. is the institutional infrastructure layer of the enhanced individual world. Its founding mandate: catalogue, contain, and if necessary neutralize anomalous human phenomena. That mandate has expanded considerably.
 
-- **Metahuman law enforcement** — when it's necessary, it comes from A.E.G.I.S.
-- **Medical** — treatment and monitoring of metahuman individuals, including heroes. Has staff who would be very interested in Riley's condition.
-- **Intelligence** — extensive surveillance network, maintains dossiers on virtually every active metahuman in the city
-- **Containment** — metahuman holding facilities; the ACAD division handles artifacts and anomalous materials
+- **Law enforcement** — when enhanced individual law enforcement is necessary, it comes from A.E.G.I.S.
+- **Medical** — treatment and monitoring of enhanced individuals, including heroes. Has staff who would be very interested in Riley's condition.
+- **Intelligence** — extensive surveillance network, maintains dossiers on virtually every active enhanced individual in the city
+- **Containment** — enhanced individual holding facilities; the ACAD division handles artifacts and anomalous materials
 - **Oversight** — affiliated heroes are not fully independent. There are expectations.
 
 ---
@@ -44,7 +44,7 @@ A.E.G.I.S. is the institutional infrastructure layer of the metahuman world. Its
 | **MTR** — Metahuman Threat Response | Captain Jonah Mercer | Fields responses to superhuman incidents |
 | **ACAD** — Advanced Containment & Artifacts | Dr. Helena Voss | Anomalous materials, artifacts, containment |
 | **SMAB** — Strategic Metahuman Analytics Bureau | Dr. Samira Kadeem | Intelligence, analysis, threat modeling |
-| **MANIFEST** — Youth Manifestation & Intervention | Agent Lila Ortega | Tracks emerging metahumans; has flagged Adrian Vega for assessment |
+| **MANIFEST** — Youth Manifestation & Intervention | Agent Lila Ortega | Tracks emerging enhanced individuals; has flagged Adrian Vega for assessment |
 
 ---
 
@@ -56,7 +56,7 @@ A.E.G.I.S. is the institutional infrastructure layer of the metahuman world. Its
 - **1953** — Operation MANIFEST: black-site super-soldier enhancement program authorized. Goal: produce a state asset capable of neutralizing a rogue Paragon-class individual. (Natalia Orlov is a product of this program.)
 - **1963** — Authorizes Paragon to operate semi-publicly.
 - **1968** — Quietly underwrites founding of the Glass District research corridor. Ethical breaches begin almost immediately.
-- **2010** — Major restructuring following containment failures and a public controversy over metahuman detention. Shaw appointed. Surveillance capacity and legal detention authority significantly expanded.
+- **2010** — Major restructuring following containment failures and a public controversy over enhanced individual detention. Shaw appointed. Surveillance capacity and legal detention authority significantly expanded.
 
 ---
 

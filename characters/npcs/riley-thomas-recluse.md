@@ -23,7 +23,7 @@
 
 ## Powers
 
-**Spider-derived metahuman genetics.** Manifested at approximately age 16.
+**Spider-derived genetics.** Manifested at approximately age 16.
 
 - Wall adhesion
 - Enhanced agility

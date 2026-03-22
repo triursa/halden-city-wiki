@@ -11,7 +11,7 @@
 
 ## The Setting
 
-**Halden City** — Mid-Atlantic metropolis, population ~8–10 million. Between New York and D.C. A hundred years of metahuman history. The city tolerates its heroes. It does not worship them.
+**Halden City** — Mid-Atlantic metropolis, population ~8–10 million. Between New York and D.C. A hundred years of enhanced individual history. The city tolerates its heroes. It does not worship them.
 
 **Primary use:** Novel/novella fiction + Masks: The Next Generation TTRPG campaign ("Legacy of Halden City")
 **Tone:** Character-driven, noir-grounded, morally complex. Powers are metaphors. Heroism is exhausting. No one is purely anything. No em dashes in prose.
@@ -36,7 +36,7 @@
 ## Factions
 
 ### A.E.G.I.S. — Advanced Expert Group for Intervention and Security
-Federal metahuman agency. Founded 1925. HQ beneath Crownpoint Federal Tower (public front: FEMA office).
+Federal agency for enhanced individuals. Founded 1925. HQ beneath Crownpoint Federal Tower (public front: FEMA office).
 Not malevolent — bureaucratic. Values stability, expands its own authority quietly, does not love surprises.
 
 **Halden Regional Command:**
@@ -56,7 +56,7 @@ Early investing partner in Eclipse's PROMETHEUS program — knowing participant,
 
 ### Eclipse
 Legitimate public biotech corporation with government contracts. Portfolio: prosthetics, pharmaceuticals, medical equipment. Well-regarded in defense contracting and medical research circles.
-**Black program: PROMETHEUS** — three revenue streams: superhuman deterrence (countermeasures and dampeners), controlled superhuman assets (synthetic human drones), synthetic power manufacturing (reverse-engineering metahuman capability). Not a shadow conspiracy — a company that decided the metahuman question is a business problem.
+**Black program: PROMETHEUS** — three revenue streams: superhuman deterrence (countermeasures and dampeners), controlled superhuman assets (synthetic human drones), synthetic power manufacturing (reverse-engineering enhanced capability). Not a shadow conspiracy — a company that decided the enhanced individual question is a business problem.
 **CEO: Edmund Crale** — [GM eyes only, do not surface until players reach PROMETHEUS]. Mid-40s. Crale family present at A.E.G.I.S.'s 1925 founding. Built Eclipse using a century of institutional knowledge about A.E.G.I.S.'s oversight architecture.
 **Known connections:** Rhys/Noc (proprietary compound, unclosed asset file), Marcus Webb/Requiem (indirect — Dr. Adeyemi's work), Casimir Vane (investing partner), 2020 Glass District disaster (flagged, unconfirmed).
 
@@ -214,7 +214,7 @@ Kiara's creators. Believe themselves auditors of cosmic stability — Earth's in
 | **Persico's return** | Seeded | Released from prison 2025. Re-establishing Dockside network. |
 | **Three missing Glass District researchers** | Seeded | SMAB has no confirmed causal link. May connect to Eclipse. |
 | **The Hall — locked room (3/F)** | Seeded | Key not transferred with the building. Room is larger than the 1938 building plans indicate. |
-| **Local 44 records (3/F)** | Seeded | Six boxes, 1938–present. Unexamined. Could contain records of early Ironworks metahuman history. |
+| **Local 44 records (3/F)** | Seeded | Six boxes, 1938–present. Unexamined. Could contain records of early Ironworks enhanced individual history. |
 
 ---
 
@@ -278,7 +278,7 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 |---|---|
 | `lore/world-history.md` | Full 100-year timeline |
 | `lore/paragon-renegade-forces.md` | Cosmic lore, all known hosts |
-| `lore/metahuman-taxonomy.md` | SMAB classification framework — six origin categories, modifier flags, known instances, unclassified edge cases |
+| `lore/metahuman-taxonomy.md` | Enhanced individual taxonomy — six origin categories, modifier flags, known instances, unclassified edge cases |
 
 ### Plot
 | File | Contents |

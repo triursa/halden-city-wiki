@@ -106,7 +106,7 @@ The key was not transferred with the building. This has not been explained.
 
 - [ ] What is in the locked room — and who put it there?
 - [ ] Does Paragon's title to the building trace cleanly, or is there something in the provenance worth examining?
-- [ ] Has anyone gone through the Local 44 records? Is there anything in them relevant to the Ironworks' metahuman history?
+- [ ] Has anyone gone through the Local 44 records? Is there anything in them relevant to the Ironworks' enhanced individual history?
 - [ ] When does Tomás Reyes decide what to do with what he knows?
 - [ ] Does Father Wróbel become a resource, a complication, or both?
 - [ ] What does the building become to the team over time — safe house, home, something else?

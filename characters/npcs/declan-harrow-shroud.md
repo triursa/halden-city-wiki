@@ -14,7 +14,7 @@
 | **Birthplace** | Halden City |
 | **Physical** | [To be detailed] |
 | **Affiliation** | None claimed. Alliance-adjacent at a remove. |
-| **Status** | Active — operating in the margins of the metahuman framework |
+| **Status** | Active — operating in the margins of the enhanced individual framework |
 
 ---
 
@@ -26,7 +26,7 @@
 
 ## Background
 
-Declan Harrow operates in the parts of Halden City the metahuman framework doesn't have language for. Not aliens. Not lab accidents. Not cosmic forces. The older things: living in the forgotten infrastructure, the deep tunnels, the buildings that change hands too often.
+Declan Harrow operates in the parts of Halden City the enhanced individual framework doesn't have language for. Not aliens. Not lab accidents. Not cosmic forces. The older things: living in the forgotten infrastructure, the deep tunnels, the buildings that change hands too often.
 
 He has been doing this for years, alone. No sponsorship. No announcement. No press profile, no confirmed sightings, no public file.
 
@@ -63,7 +63,7 @@ He operates at the edges of everything — not in the Alliance's network, not un
 - [ ] What exactly is Declan hunting, and what has he found in Halden City's infrastructure?
 - [ ] What are his actual abilities, and where did they come from?
 - [ ] Why is the A.E.G.I.S. file misfiled deliberately — whose decision was it?
-- [ ] What is his relationship to the things that pre-date the metahuman framework — the older presences in the city?
+- [ ] What is his relationship to the things that pre-date the enhanced individual framework — the older presences in the city?
 - [ ] Has he ever crossed paths with Riley Thomas directly, and if so, what came of it?
 - [ ] Where does Persico's return register for him — the docks are shared territory now?
 

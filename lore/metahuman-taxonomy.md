@@ -1,4 +1,4 @@
-# Metahuman Taxonomy — Halden City
+# Enhanced Individual Taxonomy — Halden City
 
 > A working classification of how people in this setting acquire and express extraordinary ability.
 > This is an in-world analytical document — the framework A.E.G.I.S.'s SMAB division uses internally, with annotations reflecting what they don't know or won't admit.
@@ -7,7 +7,7 @@
 
 ## Preface
 
-A.E.G.I.S. has been classifying metahuman phenomena since 1925. The taxonomy has been revised eight times. Each revision was triggered not by new theory but by a new phenomenon the existing categories couldn't hold.
+A.E.G.I.S. has been classifying enhanced individual phenomena since 1925. The taxonomy has been revised eight times. Each revision was triggered not by new theory but by a new phenomenon the existing categories couldn't hold.
 
 The current framework — SMAB Classification Version 8, adopted 2018 — uses six primary origin categories and three modifier flags. It is the most sophisticated system the agency has produced. It is also, as the prior seven versions were, incomplete in ways nobody wants to formally document.
 
@@ -40,7 +40,7 @@ Quantum's working theory — that the Forces are embedded cosmic principles rath
 
 ### CATEGORY II — Genetic Manifestation
 
-**Working definition:** Metahuman ability arising from within the host's own biology — a gene expression that produces extraordinary capability without external event as a direct cause. The ability is native to the organism.
+**Working definition:** Ability arising from within the host's own biology — a gene expression that produces extraordinary capability without external event as a direct cause. The ability is native to the organism.
 
 **Distinguishing feature:** The power is the person's own. It develops rather than activates. It does not disappear if circumstances change. It can, in principle, be inherited.
 
@@ -60,7 +60,7 @@ The entanglement between Thomas and Thorne is the most anomalous data point in t
 
 ### CATEGORY III — Experimental Exposure
 
-**Working definition:** Metahuman ability arising from contact with anomalous materials, energies, or events of human or extraterrestrial origin. The host was not selected; the exposure was the mechanism.
+**Working definition:** Ability arising from contact with anomalous materials, energies, or events of human or extraterrestrial origin. The host was not selected; the exposure was the mechanism.
 
 **Distinguishing feature:** The power was conferred by an event, not expressed from within. Most Category III individuals can identify a specific incident as the origin point.
 
@@ -91,7 +91,7 @@ The Nightfall case technically qualifies as IIIa (the fluid was an A.E.G.I.S. co
 
 ### CATEGORY IV — Program Enhancement
 
-**Working definition:** Metahuman ability deliberately engineered by institutional or organizational actors, applied to a human subject through controlled processes.
+**Working definition:** Ability deliberately engineered by institutional or organizational actors, applied to a human subject through controlled processes.
 
 **Distinguishing feature:** The power was a goal, not an accident. Someone decided this person should be enhanced and executed a process to achieve it. The ability is artificial in origin even if it becomes fully biological over time.
 
@@ -117,9 +117,9 @@ The Scythe case is formally classified as Category IV enhancement but the mechan
 
 ### CATEGORY V — Cosmic/Alien Origin
 
-**Working definition:** Metahuman-adjacent ability arising from non-terrestrial biology, engineering, or inheritance. The entity is not human or not entirely human in origin.
+**Working definition:** Non-terrestrial-origin ability arising from non-terrestrial biology, engineering, or inheritance. The entity is not human or not entirely human in origin.
 
-**Distinguishing feature:** The capability set does not map to any known mechanism of human metahuman manifestation. The origin is extraterrestrial, cosmic, or involves non-human genetic contribution.
+**Distinguishing feature:** The capability set does not map to any known mechanism of human enhanced-individual manifestation. The origin is extraterrestrial, cosmic, or involves non-human genetic contribution.
 
 **Sub-categories:**
 - **Va — Full Non-Human:** Entity of entirely non-terrestrial origin, operating in or interacting with human civilization.
@@ -134,7 +134,7 @@ The Scythe case is formally classified as Category IV enhancement but the mechan
 - Sterling Slate / Cosmic Knight (half-Umbraeon, engineered by Darkstar — dark matter manipulation)
 
 **SMAB notes:**
-Calypso's classification has been contested since A.E.G.I.S. first created a file for her in 1979. She predates the metahuman framework by centuries or millennia. Categorizing her as Category V is technically accurate (non-terrestrial/mythological origin) but loses the distinction between an ancient entity operating on human timescales and a contemporary alien like Darkstar. The file exists. Nobody in SMAB is particularly comfortable with what's in it.
+Calypso's classification has been contested since A.E.G.I.S. first created a file for her in 1979. She predates the enhanced individual framework by centuries or millennia. Categorizing her as Category V is technically accurate (non-terrestrial/mythological origin) but loses the distinction between an ancient entity operating on human timescales and a contemporary alien like Darkstar. The file exists. Nobody in SMAB is particularly comfortable with what's in it.
 
 The Auditors — Kiara's creators — represent an institutional threat that A.E.G.I.S. has no operational response to. The file exists. It references Kiara's value as an informational asset. It does not document what A.E.G.I.S. would do if the Auditors returned in force, because no credible answer exists.
 
@@ -200,7 +200,7 @@ There are phenomena in Halden City that the current taxonomy does not address.
 
 **Darkstar's experimental subjects:** Darkstar has been introducing experimental biological agents and empowering unstable individuals since 2012. The resulting cases do not fit cleanly into any existing category. They are currently filed under a provisional Category III sub-designation pending further analysis. This provisional classification is thirteen years old.
 
-**Eclipse PROMETHEUS — synthetic manufacture:** If PROMETHEUS has achieved what its internal documentation claims — reverse-engineered metahuman capability and produced it synthetically — this represents a Category IV sub-type with no current classification. Engineered ability applied to subjects outside any state oversight framework, potentially at scale. SMAB's restricted access file acknowledges the program's probable existence. No formal taxonomy update has been drafted.
+**Eclipse PROMETHEUS — synthetic manufacture:** If PROMETHEUS has achieved what its internal documentation claims — reverse-engineered enhanced capability and produced it synthetically — this represents a Category IV sub-type with no current classification. Engineered ability applied to subjects outside any state oversight framework, potentially at scale. SMAB's restricted access file acknowledges the program's probable existence. No formal taxonomy update has been drafted.
 
 **Marcus Harrow / Shroud:** Filed, redacted, misfiled. The phenomena Harrow investigates — the older things in Halden's infrastructure — have no classification category. A.E.G.I.S. has no file category for whatever those things are, which means it has no classification framework for someone whose capability set is built around hunting them. The file exists. It reads as a Category II genetic case. This is almost certainly incomplete.
 

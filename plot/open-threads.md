@@ -53,13 +53,13 @@
 
 ### Eclipse / PROMETHEUS
 - Eclipse is a legitimate biotech corporation running a classified black program: PROMETHEUS
-- Three revenue streams: superhuman deterrence (countermeasures and dampeners), controlled superhuman assets (synthetic human drones), synthetic power manufacture (reverse-engineered metahuman capability)
+- Three revenue streams: superhuman deterrence (countermeasures and dampeners), controlled superhuman assets (synthetic human drones), synthetic power manufacture (reverse-engineered enhanced capability)
 - **CEO: Edmund Crale** — Crale family present at A.E.G.I.S.'s 1925 founding; built Eclipse using generational institutional knowledge of A.E.G.I.S.'s oversight architecture. PROMETHEUS has stayed invisible because he designed it using the same frameworks his family helped build. [GM eyes only — do not surface until players reach PROMETHEUS directly]
 - **Casimir Vane** is a knowing, ideological investing partner. His civic sincerity is real. So is his complicity.
 - **Rhys/Noc** has Eclipse's proprietary compound running through his biology. Unclosed asset file. Eclipse wants the asset back.
 - **Marcus Webb's resurrection** used research in theoretical overlap with PROMETHEUS (Dr. Adeyemi's cellular regrowth work). Adeyemi disappeared after the procedure — Eclipse resolved the irregularity. Riley does not know what happened to her.
 - **The 2020 Glass District gravity core disaster** that created Aegis Prime has a flagged but unconfirmed Eclipse connection.
-- **Stakes:** PROMETHEUS is not a shadow conspiracy — it's a company that decided the metahuman question is a business problem. When it surfaces, the frame isn't "villain's secret lair" — it's institutional, rational, and has been running for years.
+- **Stakes:** PROMETHEUS is not a shadow conspiracy — it's a company that decided the enhanced individual question is a business problem. When it surfaces, the frame isn't "villain's secret lair" — it's institutional, rational, and has been running for years.
 
 ---
 
@@ -72,7 +72,7 @@
 | Joseph Persico's return | Released from prison; re-establishing his Dockside network | First major street-level confrontation with the new team |
 | Casimir Vane's backing | Resolved — backing is Eclipse/PROMETHEUS. Vane is a knowing ideological partner. Not resolved: how deep his operational involvement goes, and whether he becomes a liability or an asset as PROMETHEUS approaches exposure. | |
 | The Hall — locked room (3/F) | Key not transferred with the building. Room is larger than the 1938 city filing indicates. | What's in it, who put it there, and why wasn't the key included in the transfer? |
-| Local 44 records (3/F) | Six boxes of union records, 1938–present. Unexamined. | Could contain records of early Ironworks metahuman history — the 1958 Blackwater Harbor incident, labor disputes with anomalous outcomes, names that connect to current threads. |
+| Local 44 records (3/F) | Six boxes of union records, 1938–present. Unexamined. | Could contain records of early Ironworks enhanced individual history — the 1958 Blackwater Harbor incident, labor disputes with anomalous outcomes, names that connect to current threads. |
 | Darcy's student Deon | 16-year-old track athlete healing faster than he should. Darcy has noticed. Has not told Riley yet — still deciding if it's her place. | When she tells him, and how Riley handles being handed a kid who didn't ask to be found. |
 | Wraith's leak campaign | Dani Whittaker has already been responsible for three major document leaks | She finds something that can't be contained |
 | Natalia / Scythe mirror | Natalia doesn't know Scythe exists. Two women, same program, opposite conclusions. | If Natalia ever learns A.E.G.I.S. ran MANIFEST again after she left — and what it produced — that information lands differently than anything else could. |

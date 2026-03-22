@@ -29,7 +29,7 @@ Cargo ship explosion at Blackwater Harbor. Eyewitnesses describe a figure walkin
 A.E.G.I.S. authorizes Asset CROWN to operate semi-publicly as "Paragon." Public reception is fraught. Demonstrations for and against in Monument Circle.
 
 **1968 — The Glass District Is Established** [CONFIRMED CANON]
-Defense contractors and academic institutions, quietly underwritten by A.E.G.I.S. Stated purpose: medical and materials research. Actual mandate: metahuman enhancement study, artifact analysis, power-source exploitation. Ethical breaches begin almost immediately.
+Defense contractors and academic institutions, quietly underwritten by A.E.G.I.S. Stated purpose: medical and materials research. Actual mandate: enhanced individual study, artifact analysis, power-source exploitation. Ethical breaches begin almost immediately.
 
 **1971 — Paragon Intervenes in a Foreign Election** [CONFIRMED CANON]
 Dr. Gabriel Virek, a young academic, encounters a declassified summary. Document is re-classified; his access revoked. First entry in what will become the Virek Papers.
@@ -45,7 +45,7 @@ Dr. Gabriel Virek, now a senior UN policy adviser and A.E.G.I.S. consultant, beg
 ## ERA III: CRISIS & CONSEQUENCE (1985–1999)
 
 **1987 — The Ironworks Collapse** [CONFIRMED CANON]
-Deindustrialization guts the Ironworks. Factories close, shipyards contract. Organized crime — primarily the Persico family — fills the vacuum. Street-level metahuman activity increases sharply.
+Deindustrialization guts the Ironworks. Factories close, shipyards contract. Organized crime — primarily the Persico family — fills the vacuum. Street-level enhanced individual activity increases sharply.
 
 **1999 — The West Coast Broadcast: Fall of Two Forces** [CONFIRMED CANON]
 Nemesis engineers a globally televised confrontation with the previous Paragon. Broadcasts fragments of the Virek Papers live. The fight destroys a section of the Pacific coastline. Both combatants die. The Paragon Force goes dormant. The Renegade Force dissipates.
@@ -75,7 +75,7 @@ Self-made entrepreneur from the Ironworks consolidates a near-monopoly on Crownp
 Cosmic envoy arrives in low orbit with an audit determination that Earth should be removed from the cosmic record. Paragon intercepts her and, instead of force, asks her what she believes. She defects. Marked "defective" by the Auditors. Takes residence in Alliance Tower.
 
 **2010 — A.E.G.I.S. Regional Command Restructured** [CONFIRMED CANON]
-Following containment failures and public controversy over metahuman detention. Evelyn Shaw appointed Regional Director. New divisions: MTR, ACAD, SMAB, MANIFEST. Publicly: modernization. Internally: expanded surveillance and detention authority.
+Following containment failures and public controversy over enhanced individual detention. Evelyn Shaw appointed Regional Director. New divisions: MTR, ACAD, SMAB, MANIFEST. Publicly: modernization. Internally: expanded surveillance and detention authority.
 
 **2012 — Darkstar Arrives** [CONFIRMED CANON]
 Umbraeon explorer makes first documented contact with Halden City through intermediaries. Initial interventions: empowering unstable individuals, introducing experimental biological agents, engineering stress-test scenarios. A passive observer taking notes — not an active antagonist.
@@ -128,7 +128,7 @@ Slower healing, stiff joints, injuries that don't recover as fast. He is hiding 
 Signal is building. His hospital recording of Riley threatening Carter Williams is in hand. He is two steps ahead and waiting for the right moment.
 
 **[Ongoing] — Eclipse / PROMETHEUS** [CONFIRMED CANON]
-Eclipse operates as a legitimate biotech company while running PROMETHEUS underneath — a black program developing superhuman deterrence, controlled synthetic human assets, and manufactured metahuman powers. CEO Edmund Crale (Crale family, A.E.G.I.S. founding lineage) has kept it invisible for years using institutional knowledge his family accumulated across a century. Casimir Vane is an early investing partner. Rhys/Noc is an unclosed asset. The program has never appeared in any public filing or leaked document.
+Eclipse operates as a legitimate biotech company while running PROMETHEUS underneath — a black program developing enhanced individual deterrence, controlled synthetic human assets, and manufactured enhanced powers. CEO Edmund Crale (Crale family, A.E.G.I.S. founding lineage) has kept it invisible for years using institutional knowledge his family accumulated across a century. Casimir Vane is an early investing partner. Rhys/Noc is an unclosed asset. The program has never appeared in any public filing or leaked document.
 
 ---
 

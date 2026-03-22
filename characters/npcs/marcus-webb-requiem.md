@@ -19,7 +19,7 @@
 
 ## Powers
 
-**Spider-derived metahuman genetics** — a separate manifestation from Riley's, not a derivative of it. The gene expression is distinct enough that A.E.G.I.S. treats them as parallel manifestations rather than a shared lineage.
+**Spider-derived genetics** — a separate manifestation from Riley's, not a derivative of it. The gene expression is distinct enough that A.E.G.I.S. treats them as parallel manifestations rather than a shared lineage.
 
 - Wall adhesion
 - Enhanced strength (functional, not at Riley's observed ceiling)

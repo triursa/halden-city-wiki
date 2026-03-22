@@ -99,7 +99,7 @@ Small public green space wedged between two research campuses. Technically open 
 ### Shadow Infrastructure
 
 **The Clinic at Rosen Street**
-Registered as a private urgent care practice. Staffed by two doctors and a nurse, all of whom are former A.E.G.I.S. medical personnel who left under various circumstances. They treat metahumans, enhanced individuals, and people with unusual physiological situations without filing incident reports. They charge on a sliding scale and keep their own records in a system that isn’t connected to anything governmental.
+Registered as a private urgent care practice. Staffed by two doctors and a nurse, all of whom are former A.E.G.I.S. medical personnel who left under various circumstances. They treat enhanced individuals and people with unusual physiological situations without filing incident reports. They charge on a sliding scale and keep their own records in a system that isn’t connected to anything governmental.
 
 Dr. **Yolanda Marsh** (52) runs it. She left A.E.G.I.S. after the 2010 restructuring. She will not say why. She will say that her job is medicine, not surveillance, and that these are not the same thing.
 
@@ -121,7 +121,7 @@ Private members club, 38th floor of the Aldren Building. Old money, political mo
 -----
 
 **Crownpoint Federal Plaza**
-The public-facing courtyard of the Federal Tower complex. There’s a small memorial here to metahumans who died in service — a tasteful abstract sculpture that manages to honor no one specifically. People eat lunch here. Protests stage here. A.E.G.I.S. has eyes on it at all times.
+The public-facing courtyard of the Federal Tower complex. There’s a small memorial here to enhanced individuals who died in service — a tasteful abstract sculpture that manages to honor no one specifically. People eat lunch here. Protests stage here. A.E.G.I.S. has eyes on it at all times.
 
 -----
 
@@ -157,7 +157,7 @@ The formal name for the statue-lined promenade ringing the plaza. The statues ar
 ### Shadow Infrastructure
 
 **The Archive — Lower Level, Halden City Public Library (Monument Branch)**
-The Monument Circle branch of the public library has a lower-level archive that contains physical copies of civic records, old newspaper morgues, and miscellaneous city documents going back to the 1890s. It’s understaffed, poorly indexed, and rarely visited. It’s also where a city archivist named **Declan Price** (58) has quietly assembled, over fifteen years, one of the most complete informal histories of metahuman activity in Halden City. He’s a civilian. He’s not connected to any faction. He just pays attention and writes things down.
+The Monument Circle branch of the public library has a lower-level archive that contains physical copies of civic records, old newspaper morgues, and miscellaneous city documents going back to the 1890s. It’s understaffed, poorly indexed, and rarely visited. It’s also where a city archivist named **Declan Price** (58) has quietly assembled, over fifteen years, one of the most complete informal histories of enhanced individual activity in Halden City. He’s a civilian. He’s not connected to any faction. He just pays attention and writes things down.
 
 *What players can find here:* Historical context, civilian-eye-view records of events that A.E.G.I.S. has sanitized, and Declan Price — who will share what he knows if he decides you’re worth talking to.*
 

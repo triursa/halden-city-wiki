@@ -58,7 +58,7 @@ Pristine labs, private campuses, and carefully worded press releases. Breakthrou
 - **Singularity labs** — where Danielle Whittaker (Wraith) was transformed in 2022; her parents' employer
 - **Three missing researchers** — as of 2025, three Glass District researchers have gone missing in eight months; SMAB has no confirmed causal link
 
-**History:** Founded 1968 by a consortium quietly underwritten by A.E.G.I.S. Stated purpose: medical and materials research. Actual mandate included metahuman enhancement study, artifact analysis, and power-source exploitation. The first serious ethical breaches began almost immediately and were systematically buried.
+**History:** Founded 1968 by a consortium quietly underwritten by A.E.G.I.S. Stated purpose: medical and materials research. Actual mandate included enhanced individual study, artifact analysis, and power-source exploitation. The first serious ethical breaches began almost immediately and were systematically buried.
 
 **2020 Incident:** An experimental gravity core underwent catastrophic collapse. Darius Cole was caught in the event radius. A.E.G.I.S. stabilized the anomaly inside him and built Aegis Prime around the result. A possible Eclipse connection has been flagged but not confirmed.
 
@@ -87,7 +87,7 @@ Fog rolls low over shipping cranes and dark water that never seems entirely calm
 | Location | Notes |
 |---|---|
 | **Alliance Tower** | The Alliance's base. Darius Cole maintains liaison quarters here. |
-| **The Danger Room** | Metahuman training facility built with A.E.G.I.S. technology, located inside Alliance Tower. Riley and Avi train here. |
+| **The Danger Room** | Enhanced individual training facility built with A.E.G.I.S. technology, located inside Alliance Tower. Riley and Avi train here. |
 | **Halden City General Hospital** | Where Allison Bryne (Carrion) works as a trauma surgeon. |
 
 ---

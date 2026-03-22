@@ -33,8 +33,24 @@ Working hypothesis: names are grounded and realistic, not fantastical. Avoid nam
 
 ## Locations
 
-- **The Danger Room** — Training facility for metahumans to test and develop their powers. A.E.G.I.S. technology, but the Danger Room referenced in fiction is the installation inside **Alliance Tower**, not an A.E.G.I.S. facility.
+- **The Danger Room** — Training facility for enhanced individuals to test and develop their powers. A.E.G.I.S. technology, but the Danger Room referenced in fiction is the installation inside **Alliance Tower**, not an A.E.G.I.S. facility.
 - **Halden City** — "Halden" is distinctive but not fantastical. Nordic origin (meaning "half-Dane"). Mid-Atlantic flavor.
+
+---
+
+## Terminology — People with Extraordinary Ability
+
+**Formal / institutional:** "enhanced individual" or "enhanced individuals" (plural). This is the language A.E.G.I.S. uses, the language that appears in city codes, and the default for wiki documentation and prose narration.
+- *Example: "A.E.G.I.S. maintains dossiers on virtually every active enhanced individual in the city."*
+- *Example: "The city code references enhanced individuals in the same dry bureaucratic language used for construction permits."*
+
+**Colloquial:** "supers" — street-level shorthand used by civilians, Ironworks residents, dockworkers, and anyone not operating in an institutional context. Carries no particular positive or negative charge; it's just the common noun.
+- *Example: "Half the block knew she was a super before A.E.G.I.S. did."*
+- *Example: "Supers are tolerated here. They are not worshipped."*
+
+**What to avoid:** "metahuman" — carries DC Comics IP association and has been removed from the setting entirely. Do not reintroduce it.
+
+**Institutional division names are exceptions:** MTR (Metahuman Threat Response) and SMAB (Strategic Metahuman Analytics Bureau) retain "metahuman" in their full names as proper nouns — these are bureaucratic designations that predate any terminology decision and have not been formally renamed. In prose, refer to them by acronym.
 
 ---
 

@@ -31,7 +31,7 @@ His sincerity about the city is not performance. He genuinely believes he is in 
 
 Casimir is an early investing partner in Eclipse's PROMETHEUS program — specifically the synthetic human drone initiative. He knows what PROMETHEUS is. He chose it.
 
-His thesis: the existing metahuman framework — A.E.G.I.S., the Alliance, cosmically-derived powers that answer to no one — is a sovereignty problem waiting to become a catastrophe. Uncontrolled metahumans cannot be regulated, only managed after the fact. Managed means people die first.
+His thesis: the existing framework for enhanced individuals — A.E.G.I.S., the Alliance, cosmically-derived powers that answer to no one — is a sovereignty problem waiting to become a catastrophe. Uncontrolled enhanced individuals cannot be regulated, only managed after the fact. Managed means people die first.
 
 Eclipse's controlled asset program is, in his view, the rational answer. Engineered capability. Owned accountability. No cosmic wildcards.
 

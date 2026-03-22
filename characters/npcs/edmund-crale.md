@@ -19,7 +19,7 @@
 
 ## Background
 
-The Crale family was present at A.E.G.I.S.'s founding in 1925. Not as agents or bureaucrats — as architects. Old money, East Coast, the kind of family whose name appears on the original charter documentation buried in War Department records that have never been fully declassified. They helped build the institution. They helped write the mandate. They understood, before almost anyone else did, that the metahuman question was coming and that whoever controlled the framework for answering it would hold something more durable than political power.
+The Crale family was present at A.E.G.I.S.'s founding in 1925. Not as agents or bureaucrats — as architects. Old money, East Coast, the kind of family whose name appears on the original charter documentation buried in War Department records that have never been fully declassified. They helped build the institution. They helped write the mandate. They understood, before almost anyone else did, that the question of enhanced individuals was coming and that whoever controlled the framework for answering it would hold something more durable than political power.
 
 For two generations that bet paid off. The Crales had influence — quiet, unacknowledged, the kind that doesn't show up in org charts but shapes decisions at the top. They were in the room when it mattered.
 
@@ -41,11 +41,11 @@ The black program has never appeared in a filing, a contract, or a leaked docume
 
 ## Who He Is
 
-Edmund is not theatrical. He does not monologue. He does not appear at crime scenes or send messages through intermediaries or make his presence felt in ways that draw attention. He runs a company. The company has a black program. The black program is changing what metahuman power means in the world. He considers this straightforward.
+Edmund is not theatrical. He does not monologue. He does not appear at crime scenes or send messages through intermediaries or make his presence felt in ways that draw attention. He runs a company. The company has a black program. The black program is changing what enhanced individual power means in the world. He considers this straightforward.
 
 He is genuinely intelligent and genuinely patient in a way that is almost geological — he thinks in decades, plans in contingencies, and has very little interest in results he won't live to see consolidated. He is not in a hurry. He has never been in a hurry. The Crale family did not build what it built by being in a hurry.
 
-He believes in PROMETHEUS the way old money believes in anything it built — not with passion, but with the calm certainty of someone who has never seriously entertained the possibility of being wrong. The metahuman question is a governance problem. PROMETHEUS is the answer. The ethics are a second-order concern for people who haven't thought hard enough about the first-order one.
+He believes in PROMETHEUS the way old money believes in anything it built — not with passion, but with the calm certainty of someone who has never seriously entertained the possibility of being wrong. The enhanced individual question is a governance problem. PROMETHEUS is the answer. The ethics are a second-order concern for people who haven't thought hard enough about the first-order one.
 
 He is not cruel. He is simply unbothered by cost when the outcome is correct.
 
@@ -53,7 +53,7 @@ He is not cruel. He is simply unbothered by cost when the outcome is correct.
 
 ## What He Wants
 
-At the end of PROMETHEUS, Edmund wants what his family was promised in 1925 and never fully received: a permanent, institutional hand on the framework that governs metahuman power. Not a seat at A.E.G.I.S.'s table — that institution is a century of compromise and bureaucratic calcification. He wants to make A.E.G.I.S. irrelevant. When governments need metahuman deterrence, they buy it from Eclipse. When they need controlled assets, they contract through Eclipse. When the question of what to do about the next Paragon arises, the answer runs through PROMETHEUS.
+At the end of PROMETHEUS, Edmund wants what his family was promised in 1925 and never fully received: a permanent, institutional hand on the framework that governs enhanced individual power. Not a seat at A.E.G.I.S.'s table — that institution is a century of compromise and bureaucratic calcification. He wants to make A.E.G.I.S. irrelevant. When governments need enhanced individual deterrence, they buy it from Eclipse. When they need controlled assets, they contract through Eclipse. When the question of what to do about the next Paragon arises, the answer runs through PROMETHEUS.
 
 He is not building a supervillain empire. He is building a monopoly.
 

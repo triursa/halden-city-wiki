@@ -34,15 +34,15 @@ The respectable business is not a cover story. It is a funding engine and a legi
 
 Eclipse's black program. Internal designation only — it does not appear in any public filing, contract, or press release.
 
-**The thesis:** Metahuman power exists. It is currently uncontrolled, cosmically arbitrary, and impossible to regulate. Eclipse believes this represents an enormous unsolved market problem — and an even larger national security problem. PROMETHEUS exists to solve both.
+**The thesis:** Enhanced individual power exists. It is currently uncontrolled, cosmically arbitrary, and impossible to regulate. Eclipse believes this represents an enormous unsolved market problem — and an even larger national security problem. PROMETHEUS exists to solve both.
 
 **Three revenue streams in development:**
 
 **1. Superhuman Deterrence**
-Engineered countermeasures, dampeners, and neutralization tools designed for sale to governments and military contractors. If you can't control the metahuman, you sell the thing that can stop them. A.E.G.I.S. does this through bureaucracy and detention. Eclipse intends to do it through product.
+Engineered countermeasures, dampeners, and neutralization tools designed for sale to governments and military contractors. If you can't control the enhanced individual, you sell the thing that can stop them. A.E.G.I.S. does this through bureaucracy and detention. Eclipse intends to do it through product.
 
 **2. Controlled Superhuman Assets**
-PROMETHEUS's most ambitious thread. Eclipse is developing synthetic human drones — baseline humans enhanced through the biotech research arm to function as controllable metahuman assets. Not cosmic. Not accidental. Engineered, owned, and deployable on contract. The early investor in this program is Casimir Vane.
+PROMETHEUS's most ambitious thread. Eclipse is developing synthetic human drones — baseline humans enhanced through the biotech research arm to function as controllable enhanced assets. Not cosmic. Not accidental. Engineered, owned, and deployable on contract. The early investor in this program is Casimir Vane.
 
 **3. Synthetic Power Manufacturing**
 The long game. Eclipse believes cosmically-derived powers can be reverse-engineered, synthesized, and sold. The Rhys compound was early-stage research in this direction — battlefield survivability as a proof of concept for what comes next. If they can bottle what happened to Rhys, they can sell it.
@@ -78,7 +78,7 @@ The procedure that resurrected Marcus was Adeyemi's work, not Eclipse science di
 Marcus knows he was brought back through an experimental procedure by someone Riley trusted. He does not know who that person was, what happened to her, or what his resurrection may have cost her.
 
 ### Casimir Vane — Investing Partner
-Early investor in the synthetic human drone program. Vane is a knowing partner — he understands what PROMETHEUS is and believes in it. His thesis: Halden City is heading toward a metahuman crisis that existing institutions cannot manage. Eclipse's controlled asset program is, in his view, the only rational answer. He is not covering for monsters. He believes he is backing the people who are going to get the city through what's coming.
+Early investor in the synthetic human drone program. Vane is a knowing partner — he understands what PROMETHEUS is and believes in it. His thesis: Halden City is heading toward an enhanced individual crisis that existing institutions cannot manage. Eclipse's controlled asset program is, in his view, the only rational answer. He is not covering for monsters. He believes he is backing the people who are going to get the city through what's coming.
 
 His philanthropy is genuine. His vision for the city is genuine. He just believes that vision requires something most people aren't ready to accept yet.
 
@@ -105,7 +105,7 @@ Whether this represents bureaucratic paralysis, compartmentalization, or somethi
 
 ## Feel and Texture
 
-Eclipse is not a supervillain organization. It is a company that has decided the metahuman question is a business problem and that they are the right people to solve it. Their employees mostly do legitimate work. Their researchers mostly believe they are advancing medicine and human capability.
+Eclipse is not a supervillain organization. It is a company that has decided the enhanced individual question is a business problem and that they are the right people to solve it. Their employees mostly do legitimate work. Their researchers mostly believe they are advancing medicine and human capability.
 
 PROMETHEUS is real and it is monstrous, but it is monstrous in the way that defense contracting can be monstrous — incrementally, plausibly, with good arguments at every step and a great deal of money changing hands at the end.
 

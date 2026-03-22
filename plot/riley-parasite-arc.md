@@ -19,7 +19,7 @@ Riley contracted a parasite during an encounter on Darkstar's ship. The exact ci
 
 ## The Parasite
 
-**Target:** Riley's spider gene specifically. The parasite has bonded to the spider-derived metahuman genetics, not to Riley as a baseline human. This makes it both harder to detect through standard medical screening (it reads, partially, as the biology it's attached to) and more specific in its effects.
+**Target:** Riley's spider gene specifically. The parasite has bonded to the spider-derived genetics, not to Riley as a baseline human. This makes it both harder to detect through standard medical screening (it reads, partially, as the biology it's attached to) and more specific in its effects.
 
 **Goal:** The working theory is that the parasite's intended outcome is stripping Riley's moral restraint rather than killing him. Something in the spider gene's expression is connected to how Riley processes ethical constraints — his caution, his guilt-driven boundaries, the thing that makes him stop. The parasite is working against that.
 

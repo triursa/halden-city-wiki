@@ -278,6 +278,7 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 |---|---|
 | `lore/world-history.md` | Full 100-year timeline |
 | `lore/paragon-renegade-forces.md` | Cosmic lore, all known hosts |
+| `lore/metahuman-taxonomy.md` | SMAB classification framework — six origin categories, modifier flags, known instances, unclassified edge cases |
 
 ### Plot
 | File | Contents |

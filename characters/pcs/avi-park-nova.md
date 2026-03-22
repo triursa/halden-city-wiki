@@ -12,6 +12,7 @@
 | **Civilian Name** | Avi Park |
 | **Age** | ~18 at manifestation; current age per campaign timeline |
 | **Occupation** | [Previously: competitive cheerleader. Current: TBD post-incident.] |
+| **A.E.G.I.S. File** | AEGIS-NVA-012 |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |
 | **Mentor** | Recluse / Riley Thomas |
 | **Biological Father** | Dr. Javier Mendez / Quantum (departed before Avi was born; does not know Avi) |
@@ -92,3 +93,4 @@ The weight of this: Avi's trauma response created the injury that made Carter a 
 
 *Last updated: March 2026*
 *Source: Player-authored origin fiction*
+

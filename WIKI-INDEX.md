@@ -90,7 +90,7 @@ Black hair (greying at temples), blue eyes, 5'11"/190 lbs. Extensive scarring.
 **Key facts:** Operated unsanctioned for 15 years before Paragon sponsored him. The 2006 Vega Incident (Sandra Vega's death) is the founding guilt of his heroism. Visits her grave annually. Trained her son Adrian. Has a documented precognitive blind spot around Casey Holt / Scythe (file AEGIS-SYC-REDACTED) — A.E.G.I.S. knows; he doesn't. Currently hiding physical deterioration (slow healing, stiff joints). Authorized Marcus Webb's resurrection via Dr. Selin Adeyemi — off A.E.G.I.S. books, calling in a debt. Adeyemi disappeared after; presumed dead. Voice: direct, dry, understated. No em dashes.
 
 ### Ethan Roberts / Paragon
-**DOB:** March 14, 1981 | **Age:** 45
+**DOB:** March 14, 1981 | **Age:** 45 | **File:** AEGIS-PRG-001
 Former Air Force pilot. Reluctant Paragon Force host since 2005. Methodical, acutely aware of his predecessor's failures.
 Powers: Flight, super strength, super speed, heat vision, x-ray vision, extreme durability.
 **Key secret:** Has known how to end the Paragon cycle and chosen not to act (Virek cache revelation).
@@ -106,12 +106,12 @@ Brilliant physicist scattered across quantum states. Requires containment suit o
 Powers: Teleportation, matter phasing, accelerated cognition, limited duplication (extended use causes local reality instability). Avi's biological father — departed before Avi was born; on the same team without Avi's knowledge.
 
 ### Kiara Je-rach / Starfall
-**Age:** Unknown (engineered cosmic envoy, no birth date)
+**Age:** Unknown (engineered cosmic envoy, no birth date) | **File:** AEGIS-STF-006
 Defected from the Auditors after Paragon asked her what she believed instead of fighting her. Marked "defective." Resident in Alliance Tower.
 Powers: Energy projection, limited matter restructuring, localized gravity manipulation, near-invulnerability, super-intelligence.
 
 ### Natalia Orlov / The Vanguard
-**DOB:** December 1, 1966 | **Age:** 59
+**DOB:** December 1, 1966 | **Age:** 59 | **File:** AEGIS-VGD-005
 Former black-ops enhanced asset. Defected after concluding all institutions corrupt themselves. A.E.G.I.S. made her; she left anyway. Does not know Casey Holt / Scythe exists. The fact that A.E.G.I.S. ran MANIFEST again after she left — with the same logic, refined methodology — is its own indictment.
 Powers: Electricity manifestation via additional organs, gene-locked muscle density, neural implants, pain suppression, uploaded combat training.
 
@@ -121,7 +121,7 @@ Son of Sandra Vega — Riley's defining guilt. Grew up without her. Found Riley,
 Powers: Hyper-cognitive stress response — time dilation perception, trajectory calculation, physiological reading, collateral modeling. Peak conditioning + martial arts (trained by Recluse).
 
 ### Sloane Callahan / Arachne
-**DOB:** February 14, 2004 | **Age:** 21
+**File:** AEGIS-ACH-008
 Hacked a Glass District server out of boredom. Found something she couldn't unknow. Riley showed up four days later. She said yes; still not entirely sure why. Intel/support backbone of Recluse's network. Has operationally claimed the second floor of The Hall.
 Capabilities: Weaver drones (surveillance across Riverside Ward and Dockside), hacking, looping feeds, pulling files. Perfect memory — every file, face, frequency retained instantly. She assumes this is just how her brain works. (It may not be.)
 
@@ -143,7 +143,7 @@ Powers: Kinetic absorption and redistribution — incoming force doesn't hurt he
 Spider-derived powers (distinct from Riley's) — wall adhesion, enhanced strength, omni-directional threat sense (persistent 360° ambient awareness, not a precognitive flash). Killed publicly by Perdition. Resurrected via Dr. Selin Adeyemi's cellular regrowth procedure — authorized by Riley, off A.E.G.I.S. books. Adeyemi disappeared after; presumed dead. Marcus is alive, functional, and has not forgiven anyone for his resurrection. Does not know who Adeyemi was or what happened to her.
 
 ### Declan Harrow / Shroud
-**DOB:** June 30, 1996 | **Age:** 29
+**DOB:** June 30, 1996 | **Age:** 29 | **File:** AEGIS-SHR-009
 Hunts the things A.E.G.I.S. has no language for — the older things in Halden City's forgotten infrastructure. Operates along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident. **Note: Shroud's canonical name is Declan Harrow. Marcus Harrow is an earlier erroneous reference.**
 
 ---
@@ -301,4 +301,5 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 
 *Last updated: March 2026 — Session 4: WIKI-INDEX fully restructured. Casey Holt / Scythe added to roster and file table. The Hall added to districts and locations. Character tables split into PCs / NPCs-Alliance / NPCs-Antagonists. Macro arc structure added to index. All current wiki files catalogued. Villain-sheets subfolder documented.*
 *To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*
+
 

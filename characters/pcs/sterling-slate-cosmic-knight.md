@@ -13,6 +13,7 @@
 | **Former Designation** | Void Reaper |
 | **Age** | 19 |
 | **Occupation** | Sophomore at Halden University — astrophysics major, biochemistry minor |
+| **A.E.G.I.S. File** | AEGIS-CSK-015 |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |
 | **Mentor** | Starfall / Kiara Je-rach |
 | **Status** | Active — defected asset; Darkstar is aware |
@@ -94,3 +95,4 @@ He abandoned the mission. He made a vow. He took the name Cosmic Knight and turn
 
 *Last updated: March 2026*
 *Source: Player-authored origin fiction*
+

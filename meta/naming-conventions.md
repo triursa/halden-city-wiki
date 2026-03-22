@@ -54,13 +54,61 @@ Working hypothesis: names are grounded and realistic, not fantastical. Avoid nam
 
 ---
 
+## Districts & Boroughs
+
+Halden City uses distinct neighborhood names rather than numbered boroughs. The six primary districts are proper nouns: **Crownpoint**, **The Ironworks**, **Riverside Ward**, **The Glass District**, **Monument Circle**, and **Blackwater Harbor** (also called Dockside). Each name is descriptive and emerged organically — historical, industrial, or geographic in character. No formal borough system exists.
+
+---
+
+## Hero Identity — Public vs. Private
+
+Heroes operate under code names as a default. Identity disclosure exists on a spectrum:
+
+- **Publicly known identity:** The hero's civilian name is a matter of public record. Example: Ethan Roberts / Paragon.
+- **Known to A.E.G.I.S. and trusted Alliance members, private to the public:** The hero operates under a code name publicly but is identified in A.E.G.I.S. files and known to close allies. Example: Riley Thomas / Recluse.
+- **Fully private:** Identity is unknown to A.E.G.I.S. and the general public. A.E.G.I.S. may have a file with limited information but no confirmed civilian identity. Example: Rhys Romneya / Noc.
+
+In prose and documentation, refer to heroes by code name in field/action contexts and by civilian name in personal/civilian contexts.
+
+---
+
+## A.E.G.I.S. Designation Codes
+
+A.E.G.I.S. uses internal file designation codes for all tracked enhanced individuals. Format: **AEGIS-[3-LETTER CODE]-[NUMBER]**
+
+The three-letter code is derived from the hero or asset name. The number reflects the approximate chronological order in which A.E.G.I.S. opened or formalized the file.
+
+**Current assigned codes:**
+
+| Code | Individual |
+|---|---|
+| AEGIS-PRG-001 | Ethan Roberts / Paragon |
+| AEGIS-RCL-002 | Riley Thomas / Recluse |
+| AEGIS-RFT-003 | Elena Marquez / Riftfire |
+| AEGIS-QNT-004 | Javier Mendez / Quantum |
+| AEGIS-VGD-005 | Natalia Orlov / The Vanguard |
+| AEGIS-STF-006 | Kiara Je-rach / Starfall |
+| AEGIS-AGP-007 | Darius Cole / Aegis Prime |
+| AEGIS-ACH-008 | Sloane Callahan / Arachne |
+| AEGIS-SHR-009 | Declan Harrow / Shroud — heavily redacted, quietly misfiled |
+| AEGIS-BKP-010 | Adrian Vega / Breakpoint |
+| AEGIS-SYC-REDACTED | Casey Holt / Scythe — file withheld from Riley Thomas deliberately |
+| AEGIS-NVA-012 | Avi Park / Nova |
+| AEGIS-APL-013 | Jason / Apollo |
+| AEGIS-NOC-014 | Rhys Romneya / Noc |
+| AEGIS-CSK-015 | Sterling Slate / Cosmic Knight |
+| AEGIS-HLF-016 | Casper Curie / Half-Life — amended from prior villain classification (Decay) |
+
+Entities without designation codes (Calypso, Darkstar, Wraith) are filed under watch status or independent tracking systems that predate or fall outside the standard code format.
+
+---
+
 ## Open Questions
 
-- [ ] Does Halden City have named boroughs or districts? What's the naming logic?
-- [ ] Are hero code names used, or do heroes operate under real names?
-- [ ] Does A.E.G.I.S. use internal designation codes for heroes, threats, or incidents?
+- [ ] Are there A.E.G.I.S. designation codes for threats, incidents, or objects — or only for individuals?
 
 ---
 
 *Last updated: March 2026*
+
 

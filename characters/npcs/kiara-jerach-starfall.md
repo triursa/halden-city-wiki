@@ -8,7 +8,7 @@
 |---|---|
 | **Full Name** | Kiara Je-rach |
 | **Hero Name** | Starfall |
-| **A.E.G.I.S. File** | On file — classified; watch status |
+| **A.E.G.I.S. File** | AEGIS-STF-006 |
 | **DOB** | Unknown — she was engineered, not born |
 | **Age** | Unknown |
 | **Physical** | [To be detailed] |
@@ -70,3 +70,4 @@ She thinks at a scale humans find uncomfortable. She has spent years watching th
 ---
 
 *Last updated: March 2026*
+

@@ -8,7 +8,7 @@
 |---|---|
 | **Full Name** | Declan Harrow |
 | **Hero Name** | Shroud |
-| **A.E.G.I.S. File** | Heavily redacted — quietly misfiled. This is not an accident. |
+| **A.E.G.I.S. File** | AEGIS-SHR-009 — heavily redacted, quietly misfiled. This is not an accident. |
 | **DOB** | June 30, 1996 |
 | **Age** | 29 |
 | **Birthplace** | Halden City |
@@ -70,3 +70,4 @@ He operates at the edges of everything — not in the Alliance's network, not un
 ---
 
 *Last updated: March 2026 — Name corrected: Marcus Harrow → Declan Harrow (canonical first name confirmed).*
+

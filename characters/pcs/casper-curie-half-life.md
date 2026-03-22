@@ -13,6 +13,7 @@
 | **Former Villain Name** | Decay |
 | **Playbook** | The Reformed |
 | **Age** | TBD |
+| **A.E.G.I.S. File** | AEGIS-HLF-016 — amended from prior villain classification (Decay) |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |
 | **Status** | Active — reformed antagonist, proving himself |
 
@@ -95,3 +96,4 @@ The waste dump work is also a potential connection point to the Glass District's
 ---
 
 *Last updated: March 2026*
+

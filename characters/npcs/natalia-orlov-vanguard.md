@@ -8,7 +8,7 @@
 |---|---|
 | **Full Name** | Natalia Orlov |
 | **Hero Name** | The Vanguard |
-| **A.E.G.I.S. File** | On file — monitored carefully |
+| **A.E.G.I.S. File** | AEGIS-VGD-005 |
 | **DOB** | December 1, 1966 |
 | **Age** | 59 |
 | **Birthplace** | [Unknown — Soviet-era; defected from program] |
@@ -67,3 +67,4 @@ Her relationship to A.E.G.I.S. is the defining tension of her institutional life
 ---
 
 *Last updated: March 2026*
+

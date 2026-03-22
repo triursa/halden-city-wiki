@@ -12,6 +12,7 @@
 | **Civilian Name** | Rhys Romneya |
 | **Age** | ~18–19 (left Pine's school at 18) |
 | **Occupation** | Halden University student — music major, percussion focus. Plays in a band called Neon Orchard. |
+| **A.E.G.I.S. File** | AEGIS-NOC-014 |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |
 | **Mentor** | Riftfire / Elena Marquez OR Recluse / Riley Thomas — [to be confirmed] |
 | **Status** | Active — hunted asset (Eclipse has not found them yet) |
@@ -115,3 +116,4 @@ From observed scene (player fiction):
 
 *Last updated: March 2026*
 *Source: Player-authored origin fiction*
+

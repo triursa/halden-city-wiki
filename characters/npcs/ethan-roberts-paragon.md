@@ -8,7 +8,7 @@
 |---|---|
 | **Full Name** | Ethan Roberts |
 | **Hero Name** | Paragon |
-| **A.E.G.I.S. File** | On file — independent status |
+| **A.E.G.I.S. File** | AEGIS-PRG-001 |
 | **DOB** | March 14, 1981 |
 | **Age** | 45 |
 | **Birthplace** | [Unknown] |
@@ -75,3 +75,4 @@ He believes in the Alliance as an institution. He believes in cooperation over u
 ---
 
 *Last updated: March 2026*
+

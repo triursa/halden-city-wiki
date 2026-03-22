@@ -77,12 +77,13 @@ The restructuring of 2010 is presented publicly as reform. Internally it expande
 | Riley Thomas / Recluse | AEGIS-RCL-002 | Active — Allied (Sponsored) |
 | Elena Marquez / Riftfire | AEGIS-RFT-003 | Active — Allied |
 | Javier Mendez / Quantum | AEGIS-QNT-004 | Active — Allied / Advisory |
-| Ethan Roberts / Paragon | On file | Active — Allied (independent) |
+| Ethan Roberts / Paragon | AEGIS-PRG-001 | Active — Allied (independent) |
 | Darius Cole / Aegis Prime | AEGIS-AGP-007 | Active — Sanctioned Champion |
 | Adrian Vega / Breakpoint | AEGIS-BKP-010 | Active — Allied (Emerging) |
-| Natalia Orlov / Vanguard | On file | Active — Allied (monitored carefully) |
-| Calypso | On file | Omega — Watch Status (non-hostile to date) |
-| Danielle Whittaker / Wraith | On file | Moderate — Independent (hostile to agency interests) |
+| Sloane Callahan / Arachne | AEGIS-ACH-008 | Active — Allied (Support/Intel) |
+| Natalia Orlov / Vanguard | AEGIS-VGD-005 | Active — Allied (monitored carefully) |
+| Calypso | On file — no designation code assigned | Omega — Watch Status (non-hostile to date) |
+| Danielle Whittaker / Wraith | On file — no designation code assigned | Moderate — Independent (hostile to agency interests) |
 | **AEGIS-SYC-REDACTED** | Classified | File withheld from Riley Thomas deliberately |
 
 ---
@@ -105,4 +106,5 @@ Darius Cole (Aegis Prime) is the closest thing A.E.G.I.S. has to an ideologicall
 ---
 
 *Last updated: March 2026*
+
 

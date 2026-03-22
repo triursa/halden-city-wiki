@@ -8,7 +8,7 @@
 |---|---|
 | **Full Name** | Sloane Callahan |
 | **Hero Name** | Arachne |
-| **A.E.G.I.S. File** | Not officially on file (implied) |
+| **A.E.G.I.S. File** | AEGIS-ACH-008 |
 | **DOB** | February 14, 2004 |
 | **Age** | 21 |
 | **Birthplace** | Halden City |
@@ -67,3 +67,4 @@ Her perfect memory is a thread that hasn't been pulled yet. She assumes it's jus
 ---
 
 *Last updated: March 2026*
+

@@ -11,6 +11,7 @@
 | **Hero Name** | Apollo |
 | **Civilian Name** | Jason |
 | **Age** | [Working assumption: 18–19, senior year at time of origin] |
+| **A.E.G.I.S. File** | AEGIS-APL-013 |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |
 | **Mentor** | [Unassigned as of current arc — Riftfire invited him to the team] |
 | **Status** | Active — deteriorating. Operating on borrowed time. |
@@ -97,3 +98,4 @@ The Doomed playbook means the question of *whether* the end comes — and what h
 
 *Last updated: March 2026*
 *Source: Player-authored origin fiction*
+

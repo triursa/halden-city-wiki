@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,48 +304,58 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../lore/world-history.html" class="nav-link active" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span>Lore<span class="sep">/</span>World History — Halden City Timeline</div>
-    <article class="content">
+    <article class="content clearfix">
       <h1>World History — Halden City Timeline</h1>
 <blockquote><p>Chronological record of confirmed events. Mark [CONFIRMED CANON] vs [WORKING ASSUMPTION].</p></blockquote>
 <hr>
 <h2>ERA I: THE SECRET AGE (1925–1959)</h2>
-<p><strong>1925 — A.E.G.I.S. Founded in Secrecy</strong> [CONFIRMED CANON] Quietly chartered by executive order, buried in the War Department. Founding mandate: catalogue, contain, neutralize anomalous human phenomena. First sub-level command bunker excavated beneath what will become Crownpoint Federal Tower.</p>
+<p><strong>1925 — A.E.G.I.S. Founded in Secrecy</strong> [CONFIRMED CANON] Quietly chartered by executive order, buried in the War Department. Founding mandate: catalogue, contain, neutralize anomalous human phenomena. First sub-level command bunker excavated beneath what will become Crownpoint Federal Tower. The Crale family — old money, East Coast — is present at the founding, part of the institutional architecture from the beginning. Their influence is quiet, unacknowledged, and will erode over the following generations.</p>
 <p><strong>1940 — The Paragon Force Enters History</strong> [CONFIRMED CANON] A.E.G.I.S. documents "The Mantle" — a cosmic energy bonding to a single host, granting extraordinary ability. First confirmed Paragon fights with Allied forces, classified as "Asset CROWN."</p>
 <p><strong>1947 — The Renegade Force — First Recorded Manifestation</strong> [CONFIRMED CANON] Soviet-adjacent operative exhibiting abilities that mirror and counter Asset CROWN. A.E.G.I.S. begins modeling the two forces as paired cosmic principles. Containment fails. File remains open for decades.</p>
-<p><strong>1953 — Operation MANIFEST</strong> [CONFIRMED CANON] Black-site super-soldier enhancement program authorized. Objective: produce a state asset capable of neutralizing a rogue Paragon-class individual. Natalia Orlov is a eventual product of this program.</p>
+<p><strong>1953 — Operation MANIFEST</strong> [CONFIRMED CANON] Black-site super-soldier enhancement program authorized. Objective: produce a state asset capable of neutralizing a rogue Paragon-class individual. Natalia Orlov is an eventual product of this program.</p>
 <p><strong>1958 — Halden City's First Public Superhuman Incident</strong> [CONFIRMED CANON] Cargo ship explosion at Blackwater Harbor. Eyewitnesses describe a figure walking through fire. A.E.G.I.S. clears the scene in four hours. City government issues no official statement. The dockworkers' union begins keeping its own records.</p>
 <hr>
 <h2>ERA II: THE PUBLIC AGE BEGINS (1960–1984)</h2>
 <p><strong>1963 — Paragon Goes Public</strong> [CONFIRMED CANON] A.E.G.I.S. authorizes Asset CROWN to operate semi-publicly as "Paragon." Public reception is fraught. Demonstrations for and against in Monument Circle.</p>
-<p><strong>1968 — The Glass District Is Established</strong> [CONFIRMED CANON] Defense contractors and academic institutions, quietly underwritten by A.E.G.I.S. Stated purpose: medical and materials research. Actual mandate: metahuman enhancement study, artifact analysis, power-source exploitation. Ethical breaches begin almost immediately.</p>
+<p><strong>1968 — The Glass District Is Established</strong> [CONFIRMED CANON] Defense contractors and academic institutions, quietly underwritten by A.E.G.I.S. Stated purpose: medical and materials research. Actual mandate: enhanced individual study, artifact analysis, power-source exploitation. Ethical breaches begin almost immediately.</p>
 <p><strong>1971 — Paragon Intervenes in a Foreign Election</strong> [CONFIRMED CANON] Dr. Gabriel Virek, a young academic, encounters a declassified summary. Document is re-classified; his access revoked. First entry in what will become the Virek Papers.</p>
 <p><strong>1979 — Calypso Makes Contact</strong> [CONFIRMED CANON] Calypso awakens after centuries of isolation and makes first contact with the previous Paragon during a maritime crisis in the North Atlantic. They reach an uneasy accord. A.E.G.I.S. creates a new file classification for an immortal mythological entity.</p>
 <p><strong>1982 — The Virek Papers Compilation Begins</strong> [CONFIRMED CANON] Dr. Gabriel Virek, now a senior UN policy adviser and A.E.G.I.S. consultant, begins systematically assembling classified evidence of Paragon's extralegal interventions. He begins hearing "a frequency." The Renegade Force has taken notice.</p>
 <hr>
 <h2>ERA III: CRISIS &amp; CONSEQUENCE (1985–1999)</h2>
-<p><strong>1987 — The Ironworks Collapse</strong> [CONFIRMED CANON] Deindustrialization guts the Ironworks. Factories close, shipyards contract. Organized crime — primarily the Persico family — fills the vacuum. Street-level metahuman activity increases sharply.</p>
+<p><strong>1987 — The Ironworks Collapse</strong> [CONFIRMED CANON] Deindustrialization guts the Ironworks. Factories close, shipyards contract. Organized crime — primarily the Persico family — fills the vacuum. Street-level enhanced individual activity increases sharply.</p>
 <p><strong>1999 — The West Coast Broadcast: Fall of Two Forces</strong> [CONFIRMED CANON] Nemesis engineers a globally televised confrontation with the previous Paragon. Broadcasts fragments of the Virek Papers live. The fight destroys a section of the Pacific coastline. Both combatants die. The Paragon Force goes dormant. The Renegade Force dissipates.</p>
 <p>Riley Thomas is 9 years old when he watches from a Riverside Ward living room. Ethan Roberts is 18. He enlists in the Air Force the following year.</p>
 <hr>
@@ -230,9 +364,9 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <p><strong>2006 — Recluse: Riley Thomas Manifests and the Vega Incident (age 16)</strong> [CONFIRMED CANON] Riley exhibits spider-like abilities and a one-second precognitive flash. Overwhelmed and still learning, he pulls a fire alarm during a Riverside Ward robbery. The thief panics and fires. Sandra Vega is killed. Her two-year-old son Adrian is found unharmed. Riley goes underground. He will visit Sandra's grave every year for the rest of his life.</p>
 <p><strong>2006 — The Quantum Accident (Dr. Javier Mendez, age 36)</strong> [CONFIRMED CANON] Glass District physicist attempts to experimentally harness quantum probability. Experiment succeeds catastrophically. Particles scatter across multiple quantum states. A.E.G.I.S. spends months engineering a containment suit.</p>
 <p><strong>2007 — Riftfire: Lena Marquez Manifests (age 15)</strong> [CONFIRMED CANON] Teenager Lena "borrows" a friend's parents' car and loses control. Before the crash, she is standing on the shoulder of the road unharmed. She spends years quietly training the ability.</p>
-<p><strong>2008 — Casimir Vane Founds Vane Capital Group</strong> [CONFIRMED CANON] Self-made entrepreneur from the Ironworks consolidates a near-monopoly on Crownpoint construction contracts. Growth is unusually fast for a firm without obvious institutional backing.</p>
+<p><strong>2008 — Casimir Vane Founds Vane Capital Group</strong> [CONFIRMED CANON] Self-made entrepreneur from the Ironworks consolidates a near-monopoly on Crownpoint construction contracts. Growth is unusually fast — backed by Eclipse, though this is not publicly known. Vane is an early investing partner in Eclipse's PROMETHEUS program and a knowing ideological participant.</p>
 <p><strong>2009 — Starfall: Kiara Je-rach Arrives and Defects</strong> [CONFIRMED CANON] Cosmic envoy arrives in low orbit with an audit determination that Earth should be removed from the cosmic record. Paragon intercepts her and, instead of force, asks her what she believes. She defects. Marked "defective" by the Auditors. Takes residence in Alliance Tower.</p>
-<p><strong>2010 — A.E.G.I.S. Regional Command Restructured</strong> [CONFIRMED CANON] Following containment failures and public controversy over metahuman detention. Evelyn Shaw appointed Regional Director. New divisions: MTR, ACAD, SMAB, MANIFEST. Publicly: modernization. Internally: expanded surveillance and detention authority.</p>
+<p><strong>2010 — A.E.G.I.S. Regional Command Restructured</strong> [CONFIRMED CANON] Following containment failures and public controversy over enhanced individual detention. Evelyn Shaw appointed Regional Director. New divisions: MTR, ACAD, SMAB, MANIFEST. Publicly: modernization. Internally: expanded surveillance and detention authority.</p>
 <p><strong>2012 — Darkstar Arrives</strong> [CONFIRMED CANON] Umbraeon explorer makes first documented contact with Halden City through intermediaries. Initial interventions: empowering unstable individuals, introducing experimental biological agents, engineering stress-test scenarios. A passive observer taking notes — not an active antagonist.</p>
 <p><strong>2015 — The Alliance Is Formally Established</strong> [CONFIRMED CANON] Paragon brokers coalition: himself, Recluse, Riftfire, Quantum, Starfall, The Vanguard. Tenuous knowledge-sharing framework established with A.E.G.I.S.: cooperation without subordination. Same year: Joseph Persico convicted and imprisoned. Calypso attends the first public address, watches from the harbor, leaves without speaking.</p>
 <hr>
@@ -243,15 +377,17 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <p><strong>2022 — Wave of Manifestations</strong> [CONFIRMED CANON] Morgan Vale (Nightfall), Owen Watson (Red Pill), Danielle Whittaker (Wraith), Allison Bryne (Carrion). A.E.G.I.S. MANIFEST logs the cluster as anomalous.</p>
 <p><strong>2022 — The Virek Papers Cache Surfaces</strong> [CONFIRMED CANON] Anonymous tip leads a journalist to a partially decrypted data cache in Blackwater Harbor. Confirms Paragon's 1971 election intervention and two others. Publication delayed by legal injunction.</p>
 <p><strong>2023 — Breakpoint: Adrian Vega Trained and Active (age 19)</strong> [CONFIRMED CANON] Adrian confronts Riley Thomas — not with rage but clarity. Riley agrees to train him. They become the Alliance network's most tactically precise partnership.</p>
-<p><strong>2023 — Shroud: Marcus Harrow Established (age 27)</strong> [CONFIRMED CANON] Has spent years hunting the things A.E.G.I.S. has no language for. Established presence along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident.</p>
+<p><strong>2023 — Requiem: Marcus Webb Killed and Resurrected</strong> [CONFIRMED CANON] Marcus Webb — Ironworks-origin, spider-derived powers, trained by Recluse — is killed publicly by Perdition. Riley Thomas authorizes an experimental resurrection procedure through Dr. Selin Adeyemi, an independent Glass District researcher he had previously rescued from a Persico operation. The procedure is conducted entirely off A.E.G.I.S. books. Marcus is brought back. Adeyemi disappears shortly after — Eclipse identified the unauthorized use of research adjacent to PROMETHEUS and sent someone. Riley does not know what happened to her.</p>
+<p><strong>2023 — Shroud: Declan Harrow Established (age 27)</strong> [CONFIRMED CANON] Has spent years hunting the things A.E.G.I.S. has no language for. Established presence along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident.</p>
 <hr>
 <h2>Story Present (2025–2026)</h2>
 <p><strong>2025 — The City at the Edge</strong> [CONFIRMED CANON]</p>
-<ul><li>Joseph Persico, released from prison, re-establishing his Dockside network</li><li>Three Glass District researchers missing in eight months; SMAB has no confirmed causal link</li><li>The Alliance holds; A.E.G.I.S. watches; the Virek Papers are still mostly encrypted</li><li>Monument Circle booked through the end of the year</li></ul>
+<ul><li>Joseph Persico, released from prison, re-establishing his Dockside network</li><li>Three Glass District researchers missing in eight months; SEIB has no confirmed causal link</li><li>The Alliance holds; A.E.G.I.S. watches; the Virek Papers are still mostly encrypted</li><li>Monument Circle booked through the end of the year</li></ul>
 <p><strong>[Ongoing] — Riley's Physical Deterioration</strong> [CONFIRMED CANON] Slower healing, stiff joints, injuries that don't recover as fast. He is hiding it.</p>
 <p><strong>[Ongoing] — Signal's Campaign</strong> [CONFIRMED CANON] Signal is building. His hospital recording of Riley threatening Carter Williams is in hand. He is two steps ahead and waiting for the right moment.</p>
+<p><strong>[Ongoing] — Eclipse / PROMETHEUS</strong> [CONFIRMED CANON] Eclipse operates as a legitimate biotech company while running PROMETHEUS underneath — a black program developing enhanced individual deterrence, controlled synthetic human assets, and manufactured enhanced powers. CEO Edmund Crale (Crale family, A.E.G.I.S. founding lineage) has kept it invisible for years using institutional knowledge his family accumulated across a century. Casimir Vane is an early investing partner. Rhys/Noc is an unclosed asset. The program has never appeared in any public filing or leaked document.</p>
 <hr>
-<p><em>Last updated: March 2026</em></p>
+<p><em>Last updated: March 2026 — Added Crale family footnote to 1925 founding. Updated Vane 2008 entry. Added Requiem resurrection 2023 entry. Added Eclipse/PROMETHEUS ongoing entry.</em></p>
     </article>
     <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
   </main>

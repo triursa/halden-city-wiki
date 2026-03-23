@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darkstar — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  280px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* sidebar */
+.sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden; }
+.sidebar-header { padding: 24px 20px 16px; border-bottom: 1px solid var(--border); }
+.sidebar-title { font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3; }
+.sidebar-subtitle { font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+.sidebar-nav { padding: 12px 0 24px; flex: 1; }
+
+.nav-home { display: block; padding: 8px 20px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+.nav-home:hover, .nav-home.active { color: var(--accent); border-left-color: var(--accent);
+  background: var(--bg-hover); }
+
+.nav-section { margin-top: 16px; }
+.nav-section-header { padding: 6px 20px; font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim);
+  display: flex; align-items: center; gap: 8px; }
+.nav-section-icon { color: var(--accent-dim); font-size: 12px; }
+.nav-section-icon.pc { color: var(--accent-pc); }
+
+.nav-link { display: block; padding: 6px 20px 6px 28px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover); }
+.nav-link.pc:hover { color: var(--accent-pc); }
+.nav-link.pc.active { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* main */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 900px; }
+.breadcrumb { font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px; }
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge { display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8; }
+
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
+/* typography */
+.content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+.content h2 { font-size: 13px; font-weight: 700; color: var(--accent);
+  letter-spacing: .1em; margin: 40px 0 12px; text-transform: uppercase; }
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 { font-size: 14px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em; }
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s; }
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* tables */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th { text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* code */
+.content code { font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border); }
+.content pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0; }
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* blockquote */
+.content blockquote { border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0; }
+.content blockquote p { margin-bottom: 0; }
+
+/* lists */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* hr */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* footer */
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em; }
+
+/* mobile */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle { display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em; }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
+  <a href="../../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
+  <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
+  <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
+  <a href="../../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
+  <a href="../../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
+  <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
+  <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../../characters/npcs/darkstar.html" class="nav-link active" title="Darkstar">Darkstar</a>
+  <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
+  <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
+  <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
+  <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
+  <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
+  <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◉</span>Factions</div>
+  <a href="../../factions/aegis.html" class="nav-link" title="A.E.G.I.S.">A.E.G.I.S.</a>
+  <a href="../../factions/eclipse.html" class="nav-link" title="Eclipse">Eclipse</a>
+  <a href="../../factions/the-alliance.html" class="nav-link" title="The Alliance">The Alliance</a>
+  <a href="../../factions/vane-capital-group.html" class="nav-link" title="Vane Capital Group">Vane Capital Group</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
+  <a href="../../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
+  <a href="../../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
+  <a href="../../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
+  <a href="../../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
+  <a href="../../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
+  <a href="../../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
+  <a href="../../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
+  <a href="../../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span>Characters<span class="sep">/</span>Darkstar</div>
+    <article class="content clearfix">
+      <h1>Darkstar</h1>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Full Name</strong></td>
+<td>Darkstar (designation — given name untranslated/unknown)</td>
+</tr>
+<tr>
+<td><strong>Hero Name</strong></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. File</strong></td>
+<td>On file — Watch Status, non-hostile to date</td>
+</tr>
+<tr>
+<td><strong>Species</strong></td>
+<td>Umbraeon</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>Unknown — near-immortal by human timescales</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>None formal. Self-directed. Fringe of Umbraeon civilization.</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active in Halden City — passive observer/experimenter</td>
+</tr>
+<tr>
+<td><strong>Origin Category</strong></td>
+<td>Category Va — Cosmic/Alien Origin (Full Non-Human)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Powers</h2>
+<ul><li><strong>Dark matter manipulation</strong> — primary capability; precise gravitational and cosmic force control</li><li><strong>Advanced genetic engineering</strong> — has introduced experimental biological agents and modified individuals' genetics deliberately</li><li><strong>Passive observation</strong> — operates through intermediaries; avoids direct confrontation</li></ul>
+<hr>
+<h2>The Umbraeon</h2>
+<p>A civilization born around a dying star emitting unstable dark radiation. The Umbraeon mastered gravitational forces and cosmic energy long before humanity discovered fire. Over millennia, they abandoned war and scarcity, replacing both with experimentation and cultural study.</p>
+<p>Detached, hyper-rational, and nearly immortal, they view younger species as developmental case studies rather than equals. Where humans see morality, the Umbraeon see data.</p>
+<p>Darkstar represents a radical fringe of his kind — one of very few who believe in intervention rather than pure observation.</p>
+<hr>
+<h2>Background</h2>
+<p>First documented contact with Halden City: 2012. Operating through intermediaries. His initial interventions were subtle: empowering unstable individuals, introducing experimental biological agents, engineering scenarios designed to stress-test heroic systems.</p>
+<p>He believes suffering accelerates evolution. He considers himself a catalyst to greatness. He is calm, analytical, and patient in a way that reads as genuinely alien — not performed patience, but the actual temporal perspective of something that has watched civilizations rise and fall.</p>
+<p>His defected son Sterling Slate / Cosmic Knight is active in Halden City and has crossed paths with the new team. Darkstar's interest in the team is personal now in a way it was not before.</p>
+<hr>
+<h2>Character Profile</h2>
+<p>Darkstar is not a villain who wants to destroy. He is something more unsettling: an observer who genuinely believes the things he does to people are good for them. His frame is evolutionary. His methods are experiments. The people he empowers or harms are data points in a study he's been running for longer than most institutions have existed.</p>
+<p>The Sterling situation complicates this. His son is a defection — a data point that refused the categorization Darkstar assigned to it. What that does to his methodology, or to him, is not yet known.</p>
+<hr>
+<h2>Relationships</h2>
+<table>
+<thead><tr>
+<th>Person</th>
+<th>Relationship</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Sterling Slate / Cosmic Knight</strong></td>
+<td>His son. Engineered half-Umbraeon. Defected. Darkstar's interest in the new team runs through this.</td>
+</tr>
+<tr>
+<td><strong>Riley Thomas / Recluse</strong></td>
+<td>Aware of. Has been monitoring Riley's parasite situation with interest. Not intervening — yet.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>The Parasite Thread</h2>
+<h3>Origin — The Abduction Mission (~2015–2016)</h3>
+<p>The parasite was introduced during one of the Alliance's earliest formal operations — a response to a Darkstar-linked abduction event, likely within the first year of the Alliance's founding. The mission was a team effort: Riley's first joint operation with the Alliance rather than the Recluse network, which by itself marks it as significant. He had spent fifteen years working alone or with a small trusted circle. This was new.</p>
+<p>The team boarded Darkstar's ship. They extracted whoever had been taken. The operation was, by surface metrics, a success. Darkstar permitted it — passively, deliberately. He had no interest in the abductee. He had interest in the heroes who came for them.</p>
+<p>Riley did not know he had been exposed to anything when he left the ship. There was no injury, no obvious intervention. Whatever Darkstar introduced was introduced quietly, in the margins of a mission Riley considered concluded.</p>
+<p><strong>Why Riley specifically:</strong> Darkstar had been studying Halden City's enhanced individuals since 2012. The spider gene is unusual — a distributed genetic expression with documented precognitive capacity, not an accident or a lab product. Riley had been operating unsanctioned for nearly a decade before the Alliance gave him institutional cover. Darkstar had been watching him for years before the ship encounter. The parasite was not opportunistic. It was selected.</p>
+<p><strong>Timeline:</strong> ~10 years elapsed between exposure and the campaign's present. The parasite is slow. This was designed.</p>
+<h3>What the Parasite Does</h3>
+<p>Targets the spider gene specifically. Designed to strip moral restraint rather than kill the host. Darkstar's hypothesis: the spider gene's precognitive function is entangled with threat-assessment, which is entangled with ethical weighting. Remove the restraint, and what remains is a faster, more efficient predator — a genuine evolutionary step, by his frame.</p>
+<p>Riley's physical deterioration (slower healing, stiff joints) is a side effect of the parasite's progress, not the goal. The degradation of his body is the price of something Darkstar considers an upgrade.</p>
+<p><strong>Zara Thorne</strong> receives Riley's physical distress passively through genetic entanglement — she is getting a signal, not symptoms. The signal has been intensifying. She doesn't know about the parasite. She knows something is wrong.</p>
+<p>Darkstar is monitoring. His posture is passive — he seeded the experiment and is observing results. He considers intervention unnecessary. He expects the data to arrive on its own timeline.</p>
+<hr>
+<h2>Open Questions</h2>
+<ul><li><input type="checkbox" disabled> What is Darkstar's actual long-term objective in Halden City — what does he expect to find?</li><li><input type="checkbox" disabled> How does Sterling's defection factor into his calculations going forward?</li><li><input type="checkbox" disabled> When, if ever, does he shift from passive observation to active intervention?</li><li><input type="checkbox" disabled> Has he made contact with Signal, Vane, or any other active antagonist?</li><li><input type="checkbox" disabled> What does A.E.G.I.S. actually know about him — their Watch Status file suggests awareness, but what is its depth?</li><li><input type="checkbox" disabled> Does A.E.G.I.S. know Riley was exposed during the abduction mission? Is there any field report from that operation?</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

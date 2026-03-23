@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legacy of Halden City — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  280px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* sidebar */
+.sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden; }
+.sidebar-header { padding: 24px 20px 16px; border-bottom: 1px solid var(--border); }
+.sidebar-title { font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3; }
+.sidebar-subtitle { font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+.sidebar-nav { padding: 12px 0 24px; flex: 1; }
+
+.nav-home { display: block; padding: 8px 20px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+.nav-home:hover, .nav-home.active { color: var(--accent); border-left-color: var(--accent);
+  background: var(--bg-hover); }
+
+.nav-section { margin-top: 16px; }
+.nav-section-header { padding: 6px 20px; font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim);
+  display: flex; align-items: center; gap: 8px; }
+.nav-section-icon { color: var(--accent-dim); font-size: 12px; }
+.nav-section-icon.pc { color: var(--accent-pc); }
+
+.nav-link { display: block; padding: 6px 20px 6px 28px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover); }
+.nav-link.pc:hover { color: var(--accent-pc); }
+.nav-link.pc.active { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* main */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 900px; }
+.breadcrumb { font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px; }
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge { display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8; }
+
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
+/* typography */
+.content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+.content h2 { font-size: 13px; font-weight: 700; color: var(--accent);
+  letter-spacing: .1em; margin: 40px 0 12px; text-transform: uppercase; }
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 { font-size: 14px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em; }
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s; }
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* tables */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th { text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* code */
+.content code { font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border); }
+.content pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0; }
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* blockquote */
+.content blockquote { border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0; }
+.content blockquote p { margin-bottom: 0; }
+
+/* lists */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* hr */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* footer */
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em; }
+
+/* mobile */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle { display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em; }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
+  <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
+  <a href="../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
+  <a href="../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
+  <a href="../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
+  <a href="../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
+  <a href="../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
+  <a href="../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
+  <a href="../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
+  <a href="../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
+  <a href="../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
+  <a href="../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
+  <a href="../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◉</span>Factions</div>
+  <a href="../factions/aegis.html" class="nav-link" title="A.E.G.I.S.">A.E.G.I.S.</a>
+  <a href="../factions/eclipse.html" class="nav-link" title="Eclipse">Eclipse</a>
+  <a href="../factions/the-alliance.html" class="nav-link" title="The Alliance">The Alliance</a>
+  <a href="../factions/vane-capital-group.html" class="nav-link" title="Vane Capital Group">Vane Capital Group</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
+  <a href="../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
+  <a href="../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
+  <a href="../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
+  <a href="../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
+  <a href="../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
+  <a href="../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
+  <a href="../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../meta/player-facing-doc.html" class="nav-link active" title="Legacy of Halden City">Legacy of Halden City</a>
+  <a href="../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span>Meta<span class="sep">/</span>Legacy of Halden City</div>
+    <article class="content clearfix">
+      <h1>Legacy of Halden City</h1>
+<h2>A Player's Guide to the Setting</h2>
+<hr>
+<blockquote><p><em>"The city tolerates its heroes. It does not worship them."</em></p></blockquote>
+<hr>
+<h2>What Kind of Story This Is</h2>
+<p><strong>Legacy of Halden City</strong> is a Masks: The New Generation campaign set in a custom superhero world. The system is built around young heroes figuring out who they are — but the city around them has a hundred years of history that didn't wait for them to arrive.</p>
+<p>This is a character-driven story. What your powers can do matters less than what carrying them costs you. Heroism here is not a destination. It is an ongoing choice, made in conditions that are rarely ideal, against institutions that are rarely wrong for the reasons they say they are.</p>
+<p>Some things to expect:</p>
+<ul><li>Adults who are doing their best and still causing harm</li><li>Institutions that protect people and also compromise them</li><li>A city that has opinions about what you're doing in it</li><li>No clean wins</li></ul>
+<p>No em dashes in prose. That's a house rule for the fiction.</p>
+<hr>
+<h2>Halden City</h2>
+<p><strong>Population:</strong> ~8–10 million metro <strong>Location:</strong> Mid-Atlantic coast, between New York and D.C.</p>
+<p>Halden City is old enough to have memory and big enough to keep secrets. It sits close enough to the centers of political power to influence them, and far enough away to have built something of its own identity. Over the last fifty years, it has become a magnet for the enhanced — heroes, villains, research institutions, government agencies, and the people who profit from all of the above.</p>
+<p>Supers are tolerated here. Regulated. Occasionally celebrated. Never fully trusted.</p>
+<p>The city has adapted to the presence of enhanced individuals the way a body adapts to scar tissue — functionally, without warmth. There are city codes that reference "enhanced individuals" in the same dry bureaucratic language used for construction permits. There are neighborhoods shaped by incidents that happened twenty years ago and never got an official explanation. The city remembers even when the records are sealed.</p>
+<hr>
+<h2>The Districts</h2>
+<h3>Crownpoint</h3>
+<p>Glass and steel, corporate headquarters, political offices, and legacy hero monuments sharing the same skyline. Vane Capital Group has a near-monopoly on construction contracts here. A.E.G.I.S. regional command operates out of the sub-levels beneath Crownpoint Federal Tower — the public face is a FEMA office. If Halden City wants to look powerful, it shows you Crownpoint.</p>
+<p><strong>Places worth knowing:</strong></p>
+<ul><li><em>Crownpoint Federal Plaza</em> — the public courtyard of the Federal Tower complex. Protests stage here. A.E.G.I.S. has eyes on it at all times.</li><li><em>The Meridian Club</em> — private members club, 38th floor of the Aldren Building. Old money, political money, and the newer money trying to look like both. Not a place you walk into easily.</li></ul>
+<hr>
+<h3>The Ironworks</h3>
+<p>Once the industrial heart of the city. The 1987 deindustrialization gutted it — factories closed, shipyards contracted to skeleton crews. The law here feels thinner. Masks feel more personal. Street-level heroes and criminals alike will tell you they understand this neighborhood better than anyone in Crownpoint ever could. They're probably right.</p>
+<p><strong>The Hall</strong> — the team's base of operations — sits on the corner of Dolan and Renner, right on the border where the Ironworks bleeds into Riverside Ward. It was Ironworkers' Local 44 Union Hall before Paragon transferred it to the new team. The union seal is still set in the concrete floor by the main entrance. Nobody has decided what to do about that yet.</p>
+<p><strong>Places worth knowing:</strong></p>
+<ul><li><em>Daly's Tap</em> — corner bar on Kessler and 9th. Cash only, no cameras. Vera Daly, 63, has kept secrets for thirty years and doesn't repeat anything unless she decides to.</li><li><em>The Kessler Market</em> — open-air market under an old loading dock at 14th, Thursday through Sunday. Informal economy. Cash that doesn't show up anywhere else.</li><li><em>St. Casimir's</em> — Catholic church at Dolan and Renner. Father Benedikt Wróbel has heard confessions from everyone. He doesn't moralize. He helps if you ask directly.</li></ul>
+<hr>
+<h3>Riverside Ward</h3>
+<p>Row houses, corner markets, crowded sidewalks, and the city's busiest transit arteries. This is where most of Halden actually lives, works, and struggles. When superhuman conflicts spill into the streets, Riverside pays first and rebuilds fastest.</p>
+<p>Riley Thomas — Recluse — grew up here. So did Adrian Vega. This neighborhood is the reason they do what they do.</p>
+<p><strong>Places worth knowing:</strong></p>
+<ul><li><em>Ortega's Bodega</em> — 24-hour corner store on Mercer and 5th, open since 1991. Carmen Ortega runs it. She has a photograph of the previous Paragon on the wall behind the register, not out of reverence, but the same way people hang family photos.</li><li><em>Riverside Community Rec Center</em> — perpetually underfunded. Coach Elias Pruitt has kept the boxing gym in the basement running on donations and stubbornness for twenty years.</li><li><em>Memorial Transit Station, Riverside/8th</em> — six lines converge here. There is a mosaic covering the main concourse walls, installed in 1978, depicting the neighborhood's history. One panel shows a masked figure, added sometime in the early 2000s. Transit authority has never bothered to remove it.</li></ul>
+<hr>
+<h3>The Glass District</h3>
+<p>Pristine labs, private campuses, and carefully worded press releases. Breakthroughs in medicine, energy, and enhancement happen here — so do cover-ups. Every miracle in the Glass District casts a long ethical shadow. The District was founded in 1968 by a consortium of defense contractors and academic institutions, quietly underwritten by A.E.G.I.S. Its stated mandate is medical and materials research. Its actual mandate has never been fully disclosed.</p>
+<p><strong>Places worth knowing:</strong></p>
+<ul><li><em>Lattice Coffee</em> — ground floor of a research campus tower. The place Glass District people meet when they want to be seen having a normal conversation.</li><li><em>Haverford Park</em> — technically public green space between two campuses. There is a memorial bench for a researcher who died in the 2020 gravity core disaster. Someone leaves flowers every few weeks. Nobody knows who.</li></ul>
+<hr>
+<h3>Monument Circle</h3>
+<p>A grand plaza ringed by statues of fallen heroes and government buildings that claim to honor them. Public ceremonies, protests, and superhuman confrontations all converge here eventually. It is where Halden tells itself what kind of city it wants to be. The statue interpretations are generic enough to honor no one specifically and therefore offend no one specifically.</p>
+<p><strong>Places worth knowing:</strong></p>
+<ul><li><em>The Circle Diner</em> — directly across from the north entrance, open since 1961. Journalists come here after press conferences. Protestors eat here before marches. The food is mediocre and it's always full.</li><li><em>Heroes' Walk</em> — the formal name for the promenade ringing the plaza. A 2021 installation, clearly modeled on Paragon's silhouette, has never received a public comment from him.</li></ul>
+<hr>
+<h3>Blackwater Harbor (Dockside)</h3>
+<p>Fog rolls low over shipping cranes and dark water that never seems entirely calm. Cargo moves in and out at all hours — some of it documented, some of it not. If something strange arrives by sea, it usually touches Blackwater first.</p>
+<p>Marcus Harrow — Shroud — operates here. The dockworkers know that certain problems resolve before response teams arrive. They don't ask questions about it.</p>
+<p><strong>Places worth knowing:</strong></p>
+<ul><li><em>The Harbormaster's Office</em> — functional port authority office, informal hub for the dockworkers' community. The union bulletin board has been tracking unusual harbor incidents informally since 1958.</li><li><em>Sal's Harbor Grill</em> — open from 4am. The coffee is strong. Nobody cares who you are at 5am.</li></ul>
+<hr>
+<h2>The Factions</h2>
+<h3>A.E.G.I.S.</h3>
+<p><em>The Advanced Expert Group for Intervention and Security</em></p>
+<p>A.E.G.I.S. is the federal metahuman agency. It has been operating since 1925 — it was there before the first Paragon went public, before the Glass District existed, before any of you were born. It has agents, strike teams, intelligence networks, metahuman holding facilities, and medical staff with very specific expertise.</p>
+<p>It is not a villain organization. The people inside it are mostly trying to do the right thing by the city. The institution moves slowly, values stability above most other things, and expands its own authority methodically — and calls it modernization. Heroes who work alongside it often describe a vague sense of suffocation that they can't fully articulate. That feeling is not wrong.</p>
+<p>A.E.G.I.S.'s Halden Regional Command is headquartered in the sub-levels of Crownpoint Federal Tower. Regional Director Evelyn Shaw runs it. The MANIFEST division specifically tracks emerging enhanced individuals. Your team's existence is not a surprise to them.</p>
+<p>The Alliance has a cooperative relationship with A.E.G.I.S. — knowledge-sharing, some resource access, legal cover. That relationship is not subordination. That distinction matters to the Alliance. Whether it matters to A.E.G.I.S. the same way is a different question.</p>
+<hr>
+<h3>The Alliance</h3>
+<p><em>Halden City's premiere independent hero team</em></p>
+<p>The Alliance was formally established in 2015, brokered by Paragon. Headquarters: Alliance Tower. Core membership: Paragon, Recluse, Riftfire, Quantum, Starfall, and The Vanguard.</p>
+<p>Your team is an Alliance satellite — a new, officially recognized unit given operational independence and a physical base. You have access to Alliance resources and operate under the same cooperative framework with A.E.G.I.S. You are not the Alliance. You are connected to it. The difference will matter.</p>
+<p>The Alliance members are covered in the next section.</p>
+<hr>
+<h3>Vane Capital Group</h3>
+<p>Casimir Vane is a self-made billionaire who grew up in the Ironworks. He credits the neighborhood with teaching him everything worth knowing about how to build things that last. His firm now holds a near-monopoly on Crownpoint construction contracts. He throws lavish fundraising galas for the police and the public defender's office, tracing the tradition to a personal tragedy — a detective once told his family his father's killer had been found, and Casimir has never forgotten what it meant to have someone in his corner.</p>
+<p>Industry insiders note that Vane Capital's growth has been unusually fast for a firm without obvious institutional backing. When asked, he smiles and talks about the Ironworks.</p>
+<hr>
+<h3>Eclipse</h3>
+<p>A biotech research organization with operations that overlap significantly with the Glass District's institutional infrastructure. Eclipse funds enhancement research, invests in defense contracts, and maintains what appears to be a private security and retrieval arm. Its full scope is not public knowledge. It is connected to things that have caused direct harm to people in this city. The relationship between Eclipse and legitimate research institutions is deliberately unclear.</p>
+<hr>
+<h2>The Alliance — Member Profiles</h2>
+<p>These are the people whose phone numbers are in the system, whose faces you might see in Alliance Tower, and whose history you're now technically part of.</p>
+<hr>
+<h3>Paragon — Ethan Roberts</h3>
+<p><strong>Age:</strong> 45</p>
+<p>Ethan Roberts was a decorated Air Force pilot in 2005 when a residual energy crisis — fallout from the 1999 West Coast battle — scrambled him mid-mission. His jet went down. The dormant Paragon Force, seeking a new host after its previous host's death in 1999, bonded to him mid-air. He survived a crash that should have killed him.</p>
+<p>He has spent twenty years being reluctant about it. He is methodical, careful, and acutely aware of what his predecessor got wrong — the elder Paragon accumulated nearly four decades of covert interventions, destabilized governments, and operated outside any democratic mandate. Ethan is not that. He works to not be that.</p>
+<p>The Paragon Force grants its host flight, super strength, super speed, heat vision, x-ray vision, and extreme durability. It bonds to a single host and transfers only at the host's death. His equal and opposite counterpart — whoever currently carries the Renegade Force — is theoretically his match in combat. History suggests most Paragon hosts fall to the Renegade. Ethan knows this.</p>
+<p>He founded the Alliance. He transferred your team's base. He will show up when things are bad enough that you need him to.</p>
+<hr>
+<h3>Recluse — Riley Thomas</h3>
+<p><strong>Age:</strong> 35</p>
+<p>Riley Thomas grew up in Riverside Ward and has been working it, unofficially, since he was sixteen. He operated as an unsanctioned vigilante for fifteen years before Paragon sponsored his formal recognition in 2015. He still seems faintly irritated that the city knows his name.</p>
+<p>He carries spider-derived genetics: wall adhesion, enhanced agility, roughly eight times body weight in strength, and a one-second precognitive flash that functions as superhuman reaction time. His web shooters are mechanical, not biological. He is an elite martial artist and has been described, charitably, as having detective-class investigative aptitude.</p>
+<p>He is also your team's primary mentor figure. He recruited some of you directly. He will be harder on you than he appears, and he appears fairly hard already.</p>
+<p>He does not talk about what he was doing for the fifteen years before the Alliance. He visits the same grave in Riverside Ward once a year. He doesn't explain that either.</p>
+<hr>
+<h3>Riftfire — Elena Marquez</h3>
+<p><strong>Age:</strong> 33</p>
+<p>Elena Marquez teaches high school physics in Riverside Ward. She has been doing it since she was twenty-three. She has also been operating as Riftfire since she was fifteen, when she accidentally discovered she could redirect kinetic and potential energy — her first accidental teleportation happened during a car accident she shouldn't have survived.</p>
+<p>She spent years training alone before she had anyone to train with. She is patient, direct, and probably the Alliance member most likely to actually ask how you are and mean it.</p>
+<p>Riftfire's ability is broad and poorly understood even by her: redirection of kinetic force, potential energy conversion, short-range teleportation, high-speed locomotion. She has described her own ceiling as unestablished.</p>
+<p>She is the reason some of you are on this team. She extended the invitation. She believed you were ready before anyone else did.</p>
+<hr>
+<h3>Quantum — Dr. Javier Mendez</h3>
+<p><strong>Age:</strong> 56</p>
+<p>In 2006, Glass District physicist Dr. Javier Mendez attempted to experimentally harness quantum probability. The experiment succeeded. His particles scattered across multiple quantum states simultaneously. A.E.G.I.S. spent months engineering a containment suit that allows him to exist in singular form.</p>
+<p>He now serves the Alliance as a field and advisory asset. He treats conflict, morality, and people with approximately equal analytical distance — as engineering problems with variables. He is brilliant and does not extend much effort to seem otherwise.</p>
+<p>Quantum can teleport, phase between states of matter and density, and execute accelerated cognition. If he deactivates the containment suit, he can exist in multiple states at once — which causes local reality instability proportional to how long he maintains it.</p>
+<p>He does not volunteer personal information.</p>
+<hr>
+<h3>Starfall — Kiara Je-rach</h3>
+<p><strong>Age:</strong> Unknown</p>
+<p>Kiara Je-rach was not born. She was engineered — a cosmic envoy created by a civilization that calls itself the Auditors, tasked with assessing which species are sufficiently stable to continue and which should be removed from the cosmic record.</p>
+<p>She arrived in Earth's orbit in 2009 with a determination that this planet warranted removal.</p>
+<p>Paragon intercepted her. He didn't try to stop her with force. He asked her what she believed, as distinct from what she had been made to conclude. She defected. The Auditors designated her "defective." She has lived in Alliance Tower since and has spent fifteen years carefully learning what it means to be a person rather than an instrument.</p>
+<p>She has the power of energy projection, limited matter restructuring, localized gravity manipulation, near-invulnerability, and something that functions like super-intelligence. She is also, by some margin, the most alien member of the team in any room she occupies. She is trying to close that distance. She is not always sure she's succeeding.</p>
+<hr>
+<h3>The Vanguard — Natalia Orlov</h3>
+<p><strong>Age:</strong> 59</p>
+<p>In the 1950s, following a near-catastrophic confrontation between the previous Paragon and the then-Renegade Force host, A.E.G.I.S. authorized a black-site enhancement program with a simple mandate: produce an asset capable of killing a rogue Paragon-class individual. After decades of development and many failed candidates, Natalia Orlov completed the program in 1994.</p>
+<p>A.E.G.I.S. deployed her for years — assassinations, government destabilization operations, suppression of metahuman emergence in states designated adversarial. She executed those orders until she had accumulated enough pattern recognition to understand what the program truly was, and what she had been used for. She defected.</p>
+<p>Her conclusion: all institutions fail and corrupt themselves, even those that claim to protect humanity.</p>
+<p>Her enhancements are extensive and visible in the scars she usually conceals. She can manifest electricity through additional organs, her muscle density is gene-locked, she has neural implants and pain suppression protocols, and adaptive combat training was uploaded directly into her subconscious. She is currently 59 years old and is still the most physically dangerous person in most rooms she enters.</p>
+<p>She is not warm. She is honest. In this world, that distinction matters.</p>
+<hr>
+<h3>Aegis Prime — Darius Cole</h3>
+<p><strong>Age:</strong> 37</p>
+<p>Darius Cole was a decorated Marine officer coordinating civilian evacuation during a Glass District lab incident in 2020 when an experimental gravity core collapsed around him. A.E.G.I.S. stabilized the gravitational anomaly inside his body and built a public symbol around the result.</p>
+<p>He controls gravitational force with precision — increasing weight to immobilize targets, nullifying momentum mid-attack, generating compression shields, anchoring himself with near-immovable density. His perception tracks force vectors in real time.</p>
+<p>He believes power must answer to structure. That heroism without oversight is indistinguishable from chaos with good intentions. He will make this argument clearly, calmly, and with genuine conviction. He is not wrong that structure matters. He is not entirely right about what structure requires.</p>
+<p>He maintains liaison quarters in Alliance Tower. He and most of the Alliance's core members have been in productive ideological disagreement since the day they met.</p>
+<hr>
+<h3>Arachne — Sloane Callahan</h3>
+<p><strong>Age:</strong> 21</p>
+<p>Sloane Callahan hacked a Glass District research server on a Tuesday night out of boredom. What she found stopped being interesting in the first ten minutes and became something she couldn't unknow. She spent three days figuring out what to do with it. On the fourth day, Riley Thomas was standing in her doorway.</p>
+<p>He didn't arrest her. He looked at what she'd pulled and said he could use someone like her. She said yes. She is still not entirely sure why.</p>
+<p>Her Weaver drones have eyes on half of Riverside Ward and most of Dockside. She can loop a security feed, ghost a signal, or pull a personnel file before most people finish reading the question. She has a perfect memory — every file, face, and frequency retained and cross-referenced instantly. She has always assumed this is simply how her brain works.</p>
+<p>She runs the communications suite on the second floor of The Hall. If you need something found, something looped, or something explained, she's your first call.</p>
+<hr>
+<h3>Recluse Network — Adrian Vega / Breakpoint</h3>
+<p><strong>Age:</strong> 21</p>
+<p>Adrian Vega grew up in Riverside Ward without a mother. Sandra Vega was killed during a botched early intervention when Adrian was two years old. He has no memory of her — only photographs and his father's silences and the question that drove everything after: if someone had been there, could she have been saved?</p>
+<p>He spent years researching vigilante activity in Halden City until he traced the incident back to Riley Thomas. He confronted Recluse not with a threat but with a request: train me. Riley agreed. That was two years ago.</p>
+<p>His ability — hyper-cognitive stress response — sharpens his perception under threat conditions. Time dilates. Trajectories resolve instantly. He reads physiological tells in opponents like text. He models collateral in real time. He is also trained to peak physical conditioning and martial arts.</p>
+<p>He is the most stable person in most rooms he walks into, and the most dangerous person in most fights he walks into. Both of these things are true simultaneously. He will want to be your friend. You should let him.</p>
+<hr>
+<h3>Shroud — Marcus Harrow</h3>
+<p><strong>Age:</strong> 29</p>
+<p>Marcus Harrow does not have a press profile. He has no confirmed sightings. His file at A.E.G.I.S. is heavily redacted and quietly misfiled. This is not an accident.</p>
+<p>What the dockworkers along Blackwater Harbor know is simpler: certain problems resolve before response teams arrive. Marcus Harrow has spent years hunting the things the metahuman framework doesn't have language for — not aliens, not lab accidents, not cosmic forces, but the older things living in Halden City's forgotten infrastructure. The deep tunnels. The buildings that change hands too often.</p>
+<p>He has never claimed to be a hero. He is a hunter. He is occasionally useful to people who need something addressed that the Alliance's resources aren't suited for. He will help if approached correctly, which means honestly, about something that actually matters.</p>
+<hr>
+<h2>A Century of Context</h2>
+<p>You don't need to know all of this. But you should know it exists.</p>
+<p>Halden City has been the center of metahuman activity for nearly a hundred years. A.E.G.I.S. was founded in 1925. The first Paragon fought in World War II. The Glass District has been conducting research for over fifty years — some of it public, most of it not.</p>
+<p>The 1999 West Coast Broadcast is the event that marks the before and after for most of the city's institutional memory. The previous Paragon and the then-Renegade Force host fought in a globally televised confrontation. Millions watched. Half the Pacific coastline was destroyed. Both combatants died. During the fight, fragments of something called the Virek Papers were broadcast — classified evidence of Paragon's covert interventions across nearly four decades of operation. The full Papers were never revealed. Most of them remain encrypted, the subject of ongoing legal injunctions and obsessive conspiracy research.</p>
+<p>Ethan Roberts became the new Paragon in 2005. Riley Thomas has been working Riverside Ward since 2006. The Alliance was formalized in 2015.</p>
+<p>Where you're coming in: 2025, the city is in one of those periods that looks stable on the surface because the people paying attention are working very hard to keep it that way. There are things happening in the Glass District that don't have explanations yet. An organized crime network that went quiet for a decade is re-establishing itself in Dockside. The Virek Papers are still out there, still mostly encrypted, and someone is still looking.</p>
+<p>This is the city you're operating in. It has a hundred years of weight behind it. Some of that weight is on your side. Some of it is going to fall on you.</p>
+<hr>
+<p><em>Legacy of Halden City — Player's Guide</em> <em>Campaign Setting: Masks: The New Generation</em> <em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

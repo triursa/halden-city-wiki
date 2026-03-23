@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-link active" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,30 +304,41 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span>Characters<span class="sep">/</span>Darius Cole / Aegis Prime</div>
-    <article class="content">
-      <h1>Darius Cole / Aegis Prime</h1>
+    <article class="content clearfix">
+      <div class="portrait-wrap"><img src="../../images/characters/darius-cole-aegis-prime.png" alt="Darius Cole / Aegis Prime" class="portrait-img"></div>
+<h1>Darius Cole / Aegis Prime</h1>
 <hr>
 <h2>At a Glance</h2>
 <table>
@@ -232,34 +367,35 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <td>37</td>
 </tr>
 <tr>
-<td><strong>Background</strong></td>
-<td>Marine Corps officer</td>
+<td><strong>Birthplace</strong></td>
+<td>[Unknown]</td>
+</tr>
+<tr>
+<td><strong>Physical</strong></td>
+<td>[To be detailed]</td>
 </tr>
 <tr>
 <td><strong>Affiliation</strong></td>
-<td>A.E.G.I.S.-sanctioned; Alliance liaison</td>
+<td>A.E.G.I.S.-adjacent; liaison quarters in Alliance Tower</td>
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Active — A.E.G.I.S.'s preferred public-facing asset</td>
+<td>Active — sanctioned champion of order</td>
 </tr>
 </tbody></table>
 <hr>
 <h2>Powers</h2>
-<p><strong>Gravitational force manipulation</strong> — result of the 2020 Glass District gravity core collapse. A.E.G.I.S. stabilized the anomaly inside him; what remained is a persistent, integrated gravitational field he can modulate with precision.</p>
-<ul><li><strong>Immobilization</strong> — selectively increase gravitational force on a target or area</li><li><strong>Momentum nullification</strong> — arrest the kinetic energy of moving objects or individuals</li><li><strong>Compression shielding</strong> — dense gravitational field around himself or others; functions as near-impenetrable defense against physical force</li><li><strong>Vector perception</strong> — passive awareness of directional force across a radius; hard to approach without him knowing</li></ul>
-<p>Darius is among the most defensively capable members of the extended Alliance network. A.E.G.I.S. built him as a symbol as much as an asset.</p>
+<p><strong>Gravitational force manipulation.</strong> Since the 2020 Glass District gravity core disaster, Cole exists with a stabilized gravitational anomaly inside him.</p>
+<ul><li>Increasing weight on targets (immobilization)</li><li>Momentum nullification mid-attack</li><li>Compression shielding</li><li>Anchors himself with near-immovable density</li><li>Real-time vector perception — he tracks trajectories and forces instinctively; nearly impossible to surprise in combat</li></ul>
 <hr>
 <h2>Background</h2>
-<p>Marine Corps officer. Decorated service record. Was in the Glass District in 2020 for reasons that are either routine or classified depending on who you ask. The gravity core event was documented as an equipment malfunction. Darius was the only person in the event radius who survived, and he survived because A.E.G.I.S. moved fast.</p>
-<p>The procedure that stabilized him was not exactly documented as optional. He was given a choice in the way people are given choices when the alternative is death. He said yes. He has been saying yes to A.E.G.I.S. in various forms since.</p>
-<p><strong>Aegis Prime the symbol:</strong> A.E.G.I.S. needed something it could point to when the public asked whether the agency had its own heroes or just oversaw other people's. Darius became that thing. He understands this. He is not naive about what he is to the institution. He also genuinely believes what he believes: that power needs structure, that heroes without accountability are a liability, that someone has to hold the line.</p>
-<p>The fact that A.E.G.I.S. benefits from him believing this does not make the belief false.</p>
+<p>Decorated Marine officer. Known for restraint. In 2020, he was coordinating a civilian evacuation when an experimental gravity core in a Glass District lab underwent catastrophic collapse. The anomaly closed around him. He should have died. A.E.G.I.S. spent months stabilizing what was left.</p>
+<p>They built a public symbol around the result. He became Aegis Prime: the sanctioned champion of order. His philosophy — power must answer to structure — was already in place before the accident. A.E.G.I.S. found him because he already believed the thing they needed him to embody.</p>
+<p><strong>Possible Eclipse connection:</strong> The 2020 Glass District disaster has an unconfirmed potential link to Eclipse. Whether the gravity core failure was an accident, an experiment, or something else has not been established. This thread is seeded but not active.</p>
 <hr>
 <h2>Character Profile</h2>
-<p>Darius is not a villain. He is not a pawn who doesn't know he's being used. He is a man with a genuine ideology that happens to align neatly with institutional interests, and he has thought about whether that's a coincidence and concluded — for now — that it isn't.</p>
-<p>He believes in accountability. He thinks the Alliance's independence is a structural vulnerability, not a virtue. He thinks Riley in particular operates with a level of personal latitude that will eventually cause something unfixable. He is not wrong about all of this.</p>
-<p>His friction with Alliance members is ideological, not personal. He does not dislike them. He thinks they are making a mistake that will cost someone something, and he thinks they won't recognize the cost until it's already paid.</p>
+<p>He is not a villain and he is not corrupt. He genuinely believes power without accountability is the more dangerous failure mode. He has seen enough of what happens when the powerful go unchecked — in the military, in A.E.G.I.S., in the city — to hold that belief with conviction rather than convenience.</p>
+<p>He is ideologically incompatible with most of the Alliance. He functions within the same institutional frame anyway, because he also believes that working inside the structure is how you fix it. This makes him a constant friction source without making him an enemy. The distinction matters and is often uncomfortable.</p>
 <hr>
 <h2>Relationships</h2>
 <table>
@@ -268,25 +404,25 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <th>Relationship</th>
 </tr></thead><tbody>
 <tr>
-<td><strong>A.E.G.I.S. Regional Command</strong></td>
-<td>Genuine alignment, not just compliance. Trusts Shaw more than most people in the building do.</td>
+<td><strong>A.E.G.I.S.</strong></td>
+<td>Closest ideological ally in-network. He is the clearest expression of what A.E.G.I.S. would prefer heroes to be. They know this. He knows they know.</td>
 </tr>
 <tr>
-<td><strong>Paragon / Ethan Roberts</strong></td>
-<td>Documented ideological friction. Paragon's independence is the main point of contention. Mutual respect exists under it.</td>
+<td><strong>Ethan Roberts / Paragon</strong></td>
+<td>Friction. Cole respects the power and challenges the philosophy. Ethan engages it; he doesn't dismiss Cole.</td>
 </tr>
 <tr>
-<td><strong>Riley / Recluse</strong></td>
-<td>Friction is sharper here than with Paragon. Recluse's 15 years of unsanctioned activity are not something Darius can fully bracket.</td>
+<td><strong>Riley Thomas / Recluse</strong></td>
+<td>Documented ongoing friction. Riley operated unsanctioned for fifteen years. Cole does not find that history admirable.</td>
+</tr>
+<tr>
+<td><strong>The Alliance broadly</strong></td>
+<td>Present, adversarial in slow motion. He is the person in the room who asks the question nobody wants asked.</td>
 </tr>
 </tbody></table>
 <hr>
-<h2>The 2020 Glass District Disaster</h2>
-<p>The gravity core collapse is documented. The possible Eclipse connection is flagged but unconfirmed. What exactly Darius was doing in the Glass District that day, and whether his presence was entirely routine, has not been formally established.</p>
-<p><strong>Open question:</strong> Is Darius aware of the Eclipse flag? Does he know more about that day than he has said?</p>
-<hr>
 <h2>Open Questions</h2>
-<ul><li><input type="checkbox" disabled> What was Darius doing in the Glass District the day of the collapse — routine, or something else?</li><li><input type="checkbox" disabled> Does he know about the flagged Eclipse connection to the 2020 event?</li><li><input type="checkbox" disabled> What is the full scope of what A.E.G.I.S. did to stabilize him — does he have all the information?</li><li><input type="checkbox" disabled> Is there a line where his institutional loyalty would break, and what would it take to reach it?</li><li><input type="checkbox" disabled> His surname is Cole, same as Darcy Cole (Rampart). Relationship: [TO BE DETERMINED]</li></ul>
+<ul><li><input type="checkbox" disabled> What exactly does he know about the 2020 Glass District accident and its potential Eclipse connection?</li><li><input type="checkbox" disabled> Has A.E.G.I.S. ever given him a directive he refused, and if so, what?</li><li><input type="checkbox" disabled> What is the full scope of his liaison role — is he reporting back to Shaw on Alliance activity, and does anyone know it?</li><li><input type="checkbox" disabled> Does he believe in the Alliance as an institution or does he see it as a managed compromise?</li></ul>
 <hr>
 <p><em>Last updated: March 2026</em></p>
     </article>

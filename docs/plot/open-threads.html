@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,29 +304,39 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../plot/open-threads.html" class="nav-link active" title="Open Threads">Open Threads</a>
   <a href="../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span>Plot<span class="sep">/</span>Open Threads</div>
-    <article class="content">
+    <article class="content clearfix">
       <h1>Open Threads</h1>
 <blockquote><p>Active story questions, unresolved tensions, and planted seeds. Update when something new is introduced or an existing thread resolves.</p></blockquote>
 <hr>
@@ -212,11 +346,15 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <h3>Signal's Recorded Evidence</h3>
 <ul><li>Signal was listening during Riley's hospital visit to Carter Williams</li><li>Riley threatened Carter on Avi's behalf, off-books and alone. Signal recorded it.</li><li>Signal's plan: build toward a public exposure event with this as a centerpiece</li><li><strong>Stakes:</strong> When Signal releases this, it is a targeted strike against Recluse's moral authority</li></ul>
 <h3>The Scythe Blind Spot (AEGIS-SYC-REDACTED)</h3>
-<ul><li>Riley's precognitive ability has a documented blind spot relative to a subject called Scythe</li><li>A.E.G.I.S. knows about this gap. They are deliberately not briefing Riley.</li><li>Sloane has referenced this; it is already on Riley's radar as a concern</li><li><strong>Stakes:</strong> Scythe is a threat Riley cannot see coming. A.E.G.I.S. is withholding the information.</li></ul>
+<ul><li>Riley's precognitive ability has a documented blind spot relative to a subject called Scythe</li><li>A.E.G.I.S. knows about this gap. They are deliberately not briefing Riley.</li><li>Sloane has referenced this; it is already on Riley's radar as a concern</li><li><strong>Scythe is Adrian Vega's girlfriend.</strong> Second-generation MANIFEST asset, built post-2010 restructuring as a contingency for the day Recluse becomes a liability. Dormant — not yet activated.</li><li>The blind spot is not a power. It is a conditioning discipline: she generates none of the physiological tells Riley's flash depends on.</li><li>Shaw sanctioned the deepened relationship as operationally advantageous. Scythe believes it doesn't compromise her. She has never been deployed to find out.</li><li><strong>Stakes:</strong> When this surfaces it doesn't just compromise Riley operationally — it destroys the one relationship he's built that he feels unambiguously good about. And it puts Adrian in the middle.</li></ul>
 <h3>The Virek Papers</h3>
 <ul><li>Still mostly encrypted. A 2022 data cache confirmed Paragon's 1971 election intervention.</li><li>The cache also contains a revelation: Ethan Roberts has known how to end the Paragon cycle and has chosen not to act.</li><li>Publication delayed by legal injunction. The information is out there — just not widely accessible yet.</li><li><strong>Stakes:</strong> When this fully surfaces, it reframes Paragon's entire tenure.</li></ul>
 <h3>Carter Williams / Renegade Force</h3>
 <ul><li>Carter Williams is the current Renegade Force host</li><li>Was paralyzed from the waist down prior to bonding; the Force healed him on binding</li><li>Has personal history tied to Avi's backstory</li><li>Signal is using him as a pawn in his campaign</li><li><strong>Stakes:</strong> Carter is both a weapon in Signal's hands and a person with a genuine grievance</li></ul>
+<h3>Riley's Parasite</h3>
+<ul><li>Riley contracted a parasite on Darkstar's ship during the Alliance's early years (~2015–2016 abduction response mission) — not an accident; deliberately introduced with a specific biological target</li><li>The encounter happened on one of the Alliance's first formal operations. The mission was a success by surface metrics. Riley did not know he had been exposed when he left.</li><li>Parasite has bonded to the spider gene specifically. Reads, partially, as the biology it's attached to — hard to detect through standard medical screening</li><li><strong>Goal:</strong> Strip Riley's moral restraint rather than kill him. Something in the spider gene's expression is connected to how he processes ethical constraints. The parasite is working against that.</li><li>Currently indistinguishable from ordinary aging and accumulated wear. Riley is already hiding the physical decline; the parasite is hidden inside that hiding.</li><li><strong>Zara's signal is amplifying.</strong> Her genetic entanglement with Riley's spider gene means she passively receives his distress. It's getting louder. She doesn't know why.</li><li>Darkstar introduced it and is monitoring progress. Degree of active surveillance vs. retroactive discovery: open question.</li><li><strong>Planted signals:</strong> incomplete healing in training scenes, ambient lethargy, Zara's growing unease</li><li><strong>Stakes:</strong> How does a stripped moral restraint manifest behaviorally — and who notices the change in Riley before he does? What does treatment require, and does it mean exposing everything he's been hiding?</li></ul>
+<h3>Eclipse / PROMETHEUS</h3>
+<ul><li>Eclipse is a legitimate biotech corporation running a classified black program: PROMETHEUS</li><li>Three revenue streams: superhuman deterrence (countermeasures and dampeners), controlled superhuman assets (synthetic human drones), synthetic power manufacture (reverse-engineered enhanced capability)</li><li><strong>CEO: Edmund Crale</strong> — Crale family present at A.E.G.I.S.'s 1925 founding; built Eclipse using generational institutional knowledge of A.E.G.I.S.'s oversight architecture. PROMETHEUS has stayed invisible because he designed it using the same frameworks his family helped build. [GM eyes only — do not surface until players reach PROMETHEUS directly]</li><li><strong>Casimir Vane</strong> is a knowing, ideological investing partner. His civic sincerity is real. So is his complicity. His endgame: a Vane Security arm providing civic enhanced-individual deterrence — police loyalty now, controlled metahuman assets next, monopoly on what "safety" means in Halden City.</li><li><strong>Rhys/Noc</strong> has Eclipse's proprietary compound running through his biology. Unclosed asset file. Eclipse wants the asset back.</li><li><strong>Marcus Webb's resurrection</strong> used research in theoretical overlap with PROMETHEUS (Dr. Adeyemi's cellular regrowth work). Adeyemi disappeared after — Eclipse resolved the irregularity. Riley does not know what happened to her. <strong>Marcus is actively investigating.</strong> He has a partial Glass District institutional trail, two dead-end contacts, and the conviction that the disappearance was not natural. He has not told Riley he is looking. He is getting closer to the name Eclipse.</li><li><strong>The 2020 Glass District gravity core disaster</strong> that created Aegis Prime has a flagged but unconfirmed Eclipse connection.</li><li><strong>Stakes:</strong> PROMETHEUS is not a shadow conspiracy — it's a company that decided the enhanced individual question is a business problem. When it surfaces, the frame isn't "villain's secret lair" — it's institutional, rational, and has been running for years.</li></ul>
 <hr>
 <h2>Background Threads — Seeded, Not Yet Active</h2>
 <table>
@@ -227,13 +365,13 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </tr></thead><tbody>
 <tr>
 <td>Three missing Glass District researchers</td>
-<td>SMAB has no confirmed causal link; as of 2025</td>
-<td>A pattern is being suppressed or hasn't been recognized yet</td>
+<td>SMAB has no confirmed causal link as of 2025. Possible Eclipse connection — unconfirmed.</td>
+<td>A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS, the researchers may have stumbled into something they weren't supposed to see.</td>
 </tr>
 <tr>
 <td>Darkstar's long game</td>
-<td>Has been engineering stress-test scenarios since 2012; passive observer</td>
-<td>When Darkstar decides to stop observing</td>
+<td>Engineering stress-test scenarios since 2012. Passive observer — but observation now includes a defected son on the new team and an active parasite experiment on Riley.</td>
+<td>When Darkstar decides to stop observing. His data set is thirteen years deep.</td>
 </tr>
 <tr>
 <td>Joseph Persico's return</td>
@@ -241,19 +379,29 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <td>First major street-level confrontation with the new team</td>
 </tr>
 <tr>
-<td>Casimir Vane's backing</td>
-<td>Vane Capital's growth is too fast to explain cleanly</td>
-<td>Who or what is actually behind Vane Capital</td>
+<td>The Hall — locked room (3/F)</td>
+<td>Key not transferred with the building. Room is larger than the 1938 city filing indicates.</td>
+<td>What's in it, who put it there, and why wasn't the key included in the transfer?</td>
 </tr>
 <tr>
-<td>2020 Glass District disaster / Eclipse connection</td>
-<td>Flagged but unconfirmed</td>
-<td>Eclipse's footprint in Halden City's institutional infrastructure</td>
+<td>Local 44 records (3/F)</td>
+<td>Six boxes of union records, 1938–present. Unexamined.</td>
+<td>Could contain records of early Ironworks enhanced individual history — the 1958 Blackwater Harbor incident, labor disputes with anomalous outcomes, names that connect to current threads.</td>
+</tr>
+<tr>
+<td>Darcy's student Deon</td>
+<td>16-year-old track athlete healing faster than he should. Darcy has noticed. Has not told Riley yet — still deciding if it's her place.</td>
+<td>When she tells him, and how Riley handles being handed a kid who didn't ask to be found.</td>
 </tr>
 <tr>
 <td>Wraith's leak campaign</td>
 <td>Dani Whittaker has already been responsible for three major document leaks</td>
 <td>She finds something that can't be contained</td>
+</tr>
+<tr>
+<td>Natalia / Scythe mirror</td>
+<td>Natalia doesn't know Scythe exists. Two women, same program, opposite conclusions.</td>
+<td>If Natalia ever learns A.E.G.I.S. ran MANIFEST again after she left — and what it produced — that information lands differently than anything else could.</td>
 </tr>
 </tbody></table>
 <hr>
@@ -312,6 +460,12 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <td>Nova</td>
 <td>Dr. Javier Mendez is Avi's biological father. Quantum does not know Avi exists. They are on the same team.</td>
 <td>Slow burn. Earns its weight through relationship development, not a reveal scene.</td>
+</tr>
+<tr>
+<td><strong>Scythe / Adrian's relationship</strong></td>
+<td>Breakpoint</td>
+<td>Scythe is Adrian's girlfriend. She is a dormant MANIFEST asset built to neutralize Riley. Adrian doesn't know. Riley doesn't know.</td>
+<td>When this surfaces it hits Adrian hardest — he fights from clarity. This is the thing that will compromise it.</td>
 </tr>
 </tbody></table>
 <hr>

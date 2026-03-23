@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Rojas / Burnout — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  280px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* sidebar */
+.sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden; }
+.sidebar-header { padding: 24px 20px 16px; border-bottom: 1px solid var(--border); }
+.sidebar-title { font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3; }
+.sidebar-subtitle { font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+.sidebar-nav { padding: 12px 0 24px; flex: 1; }
+
+.nav-home { display: block; padding: 8px 20px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+.nav-home:hover, .nav-home.active { color: var(--accent); border-left-color: var(--accent);
+  background: var(--bg-hover); }
+
+.nav-section { margin-top: 16px; }
+.nav-section-header { padding: 6px 20px; font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim);
+  display: flex; align-items: center; gap: 8px; }
+.nav-section-icon { color: var(--accent-dim); font-size: 12px; }
+.nav-section-icon.pc { color: var(--accent-pc); }
+
+.nav-link { display: block; padding: 6px 20px 6px 28px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover); }
+.nav-link.pc:hover { color: var(--accent-pc); }
+.nav-link.pc.active { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* main */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 900px; }
+.breadcrumb { font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px; }
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge { display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8; }
+
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
+/* typography */
+.content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+.content h2 { font-size: 13px; font-weight: 700; color: var(--accent);
+  letter-spacing: .1em; margin: 40px 0 12px; text-transform: uppercase; }
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 { font-size: 14px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em; }
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s; }
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* tables */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th { text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* code */
+.content code { font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border); }
+.content pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0; }
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* blockquote */
+.content blockquote { border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0; }
+.content blockquote p { margin-bottom: 0; }
+
+/* lists */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* hr */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* footer */
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em; }
+
+/* mobile */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle { display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em; }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
+  <a href="../../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
+  <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
+  <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
+  <a href="../../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
+  <a href="../../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-link active" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
+  <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
+  <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
+  <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
+  <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
+  <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
+  <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
+  <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◉</span>Factions</div>
+  <a href="../../factions/aegis.html" class="nav-link" title="A.E.G.I.S.">A.E.G.I.S.</a>
+  <a href="../../factions/eclipse.html" class="nav-link" title="Eclipse">Eclipse</a>
+  <a href="../../factions/the-alliance.html" class="nav-link" title="The Alliance">The Alliance</a>
+  <a href="../../factions/vane-capital-group.html" class="nav-link" title="Vane Capital Group">Vane Capital Group</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
+  <a href="../../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
+  <a href="../../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
+  <a href="../../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
+  <a href="../../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
+  <a href="../../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
+  <a href="../../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
+  <a href="../../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
+  <a href="../../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span>Characters<span class="sep">/</span>Daniel Rojas / Burnout</div>
+    <article class="content clearfix">
+      <h1>Daniel Rojas / Burnout</h1>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Full Name</strong></td>
+<td>Daniel Rojas</td>
+</tr>
+<tr>
+<td><strong>Hero Name</strong></td>
+<td>Burnout</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. File</strong></td>
+<td>On file</td>
+</tr>
+<tr>
+<td><strong>DOB</strong></td>
+<td>November 18, 1993</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>32</td>
+</tr>
+<tr>
+<td><strong>Birthplace</strong></td>
+<td>Halden City</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>None. Self-directed.</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active — targeted campaign, ongoing</td>
+</tr>
+<tr>
+<td><strong>Origin Category</strong></td>
+<td>Category IIIa — Experimental Exposure (Industrial)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Powers</h2>
+<ul><li><strong>Pyrokinesis</strong> — generates and shapes flames; combustion control is surgical and precise</li><li><strong>Heat absorption</strong> — draws thermal energy from machinery, power lines, and industrial systems; grows stronger in industrial environments</li><li><strong>Physical transformation</strong> — body shifts into a molten, obsidian-cracked form; bullets liquefy on contact</li><li><strong>Flame dispersal</strong> — can briefly dissolve into fire to avoid fatal harm</li><li><strong>Flashpoint surges</strong> — in moments of extreme emotion, localized infernos powerful enough to level city blocks; each eruption risks pushing him past control</li></ul>
+<hr>
+<h2>Background</h2>
+<p>Sanitation engineer at a municipal waste-to-energy facility. Smart, capable, largely invisible. When he documented safety violations and pushed for hazard pay, he was labeled combative. During a confrontation on the incinerator floor, he was shoved in. He did not die. He fused with the fire.</p>
+<p>Burnout's targets are exclusively what he classifies as "industrial waste": executives, slumlords, corrupt administrators. His strikes are precise. He is not interested in collateral damage. He is interested in making specific people understand what it costs to treat other people as expendable.</p>
+<p>The irony that he now destroys things for a living is not lost on him. Whether he sees that as justice or as something darker is a question the narrative hasn't pinned down.</p>
+<hr>
+<h2>Character Profile</h2>
+<p>[To be developed as he becomes more active.]</p>
+<p>Daniel Rojas is not a random catastrophe. He has a list and a methodology. That clarity is what makes him dangerous — and what makes him morally interesting in a way that purely chaotic villains aren't.</p>
+<p>The flashpoint surges are the crack in the precision. He has lost control. He knows it. What he does with that knowledge — whether it moderates him or drives him harder — is unresolved.</p>
+<hr>
+<h2>Open Questions</h2>
+<ul><li><input type="checkbox" disabled> Has he killed anyone — specifically, or collaterally?</li><li><input type="checkbox" disabled> Does he have any relationships with people who knew Daniel Rojas before the transformation, and if so, how does he hold those?</li><li><input type="checkbox" disabled> What is his relationship to other labor-movement-adjacent figures in the city — does he see Augie Ferreira's union work as legitimate, or as not enough?</li><li><input type="checkbox" disabled> When does A.E.G.I.S. escalate to full containment effort vs. monitoring from a distance?</li><li><input type="checkbox" disabled> What would it take for him to stop?</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

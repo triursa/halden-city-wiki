@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who Decides" — Arc 1 Beat Sheet — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  280px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* sidebar */
+.sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden; }
+.sidebar-header { padding: 24px 20px 16px; border-bottom: 1px solid var(--border); }
+.sidebar-title { font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3; }
+.sidebar-subtitle { font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+.sidebar-nav { padding: 12px 0 24px; flex: 1; }
+
+.nav-home { display: block; padding: 8px 20px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s; }
+.nav-home:hover, .nav-home.active { color: var(--accent); border-left-color: var(--accent);
+  background: var(--bg-hover); }
+
+.nav-section { margin-top: 16px; }
+.nav-section-header { padding: 6px 20px; font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim);
+  display: flex; align-items: center; gap: 8px; }
+.nav-section-icon { color: var(--accent-dim); font-size: 12px; }
+.nav-section-icon.pc { color: var(--accent-pc); }
+
+.nav-link { display: block; padding: 6px 20px 6px 28px; color: var(--text-dim);
+  text-decoration: none; font-size: 13px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover); }
+.nav-link.pc:hover { color: var(--accent-pc); }
+.nav-link.pc.active { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* main */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 900px; }
+.breadcrumb { font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px; }
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge { display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8; }
+
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
+/* typography */
+.content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+.content h2 { font-size: 13px; font-weight: 700; color: var(--accent);
+  letter-spacing: .1em; margin: 40px 0 12px; text-transform: uppercase; }
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 { font-size: 14px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em; }
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s; }
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* tables */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th { text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border); }
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* code */
+.content code { font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border); }
+.content pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0; }
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* blockquote */
+.content blockquote { border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0; }
+.content blockquote p { margin-bottom: 0; }
+
+/* lists */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* hr */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* footer */
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em; }
+
+/* mobile */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle { display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em; }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
+  <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
+  <a href="../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
+  <a href="../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
+  <a href="../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
+  <a href="../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
+  <a href="../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
+  <a href="../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
+  <a href="../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
+  <a href="../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
+  <a href="../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
+  <a href="../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
+  <a href="../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◉</span>Factions</div>
+  <a href="../factions/aegis.html" class="nav-link" title="A.E.G.I.S.">A.E.G.I.S.</a>
+  <a href="../factions/eclipse.html" class="nav-link" title="Eclipse">Eclipse</a>
+  <a href="../factions/the-alliance.html" class="nav-link" title="The Alliance">The Alliance</a>
+  <a href="../factions/vane-capital-group.html" class="nav-link" title="Vane Capital Group">Vane Capital Group</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
+  <a href="../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
+  <a href="../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
+  <a href="../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
+  <a href="../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
+  <a href="../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
+  <a href="../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../plot/who-decides-arc.html" class="nav-link active" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
+</div>
+<div class="nav-section">
+  <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
+  <a href="../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
+  <a href="../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span>Plot<span class="sep">/</span>Who Decides" — Arc 1 Beat Sheet</div>
+    <article class="content clearfix">
+      <h1>"Who Decides" — Arc 1 Beat Sheet</h1>
+<blockquote><p>Signal arc. Lean planning reference — leave room to improvise. Approximate pacing: 2 beats per session.</p></blockquote>
+<hr>
+<h2>The Through-Line</h2>
+<p>Signal forces the city — and the players — to answer one question: <em>Who gave these people the right to decide?</em></p>
+<p>His diagnosis is not entirely wrong. That's what makes him dangerous.</p>
+<hr>
+<h2>Beats</h2>
+<hr>
+<h3>Beat 1 — The Handoff</h3>
+<p>The Alliance assembles the new team at Alliance Tower for a formal reveal. The old guard is present — but not for long. Mid-ceremony, the Alliance is called away to respond to a threat abroad. (This is the first signal of Darkstar's involvement — the "threat" will later be revealed as the Renegade Force attacking Darkstar's ship.) The new team is left alone in the tower, partially introduced to the city, fully on their own.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>Use this beat to establish team dynamics before pressure hits</li><li>The Alliance's departure should feel matter-of-fact, not dramatic — this is how it works, now it's your problem</li><li>Plant the detail that the threat is off-world; don't elaborate yet</li></ul>
+<hr>
+<h3>Beat 2 — The Press Room</h3>
+<p>The new team steps into a press conference to formally introduce themselves to the city. A Senator is present to publicly endorse the Alliance's new initiative.</p>
+<p>Mid-conference, ersatz A.E.G.I.S. agents enter the room. They attack and extract the Senator. Riley pursues the kidnappers. The players deal with the agents.</p>
+<p><strong>The reveal underneath the masks:</strong> The agents are PROMETHEUS constructs — cyborg cadavers in A.E.G.I.S. uniforms, not humans. The bodies are wrong on close inspection. Something Eclipse-adjacent.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>The fight should feel like a public embarrassment as much as a threat — cameras are rolling</li><li>Riley's pursuit keeps him off the board; the players have to close this themselves</li><li>Leave the Eclipse thread as a thread, not an answer — a logo, a serial number, something they have to pull on</li><li>Smart play: containing the constructs quickly limits Signal's broadcast footage; brute-forcing makes the team look worse on camera</li></ul>
+<hr>
+<h3>Beat 3 — Signal's First Broadcast</h3>
+<p>Before the team can regroup, Signal hijacks every feed.</p>
+<p>He broadcasts the press room fight back to the public — cut to make the new team look reactive and outmatched. Then he cuts to the Alliance's location: the Renegade Force host (Carter Williams) is destroying Darkstar's ship. The old guard, Earth's most powerful heroes, are struggling.</p>
+<p>Signal's message: <em>These are your protectors. Watch carefully.</em></p>
+<p>He announces his initiative: one secret revealed per session until humanity decides for itself whether it wants to be governed by people with powers it didn't choose and can't control.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>Darkstar has an established public profile as a known threat the Alliance has never fully neutralized — the optics of him being attacked by an unknown host land harder because the city already fears him</li><li>Signal's tone: calm, almost sympathetic. He is not angry. He is concerned.</li><li>End on his sign-off — a question, not a threat. He places it and leaves.</li></ul>
+<hr>
+<h3>Beat 4 — Secret Drop 1 &amp; 2 / Red Pill Cameo</h3>
+<p><strong>Reveal 1 — Starfall:</strong> Signal surfaces evidence that Kiara Je-rach was engineered as a weapon and sent to Earth to determine whether it should be destroyed. She defected. But Signal's framing: <em>The Alliance's cosmic ally was built to kill you. She changed her mind. You're welcome to trust that.</em></p>
+<p><strong>Reveal 2 — Sterling / Darkstar:</strong> Signal reveals publicly that Cosmic Knight is the biological son of Darkstar — the alien threat currently in the news. Engineered in his lab. Designed for a purpose. <em>The new team's heavy hitter was built by the enemy. Ask him what he was built to do.</em></p>
+<p>Sterling already knows. Kiara knows. The rest of the team does not, and neither does the public. Signal is not breaking this to Sterling — he is breaking it to everyone else while Sterling watches it happen in real time.</p>
+<p><strong>Red Pill Cameo:</strong> The city is already reactive from the reveals. Owen Watson transforms in a charged public space — a protest outside Alliance Tower, a press scrum, somewhere the team's own fractured dynamics are already visible. His emotional amplification field makes the crowd worse. The team has to manage civilians as much as Owen.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>The reveal's sting for Sterling is the loss of control, not the information — he knew and didn't tell his teammates. That's the fracture.</li><li>Jason's reaction to Sterling matters here — does he trust him, or does Nightfall's kill of Artemis make him suspicious of anything alien-adjacent?</li><li>Red Pill is a scene complication, not a primary threat — two conditions, folds when hit hard enough that Insecure triggers</li><li>Smart play for Red Pill: engaging with the crowd rather than just fighting Owen; brute-forcing in public with cameras rolling feeds Signal's narrative</li><li>Red Pill's amplification field puts pressure on team dynamics that are already strained — use it</li></ul>
+<hr>
+<h3>Beat 5 — Nightfall Comes In</h3>
+<p>Morgan Vale approaches the team — not attacking, not threatening. Asking.</p>
+<p>They believe heroes ultimately serve humanity. They want to be part of something that does. What they did to Artemis was real, and they are not pretending otherwise. But they are here.</p>
+<p>They also bring something concrete: they recognized the constructs from the press room. The abandoned A.E.G.I.S. materials lab where Morgan manifested was an Eclipse-adjacent site. They have been inside Eclipse infrastructure before. They know how it is built, how it is secured, and how to move through it without triggering the systems designed to stop people like them.</p>
+<p>Jason has to decide what to do with that — and with them.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>Do not resolve the Jason/Nightfall dynamic in one scene. It is an ongoing friction point for the rest of the arc.</li><li>Nightfall's reformation is sincere — but sincerity doesn't erase what happened. Let both things be true.</li><li>The practical offer (Eclipse knowledge, infiltration capability) gives the team a rational reason to work with Nightfall even if no one is ready to trust them. Separate the professional from the personal.</li><li>This is Jason's beat above all others — the team's response to Nightfall is secondary to what it costs him</li></ul>
+<hr>
+<h3>Beat 6 — PROMETHEUS</h3>
+<p>The Eclipse thread leads to a black site facility. Nightfall is what makes the insertion possible — their ability to suppress electronics and move through darkness allows the team to get inside undetected. Without them, this is a frontal assault the team cannot cleanly win.</p>
+<p>Inside: the construction infrastructure for the cyborg cadavers. Blank-slate supersoldiers built from corpses and Eclipse biotech. The scale of it is wrong in a way that takes a moment to register. A terminal. An email chain. Casimir Vane's name on an order demanding the program accelerate.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>The facility should feel wrong before it feels dangerous — the silence, the scale, the bodies</li><li>Nightfall's usefulness here is undeniable. That complicates Jason's position without resolving it.</li><li>Don't hand them the Vane/Signal connection here — Vane is Eclipse money, Signal is a separate thread. That link comes at the Gala.</li><li>Let them take something out — evidence, a construct, a name — that points toward the Gala</li><li>Smart play: get in, get the evidence, get out without triggering the facility. Brute-forcing alerts Eclipse and potentially compromises what they came for.</li></ul>
+<hr>
+<h3>Beat 7 — Eclipse Ambush / Secret Drop 3 &amp; 4</h3>
+<p><strong>Eclipse Ambush:</strong> Eclipse knows the team was in the facility. Before the Gala, they move to retrieve or destroy what the team pulled out. Human operatives and at least one powered asset. This is a fight with a specific objective on both sides — the team is protecting evidence, not just winning a brawl.</p>
+<p><strong>Reveal 3 — Paragon Force:</strong> Signal publishes evidence that the Paragon Force can be consciously released and directed by its host — and that the previous Paragon <em>chose</em> Ethan Roberts. The Force was not random. It was handed off. Signal's framing: <em>Your protector was selected by his predecessor. He has always had the option to put it down. He has not. Ask him why.</em></p>
+<p><strong>Reveal 4 — Half-Life / Decay:</strong> Signal outs Casper's history as Decay. The villain record. The people hurt. Whatever A.E.G.I.S. has on file. <em>One of your new heroes has a file. Read it.</em></p>
+<p>Casper knows who he was — this is not a crisis of identity, it is a crisis of exposure. Signal is stripping away the wall between who Casper is now and who he was, and making the team watch.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>The ambush's stakes are the Gala evidence — if the team loses it here, they arrive at the Gala with less leverage</li><li>Smart play: prioritize the evidence over the fight; not every operative needs to be taken down</li><li>Reveal 3 is the endgame setup — plant it here so the Monument Circle trap lands when Signal springs it</li><li>Reveal 4 is a trust moment: does the team already know? How do they respond now that the public does?</li><li>Two reveals in one session creates compressed pressure — Ethan's public credibility problem and a revelation about a teammate, simultaneously</li></ul>
+<hr>
+<h3>Beat 8 — The Gala</h3>
+<p>Vane Capital's annual fundraising gala. The team arrives with the PROMETHEUS evidence in hand, either through invitation or cover identities.</p>
+<p>Casimir Vane is present. Charming, generous, apparently genuine. The team can observe, investigate, and work the room.</p>
+<p><strong>The find:</strong> Something at the Gala — a conversation, a file, a face they recognize — confirms that Vane's Eclipse funding connects upstream to Signal's operation. Vane is not Signal. But Signal's campaign would not be possible without Vane's resources.</p>
+<p><strong>What this triggers:</strong> The players now know. Signal knows they know. The endgame begins.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>Casimir is not obviously a villain in person — make the players work for the connection</li><li>The Gala has social texture; not everything here is a threat, which makes threat identification harder</li><li>End the session on the moment of discovery, not the confrontation — let the weight of it land</li></ul>
+<hr>
+<h3>Beat 9 — Signal Dismantles the Alliance</h3>
+<p>Before Carter is unleashed, Signal removes each Alliance member from the board. Surgical. Personal. He has been watching them all arc.</p>
+<p><strong>Ethan / Paragon</strong> — Signal doesn't remove him. Ethan removes himself. The Monument Circle broadcast is designed to corner him publicly into releasing the Force voluntarily. Ethan's own character is the weapon.</p>
+<p><strong>Kiara / Starfall</strong> — Signal surfaces a second piece after Reveal 1: Auditor contact. Evidence — real or fabricated — that the Auditors have reactivated her "defective" designation and are moving toward Earth. Kiara faces an impossible split between her team and a cosmic threat only she can intercept. She goes. Signal knew she would.</p>
+<p><strong>Natalia / Vanguard</strong> — A.E.G.I.S. uses the public chaos as cover to move on her directly. Director Shaw invokes the monitoring framework that has been in place since 2015 and detains her as an uncontrolled asset during a crisis. Signal didn't manufacture this. He just created the conditions and knew A.E.G.I.S. would do the rest.</p>
+<p><strong>Elena / Riftfire</strong> — Riverside Ward is in danger. Her students are there. Signal doesn't need to do anything to Elena. He just needs her home ground to be burning. She goes. That's who she is.</p>
+<p><strong>Javier / Quantum</strong> — Signal leaks the location of Javier's containment suit schematics to Eclipse. Eclipse moves on his lab — not to kill him, to destabilize the suit. Javier has to go dark to prevent a reality instability event that would level a city block. He is effectively neutralized without a single fight.</p>
+<p><strong>The result:</strong> By the time Carter reaches Monument Circle, the Alliance is gone. The players are what's left.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>Each removal should feel inevitable in retrospect — Signal used who they are, not a generic attack</li><li>These removals can be telegraphed across earlier beats as setup; players may not recognize them as Signal's work until it's too late</li><li>Natalia's detention is a thread for Arc 2 — A.E.G.I.S. detaining an Alliance member under crisis authority is exactly the institutional overreach Arc 2 is built on</li></ul>
+<hr>
+<h3>Beat 10 — The Endgame</h3>
+<p><strong>Monument Circle.</strong> Signal engineers a public confrontation. He has laid out the terms: if Paragon releases the Force voluntarily, Carter will do the same. The Renegade and Paragon Forces leave Earth. No more cosmic power plays. Humanity decides.</p>
+<p><strong>Ethan releases the Force.</strong> Publicly. Voluntarily. He proves Signal wrong about his character — this was never selfishness or fear. He gives it up freely. Signal wins the argument about the institution and loses the argument about the man. That distinction matters, even if the outcome is the same.</p>
+<p><strong>Carter refuses.</strong> The agreement collapses the moment it costs him something real. He tears through a now-powerless Ethan and goes straight for Monument Circle — not for Avi, not yet, but the Force at full height with no Paragon counterweight is the most dangerous thing in the city.</p>
+<p><strong>Riley breaks.</strong> Covering Ethan's gap with a body that was already failing. He does not go down because Signal put him there. He goes down because he was already going down. Signal just provided the occasion.</p>
+<p><strong>The players are all that's left.</strong> Carter at the height of his power. Ethan de-powered and down. Riley in a coma. The Alliance scattered. The team — including whoever they brought in across the arc, Nightfall among them — is the last line.</p>
+<p><strong>Avi has to be present.</strong> Not because Carter came for him, but because Ethan and Riley need someone to pull them out. The Carter/Avi confrontation happens here, in the wreckage of Monument Circle, on Carter's terms and in front of the city.</p>
+<p><strong>Carter is reachable.</strong> His Guilty condition is the thread — he knows the agreement was real and he broke it. A player who reaches for the person underneath the Force rather than just fighting may find something to work with. This is the non-combat solution. It is hard and it is not guaranteed.</p>
+<p><strong>Signal escapes.</strong> The arc does not resolve him.</p>
+<p><strong>GM Notes:</strong></p>
+<ul><li>The partial win is the honest shape of this arc — do not frame it as failure</li><li>What the players affected: Riverside casualties lower because Riftfire was there, PROMETHEUS network damaged, Gala evidence documented, Vane/Eclipse connection known</li><li>What they could not stop: Signal's argument landing, Paragon giving up the Force, Riley's collapse, the Alliance fracturing</li><li>Carter's fate — defeat, release, or something else — should emerge from play, not from prep</li><li>Worst-case state going into Arc 2: supers officially outlawed, the team operating as vigilantes, the Alliance gone</li></ul>
+<hr>
+<h2>Signal's Reveal Schedule (Summary)</h2>
+<table>
+<thead><tr>
+<th>Session</th>
+<th>Reveal</th>
+<th>Who Knew Before</th>
+<th>Signal's Weapon</th>
+</tr></thead><tbody>
+<tr>
+<td>Early</td>
+<td>Starfall engineered as a weapon</td>
+<td>Kiara, Paragon</td>
+<td>Public trust in the Alliance</td>
+</tr>
+<tr>
+<td>Early</td>
+<td>Sterling is Darkstar's son</td>
+<td>Sterling, Kiara</td>
+<td>Sterling's withheld truth; team fracture</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Paragon Force can be released / Ethan was chosen</td>
+<td>Ethan</td>
+<td>Paragon's legitimacy; endgame setup</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Half-Life was Decay</td>
+<td>Casper (player)</td>
+<td>Public exposure; team trust</td>
+</tr>
+<tr>
+<td>Endgame</td>
+<td>Riley/Carter tape</td>
+<td>Signal, Riley</td>
+<td>Recluse's moral authority; held as the final weapon</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Alliance Dismantling Summary</h2>
+<table>
+<thead><tr>
+<th>Member</th>
+<th>How Signal Removes Them</th>
+<th>Notes</th>
+</tr></thead><tbody>
+<tr>
+<td>Paragon / Ethan</td>
+<td>Ethan removes himself — Monument Circle broadcast corners him into releasing the Force</td>
+<td>His character is the weapon</td>
+</tr>
+<tr>
+<td>Starfall / Kiara</td>
+<td>Fabricated or real Auditor reactivation forces her to intercept a cosmic threat</td>
+<td>She chooses the larger scale; Signal knew she would</td>
+</tr>
+<tr>
+<td>Vanguard / Natalia</td>
+<td>A.E.G.I.S. detains her under crisis authority</td>
+<td>Signal created the conditions; A.E.G.I.S. did the rest</td>
+</tr>
+<tr>
+<td>Riftfire / Elena</td>
+<td>Riverside Ward burns; her students are there</td>
+<td>Signal didn't manufacture this — he just needed her home ground in danger</td>
+</tr>
+<tr>
+<td>Quantum / Javier</td>
+<td>Eclipse destabilizes his containment suit; he goes dark to prevent a reality event</td>
+<td>Neutralized without a fight</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Arc End State</h2>
+<ul><li>Paragon Force released — Ethan Roberts, ordinary human</li><li>Riley Thomas in a coma — self-inflicted via deterioration, not Signal's hand</li><li>Alliance fractured and gone — each member removed by their own defining vulnerability</li><li>Signal at large — real name and Renegade history still unknown</li><li>PROMETHEUS network damaged but not destroyed</li><li>Vane/Eclipse connection documented but not yet publicly proven</li><li>Natalia detained by A.E.G.I.S. — seeds Arc 2's institutional overreach</li><li>Nightfall's status on or adjacent to the team: unresolved</li><li>Carter Williams and the Renegade Force: fate determined by play</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

@@ -24,6 +24,38 @@ IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp"]
 # Sections that get portrait injection (keyed by SECTION_CONFIG "key").
 PORTRAIT_SECTIONS = {"pcs", "npcs"}
 
+# ── Scene image mapping ────────────────────────────────────────────────────────
+#
+# Maps a location page stem to one scene key (for a top-of-page banner),
+# OR to None to suppress banner injection (handled inline instead).
+#
+# "districts" is handled specially: scene images are injected inline at each
+# H3 district heading rather than as a single top banner.
+#
+# To add sub-location images in future, just add an entry here:
+#   "hq-ironworkers-hall": "ironworkers_hall",
+# and drop scene_ironworkers_hall.png into images/locations/.
+
+SCENE_PAGE_MAP = {
+    # These get a top-of-page banner automatically
+    "aegis-halden-regional-command": "crownpoint",
+    "alliance-tower":                "crownpoint",
+    "hq-ironworkers-hall":           "ironworks",
+    "street-texture":                None,   # no single scene; suppress
+    # "districts" handled inline — do not add here
+}
+
+# Maps the H3 district heading text (lowercased, key-safe) → scene filename stem
+# Used for inline injection in districts.md
+DISTRICT_HEADING_MAP = {
+    "crownpoint":               "crownpoint",
+    "the ironworks":            "ironworks",
+    "riverside ward":           "riverside_ward",
+    "the glass district":       "glass_district",
+    "monument circle":          "monument_circle",
+    "blackwater harbor (dockside)": "blackwater_harbor",
+}
+
 SECTION_CONFIG = [
     {
         "key":       "pcs",
@@ -84,6 +116,19 @@ def find_image(stem: str):
     return None
 
 
+def find_scene_image(scene_key: str):
+    """
+    Look for images/locations/scene_<scene_key>.<ext>.
+    Returns the Path if found, else None.
+    """
+    base = IMAGES_SRC / "locations"
+    for ext in IMAGE_EXTENSIONS:
+        candidate = base / (f"scene_{scene_key}" + ext)
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def portrait_html(stem: str, title: str, prefix: str) -> str:
     """
     Return the HTML for a character portrait block, or '' if no images found.
@@ -129,6 +174,41 @@ def portrait_html(stem: str, title: str, prefix: str) -> str:
         f'{label_html}'
         f'</div>\n'
     )
+
+
+def scene_banner_html(scene_key: str, label: str, prefix: str) -> str:
+    """
+    Return a full-width scene banner HTML block for a location page,
+    or '' if no matching image exists.
+    """
+    img = find_scene_image(scene_key)
+    if img is None:
+        return ""
+    url = prefix + "images/locations/" + img.name
+    return (
+        f'<div class="scene-banner">'
+        f'<img src="{url}" alt="{label}" class="scene-banner-img">'
+        f'<span class="scene-banner-label">{label}</span>'
+        f'</div>\n'
+    )
+
+
+def inject_district_scenes(content_html: str, prefix: str) -> str:
+    """
+    For the districts.md page, find each H3 district heading and inject the
+    matching scene banner immediately after it.
+    """
+    def replacer(m):
+        heading_text = m.group(1)
+        key = heading_text.lower().strip()
+        scene_key = DISTRICT_HEADING_MAP.get(key)
+        if scene_key:
+            banner = scene_banner_html(scene_key, heading_text, prefix)
+            return m.group(0) + "\n" + banner
+        return m.group(0)
+
+    # Match H3 headings rendered as <h3>...</h3>
+    return re.sub(r'(<h3>[^<]+</h3>)', replacer, content_html)
 
 
 def copy_images():
@@ -341,7 +421,7 @@ def collect_pages():
                 "section_key":   key,
                 "section_label": cfg["label"],
                 "section_icon":  cfg["icon"],
-                "stem":          md_file.stem,   # used for portrait lookup
+                "stem":          md_file.stem,   # used for portrait / scene lookup
             }
             nav[key].append({"slug": slug, "title": title})
 
@@ -474,6 +554,57 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 }
 .clearfix::after { content: ""; display: table; clear: both; }
 
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -539,6 +670,8 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
   .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
   .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 """
@@ -568,7 +701,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <main class="main">
     {breadcrumb_html}
     <article class="content clearfix">
-      {portrait_html}{content_html}
+      {portrait_html}{scene_html}{content_html}
     </article>
     <div class="footer">Halden City Wiki &mdash; Last built {build_date}</div>
   </main>
@@ -647,18 +780,40 @@ def build_breadcrumb(slug, pages):
 def write_page(slug, pages, nav, build_date):
     page     = pages[slug]
     md_text  = page["path"].read_text(encoding="utf-8")
+    prefix   = depth_prefix(slug)
 
     content_html    = render_markdown(md_text)
     sidebar_html    = build_sidebar(nav, slug, pages)
     breadcrumb_html = build_breadcrumb(slug, pages)
-    prefix          = depth_prefix(slug)
 
-    # Portrait injection for character sections only
+    # ── Portrait injection (character sections only) ───────────────────────────
     section_key = page.get("section_key")
     stem        = page.get("stem")
     p_html = ""
     if section_key in PORTRAIT_SECTIONS and stem:
         p_html = portrait_html(stem, page["title"], prefix)
+
+    # ── Scene image injection (location section) ───────────────────────────────
+    scene_html = ""
+    scene_note = ""
+
+    if section_key == "locations" and stem:
+        if stem == "districts":
+            # Inject scene banners inline after each H3 district heading
+            content_html = inject_district_scenes(content_html, prefix)
+            scene_note = " [+district-scenes]"
+        elif stem in SCENE_PAGE_MAP:
+            scene_key_val = SCENE_PAGE_MAP[stem]
+            if scene_key_val is not None:
+                scene_html = scene_banner_html(scene_key_val, page["title"], prefix)
+                if scene_html:
+                    scene_note = " [+scene]"
+        else:
+            # Future: auto-detect scene_<stem>.png for any location page
+            img = find_scene_image(stem)
+            if img:
+                scene_html = scene_banner_html(stem, page["title"], prefix)
+                scene_note = " [+scene-auto]"
 
     html = PAGE_TEMPLATE.format(
         page_title=page["title"],
@@ -666,6 +821,7 @@ def write_page(slug, pages, nav, build_date):
         sidebar_html=sidebar_html,
         breadcrumb_html=breadcrumb_html,
         portrait_html=p_html,
+        scene_html=scene_html,
         content_html=content_html,
         build_date=build_date,
     )
@@ -675,7 +831,7 @@ def write_page(slug, pages, nav, build_date):
     out_path.write_text(html, encoding="utf-8")
 
     portrait_note = " [+portrait]" if p_html else ""
-    print(f"  Built: {out_path.relative_to(REPO_ROOT)}{portrait_note}")
+    print(f"  Built: {out_path.relative_to(REPO_ROOT)}{portrait_note}{scene_note}")
 
 
 def main():

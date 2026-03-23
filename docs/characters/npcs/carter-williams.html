@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../../characters/npcs/carter-williams.html" class="nav-link active" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,29 +304,39 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span>Characters<span class="sep">/</span>Carter Williams / Renegade Force</div>
-    <article class="content">
+    <article class="content clearfix">
       <h1>Carter Williams / Renegade Force</h1>
 <hr>
 <h2>At a Glance</h2>
@@ -225,7 +359,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </tr>
 <tr>
 <td><strong>Prior Condition</strong></td>
-<td>Paralyzed from the waist down before bonding</td>
+<td>Paralyzed from the waist down — caused by Avi at the party</td>
 </tr>
 <tr>
 <td><strong>Current Condition</strong></td>
@@ -234,36 +368,51 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </tbody></table>
 <hr>
 <h2>Who He Is</h2>
-<p>Carter Williams was paralyzed. Now he isn't. The Renegade Force healed him when it bonded, and that fact is the foundation of everything he believes about why he was chosen.</p>
-<p>He is not wrong that he was wronged. He is not wrong that the party was someone's fault. He is being used by someone who understands his grievance better than he does, and that understanding is the trap.</p>
-<p>His connection to Avi's backstory is the live wire of the "Who Decides" arc. The incident at the party paralyzed Carter. Avi does not know this. Riley knows. Signal knows.</p>
+<p>Carter Williams was paralyzed at a party. Now he isn't. The Renegade Force healed him when it bonded, and that fact is the foundation of everything he believes about why he was chosen.</p>
+<p>He is not wrong that he was wronged. He is not wrong that someone is responsible. What he doesn't understand — what Signal has carefully not helped him understand — is the full context of what happened that night. He is being used by someone who understands his grievance better than he does, and that understanding is the trap.</p>
 <hr>
-<h2>Key Asymmetries</h2>
+<h2>The Incident — What Happened at the Party</h2>
+<p>Carter and Avi had been flirting for weeks. At the pre-graduation party, they ended up alone in a room. Carter escalated physically. Avi said no — twice, clearly. Carter did not stop. He physically restrained Avi, pinned their wrists, and was contemptuous when pushed back: <em>"Don't you cheerleaders give it up for everyone?"</em></p>
+<p>Avi's powers detonated in self-defense. The force threw Carter across the room into a wall and a shelving unit. The impact caused spinal injury and paralyzed him from the waist down.</p>
+<p>The paralysis was not intentional. It was a terrified teenager's power detonating under duress. That does not make Carter's injury less real. Both of those things are true at the same time, and that is the engine of this thread.</p>
+<p><strong>What Carter's narrative is likely to be:</strong> An unprovoked attack. He was with Avi, something went wrong, he ended up paralyzed. Signal has almost certainly not shown him the full picture. Carter may have reframed the night in ways that protect his own reading of events. His Guilty condition exists because some part of him knows the story he tells isn't complete.</p>
+<hr>
+<h2>What Each Person Knows</h2>
 <table>
 <thead><tr>
 <th>Person</th>
-<th>Knows the Carter/Avi connection?</th>
+<th>What They Know</th>
 </tr></thead><tbody>
 <tr>
-<td>Riley</td>
-<td>Yes</td>
+<td><strong>Carter</strong></td>
+<td>Avi's power paralyzed him. He views it as an assault. The Force healed him. He was chosen. What he did before that moment is not part of the story he tells himself — or Signal has ensured he doesn't have to face it.</td>
 </tr>
 <tr>
-<td>Signal</td>
-<td>Yes</td>
+<td><strong>Avi</strong></td>
+<td>Carter is recovering. Avi does not know Carter is the Renegade Force host. Does not know the full extent of Carter's injury or that the Force healed him.</td>
 </tr>
 <tr>
-<td>Avi</td>
-<td>No</td>
+<td><strong>Riley</strong></td>
+<td>Knows the connection. Visited Carter in the hospital off-books. Threatened him on Avi's behalf. Signal recorded it.</td>
 </tr>
 <tr>
-<td>Carter</td>
-<td>Yes — it's the foundation of his grievance</td>
+<td><strong>Signal</strong></td>
+<td>Knows everything — including what Carter did before Avi's power detonated. Has chosen not to give Carter that context. A Carter who understands the full picture is less useful than one operating on grievance.</td>
 </tr>
 </tbody></table>
 <hr>
+<h2>Signal's Leverage</h2>
+<p>Signal followed Avi because he knew Quantum was Avi's father. Avi is easy to track — part of a visible team, powerful lineage, no cover identity. Once Signal identified the Carter/Avi history, he positioned Carter as a pawn and waited for Riley to show up and do something recordable.</p>
+<p>He was right.</p>
+<p>Signal is also sitting on the full truth of the party incident. He knows what Carter did. He has chosen not to show Carter. That information is a potential weapon in either direction — it could be used to break Carter's grievance open, or it could be what finally makes Carter go off-script when it surfaces on someone else's terms.</p>
+<hr>
+<h2>The Endgame Thread</h2>
+<p>Carter at the height of the Renegade Force, with no Paragon counterweight, is the most dangerous person in the city. A PC who tries to fight through that directly is unlikely to succeed cleanly.</p>
+<p>His Guilty condition is the non-combat thread. He knows on some level the agreement with Signal was real and he broke it. He knows on some level the story he tells about the party has gaps. A player who reaches for the person underneath the Force — and who is willing to say what actually happened that night — may find something to work with.</p>
+<p>This is hard. It is not guaranteed. Carter's fate should emerge from play, not from prep.</p>
+<hr>
 <h2>Open Questions</h2>
-<ul><li><input type="checkbox" disabled> What does Carter want that Signal isn't giving him?</li><li><input type="checkbox" disabled> Is there a version of this where Carter goes off-script — and what triggers it?</li><li><input type="checkbox" disabled> What happens to the Renegade Force after this arc?</li><li><input type="checkbox" disabled> Is Carter reachable, and which PC would be the one to reach him?</li></ul>
+<ul><li><input type="checkbox" disabled> Does Carter know what he did before Avi's power detonated, or has he genuinely reframed it?</li><li><input type="checkbox" disabled> Is there a version of this where Carter goes off-script — and what triggers it?</li><li><input type="checkbox" disabled> What happens to the Renegade Force after this arc resolves?</li><li><input type="checkbox" disabled> Which PC would be the one to reach him, and what would that cost them?</li><li><input type="checkbox" disabled> What does Carter want that Signal isn't giving him?</li></ul>
 <hr>
 <h2>Masks Villain Sheet</h2>
 <p><a href="../../plot/villain-sheets/carter-williams-renegade.md">plot/villain-sheets/carter-williams-renegade.md</a></p>

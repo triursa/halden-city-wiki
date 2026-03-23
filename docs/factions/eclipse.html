@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,31 +304,41 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span>Factions<span class="sep">/</span>Eclipse</div>
-    <article class="content">
+    <article class="content clearfix">
       <h1>Eclipse</h1>
-<blockquote><p>The shadow in the infrastructure.</p></blockquote>
+<blockquote><p><em>"The future of human capability isn't cosmic. It's engineered."</em></p></blockquote>
 <hr>
 <h2>At a Glance</h2>
 <table>
@@ -214,38 +348,77 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </tr></thead><tbody>
 <tr>
 <td><strong>Type</strong></td>
-<td>Antagonist organization — scope and structure undetermined</td>
+<td>Private biotech corporation — public company, government contracts</td>
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Active — presence confirmed, full picture unknown</td>
+<td>Active — legitimate surface, black program running underneath</td>
 </tr>
 <tr>
-<td><strong>Public profile</strong></td>
-<td>None. Not a known entity to the general public.</td>
+<td><strong>Public Profile</strong></td>
+<td>Yes. Eclipse is a known entity in medical and defense contracting circles.</td>
 </tr>
 <tr>
 <td><strong>Known to</strong></td>
-<td>A.E.G.I.S. (flagged, not confirmed); select Alliance members</td>
+<td>General public (as a biotech company); A.E.G.I.S. (flagged for deeper connections, not confirmed); select Alliance members</td>
+</tr>
+<tr>
+<td><strong>Black Program</strong></td>
+<td>PROMETHEUS — classified internally, unknown to the public</td>
 </tr>
 </tbody></table>
 <hr>
-<h2>What Is Known</h2>
-<p>Eclipse is not a street gang and not a conventional supervillain operation. The name appears in A.E.G.I.S. files in connection with anomalous events that don't fit cleaner categorical explanations. It is less a confirmed organization than a pattern that keeps showing up when something goes wrong and the causal chain doesn't fully close.</p>
-<p><strong>Confirmed associations:</strong></p>
-<ul><li>The 2020 Glass District gravity core collapse — possible Eclipse connection flagged, unconfirmed. The nature of the connection (did Eclipse cause it? facilitate it? benefit from it?) is not documented.</li><li>Vane Capital Group — Casimir Vane's unusually fast growth is one of multiple threads that may connect to Eclipse backing. Not confirmed.</li></ul>
-<p><strong>Working assumption:</strong> Eclipse operates by embedding itself into existing legitimate structures rather than building its own. It does not announce itself. It positions assets, advantages, and contingencies, and waits.</p>
+<h2>Public Face</h2>
+<p>Eclipse is a legitimate biotech corporation with government contracts and a broad commercial portfolio. Their public business covers:</p>
+<ul><li><strong>Prosthetics and assistive technology</strong> — high-end neural-linked prosthetics, considered among the best in the field</li><li><strong>Pharmaceuticals and regenerative medicine</strong> — accelerated healing compounds, cellular repair therapies, trauma response medication</li><li><strong>Medical equipment and diagnostics</strong> — imaging systems, surgical tools, monitoring infrastructure sold to hospitals and military medical programs</li></ul>
+<p>Their public reputation is credible and largely positive. They are not a household name but they are well-regarded in defense contracting, medical research, and biotech investment circles. Their government contracts are real. Their humanitarian applications are real.</p>
+<p>The respectable business is not a cover story. It is a funding engine and a legitimizing layer for what happens underneath it.</p>
 <hr>
-<h2>Confirmed Operations</h2>
-<h3>Biotech Research Arm</h3>
-<p>Eclipse funded a biotech research program focused on battlefield survivability and cellular reinforcement under extreme stress. The researcher was Dr. Ivan Romneya, a morally flexible scientist who appears to have been an unwilling participant in the program's full scope. When Ivan used an unstable experimental compound to save a dying child (Rhys) without authorization, Eclipse sent retrieval operatives. Ivan was tortured for access codes and identifiers and did not survive. The child — now known as Noc — escaped with the compound still running through their system.</p>
-<p>Eclipse classifies Rhys as an unretrieved asset. The falsified death record Ivan created may still be holding, or may have been identified. Either way, the compound in Rhys's body is proprietary research and Eclipse has never formally closed the file.</p>
-<p><strong>Confirmed connection to a current PC.</strong> Handle with care.</p>
-<h2>Structure</h2>
-<p>Unknown. It is not clear whether Eclipse has a central leadership structure, a distributed cell model, or something else entirely. What is clear is that it has resources, patience, and either luck or foreknowledge.</p>
+<h2>Program PROMETHEUS</h2>
+<p>Eclipse's black program. Internal designation only — it does not appear in any public filing, contract, or press release.</p>
+<p><strong>The thesis:</strong> Enhanced individual power exists. It is currently uncontrolled, cosmically arbitrary, and impossible to regulate. Eclipse believes this represents an enormous unsolved market problem — and an even larger national security problem. PROMETHEUS exists to solve both.</p>
+<p><strong>Three revenue streams in development:</strong></p>
+<p><strong>1. Superhuman Deterrence</strong> Engineered countermeasures, dampeners, and neutralization tools designed for sale to governments and military contractors. If you can't control the enhanced individual, you sell the thing that can stop them. A.E.G.I.S. does this through bureaucracy and detention. Eclipse intends to do it through product.</p>
+<p><strong>2. Controlled Superhuman Assets</strong> PROMETHEUS's most ambitious thread. Eclipse is developing synthetic human drones — baseline humans enhanced through the biotech research arm to function as controllable enhanced assets. Not cosmic. Not accidental. Engineered, owned, and deployable on contract. The early investor in this program is Casimir Vane.</p>
+<p><strong>3. Synthetic Power Manufacturing</strong> The long game. Eclipse believes cosmically-derived powers can be reverse-engineered, synthesized, and sold. The Rhys compound was early-stage research in this direction — battlefield survivability as a proof of concept for what comes next. If they can bottle what happened to Rhys, they can sell it.</p>
+<hr>
+<h2>Key Assets and Connections</h2>
+<h3>Dr. Ivan Romneya — Deceased</h3>
+<p>Eclipse-funded researcher. Worked on the battlefield survivability compound that became the PROMETHEUS biotech line. When he used an unstable, unauthorized version of the compound to save his nephew (Rhys) after a bomb blast, Eclipse sent retrieval operatives. Ivan was tortured for access codes and identifiers. He gave them nothing. His body disappeared.</p>
+<p>Ivan was almost certainly not a true believer in PROMETHEUS's goals. He was a researcher who needed funding and ended up too far in to get out. His death is the clearest example of what Eclipse does when a resource becomes a liability.</p>
+<h3>Dr. Selin Adeyemi — Deceased (presumed)</h3>
+<p>Independent Glass District researcher specializing in cellular regrowth and renewal — theoretical work at the edge of what peer review will touch, credible enough to attract serious interest. PROMETHEUS identified her and approached her for recruitment. How far that recruitment progressed before it stalled is unclear; what is clear is that she was not fully inside the program.</p>
+<p>Riley Thomas pulled her out of a Persico operation years earlier — collateral damage, wrong place, the kind of situation neither party filed a report about. She owed him. When Marcus Webb died and Riley couldn't bring the problem to A.E.G.I.S., he called in the debt.</p>
+<p>She performed the resurrection procedure using her own cellular regrowth research, drawing on frameworks that overlapped with PROMETHEUS's biotech line without being Eclipse science directly. The procedure worked. At some point afterward — whether days or months is undocumented — Eclipse identified the fingerprints of their recruited researcher doing unauthorized work in the Glass District. She disappeared. Dead or taken; no body confirmed.</p>
+<p>Riley does not know what happened to her. He may not have asked.</p>
+<p><strong>Marcus is alive because of her work. She is gone because of it. Riley carries this even if he has never said so out loud.</strong></p>
+<h3>Rhys / Noc — Unclosed Asset</h3>
+<p>The compound running through Rhys's system is PROMETHEUS proprietary research. Rhys is the only documented survivor of a live application. Eclipse has never formally closed the asset file. Whether they believe Ivan's falsified death record or have since identified it as fabricated is undocumented.</p>
+<p>Rhys is walking proof-of-concept for everything PROMETHEUS wants to manufacture at scale. Eclipse wants them back. Not as a person — as data.</p>
+<h3>Marcus Webb / Requiem — Flagged</h3>
+<p>The procedure that resurrected Marcus was Adeyemi's work, not Eclipse science directly — but the theoretical overlap is close enough that Eclipse may have flagged the outcome anyway. Whether they have an active file on Marcus as a result is undocumented. A.E.G.I.S. was never involved; Riley kept it entirely off-books.</p>
+<p>Marcus knows he was brought back through an experimental procedure by someone Riley trusted. He does not know who that person was, what happened to her, or what his resurrection may have cost her.</p>
+<h3>Casimir Vane — Investing Partner</h3>
+<p>Early investor in the synthetic human drone program. Vane is a knowing partner — he understands what PROMETHEUS is and believes in it. His thesis: Halden City is heading toward an enhanced individual crisis that existing institutions cannot manage. Eclipse's controlled asset program is, in his view, the only rational answer. He is not covering for monsters. He believes he is backing the people who are going to get the city through what's coming.</p>
+<p>His philanthropy is genuine. His vision for the city is genuine. He just believes that vision requires something most people aren't ready to accept yet.</p>
+<h3>The Face — [PROMETHEUS CLASSIFIED — GM EYES ONLY]</h3>
+<blockquote><p><strong>Edmund Crale.</strong> Mid-40s. CEO of Eclipse in practice if not always in title. His name does not appear in any public-facing Eclipse material — no press releases, no board listings, no government contract signatures that lead back to him directly. He operates through proxies, contracting structures, and intermediaries built over decades.</p>
+<p>Crale family history: present at A.E.G.I.S.'s 1925 founding. Two generations of quiet institutional influence that eroded over time. Edmund built Eclipse using a century of accumulated knowledge about how A.E.G.I.S. operates, what it can see, and what it cannot. PROMETHEUS has stayed invisible because he designed it to be invisible using the same architectural knowledge his family used to help build the oversight mechanisms in the first place.</p>
+<p>Casimir Vane knows who he is. Almost no one else does.</p>
+<p>Full profile: characters/npcs/edmund-crale.md</p>
+<p>Do not surface this thread until players have established a direct line to PROMETHEUS operations.</p></blockquote>
+<hr>
+<h2>Relationship with A.E.G.I.S.</h2>
+<p>Complicated. A.E.G.I.S. has Eclipse flagged in connection with anomalous events — the 2020 Glass District disaster most prominently — but has not confirmed the PROMETHEUS connection. Eclipse holds government contracts, which creates institutional friction around aggressive investigation. The people at A.E.G.I.S. who would want to pull that thread may not have the clearance. The people who have the clearance may have reasons not to pull it.</p>
+<p>Whether this represents bureaucratic paralysis, compartmentalization, or something worse is an open question. Given Edmund Crale's generational knowledge of A.E.G.I.S.'s internal architecture, the answer may be more troubling than paralysis.</p>
+<hr>
+<h2>Feel and Texture</h2>
+<p>Eclipse is not a supervillain organization. It is a company that has decided the enhanced individual question is a business problem and that they are the right people to solve it. Their employees mostly do legitimate work. Their researchers mostly believe they are advancing medicine and human capability.</p>
+<p>PROMETHEUS is real and it is monstrous, but it is monstrous in the way that defense contracting can be monstrous — incrementally, plausibly, with good arguments at every step and a great deal of money changing hands at the end.</p>
+<p>The horror is not that Eclipse is evil. The horror is that from inside Eclipse, most of what they are doing makes sense.</p>
 <hr>
 <h2>Open Questions</h2>
-<ul><li><input type="checkbox" disabled> What does Eclipse actually want? What is the long-term goal?</li><li><input type="checkbox" disabled> Who or what is at the center of it?</li><li><input type="checkbox" disabled> Is Casimir Vane a knowing participant in Eclipse, an unwitting asset, or something else?</li><li><input type="checkbox" disabled> What was Eclipse's role in the 2020 Glass District disaster?</li><li><input type="checkbox" disabled> Are there other confirmed institutional touchpoints beyond Vane Capital and the Glass District?</li><li><input type="checkbox" disabled> Does A.E.G.I.S. know more about Eclipse than its filed connections suggest, and if so, why is it compartmentalized?</li></ul>
+<ul><li><input type="checkbox" disabled> Does Eclipse know Rhys is alive and in Halden City?</li><li><input type="checkbox" disabled> What is the current state of the synthetic drone program — early prototype, field-ready, or already deployed?</li><li><input type="checkbox" disabled> What was Eclipse's role in the 2020 Glass District disaster — accidental proximity, deliberate engineering, or opportunistic recovery?</li><li><input type="checkbox" disabled> Does A.E.G.I.S. have anyone inside Eclipse, or is it the other way around — does Edmund have assets placed inside A.E.G.I.S.?</li><li><input type="checkbox" disabled> What does the PROMETHEUS end-state actually look like — what is Eclipse building toward specifically?</li><li><input type="checkbox" disabled> How many other researchers like Ivan Romneya and Adeyemi are there — people who took the funding or owed a debt and disappeared when they became inconvenient?</li><li><input type="checkbox" disabled> Does Marcus ever find out who Adeyemi was and what happened to her?</li></ul>
 <hr>
 <p><em>Last updated: March 2026</em></p>
     </article>

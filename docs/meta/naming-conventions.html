@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,29 +304,39 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../meta/naming-conventions.html" class="nav-link active" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span>Meta<span class="sep">/</span>Naming Conventions — Halden City</div>
-    <article class="content">
+    <article class="content clearfix">
       <h1>Naming Conventions — Halden City</h1>
 <blockquote><p>Rules and patterns for naming characters, locations, factions, and other proper nouns. Establish these early to keep the world internally consistent.</p></blockquote>
 <hr>
@@ -210,7 +344,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <p>Partially established. Add to this file as patterns emerge.</p>
 <hr>
 <h2>Organizations</h2>
-<ul><li><strong>A.E.G.I.S.</strong> — All caps, periods between letters. Full name TBD. When abbreviated in prose: A.E.G.I.S. (not AEGIS or Aegis).</li><li><strong>The Alliance</strong> — Title case. Always "The Alliance" (with "The"), not just "the Alliance" in formal reference.</li></ul>
+<ul><li><strong>A.E.G.I.S.</strong> — Acronym for <strong>Advanced Expert Group for Intervention and Security</strong>. All caps, periods between letters. When abbreviated in prose: A.E.G.I.S. (not AEGIS or Aegis).</li><li><strong>The Alliance</strong> — Title case. Always "The Alliance" (with "The"), not just "the Alliance" in formal reference.</li></ul>
 <hr>
 <h2>Characters</h2>
 <p>No formal naming pattern established yet.</p>
@@ -219,10 +353,102 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <p>Working hypothesis: names are grounded and realistic, not fantastical. Avoid names that read as obviously "hero names."</p>
 <hr>
 <h2>Locations</h2>
-<ul><li><strong>The Danger Room</strong> — Standard English, functional name. A.E.G.I.S. appears to use straightforward institutional naming.</li><li><strong>Halden City</strong> — "Halden" is distinctive but not fantastical. Nordic origin (meaning "half-Dane"). Mid-Atlantic flavor.</li></ul>
+<ul><li><strong>The Danger Room</strong> — Training facility for enhanced individuals to test and develop their powers. A.E.G.I.S. technology, but the Danger Room referenced in fiction is the installation inside <strong>Alliance Tower</strong>, not an A.E.G.I.S. facility.</li><li><strong>Halden City</strong> — "Halden" is distinctive but not fantastical. Nordic origin (meaning "half-Dane"). Mid-Atlantic flavor.</li></ul>
+<hr>
+<h2>Terminology — People with Extraordinary Ability</h2>
+<p><strong>Formal / institutional:</strong> "enhanced individual" or "enhanced individuals" (plural). This is the language A.E.G.I.S. uses, the language that appears in city codes, and the default for wiki documentation and prose narration.</p>
+<ul><li><em>Example: "A.E.G.I.S. maintains dossiers on virtually every active enhanced individual in the city."</em></li><li><em>Example: "The city code references enhanced individuals in the same dry bureaucratic language used for construction permits."</em></li></ul>
+<p><strong>Colloquial:</strong> "supers" — street-level shorthand used by civilians, Ironworks residents, dockworkers, and anyone not operating in an institutional context. Carries no particular positive or negative charge; it's just the common noun.</p>
+<ul><li><em>Example: "Half the block knew she was a super before A.E.G.I.S. did."</em></li><li><em>Example: "Supers are tolerated here. They are not worshipped."</em></li></ul>
+<p><strong>What to avoid:</strong> "metahuman" — carries DC Comics IP association and has been removed from the setting entirely. Do not reintroduce it.</p>
+<p><strong>A.E.G.I.S. division acronyms in use:</strong> ETR (Enhanced Threat Response), SEIB (Strategic Enhanced-Individual Bureau), ACAD (Advanced Containment &amp; Artifacts Division), MANIFEST (Youth Manifestation &amp; Intervention Program). In prose, refer to divisions by acronym.</p>
+<hr>
+<h2>Districts &amp; Boroughs</h2>
+<p>Halden City uses distinct neighborhood names rather than numbered boroughs. The six primary districts are proper nouns: <strong>Crownpoint</strong>, <strong>The Ironworks</strong>, <strong>Riverside Ward</strong>, <strong>The Glass District</strong>, <strong>Monument Circle</strong>, and <strong>Blackwater Harbor</strong> (also called Dockside). Each name is descriptive and emerged organically — historical, industrial, or geographic in character. No formal borough system exists.</p>
+<hr>
+<h2>Hero Identity — Public vs. Private</h2>
+<p>Heroes operate under code names as a default. Identity disclosure exists on a spectrum:</p>
+<ul><li><strong>Publicly known identity:</strong> The hero's civilian name is a matter of public record. Example: Ethan Roberts / Paragon.</li><li><strong>Known to A.E.G.I.S. and trusted Alliance members, private to the public:</strong> The hero operates under a code name publicly but is identified in A.E.G.I.S. files and known to close allies. Example: Riley Thomas / Recluse.</li><li><strong>Fully private:</strong> Identity is unknown to A.E.G.I.S. and the general public. A.E.G.I.S. may have a file with limited information but no confirmed civilian identity. Example: Rhys Romneya / Noc.</li></ul>
+<p>In prose and documentation, refer to heroes by code name in field/action contexts and by civilian name in personal/civilian contexts.</p>
+<hr>
+<h2>A.E.G.I.S. Designation Codes</h2>
+<p>A.E.G.I.S. uses internal file designation codes for all tracked enhanced individuals. Format: <strong>AEGIS-[3-LETTER CODE]-[NUMBER]</strong></p>
+<p>The three-letter code is derived from the hero or asset name. The number reflects the approximate chronological order in which A.E.G.I.S. opened or formalized the file.</p>
+<p><strong>Current assigned codes:</strong></p>
+<table>
+<thead><tr>
+<th>Code</th>
+<th>Individual</th>
+</tr></thead><tbody>
+<tr>
+<td>AEGIS-PRG-001</td>
+<td>Ethan Roberts / Paragon</td>
+</tr>
+<tr>
+<td>AEGIS-RCL-002</td>
+<td>Riley Thomas / Recluse</td>
+</tr>
+<tr>
+<td>AEGIS-RFT-003</td>
+<td>Elena Marquez / Riftfire</td>
+</tr>
+<tr>
+<td>AEGIS-QNT-004</td>
+<td>Javier Mendez / Quantum</td>
+</tr>
+<tr>
+<td>AEGIS-VGD-005</td>
+<td>Natalia Orlov / The Vanguard</td>
+</tr>
+<tr>
+<td>AEGIS-STF-006</td>
+<td>Kiara Je-rach / Starfall</td>
+</tr>
+<tr>
+<td>AEGIS-AGP-007</td>
+<td>Darius Cole / Aegis Prime</td>
+</tr>
+<tr>
+<td>AEGIS-ACH-008</td>
+<td>Sloane Callahan / Arachne</td>
+</tr>
+<tr>
+<td>AEGIS-SHR-009</td>
+<td>Declan Harrow / Shroud — heavily redacted, quietly misfiled</td>
+</tr>
+<tr>
+<td>AEGIS-BKP-010</td>
+<td>Adrian Vega / Breakpoint</td>
+</tr>
+<tr>
+<td>AEGIS-SYC-REDACTED</td>
+<td>Casey Holt / Scythe — file withheld from Riley Thomas deliberately</td>
+</tr>
+<tr>
+<td>AEGIS-NVA-012</td>
+<td>Avi Park / Nova</td>
+</tr>
+<tr>
+<td>AEGIS-APL-013</td>
+<td>Jason / Apollo</td>
+</tr>
+<tr>
+<td>AEGIS-NOC-014</td>
+<td>Rhys Romneya / Noc</td>
+</tr>
+<tr>
+<td>AEGIS-CSK-015</td>
+<td>Sterling Slate / Cosmic Knight</td>
+</tr>
+<tr>
+<td>AEGIS-HLF-016</td>
+<td>Casper Curie / Half-Life — amended from prior villain classification (Decay)</td>
+</tr>
+</tbody></table>
+<p>Entities without designation codes (Calypso, Darkstar, Wraith) are filed under watch status or independent tracking systems that predate or fall outside the standard code format.</p>
 <hr>
 <h2>Open Questions</h2>
-<ul><li><input type="checkbox" disabled> Does Halden City have named boroughs or districts? What's the naming logic?</li><li><input type="checkbox" disabled> Are hero code names used, or do heroes operate under real names?</li><li><input type="checkbox" disabled> Does A.E.G.I.S. use internal designation codes for heroes, threats, or incidents?</li></ul>
+<ul><li><input type="checkbox" disabled> Are there A.E.G.I.S. designation codes for threats, incidents, or objects — or only for individuals?</li></ul>
 <hr>
 <p><em>Last updated: March 2026</em></p>
     </article>

@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../../characters/npcs/casimir-vane.html" class="nav-link" title="Casimir Vane">Casimir Vane</a>
+  <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-link active" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,29 +304,39 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span>Characters<span class="sep">/</span>Darcy Cole / Rampart</div>
-    <article class="content">
+    <article class="content clearfix">
       <h1>Darcy Cole / Rampart</h1>
 <hr>
 <h2>At a Glance</h2>
@@ -221,41 +355,62 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </tr>
 <tr>
 <td><strong>A.E.G.I.S. File</strong></td>
-<td>[To be assigned]</td>
+<td>Not on file — unregistered</td>
 </tr>
 <tr>
 <td><strong>DOB</strong></td>
-<td>[Working assumption: ~1999]</td>
+<td>March 9, 1999</td>
 </tr>
 <tr>
 <td><strong>Age</strong></td>
 <td>26</td>
 </tr>
 <tr>
+<td><strong>Birthplace</strong></td>
+<td>Riverside Ward, Halden City</td>
+</tr>
+<tr>
+<td><strong>Physical</strong></td>
+<td>5'8", 165 lbs. Mixed race (Black and Irish). Dark brown eyes. Natural hair worn loose or in a high puff depending on the day. Strong build — not gym-sculpted, functionally strong, the kind that comes from twenty years of athletics. A small scar through her left eyebrow from a track hurdle at seventeen. Defaultly expressive face; she doesn't have a neutral setting.</td>
+</tr>
+<tr>
 <td><strong>Occupation</strong></td>
-<td>High school gym teacher and track coach</td>
+<td>Physical education teacher and track coach, Riverside Ward High School</td>
 </tr>
 <tr>
 <td><strong>Affiliation</strong></td>
-<td>Recluse network; Alliance-adjacent</td>
+<td>Recluse network — active, informal</td>
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Active — emerging</td>
+<td>Active — emerging. Unregistered. Knows who Riley is.</td>
 </tr>
 </tbody></table>
 <hr>
 <h2>Powers</h2>
 <p><strong>Kinetic absorption and redistribution.</strong></p>
-<p>Darcy absorbs incoming kinetic energy — impacts, shockwaves, force transferred through contact — and can redistribute it outward on demand. Practically: hits that should hurt her, don't. And what she sends back is proportional to what she absorbed, plus her own output.</p>
-<p>She is extremely hard to put down through conventional force, and the harder someone tries, the more dangerous she becomes in response.</p>
-<p><strong>Manifestation:</strong> Triggered during a building fire — she ran into the structure when no one else would. The exact mechanism is unclear; she was caught in a partial structural collapse. The kinetic event of the collapse appears to be what activated the ability. She walked out carrying someone. She thought she had just gotten lucky.</p>
-<p>She has not gotten any less capable since.</p>
+<p>Darcy absorbs incoming kinetic energy — impacts, shockwaves, force transferred through contact — and can redistribute it outward on demand. Practically: hits that should hurt her, don't. What she sends back is proportional to what she absorbed, plus her own output.</p>
+<p>She is extremely hard to put down through conventional force. The harder someone tries, the more dangerous she becomes in response.</p>
+<p><strong>Current state:</strong> Functional but unrefined. She has no formal training in using the ability offensively and has mostly avoided testing its upper limits. What she knows is empirical — she has taken hits and walked away, returned force when she had to, and has a reasonably accurate intuitive sense of what she can handle. She does not know the ceiling. She has not wanted to find out badly enough to push for it.</p>
+<p><strong>Manifestation:</strong> A building fire in the Ironworks, two years ago. A residential structure, old wiring, a Saturday afternoon when the block was home. She was a block away on a run when it went up. She was not the first person to try to get in — she was just the first one who made it back out.</p>
+<p>She was caught in a partial floor collapse on the second level. The force of it should have broken both her legs. It didn't. She walked out carrying a seven-year-old girl and a man in his sixties and had what she later described to her friend as "extremely good luck."</p>
+<p>The ability was present before the fire — in retrospect, the hits she absorbed during fifteen years of competitive athletics that should have left more damage than they did suggest it was there. The fire activated something that was already in place.</p>
+<p><strong>She has told one person:</strong> Her best friend and former college roommate, Priya, who works in clinical psychology and responded by saying "okay, and?" and asking if she wanted Thai food. This is one of the things Darcy Cole most values about Priya.</p>
+<p>She has not told anyone else. Not her mother. Not her school. She told Riley when he recruited her because he told her first, and that felt like the minimum condition of a fair conversation.</p>
+<hr>
+<h2>Background</h2>
+<p>Darcy grew up in Riverside Ward, four blocks from where she now teaches. Her mother, Gloria, raised her alone from age nine after her father left — not dramatically, just incrementally, the way some people do. Gloria has worked dispatch for the city transit authority for twenty-three years. She is a practical woman who does not ask questions she doesn't want answers to, which is both a survival mechanism and an occasionally frustrating trait in a mother.</p>
+<p>Darcy was a track athlete from age eleven. Good enough for a full scholarship to Halden University, where she ran the 400 and the hurdles for four years and graduated with a degree in kinesiology. She came back to Riverside Ward to teach. This was not a compromise or a falling short — it was a choice she made with open eyes, because the school she went to is the school she teaches at now, and she knows exactly what it costs a kid from this neighborhood to get through it without someone who shows up.</p>
+<p>She has been at the school for three years. She coaches the varsity track team and the JV girls' basketball team in the winter. She is considered one of the better teachers in the building by students and one of the more inconveniently honest ones by administration.</p>
+<p><strong>How Riley found her:</strong> Sloane's network flagged the fire incident — anomalous outcome data. A woman carried two people out of a partial floor collapse with no reported injuries to herself. The incident report is a matter of public record. Sloane pulled it, matched it to Darcy's name, cross-referenced her school employment, and had a full picture inside an hour. Riley sat on it for three weeks before showing up at the school, because showing up at someone's workplace to recruit them for a shadow hero network is something he has learned to approach carefully.</p>
+<p>He came to one of her track practices. He watched for twenty minutes. He introduced himself after as a friend of a friend of someone she'd helped that night. It took two more conversations before he told her who he was. She didn't react the way people usually do — no awe, no over-adjustment. She said she'd heard of him, and then she asked what he actually needed from her. He found this refreshing. He has not told her that.</p>
 <hr>
 <h2>Character Profile</h2>
-<p>Darcy is genuinely, non-performatively warm. She doesn't project toughness because she doesn't need to. She's not performing sunshine either — it's just how she is. She coaches kids because she's good at it and she likes it. She shows up the same way for everyone.</p>
-<p>This unsettles Riley in a specific way: she has no resistance, no armor, and she doesn't need it. Riley's composure is load-bearing. Darcy's openness is structural. He doesn't know what to do with someone who's just... fine, and means it.</p>
-<p><strong>The effect on Avi:</strong> Avi notices how naturally Riley relaxes around Darcy. It reads as ease Riley doesn't extend elsewhere. This is a quiet wound in the dynamic — not dramatic, not spoken, just there.</p>
+<p>Darcy is genuinely, non-performatively warm. She doesn't project toughness because she doesn't need to — it's there, but it's not something she leads with or needs to demonstrate. She coaches kids because she's good at it and it matters to her. She shows up the same way for everyone: direct, attentive, without agenda.</p>
+<p>This unsettles Riley in a specific way. His composure is load-bearing — it is the thing that keeps everything from showing. Darcy's openness is structural in a different sense: it isn't covering anything. She is not managing her presentation. She is just present, and what she presents is what she is. He doesn't entirely know what to do with a person who operates that way, and so he relaxes around her in ways he doesn't around most people, which he has probably not fully examined.</p>
+<p>She reads him accurately. She has not said this to him. She is not sure it would help.</p>
+<p><strong>She is not naive.</strong> The warmth is real and the ease is real and neither of them means she doesn't see things clearly. She grew up in this neighborhood. She knows what the Ironworks costs people. She knows what it means when someone presents themselves as put-together and watches every exit. She has been watching Riley Thomas manage himself since the first conversation and she has a fair idea of what that management is for. She has not pushed. She may eventually.</p>
+<p><strong>The student situation:</strong> One of her track kids, a sixteen-year-old named Deon, has been showing up to practice with healing injuries that resolve faster than they should. She has noticed. She has not yet told Riley. She is still deciding whether it's her place to bring someone else into a kid's life without knowing what that kid needs first. This is a live wire.</p>
 <hr>
 <h2>Relationships</h2>
 <table>
@@ -265,16 +420,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </tr></thead><tbody>
 <tr>
 <td><strong>Riley Thomas / Recluse</strong></td>
-<td>She reads him easily, which he doesn't expect. He relaxes around her in ways he doesn't around most people, which he probably hasn't fully noticed.</td>
+<td>She disarms him, and she knows it, and she doesn't use it for anything. He told her who he was because the recruitment required it. She thinks he would have told her eventually anyway. He probably wouldn't have. She is probably right.</td>
+</tr>
+<tr>
+<td><strong>Sloane Callahan / Arachne</strong></td>
+<td>Has met her twice. Thinks she is very funny and slightly terrifying. Sloane has clocked that Darcy is one of the few people Riley doesn't perform composure around and has filed this information away without comment.</td>
 </tr>
 <tr>
 <td><strong>Avi</strong></td>
-<td>Avi is wounded by how naturally Riley opens up around her. The wound is not Darcy's fault. She likely doesn't know it's there.</td>
+<td>Avi is quietly wounded by how naturally Riley opens around Darcy. Darcy doesn't know the wound is there. She would feel bad about it if she did. She would also not change how she is with Riley, because she didn't do anything wrong.</td>
+</tr>
+<tr>
+<td><strong>Priya</strong></td>
+<td>Best friend, former college roommate, clinical psychologist. The one civilian in Darcy's life who knows about the powers. Not in the network. Not going to be.</td>
+</tr>
+<tr>
+<td><strong>Gloria Cole</strong></td>
+<td>Her mother. Practical, perceptive, asks fewer questions than she notices things. Has clocked that Darcy's schedule has changed in the past several months and has said nothing yet.</td>
 </tr>
 </tbody></table>
 <hr>
+<h2>Voice &amp; Dialogue Notes</h2>
+<ul><li>Direct and easy in equal measure — she doesn't talk around things but she's not blunt in a way that feels like pressure</li><li>Comfortable with silence; she doesn't fill it</li><li>Laughs readily and genuinely, which is the thing that catches people off guard first</li><li>Does not flatter. Does not hedge. Gives you the accurate version.</li><li>To Riley, with complete sincerity: <em>"You do know you don't have to do that thing with your face, right?"</em> / <em>"I'm not going to break."</em></li><li>To a track kid who's sandbagging practice: <em>"I see you. Run the rep."</em></li></ul>
+<hr>
+<h2>Midjourney Reference Prompts</h2>
+<p><strong>Civilian / school:</strong></p>
+<pre><code>character art of a young Black woman in her mid-twenties, mixed race Black and Irish, warm dark brown eyes, natural hair in a high puff, strong athletic build, wearing a school track jacket over a fitted t-shirt, relaxed confident posture, small scar through left eyebrow, genuinely expressive face, graphic novel illustration style, clean linework, comic book shading, muted warm color palette, white background, character reference sheet --ar 2:3 --style raw --v 6</code></pre>
+<p><strong>Field / operational:</strong></p>
+<pre><code>character art of a young Black woman in her mid-twenties, mixed race Black and Irish, warm dark brown eyes, natural hair loose, strong athletic build, wearing a dark fitted jacket, urban nighttime setting, low warm streetlight, expression open and self-possessed, not performing anything, graphic novel illustration style, clean linework, comic book shading, noir color palette --ar 2:3 --style raw --v 6</code></pre>
+<hr>
 <h2>Open Questions</h2>
-<ul><li><input type="checkbox" disabled> How did Darcy come to Riley's attention — did she find the network or did the network find her?</li><li><input type="checkbox" disabled> Does she have a full picture of what she's gotten involved in, or is she still calibrating?</li><li><input type="checkbox" disabled> Has she told anyone outside the network about her powers?</li><li><input type="checkbox" disabled> What's her relationship with the track and gym kids — is there any overlap with the network's world?</li></ul>
+<ul><li><input type="checkbox" disabled> When does Darcy tell Riley about Deon — and how does Riley handle it?</li><li><input type="checkbox" disabled> Does Gloria Cole figure out what her daughter is doing, and if so, does she ask or wait to be told?</li><li><input type="checkbox" disabled> Has Darcy ever actually tested the upper limit of her absorption — and what happens if she takes on more than she can hold?</li><li><input type="checkbox" disabled> What does Darcy make of the team as she encounters them — particularly Avi, whose situation she'd probably read clearly?</li><li><input type="checkbox" disabled> Does she ever name what she reads in Riley, or does she keep it to herself?</li></ul>
 <hr>
 <p><em>Last updated: March 2026</em></p>
     </article>

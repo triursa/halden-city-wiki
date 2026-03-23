@@ -74,6 +74,109 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
   margin-left: 12px; vertical-align: middle; opacity: .8; }
 
+/* portrait — single */
+.portrait-wrap {
+  float: right;
+  margin: 0 0 24px 32px;
+  width: 220px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait-label {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 0 7px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual (civilian + superhero) */
+.portrait-dual {
+  width: 460px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.portrait-panel {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel {
+  margin-left: 12px;
+}
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* scene banner — full-width location image */
+.scene-banner {
+  position: relative;
+  width: 100%;
+  margin: 0 0 32px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+.scene-banner-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* inline district scene (used in districts.md) */
+.scene-banner-inline {
+  position: relative;
+  width: 100%;
+  margin: 12px 0 24px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img {
+  max-height: 260px;
+}
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  padding: 20px 16px 10px;
+}
+
 /* typography */
 .content h1 { font-size: 28px; font-weight: 700; color: var(--text-head);
   letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
@@ -136,6 +239,11 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     color: var(--accent); font-size: 12px; font-family: var(--font-body);
     cursor: pointer; letter-spacing: .08em; }
   .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
 }
 @media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
@@ -153,21 +261,37 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon pc">★</span>Player Characters</div>
   <a href="../../characters/pcs/avi-park-nova.html" class="nav-link pc" title="Avi Park / Nova">Avi Park / Nova</a>
-  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason / Apollo">Jason / Apollo</a>
-  <a href="../../characters/pcs/rhys-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
+  <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-link pc" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+  <a href="../../characters/pcs/jason-apollo.html" class="nav-link pc" title="Jason James / Apollo">Jason James / Apollo</a>
+  <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-link pc" title="Rhys / Noc">Rhys / Noc</a>
   <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-link pc" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◈</span>Characters</div>
   <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+  <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+  <a href="../../characters/npcs/anonymous-signal.html" class="nav-link" title="Anonymous Signal">Anonymous Signal</a>
+  <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
   <a href="../../characters/npcs/carter-williams.html" class="nav-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+  <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
   <a href="../../characters/npcs/casimir-vane.html" class="nav-link active" title="Casimir Vane">Casimir Vane</a>
+  <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+  <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
   <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
   <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+  <a href="../../characters/npcs/darkstar.html" class="nav-link" title="Darkstar">Darkstar</a>
+  <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+  <a href="../../characters/npcs/edmund-crale.html" class="nav-link" title="Edmund Crale">Edmund Crale</a>
+  <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+  <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+  <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+  <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+  <a href="../../characters/npcs/lily-matthews.html" class="nav-link" title="Lily Matthews">Lily Matthews</a>
   <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+  <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+  <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
   <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-link" title="Red Pill (Owen Watson)">Red Pill (Owen Watson)</a>
   <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
-  <a href="../../characters/npcs/signal.html" class="nav-link" title="Signal">Signal</a>
   <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
   <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
 </div>
@@ -180,29 +304,39 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◎</span>Locations</div>
+  <a href="../../locations/aegis-halden-regional-command.html" class="nav-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+  <a href="../../locations/alliance-tower.html" class="nav-link" title="Alliance Tower">Alliance Tower</a>
   <a href="../../locations/districts.html" class="nav-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+  <a href="../../locations/hq-ironworkers-hall.html" class="nav-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+  <a href="../../locations/street-texture.html" class="nav-link" title="Halden City — Street Texture">Halden City — Street Texture</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◇</span>Lore</div>
+  <a href="../../lore/metahuman-taxonomy.html" class="nav-link" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
   <a href="../../lore/paragon-renegade-forces.html" class="nav-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
   <a href="../../lore/world-history.html" class="nav-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◆</span>Plot</div>
+  <a href="../../plot/jason-lily-matthews-scene.html" class="nav-link" title="Nightfall B-Plot — Lily Matthews Scene">Nightfall B-Plot — Lily Matthews Scene</a>
   <a href="../../plot/macro-arc-structure.html" class="nav-link" title="Macro Arc Structure — Legacy of Halden City">Macro Arc Structure — Legacy of Halden City</a>
   <a href="../../plot/open-threads.html" class="nav-link" title="Open Threads">Open Threads</a>
   <a href="../../plot/riley-parasite-arc.html" class="nav-link" title="Riley's Parasite Arc">Riley's Parasite Arc</a>
+  <a href="../../plot/signal-beat3-broadcast.html" class="nav-link" title="Signal — Beat 3 Broadcast Script">Signal — Beat 3 Broadcast Script</a>
+  <a href="../../plot/signal-label-targets.html" class="nav-link" title="Signal — Label Shift Targets by Reveal">Signal — Label Shift Targets by Reveal</a>
+  <a href="../../plot/who-decides-arc.html" class="nav-link" title="Who Decides" — Arc 1 Beat Sheet">Who Decides" — Arc 1 Beat Sheet</a>
 </div>
 <div class="nav-section">
   <div class="nav-section-header"><span class="nav-section-icon">◌</span>Meta</div>
   <a href="../../meta/naming-conventions.html" class="nav-link" title="Naming Conventions — Halden City">Naming Conventions — Halden City</a>
+  <a href="../../meta/player-facing-doc.html" class="nav-link" title="Legacy of Halden City">Legacy of Halden City</a>
   <a href="../../meta/tone-guide.html" class="nav-link" title="Tone Guide — Halden City">Tone Guide — Halden City</a>
 </div>
     </div>
   </nav>
   <main class="main">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span>Characters<span class="sep">/</span>Casimir Vane</div>
-    <article class="content">
+    <article class="content clearfix">
       <h1>Casimir Vane</h1>
 <blockquote><p><em>"Casimir has never forgotten what it meant to have someone in his corner."</em></p></blockquote>
 <hr>
@@ -226,25 +360,42 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Active — antagonist (backing unconfirmed)</td>
+<td>Active — antagonist</td>
 </tr>
 <tr>
 <td><strong>Affiliation</strong></td>
-<td>Vane Capital Group (CEO); Eclipse (suspected, unconfirmed)</td>
+<td>Vane Capital Group (CEO); Eclipse / PROMETHEUS (early investing partner, knowing participant)</td>
 </tr>
 <tr>
 <td><strong>Type</strong></td>
-<td>Billionaire operator; funding mechanism</td>
+<td>Billionaire operator; ideological true believer</td>
 </tr>
 </tbody></table>
 <hr>
 <h2>Who He Is</h2>
 <p>A self-made billionaire raised in the Ironworks, Casimir Vane has a near-monopoly on Crownpoint construction contracts. His public persona is defined by philanthropic investment in law enforcement and public defenders — a tradition he traces to the night a detective told his family his father's killer had been found. He credits the Ironworks with teaching him everything worth knowing.</p>
-<p>Industry insiders note that Vane Capital's growth has been unusually fast for a firm without obvious institutional backing. When asked, Casimir smiles and says the Ironworks taught him how to build things that last.</p>
-<p>His sincerity about the city is not performance. He genuinely believes he is in its corner. He just believes in a version of the city that requires the current one to be dismantled first.</p>
+<p>Vane Capital's growth has been unusually fast for a firm without obvious institutional backing. The backing exists. It runs through Eclipse.</p>
+<p>His sincerity about the city is not performance. He genuinely believes he is in its corner. He just believes that protecting Halden City from what's coming requires something most people aren't ready to accept yet.</p>
+<hr>
+<h2>The Ideological Thread — Power, Control, and the Ironworks</h2>
+<p>Casimir grew up in a neighborhood where the institutions that were supposed to protect people didn't. Police response times were long. Courts were inconsistent. Unions got hollowed out and nobody came. When his father's killer was caught and convicted, it wasn't because the system worked — it was because one detective, specifically, showed up and didn't stop. That is the lesson Casimir carries: institutions don't protect people. People with power, who choose to use it correctly, protect people.</p>
+<p>The logical extension of that lesson, scaled up: he wants to be the person who shows up. Not as a hero — heroes are uncontrolled variables. As the person who owns the infrastructure that makes protection possible.</p>
+<p>He started with construction. Then law enforcement philanthropy — the police are the city's most visible power structure, and buying their goodwill is cheap at scale. He has worked for years to make Vane synonymous with civic safety. He wants to own private security next. A Vane Security arm, civic-minded, publicly trusted, would complete the picture: the firm that builds the city and keeps it safe. That's a monopoly on the physical world.</p>
+<p>PROMETHEUS is the next step he couldn't have imagined without Crale. Enhanced individuals are the variable he can't control through normal channels. The Alliance answers to no one. A.E.G.I.S. is bureaucratic and slow. The right answer — and Crale made him see this — is controlled enhanced capability. An army he owns, that operates under civic cover, answering to the person who funds them. If you own the controlled metahumans and you own the private security firm and you own the construction contracts, you own the city's relationship to safety entirely.</p>
+<p>He did not arrive at PROMETHEUS through cruelty. He arrived through a coherent theory of power that started in the Ironworks and scaled up without ever fully examining what the scaling costs.</p>
+<hr>
+<h2>The PROMETHEUS Connection</h2>
+<p>Casimir is an early investing partner in Eclipse's PROMETHEUS program — specifically the synthetic human drone initiative. He knows what PROMETHEUS is. He chose it.</p>
+<p>His thesis: the existing framework for enhanced individuals — A.E.G.I.S., the Alliance, cosmically-derived powers that answer to no one — is a sovereignty problem waiting to become a catastrophe. Uncontrolled enhanced individuals cannot be regulated, only managed after the fact. Managed means people die first.</p>
+<p>Eclipse's controlled asset program is, in his view, the rational answer. Engineered capability. Owned accountability. No cosmic wildcards.</p>
+<p>He is not covering for monsters. He believes he is backing the people who are going to get the city through what's coming. That sincerity is what makes him dangerous — he is not performing civic responsibility, he has just decided that civic responsibility requires this.</p>
+<hr>
+<h2>Voice and Texture</h2>
+<p>Casimir is warm in person. Genuinely charming, substantive in conversation, comfortable with complexity. He does not come across as a villain. He comes across as someone who has thought hard about a real problem and arrived at a considered position. The position happens to involve funding the manufacture of synthetic controlled humans.</p>
+<p>He would argue about that framing.</p>
 <hr>
 <h2>Open Questions</h2>
-<ul><li><input type="checkbox" disabled> Who or what is actually backing Vane Capital's growth?</li><li><input type="checkbox" disabled> What is his relationship to Eclipse — funder, partner, or something else?</li><li><input type="checkbox" disabled> Is there a A.E.G.I.S. connection, or a third party entirely?</li><li><input type="checkbox" disabled> How does the Gala exposure land — what does he do when he's partially implicated?</li></ul>
+<ul><li><input type="checkbox" disabled> Does Casimir know the full scope of what Eclipse is willing to do — Ivan Romneya, Rhys, the unclosed asset files?</li><li><input type="checkbox" disabled> How does the Gala exposure land — what does he do when he is partially implicated publicly?</li><li><input type="checkbox" disabled> Is there a line Casimir won't cross, or has the ideological commitment swallowed that entirely?</li><li><input type="checkbox" disabled> When does the Vane Security play become public, and what does that do to his civic reputation?</li><li><input type="checkbox" disabled> Does he know about MANIFEST / Casey Holt? Would he want that program running if he did?</li></ul>
 <hr>
 <h2>Masks Villain Sheet</h2>
 <p><a href="../../plot/villain-sheets/casimir-vane.md">plot/villain-sheets/casimir-vane.md</a></p>

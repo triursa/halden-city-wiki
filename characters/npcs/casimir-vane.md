@@ -27,6 +27,20 @@ His sincerity about the city is not performance. He genuinely believes he is in 
 
 ---
 
+## The Ideological Thread — Power, Control, and the Ironworks
+
+Casimir grew up in a neighborhood where the institutions that were supposed to protect people didn't. Police response times were long. Courts were inconsistent. Unions got hollowed out and nobody came. When his father's killer was caught and convicted, it wasn't because the system worked — it was because one detective, specifically, showed up and didn't stop. That is the lesson Casimir carries: institutions don't protect people. People with power, who choose to use it correctly, protect people.
+
+The logical extension of that lesson, scaled up: he wants to be the person who shows up. Not as a hero — heroes are uncontrolled variables. As the person who owns the infrastructure that makes protection possible.
+
+He started with construction. Then law enforcement philanthropy — the police are the city's most visible power structure, and buying their goodwill is cheap at scale. He has worked for years to make Vane synonymous with civic safety. He wants to own private security next. A Vane Security arm, civic-minded, publicly trusted, would complete the picture: the firm that builds the city and keeps it safe. That's a monopoly on the physical world.
+
+PROMETHEUS is the next step he couldn't have imagined without Crale. Enhanced individuals are the variable he can't control through normal channels. The Alliance answers to no one. A.E.G.I.S. is bureaucratic and slow. The right answer — and Crale made him see this — is controlled enhanced capability. An army he owns, that operates under civic cover, answering to the person who funds them. If you own the controlled metahumans and you own the private security firm and you own the construction contracts, you own the city's relationship to safety entirely.
+
+He did not arrive at PROMETHEUS through cruelty. He arrived through a coherent theory of power that started in the Ironworks and scaled up without ever fully examining what the scaling costs.
+
+---
+
 ## The PROMETHEUS Connection
 
 Casimir is an early investing partner in Eclipse's PROMETHEUS program — specifically the synthetic human drone initiative. He knows what PROMETHEUS is. He chose it.
@@ -52,7 +66,8 @@ He would argue about that framing.
 - [ ] Does Casimir know the full scope of what Eclipse is willing to do — Ivan Romneya, Rhys, the unclosed asset files?
 - [ ] How does the Gala exposure land — what does he do when he is partially implicated publicly?
 - [ ] Is there a line Casimir won't cross, or has the ideological commitment swallowed that entirely?
-- [ ] What is his relationship to the unnamed face at Eclipse's center — peer, subordinate, believer?
+- [ ] When does the Vane Security play become public, and what does that do to his civic reputation?
+- [ ] Does he know about MANIFEST / Casey Holt? Would he want that program running if he did?
 
 ---
 

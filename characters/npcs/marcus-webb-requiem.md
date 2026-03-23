@@ -38,9 +38,15 @@ Marcus Webb grew up in the Ironworks and found his way into Recluse's network th
 
 **The resurrection:** Riley did not go to A.E.G.I.S. He didn't trust them with Marcus's life, or with the exposure. He called in an old debt instead — a Glass District researcher named Dr. Selin Adeyemi, whom he had pulled out of a Persico operation years before. She had the theoretical framework for cellular regrowth and renewal. The procedure worked.
 
-Adeyemi disappeared shortly after. Dead or taken; Riley doesn't know. He may not have looked hard enough to find out.
+Adeyemi disappeared shortly after. Riley's read: taken. He has not been able to confirm this.
 
-Marcus knows he was brought back through an experimental procedure by someone Riley trusted and went to quietly, off A.E.G.I.S. books. He does not know who Adeyemi was, what happened to her, or what her involvement with Eclipse may have cost her. The full shape of what his resurrection required is information Riley has not volunteered.
+Marcus knows he was brought back through an experimental procedure by someone Riley trusted and went to quietly, off A.E.G.I.S. books. He does not know who Adeyemi was, or what happened to her. The full shape of what his resurrection required is information Riley has not volunteered.
+
+**The Adeyemi investigation (active, present-day):** Marcus is looking. He has been looking since he understood enough to know there was something to look for. He does not have a name yet — Riley has not given him one. What he has is the shape of the gap: someone with the capability to do what was done to him, operating quietly in the Glass District, who then vanished. He has a partial Glass District institutional trail, two dead-end contacts, and a conviction that the disappearance was not natural.
+
+He has not told Riley he is investigating. Riley would tell him to stop. Marcus has decided that is not Riley's call to make.
+
+Eclipse's fingerprints are on the Adeyemi disappearance. Marcus does not know the name Eclipse yet. He is getting closer.
 
 The guilt dynamic between Riley and Marcus is real and ongoing. Riley made a call. Marcus is alive because of it. Marcus did not consent. These things are all simultaneously true and none of them resolve the others.
 
@@ -54,6 +60,8 @@ What it did was make him quieter. He used to have a faster mouth. Now he thinks 
 
 He is still figuring out what he owes anyone. He does not owe Riley forgiveness. He also hasn't left.
 
+The investigation is, among other things, the thing that is his. Not Riley's network, not Riley's choices, not Riley's guilt. Marcus deciding to find out who Adeyemi was and what happened to her is the first thing he has done since coming back that is entirely his own.
+
 **In the "Meet the Family" rooftop scene:** Marcus in this fiction is this character. The rooftop dynamic is alive with the weight of what Riley authorized, what Marcus survived, and what neither of them has said out loud yet.
 
 ---
@@ -62,18 +70,18 @@ He is still figuring out what he owes anyone. He does not owe Riley forgiveness.
 
 | Person | Relationship |
 |---|---|
-| **Riley Thomas / Recluse** | Mentor, complicated by the resurrection. Riley went outside A.E.G.I.S. to bring Marcus back and called in a debt to do it. The person he called is gone. Marcus knows Riley made a call and doesn't fully know what it cost. Neither has confronted this directly. |
+| **Riley Thomas / Recluse** | Mentor, complicated by the resurrection. Riley went outside A.E.G.I.S. to bring Marcus back and called in a debt to do it. The person he called is gone. Marcus knows Riley made a call and doesn't fully know what it cost. He is finding out on his own. Neither has confronted this directly — yet. |
 
 ---
 
 ## Open Questions
 
-- [ ] Does Marcus know the full extent of what the resurrection involved, or only that it happened off-books?
-- [ ] Will he ever find out who Adeyemi was and what happened to her?
+- [ ] How close is Marcus to identifying Adeyemi by name, and what happens when he does?
+- [ ] When he confirms Eclipse's involvement, does he go to Riley, or does he go further on his own first?
 - [ ] Is the guilt dynamic something that will eventually rupture, or does it calcify into something else?
 - [ ] Does the post-resurrection physiology differ from pre-death in ways Marcus is not acknowledging?
 - [ ] What is Perdition's current status relative to Marcus — does Perdition know Marcus is alive?
-- [ ] Does Eclipse have an active file on Marcus as a result of Adeyemi's work?
+- [ ] Does Eclipse have an active file on Marcus? If so, does Crale know he's investigating?
 
 ---
 

@@ -42,7 +42,8 @@
 - **Stakes:** Carter is both a weapon in Signal's hands and a person with a genuine grievance
 
 ### Riley's Parasite
-- Riley contracted a parasite on Darkstar's ship — not an accident; deliberately introduced with a specific biological target
+- Riley contracted a parasite on Darkstar's ship during the Alliance's early years (~2015–2016 abduction response mission) — not an accident; deliberately introduced with a specific biological target
+- The encounter happened on one of the Alliance's first formal operations. The mission was a success by surface metrics. Riley did not know he had been exposed when he left.
 - Parasite has bonded to the spider gene specifically. Reads, partially, as the biology it's attached to — hard to detect through standard medical screening
 - **Goal:** Strip Riley's moral restraint rather than kill him. Something in the spider gene's expression is connected to how he processes ethical constraints. The parasite is working against that.
 - Currently indistinguishable from ordinary aging and accumulated wear. Riley is already hiding the physical decline; the parasite is hidden inside that hiding.
@@ -55,9 +56,9 @@
 - Eclipse is a legitimate biotech corporation running a classified black program: PROMETHEUS
 - Three revenue streams: superhuman deterrence (countermeasures and dampeners), controlled superhuman assets (synthetic human drones), synthetic power manufacture (reverse-engineered enhanced capability)
 - **CEO: Edmund Crale** — Crale family present at A.E.G.I.S.'s 1925 founding; built Eclipse using generational institutional knowledge of A.E.G.I.S.'s oversight architecture. PROMETHEUS has stayed invisible because he designed it using the same frameworks his family helped build. [GM eyes only — do not surface until players reach PROMETHEUS directly]
-- **Casimir Vane** is a knowing, ideological investing partner. His civic sincerity is real. So is his complicity.
+- **Casimir Vane** is a knowing, ideological investing partner. His civic sincerity is real. So is his complicity. His endgame: a Vane Security arm providing civic enhanced-individual deterrence — police loyalty now, controlled metahuman assets next, monopoly on what "safety" means in Halden City.
 - **Rhys/Noc** has Eclipse's proprietary compound running through his biology. Unclosed asset file. Eclipse wants the asset back.
-- **Marcus Webb's resurrection** used research in theoretical overlap with PROMETHEUS (Dr. Adeyemi's cellular regrowth work). Adeyemi disappeared after the procedure — Eclipse resolved the irregularity. Riley does not know what happened to her.
+- **Marcus Webb's resurrection** used research in theoretical overlap with PROMETHEUS (Dr. Adeyemi's cellular regrowth work). Adeyemi disappeared after — Eclipse resolved the irregularity. Riley does not know what happened to her. **Marcus is actively investigating.** He has a partial Glass District institutional trail, two dead-end contacts, and the conviction that the disappearance was not natural. He has not told Riley he is looking. He is getting closer to the name Eclipse.
 - **The 2020 Glass District gravity core disaster** that created Aegis Prime has a flagged but unconfirmed Eclipse connection.
 - **Stakes:** PROMETHEUS is not a shadow conspiracy — it's a company that decided the enhanced individual question is a business problem. When it surfaces, the frame isn't "villain's secret lair" — it's institutional, rational, and has been running for years.
 
@@ -67,10 +68,9 @@
 
 | Thread | What Was Planted | Potential Payoff |
 |---|---|---|
-| Three missing Glass District researchers | SEIB has no confirmed causal link; as of 2025. Possible Eclipse connection — unconfirmed. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS, the researchers may have stumbled into something they weren't supposed to see. |
+| Three missing Glass District researchers | SMAB has no confirmed causal link as of 2025. Possible Eclipse connection — unconfirmed. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS, the researchers may have stumbled into something they weren't supposed to see. |
 | Darkstar's long game | Engineering stress-test scenarios since 2012. Passive observer — but observation now includes a defected son on the new team and an active parasite experiment on Riley. | When Darkstar decides to stop observing. His data set is thirteen years deep. |
 | Joseph Persico's return | Released from prison; re-establishing his Dockside network | First major street-level confrontation with the new team |
-| Casimir Vane's backing | Resolved — backing is Eclipse/PROMETHEUS. Vane is a knowing ideological partner. Not resolved: how deep his operational involvement goes, and whether he becomes a liability or an asset as PROMETHEUS approaches exposure. | |
 | The Hall — locked room (3/F) | Key not transferred with the building. Room is larger than the 1938 city filing indicates. | What's in it, who put it there, and why wasn't the key included in the transfer? |
 | Local 44 records (3/F) | Six boxes of union records, 1938–present. Unexamined. | Could contain records of early Ironworks enhanced individual history — the 1958 Blackwater Harbor incident, labor disputes with anomalous outcomes, names that connect to current threads. |
 | Darcy's student Deon | 16-year-old track athlete healing faster than he should. Darcy has noticed. Has not told Riley yet — still deciding if it's her place. | When she tells him, and how Riley handles being handed a kid who didn't ask to be found. |
@@ -102,4 +102,3 @@
 ---
 
 *Last updated: March 2026*
-

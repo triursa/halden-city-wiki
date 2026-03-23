@@ -64,9 +64,27 @@ The Sterling situation complicates this. His son is a defection — a data point
 
 ## The Parasite Thread
 
-Darkstar introduced a parasite during an encounter on his ship. The parasite targets the spider gene specifically and is designed to strip moral restraint rather than kill the host. Zara Thorne receives Riley's physical distress passively through genetic entanglement — she is getting a signal, not symptoms.
+### Origin — The Abduction Mission (~2015–2016)
 
-Darkstar is monitoring. His posture on this is passive — he seeded the experiment and is observing results.
+The parasite was introduced during one of the Alliance's earliest formal operations — a response to a Darkstar-linked abduction event, likely within the first year of the Alliance's founding. The mission was a team effort: Riley's first joint operation with the Alliance rather than the Recluse network, which by itself marks it as significant. He had spent fifteen years working alone or with a small trusted circle. This was new.
+
+The team boarded Darkstar's ship. They extracted whoever had been taken. The operation was, by surface metrics, a success. Darkstar permitted it — passively, deliberately. He had no interest in the abductee. He had interest in the heroes who came for them.
+
+Riley did not know he had been exposed to anything when he left the ship. There was no injury, no obvious intervention. Whatever Darkstar introduced was introduced quietly, in the margins of a mission Riley considered concluded.
+
+**Why Riley specifically:** Darkstar had been studying Halden City's enhanced individuals since 2012. The spider gene is unusual — a distributed genetic expression with documented precognitive capacity, not an accident or a lab product. Riley had been operating unsanctioned for nearly a decade before the Alliance gave him institutional cover. Darkstar had been watching him for years before the ship encounter. The parasite was not opportunistic. It was selected.
+
+**Timeline:** ~10 years elapsed between exposure and the campaign's present. The parasite is slow. This was designed.
+
+### What the Parasite Does
+
+Targets the spider gene specifically. Designed to strip moral restraint rather than kill the host. Darkstar's hypothesis: the spider gene's precognitive function is entangled with threat-assessment, which is entangled with ethical weighting. Remove the restraint, and what remains is a faster, more efficient predator — a genuine evolutionary step, by his frame.
+
+Riley's physical deterioration (slower healing, stiff joints) is a side effect of the parasite's progress, not the goal. The degradation of his body is the price of something Darkstar considers an upgrade.
+
+**Zara Thorne** receives Riley's physical distress passively through genetic entanglement — she is getting a signal, not symptoms. The signal has been intensifying. She doesn't know about the parasite. She knows something is wrong.
+
+Darkstar is monitoring. His posture is passive — he seeded the experiment and is observing results. He considers intervention unnecessary. He expects the data to arrive on its own timeline.
 
 ---
 
@@ -77,6 +95,7 @@ Darkstar is monitoring. His posture on this is passive — he seeded the experim
 - [ ] When, if ever, does he shift from passive observation to active intervention?
 - [ ] Has he made contact with Signal, Vane, or any other active antagonist?
 - [ ] What does A.E.G.I.S. actually know about him — their Watch Status file suggests awareness, but what is its depth?
+- [ ] Does A.E.G.I.S. know Riley was exposed during the abduction mission? Is there any field report from that operation?
 
 ---
 

@@ -146,6 +146,9 @@ Spider-derived powers (distinct from Riley's) — wall adhesion, enhanced streng
 **DOB:** June 30, 1996 | **Age:** 29 | **File:** AEGIS-SHR-009
 Hunts the things A.E.G.I.S. has no language for — the older things in Halden City's forgotten infrastructure. Operates along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident. **Note: Shroud's canonical name is Declan Harrow. Marcus Harrow is an earlier erroneous reference.**
 
+### Lily Matthews
+**Age:** 15 | Civilian. Younger sister of Mary Matthews / Artemis (deceased). Knew Mary's secret. Does not know why Mary is gone. Recognized Jason from Signal's broadcast and sought him out. Full profile: `characters/npcs/lily-matthews.md`.
+
 ---
 
 ## Characters — NPCs: Antagonists
@@ -247,6 +250,7 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 | `characters/npcs/marcus-webb-requiem.md` | Requiem / Marcus Webb — resurrection arc, Adeyemi connection |
 | `characters/npcs/zara-thorne-filament.md` | Filament / Zara Thorne |
 | `characters/npcs/declan-harrow-shroud.md` | Shroud / Declan Harrow |
+| `characters/npcs/lily-matthews.md` | Lily Matthews — Mary's younger sister, Jason's civilian thread |
 
 ### NPCs — Antagonists & Assets
 | File | Contents |
@@ -288,10 +292,15 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 | `plot/open-threads.md` | Active threads with stakes |
 | `plot/macro-arc-structure.md` | Four-arc philosophical spine — pre-play placeholder |
 | `plot/riley-parasite-arc.md` | Riley's parasite arc — seeded, not yet active |
+| `plot/who-decides-arc.md` | Arc 1 full beat sheet — "Who Decides" |
+| `plot/signal-beat3-broadcast.md` | Signal's Beat 3 broadcast script — register anchor for GM use |
+| `plot/signal-label-targets.md` | Signal's label shift targets by reveal — primary and ripple effects per PC |
+| `plot/jason-lily-matthews-scene.md` | Lily Matthews scene — Jason's Doomed nemesis thread, Beat 3–5 |
 | `plot/villain-sheets/signal.md` | Signal — campaign-use villain sheet |
 | `plot/villain-sheets/casimir-vane.md` | Casimir Vane — villain sheet |
 | `plot/villain-sheets/carter-williams-renegade.md` | Carter Williams — villain sheet |
-| `plot/villain-sheets/red-pill-owen-watson.md` | Red Pill — villain sheet |
+| `plot/villain-sheets/red-pill-owen-watson.md` | Red Pill — villain sheet with Labels, amplification field mechanic, exit condition |
+| `plot/villain-sheets/shade-construct.md` | SHADE Unit — PROMETHEUS construct, Beat 2 threat |
 
 ### Meta
 | File | Contents |
@@ -301,7 +310,5 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 
 ---
 
-*Last updated: March 2026 — Session 4: WIKI-INDEX fully restructured. Casey Holt / Scythe added to roster and file table. The Hall added to districts and locations. Character tables split into PCs / NPCs-Alliance / NPCs-Antagonists. Macro arc structure added to index. All current wiki files catalogued. Villain-sheets subfolder documented.*
+*Last updated: March 2026 — Session prep for Arc 1 "Who Decides." New files this session: SHADE construct stat block, Signal Beat 3 broadcast script, Red Pill villain sheet (Labels + amplification field mechanic + exit condition), Lily Matthews NPC stub, Lily Matthews scene note (Jason nemesis thread), Signal label targets by reveal (primary + ripple, all PCs). WIKI-INDEX updated to reflect all new files.*
 *To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*
-
-

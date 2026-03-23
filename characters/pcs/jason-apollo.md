@@ -1,4 +1,4 @@
-# Jason / Apollo
+# Jason James / Apollo
 
 > **PLAYER CHARACTER — Do not over-document internal states or future development. This file is a GM reference for arc planning, not a character bible.**
 
@@ -9,7 +9,7 @@
 | Field | Value |
 |---|---|
 | **Hero Name** | Apollo |
-| **Civilian Name** | Jason |
+| **Civilian Name** | Jason James |
 | **Age** | [Working assumption: 18–19, senior year at time of origin] |
 | **A.E.G.I.S. File** | AEGIS-APL-013 |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |
@@ -88,7 +88,6 @@ The Doomed playbook means the question of *whether* the end comes — and what h
 
 ## Open Questions
 
-- [ ] What is Jason's last name?
 - [ ] How long does he estimate he has before the dual-power instability becomes critical?
 - [ ] Does anyone on the team know about the countdown yet?
 - [ ] What exactly did Nightfall say as a warning before leaving — and why did it not register?
@@ -98,4 +97,3 @@ The Doomed playbook means the question of *whether* the end comes — and what h
 
 *Last updated: March 2026*
 *Source: Player-authored origin fiction*
-

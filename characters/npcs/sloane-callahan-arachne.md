@@ -49,11 +49,35 @@ Her perfect memory is a thread that hasn't been pulled yet. She assumes it's jus
 
 ---
 
+## Introduction to the Players — The Hall
+
+Sloane already owns the second floor. That is the first thing the players learn about her — she got here before them, she has made it hers, and she is not apologetic about any of that.
+
+**How she presents:** The players come upstairs and find a fully operational surveillance hub where there used to be administrative offices. Monitors, drone relay stations, a server rack humming in the corner, empty cups near a keyboard she's clearly been at for hours. Sloane swings around in her chair, looks them over like she's already pulling their files — which she is — and starts talking before anyone introduces themselves. She already knows who they are.
+
+**Her role in the space:** She is the team's intelligence infrastructure. What the players cannot find by going somewhere, she can find by looking. Her Weaver drones extend the team's situational awareness across Riverside Ward and Dockside. In practical terms: she is the voice in the comms, the person who knows the layout of a building before the team enters it, the one who notices the pattern that isn't obvious until it's too late.
+
+**The second floor is hers.** The team has access to it. That is not the same as it being shared space. She has a system. She will tell you about the system if you ask, and if you don't ask and mess with something, she will also tell you about the system.
+
+**What she offers the team:**
+- Intelligence access: surveillance feeds, personnel files, building schematics, financial trails
+- Real-time comms support during operations
+- Pattern recognition across large data sets faster than any human should be able to manage — she attributes this to being good at her job. The players may eventually wonder.
+- A running commentary on everything, which is sometimes useful and always present
+
+**Her relationship to the players vs. Riley:** With Riley, the dynamic is established — she teases, he tolerates, they function. With the new team she is still calibrating. She is warmer than she intends to be and quicker to help than she would admit. She is also watching to see who is worth the investment. She will decide this faster than she lets on.
+
+**The upgrade angle:** Part of what drew Sloane to the Hall is resources she didn't have operating out of a rented apartment. The Alliance satellite designation means access to better hardware, more bandwidth, relay infrastructure for the Weaver drones. She is building something here. The team showing up is either a complication or an opportunity depending on how they treat the second floor.
+
+---
+
 ## Relationships
 
 | Person | Relationship |
 |---|---|
-| **Riley / Recluse** | Handler and foil. She teases him; he rolls his eyes; neither would function as well without the other. "You *do* know that story doesn't end well for her, right?" |
+| **Riley / Recluse** | Handler and foil. She teases him; he rolls his eyes; neither would function as well without the other. |
+| **Adrian / Breakpoint** | Comfortable familiarity — they've been in the building at the same time enough that they have a rhythm. He doesn't touch her setup. She appreciates this more than she says. |
+| **The new team** | Assessing. Warmer than she's showing. Will decide quickly who she actually likes. |
 
 ---
 
@@ -62,9 +86,19 @@ Her perfect memory is a thread that hasn't been pulled yet. She assumes it's jus
 - Fast, playful, irreverent
 - Genuine giddiness about the work, masked by dry humor
 - Calls herself "Arachne" with complete seriousness while in the field
-- *"God, I forget how ancient you are."* / *"You're no fun."* / *"Let's get to work, shall we?"*
+- Already knows things about the players before they tell her — doesn't always reveal this immediately
+- *"I already pulled your file, by the way. Don't worry, it's mostly fine."*
+- *"The second floor is mine. You can come up. Just don't touch the left monitor."*
+
+---
+
+## Open Questions
+
+- [ ] What exactly did she find on that Glass District server the night she hacked in — and does it connect to anything currently active?
+- [ ] What is the full nature of her perfect memory — is it genuinely just how her brain works, or is something else in play?
+- [ ] Does she know about Dani Whittaker / Wraith's leak campaign — and if so, what does she think of a parallel operator she didn't recruit?
+- [ ] What would it take for her to fully trust someone on the new team?
 
 ---
 
 *Last updated: March 2026*
-

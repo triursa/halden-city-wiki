@@ -28,6 +28,14 @@ halden-city-wiki/
 │   ├── — Villains & Antagonists —
 │   ├── signal.md
 │   ├── casimir-vane.md
+│   ├── — Minor Villains —
+│   ├── gilt-nadia-osei.md
+│   ├── caliber-deshawn-merritt.md
+│   ├── dr-cassius-vrell.md
+│   ├── remnant.md
+│   ├── brackish-linus-peters.md
+│   ├── the-conductor-elliot-marsh.md
+│   ├── slake-barry-black.md
 │   └── _character-template.md
 ├── factions/
 │   ├── aegis.md
@@ -96,5 +104,3 @@ halden-city-wiki/
 ---
 
 *Last updated: March 2026*
-
-claude

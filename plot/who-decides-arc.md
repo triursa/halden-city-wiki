@@ -28,6 +28,19 @@ The Alliance assembles the new team at Alliance Tower for a formal reveal. The o
 
 ---
 
+### Beat 1.5 — Aubrey's Text (Nova / Avi)
+
+Aubrey reaches out to Avi by text. No demand, no explanation required. Something like: *"I saw Carter last week. I don't know what I'm telling you except I thought you should know."*
+
+This is a civilian thread Avi can pull, ignore, or sit on. If they follow up, Aubrey eventually describes the person Carter was with — a face that connects to Signal's network.
+
+**GM Notes:**
+- This is Avi's beat to initiate or not. Do not prompt it beyond surfacing the text.
+- Aubrey is an unwitting Signal-adjacent witness. Full details in `characters/pcs/avi-park-nova.md`.
+- Timing: a few days after Beat 1, before Signal's campaign escalates.
+
+---
+
 ### Beat 2 — The Press Room
 
 The new team steps into a press conference to formally introduce themselves to the city. A Senator is present to publicly endorse the Alliance's new initiative.
@@ -58,6 +71,19 @@ He announces his initiative: one secret revealed per session until humanity deci
 - Darkstar has an established public profile as a known threat the Alliance has never fully neutralized — the optics of him being attacked by an unknown host land harder because the city already fears him
 - Signal's tone: calm, almost sympathetic. He is not angry. He is concerned.
 - End on his sign-off — a question, not a threat. He places it and leaves.
+
+---
+
+### Beat 3.5 — Carter Surfaces (Nova / Avi)
+
+In the noise following Signal's first broadcast, something slips. Grainy footage — security camera or phone video — shows a figure stopping a car with their hands, walking away from something that should have been fatal. The face isn't clearly identifiable. The footage circulates.
+
+It's Carter. Avi may or may not recognize it at this stage. Either way, the image is out there. Avi's telekinesis is emotionally triggered. The player navigates this on their own terms.
+
+**GM Notes:**
+- Don't editorialize this to Avi. Drop it into the world and let them find it.
+- This lands harder if the Aubrey thread is already in motion — Avi is already primed to be looking.
+- Signal has not deployed Carter yet. This footage is incidental — Carter slipping, not Signal's plan.
 
 ---
 

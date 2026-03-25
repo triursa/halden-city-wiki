@@ -13,7 +13,8 @@
 | **Age** | 23 |
 | **Birthplace** | Halden City |
 | **Affiliation** | None — approaching the new team (Arc 1) |
-| **Status** | Active — unsanctioned; attempting reform |
+| **Status** | Active — unsanctioned; watching |
+| **Spectrum** | Low Spectrum (Wavelength host) |
 
 ---
 
@@ -33,43 +34,65 @@
 
 ## Origin
 
-Morgan Vale was an aimless teenager drawn to the forbidden corners of Halden's River District. When they trespassed into an abandoned A.E.G.I.S. materials lab — quietly shuttered after a failed contract — they fell through a rusted catwalk into a sealed vat of experimental light-absorptive fluid. The substance was designed to neutralize energy-based superhumans. It did not neutralize Morgan. It bonded with them.
+Morgan Vale was an aimless teenager drawn to the forbidden corners of Halden's Ironworks. When they trespassed into an abandoned A.E.G.I.S. materials lab — quietly shuttered after a failed Eclipse-adjacent contract — they fell through a rusted catwalk into a sealed vat of experimental light-absorptive fluid. The substance was designed to neutralize energy-based superhumans. It did not neutralize Morgan. It bonded with them.
 
-They emerged changed — not merely standing in shadow, but commanding it.
+What bonded with them was not only the fluid. The extreme electromagnetic environment of the Eclipse lab was sufficient for the Low Spectrum Wavelengths to exert influence and find a host. Morgan emerged changed — not merely commanding shadow, but carrying something ancient inside them that has been shaping their convictions ever since.
 
-**The abandoned lab's origin matters:** The materials were Eclipse-adjacent — part of a cancelled A.E.G.I.S. contract that was quietly buried rather than fully decommissioned. Morgan did not know this when they fell in. They know it now. They have been inside Eclipse's infrastructure before, which is exactly what makes them useful.
+Morgan did not know this when they fell in. They are beginning to understand it now.
+
+---
+
+## The Wavelength Context
+
+Morgan is a Low Spectrum host — the same faction as Mary Matthews (Artemis). By the Wavelengths' ecology, two same-spectrum hosts in proximity are driven into competition. The stronger absorbs the weaker. Morgan's drive to eliminate Artemis during their confrontation was not a rational tactical choice — it was instinct the Low Spectrum Wavelengths had been cultivating in Morgan for years, amplified far beyond what the situation warranted.
+
+Morgan made the choice. The choice was their own. But it was made with a mind that had been tuned, over years of subtle amplification, to perceive low-spectrum rivals as existential threats.
+
+**They did not understand this when it happened. They are understanding it now. The reckoning with that distinction — between culpability and programming — is ongoing and unresolved.**
+
+The ecology also intended Artemis's energy to transfer to Morgan upon her death, producing a stronger low-spectrum host. Artemis refused. She sent her energy to Jason instead. Morgan was left with nothing — they did what the system demanded and the system failed them anyway.
 
 ---
 
 ## What They Did
 
-Nightfall's targets were institutions of spectacle — the shining towers, blazing heroes, the illusion that light equals goodness. They believed glory casts long shadows, and that those shadows are where real suffering festers.
+Morgan killed Mary Matthews / Artemis.
 
-**They killed Mary Matthews / Artemis.**
+They identified her as a same-spectrum rival — a low-spectrum host whose power would have made Morgan stronger if absorbed. The threat assessment was real by the Wavelengths' logic. The drive was amplified beyond Morgan's awareness. The kill was Morgan's choice.
 
-Morgan identified Artemis as the greater tactical threat during the confrontation — someone who could counter shadow control with shadow control. They acted on that assessment. They left a warning for Jason that he did not fully register. They did not expect him to grieve the way he did. Whether they expected to feel anything about it afterward is a question they have not answered cleanly.
+**They left a warning for Jason afterward:** *"You're carrying her now. They'll come for you."*
 
-This is not something they are pretending didn't happen. It is the first thing they would say to Jason if given the chance.
+Jason was already kneeling beside her. He didn't register it as anything but cruelty. It was the most honest thing Morgan has said to anyone.
 
----
-
-## Why They're Coming In
-
-Morgan has been watching Signal's campaign. His argument — that heroes are a power structure like any other — is one they once would have agreed with. They do not agree anymore, or at least not entirely. Heroes are imperfect and sometimes corrupt. But they also show up. They absorb cost so others don't have to.
-
-Morgan wants to be the kind of thing that shows up. They are not sure they know how. Coming to the team is the attempt.
-
-They are not asking for forgiveness. They are asking for a chance to do something that matters.
+They did not expect to feel anything about Artemis's death afterward. They were wrong about that.
 
 ---
 
-## What They Bring to the Team
+## Arc 1 — Morgan's Thread
 
-**Eclipse infrastructure knowledge.** The materials lab where Morgan manifested was an Eclipse-adjacent site. In the years since, they have moved through Halden City's underground — abandoned facilities, off-books construction, the city's forgotten infrastructure. They have seen PROMETHEUS tech before they had a name for it. They recognized the constructs at the press conference for what they were.
+Morgan has been watching Jason since Artemis died. Watching him hold both spectrum energies — something the Wavelength ecology says should be impossible, something Morgan knows from the inside cannot be sustainable. They recognize the instability. They know what it means. They also know what the path forward requires, and that Jason does not know yet.
 
-**PROMETHEUS infiltration (Beat 6):** Nightfall knows how to get into Eclipse black sites undetected. Their ability to suppress electronic systems and move through darkness makes them the difference between a stealth insertion and a frontal assault the team cannot win cleanly. This is the practical offer that makes accepting them into the operation rational, regardless of how anyone feels about it.
+Signal's campaign creates a pressure point. His argument — that heroes are a power structure like any other — is one Morgan once would have accepted without question. They do not accept it cleanly anymore. Heroes are imperfect. Heroes sometimes fail badly. But they also show up. They absorb cost so others do not have to. Morgan watched Artemis do exactly that, for Jason, at the end.
 
-**Shadow movement as extraction tool.** In a facility full of cadaver constructs and Eclipse security, Nightfall can move the team through spaces that cameras and sensors cannot reach.
+Signal's crisis forces Morgan to act — not because they have decided to be a hero, but because standing aside would be its own kind of choice, and they are done making choices they do not consciously own.
+
+**End of Arc 1:** Morgan offers Jason what they know. The path forward. What it requires. They do not ask for forgiveness. They do not offer it as a trade. It is an open hand, and what Jason does with it is entirely his.
+
+---
+
+## Arc 2 Seed
+
+Whether Jason took the offer or refused it, the Wavelength ecology does not stop. The low-spectrum energy inside Jason is still searching for a proper anchor. Morgan is still the natural recipient. The question just gets harder — and more personal — the longer it goes unanswered.
+
+---
+
+## What They Bring (If Accepted)
+
+**Eclipse infrastructure knowledge.** The materials lab where Morgan manifested was an Eclipse-adjacent site. In the years since, they have moved through Halden City's underground. They have seen PROMETHEUS tech before the team had a name for it.
+
+**PROMETHEUS infiltration.** Nightfall can suppress electronic systems and move through darkness undetected. In a facility full of constructs and Eclipse security, they are the difference between a stealth insertion and a frontal assault.
+
+**Wavelength knowledge.** Morgan has been a host longer than Jason. They understand what the instability feels like from the inside. They cannot fix it — but they are the only person in Halden City who knows what it actually is.
 
 ---
 
@@ -77,34 +100,36 @@ They are not asking for forgiveness. They are asking for a chance to do somethin
 
 | Person | Relationship |
 |---|---|
-| **Jason / Apollo** | Killed his partner. Knows it. Has not looked away from it. The relationship — if there is one — is entirely his to define. |
-| **The Team** | Unknown quantity. They are approaching with open hands, not expecting trust. |
+| **Jason / Apollo** | Killed his partner. Knows it. Has not looked away from it. Watching him hold both powers with something that is not quite guilt and not quite awe. The relationship — if there is one — is entirely his to define. |
+| **Artemis / Mary Matthews** | Deceased. Morgan does not have clean feelings about this. |
+| **The Team** | Unknown quantity. Approaching with open hands. Not expecting trust. |
 | **A.E.G.I.S.** | Active threat classification. Uncontained. Not currently a priority compared to Signal and Eclipse. |
 
 ---
 
 ## Character Notes (GM Reference)
 
-Nightfall's reformation is sincere. Do not make them secretly still villainous — that is the cheap version of this story. The interesting version is that they genuinely want to do right, they are genuinely dangerous to be around, and those two things do not cancel each other out.
+Morgan's reformation is sincere. Do not make them secretly still villainous — that is the cheap version of this story. The interesting version is that they genuinely want to do right, they are genuinely dangerous to be around, and those two things do not cancel each other out.
 
-Their aura affects people involuntarily. This is texture, not a weapon to be deployed against the team — but it should be felt. Rooms get heavier when Morgan is in them. That is not malice. It is just what they are.
+Their aura affects people involuntarily. This is texture, not a weapon — but it should be felt. Rooms get heavier when Morgan is in them. That is not malice. It is just what they are.
 
-The Jason thread is load-bearing for this arc. Do not resolve it. Give it room to be complicated.
+**The Wavelength dimension adds a specific complication:** Morgan is grappling with the question of how much of what they did was their own choice versus amplified instinct. Do not let them off the hook with this. The honest answer is both — and living with both is harder than either clean version.
 
 **What to avoid:**
 - Cheap redemption through a single heroic act
 - Reducing the Artemis kill to backstory once Morgan is "on the team"
 - Making Morgan's usefulness so overwhelming that the team's hesitation feels irrational
+- Letting the Wavelength context become an excuse that fully absolves Morgan — it complicates culpability, it does not erase it
 
 ---
 
 ## Open Questions
 
-- [ ] Did Morgan know what the Eclipse-adjacent materials lab was before they fell in, or only afterward?
-- [ ] What warning did they leave Jason after Artemis died — and why?
-- [ ] How much of what they did as Nightfall do they believe was justified vs. what they now think was wrong?
-- [ ] Does A.E.G.I.S. have active pursuit orders, or are they a low-priority open file?
-- [ ] What do they want if the arc ends and the team survives — do they stay, or was this always temporary?
+- [ ] How much of Morgan's ideology was genuinely their own versus Wavelength amplification — and does that distinction matter to them?
+- [ ] What exactly did they feel when Artemis's energy went to Jason instead of them?
+- [ ] How long have they understood the Wavelength nature of their powers versus just experiencing the effects?
+- [ ] What do they want if Arc 2 ends and they are Jason's complement — do they stay, or was this always temporary?
+- [ ] Does A.E.G.I.S. have any data connecting Morgan's manifestation to the Eclipse-adjacent lab?
 
 ---
 

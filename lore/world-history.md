@@ -99,6 +99,9 @@ Working two jobs and skimming ATMs, Ava strikes an experimental Glass District t
 **2022 — Wave of Manifestations** [CONFIRMED CANON]
 Morgan Vale (Nightfall), Owen Watson (Red Pill), Danielle Whittaker (Wraith), Allison Bryne (Carrion). A.E.G.I.S. MANIFEST logs the cluster as anomalous.
 
+**2022 — The Glass District Electromagnetic Incident: Apollo and Artemis** [CONFIRMED CANON]
+A Glass District research facility conducts a high-density electromagnetic test at frequencies far beyond safe parameters. The explosion catches two teenagers — Jason James and Mary Matthews — still in contact with each other when the shockwave hits. Both survive. Both manifest powers: Jason with photokinesis (light manipulation), Mary with shadow manipulation. A.E.G.I.S. files them separately; the paired origin goes unrecognized as significant. Unknown to any human institution, the extreme electromagnetic environment was sufficient for the Wavelengths — ancient interdimensional beings that exist as pure EM energy at the extremes of the light spectrum — to simultaneously bond to two hosts. Jason bonds to High Spectrum. Mary bonds to Low Spectrum. They are drawn together as the Wavelengths' ecology intends. Neither understands why.
+
 **2022 — The Virek Papers Cache Surfaces** [CONFIRMED CANON]
 Anonymous tip leads a journalist to a partially decrypted data cache in Blackwater Harbor. Confirms Paragon's 1971 election intervention and two others. Publication delayed by legal injunction.
 
@@ -132,5 +135,4 @@ Eclipse operates as a legitimate biotech company while running PROMETHEUS undern
 
 ---
 
-*Last updated: March 2026 — Added Crale family footnote to 1925 founding. Updated Vane 2008 entry. Added Requiem resurrection 2023 entry. Added Eclipse/PROMETHEUS ongoing entry.*
-
+*Last updated: March 2026 — Added Crale family footnote to 1925 founding. Updated Vane 2008 entry. Added Requiem resurrection 2023 entry. Added Eclipse/PROMETHEUS ongoing entry. Added 2022 Glass District Electromagnetic Incident (Apollo/Artemis/Wavelengths).*

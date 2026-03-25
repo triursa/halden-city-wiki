@@ -51,6 +51,7 @@ SECTION_CONFIG = [
     {"key": "locations", "label": "Locations",         "icon": "◎", "subfolder": "locations"},
     {"key": "lore",      "label": "Lore",              "icon": "◇", "subfolder": "lore"},
     {"key": "plot",      "label": "Plot",              "icon": "◆", "subfolder": "plot"},
+    {"key": "villains",  "label": "Villain Sheets",    "icon": "◥", "subfolder": "plot/villain-sheets"},
     {"key": "meta",      "label": "Meta",              "icon": "◌", "subfolder": "meta"},
 ]
 

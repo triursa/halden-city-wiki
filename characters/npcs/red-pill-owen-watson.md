@@ -1,4 +1,4 @@
-# Red Pill (Owen Watson)
+# Owen Watson / Red Pill
 
 ---
 

@@ -110,10 +110,14 @@ Neither outcome is wrong. Both are real.
 
 ## Open Questions
 
-- [ ] What exactly did Nightfall say as a warning before leaving — and why did it not register?
+- [x] What exactly did Nightfall say as a warning before leaving — and why did it not register?
+  - Something about holding the power of both high and low spectrum. Jason was already kneeling over Artemis. It didn't land.
 - [ ] Who is the first person to give him real information about the Wavelengths — Morgan, A.E.G.I.S., someone else?
-- [ ] Does anyone on the team know about the countdown yet?
-- [ ] Is there any theoretical path other than releasing the low-spectrum energy to Morgan, or is that the only door?
+  - Morgan is the only logical source. This hasn't happened yet and would likely be several sessions out.
+- [x] Does anyone on the team know about the countdown yet?
+  - No.
+- [x] Is there any theoretical path other than releasing the low-spectrum energy to Morgan, or is that the only door?
+  - Possibly: learning to contain both High and Low Spectrum himself. A difficult and risky thread. Not confirmed viable — the story should leave this genuinely open.
 
 ---
 

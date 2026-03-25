@@ -99,10 +99,14 @@ Avi's telekinesis is emotionally triggered. Put a face Avi knows on something Av
 
 ## Open Questions
 
-- [ ] How much does Avi know about how the team was assembled, and who else on it has history with what happened that night?
-- [ ] What happened with school after the incident — expulsion, quiet disappearance, something else?
-- [ ] Does Avi know their father is Quantum, or is that information they don't have?
+- [x] How much does Avi know about how the team was assembled, and who else on it has history with what happened that night?
+  - Avi is the only PC who knows exactly what happened the night their powers manifested and injured Carter. Team assembly details will be established in Session 0.
+- [x] What happened with school after the incident — expulsion, quiet disappearance, something else?
+  - Avi quietly disappeared and was placed in the A.E.G.I.S. MANIFEST program. MANIFEST had difficulty helping Avi control their powers. Riley requested to pull Avi out and mentor them directly.
+- [x] Does Avi know their father is Quantum, or is that information they don't have?
+  - No. Avi does not know. Quantum discovered Avi's existence shortly after Avi was born — likely through his quantum cognition or incidental detection. He did not make contact. His operating philosophy holds that personal relationships are not only inadvisable but a genuine hazard, especially given his condition. He is deeply emotionally detached — close to Doctor Manhattan in personality, possibly colder. He has not reached out and does not intend to.
 - [ ] What is the current state of the Aubrey friendship?
+  - To be confirmed with the player. Working assumption: distant, from Avi's side — they are closed off at the moment.
 
 ---
 

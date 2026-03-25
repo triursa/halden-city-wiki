@@ -8,7 +8,7 @@
 
 | Field | Value |
 |---|---|
-| **Hero Name** | Noc (also written "Noch" in some field notes) |
+| **Hero Name** | Noch |
 | **Civilian Name** | Rhys Romneya |
 | **Age** | ~18–19 (left Pine's school at 18) |
 | **Occupation** | Halden University student — music major, percussion focus. Plays in a band called Neon Orchard. |
@@ -106,11 +106,16 @@ From observed scene (player fiction):
 
 ## Open Questions
 
-- [ ] What is Rhys's last name?
-- [ ] Does Eclipse know Rhys is in Halden City attending university, or do they believe the death record Ivan falsified?
-- [ ] What happened to Ivan's research after Eclipse recovered the lab?
-- [ ] Does Rhys know anything about what the compound was designed for beyond what Ivan told them?
-- [ ] What is the band Neon Orchard like — is it a genuine outlet or another layer of persona?
+- [x] What is Rhys's last name?
+  - Romneya.
+- [x] Does Eclipse know Rhys is in Halden City attending university, or do they believe the death record Ivan falsified?
+  - Eclipse does not fully believe the death record, but is still working out Rhys's current identity. They know Noch is the asset they're looking for.
+- [x] What happened to Ivan's research after Eclipse recovered the lab?
+  - Seized by Eclipse.
+- [x] Does Rhys know anything about what the compound was designed for beyond what Ivan told them?
+  - Unlikely. Ivan's disclosures were limited and protective.
+- [x] What is the band Neon Orchard like — is it a genuine outlet or another layer of persona?
+  - A genuine outlet.
 
 ---
 

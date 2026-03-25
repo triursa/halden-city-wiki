@@ -85,11 +85,16 @@ He abandoned the mission. He made a vow. He took the name Cosmic Knight and turn
 
 ## Open Questions
 
-- [ ] Does Sterling know how many other Darkstar children there are?
-- [ ] Has Darkstar made any direct move since Sterling defected, or is he still in observation mode?
-- [ ] What does Sterling's half-Umbraeon true form look like and what additional capabilities does it have?
-- [ ] Does Sterling know what happened to Celeste Timber after he walked away from the mission?
-- [ ] Why has he kept calling the weapon Void Sword?
+- [x] Does Sterling know how many other Darkstar children there are?
+  - He knows his immediate "peers" — around 8 half-siblings he's aware of. Darkstar has many more "children" scattered through human society who don't know what they are.
+- [x] Has Darkstar made any direct move since Sterling defected, or is he still in observation mode?
+  - Still in observation mode.
+- [x] What does Sterling's half-Umbraeon true form look like and what additional capabilities does it have?
+  - Otherworldly glow; looks something like a galaxy. Can fly. Can create weapons from dark matter. Standard Umbraeon-grade super strength and durability. Details belong to the player.
+- [x] Does Sterling know what happened to Celeste Timber after he walked away from the mission?
+  - Yes — he kept in touch or watched over her from a distance.
+- [x] Why has he kept calling the weapon Void Sword?
+  - Two things, both true: the weapon is made from dark matter, so "void" is clinically accurate and simply fits what it is. But the name is also a remnant of the Void Reaper designation — an homage to the past he walked away from, not a symptom of unresolved attachment. The GM note about pulling this thread still stands: the two readings coexist, and whether Sterling has fully reckoned with the distinction is worth watching.
 
 ---
 

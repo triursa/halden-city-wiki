@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darcy Cole / Rampart — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../../characters/pcs/index.html" class="nav-section-link"><span class="nav-icon">★</span>Player Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../../characters/npcs/index.html" class="nav-section-link active-section"><span class="nav-icon">◈</span>Characters</a>
+  <div class="nav-mini">
+    <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-mini-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+    <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-mini-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+    <a href="../../characters/npcs/anonymous-signal.html" class="nav-mini-link" title="Anonymous Signal">Anonymous Signal</a>
+    <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-mini-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
+    <a href="../../characters/npcs/brackish-linus-peters.html" class="nav-mini-link" title="Linus Peters / Brackish">Linus Peters / Brackish</a>
+    <a href="../../characters/npcs/caliber-deshawn-merritt.html" class="nav-mini-link" title="Deshawn Merritt / Caliber">Deshawn Merritt / Caliber</a>
+    <a href="../../characters/npcs/carter-williams.html" class="nav-mini-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+    <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-mini-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
+    <a href="../../characters/npcs/casimir-vane.html" class="nav-mini-link" title="Casimir Vane">Casimir Vane</a>
+    <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-mini-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+    <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-mini-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
+    <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-mini-link active" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
+    <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-mini-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+    <a href="../../characters/npcs/darkstar.html" class="nav-mini-link" title="Darkstar">Darkstar</a>
+    <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-mini-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+    <a href="../../characters/npcs/detectives-shea-and-paz.html" class="nav-mini-link" title="HCPD Detectives — Rowan Shea & Victor Paz">HCPD Detectives — Rowan Shea & Victor Paz</a>
+    <a href="../../characters/npcs/dr-cassius-vrell.html" class="nav-mini-link" title="Dr. Cassius Vrell">Dr. Cassius Vrell</a>
+    <a href="../../characters/npcs/edmund-crale.html" class="nav-mini-link" title="Edmund Crale">Edmund Crale</a>
+    <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-mini-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+    <a href="../../characters/npcs/emmett-lorne.html" class="nav-mini-link" title="Emmett Lorne">Emmett Lorne</a>
+    <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-mini-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+    <a href="../../characters/npcs/gilt-nadia-osei.html" class="nav-mini-link" title="Nadia Osei / Gilt">Nadia Osei / Gilt</a>
+    <a href="../../characters/npcs/halcyon.html" class="nav-mini-link" title="Halcyon">Halcyon</a>
+    <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-mini-link" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+    <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-mini-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+    <a href="../../characters/npcs/lily-matthews.html" class="nav-mini-link" title="Lily Matthews">Lily Matthews</a>
+    <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-mini-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+    <a href="../../characters/npcs/mayor-theo-alcantara.html" class="nav-mini-link" title="Mayor Theodore "Theo" Alcantara">Mayor Theodore "Theo" Alcantara</a>
+    <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-mini-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+    <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-mini-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
+    <a href="../../characters/npcs/police-chief-hector-reyes.html" class="nav-mini-link" title="Police Chief Hector Reyes">Police Chief Hector Reyes</a>
+    <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-mini-link" title="Owen Watson / Red Pill">Owen Watson / Red Pill</a>
+    <a href="../../characters/npcs/remnant.html" class="nav-mini-link" title="Remnant">Remnant</a>
+    <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-mini-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
+    <a href="../../characters/npcs/senator-diana-okafor.html" class="nav-mini-link" title="Senator Diana Okafor">Senator Diana Okafor</a>
+    <a href="../../characters/npcs/slake-barry-black.html" class="nav-mini-link" title="Barry Black / Slake">Barry Black / Slake</a>
+    <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-mini-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
+    <a href="../../characters/npcs/the-conductor-elliot-marsh.html" class="nav-mini-link" title="Elliot Marsh / The Conductor">Elliot Marsh / The Conductor</a>
+    <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-mini-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../../factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="../../locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="../../lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../characters/npcs/index.html">Characters</a><span class="sep">/</span>Darcy Cole / Rampart</div>
+    <article class="content clearfix">
+      <div class="portrait-wrap"><img src="../../images/characters/darcy-cole-rampart.jpg" alt="Darcy Cole / Rampart" class="portrait-img"></div>
+<h1>Darcy Cole / Rampart</h1>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Full Name</strong></td>
+<td>Darcy Cole</td>
+</tr>
+<tr>
+<td><strong>Hero Name</strong></td>
+<td>Rampart</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. File</strong></td>
+<td>Not on file — unregistered</td>
+</tr>
+<tr>
+<td><strong>DOB</strong></td>
+<td>March 9, 1999</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>26</td>
+</tr>
+<tr>
+<td><strong>Birthplace</strong></td>
+<td>Riverside Ward, Halden City</td>
+</tr>
+<tr>
+<td><strong>Physical</strong></td>
+<td>5'8", 165 lbs. Mixed race (Black and Irish). Dark brown eyes. Natural hair worn loose or in a high puff depending on the day. Strong build — not gym-sculpted, functionally strong, the kind that comes from twenty years of athletics. A small scar through her left eyebrow from a track hurdle at seventeen. Defaultly expressive face; she doesn't have a neutral setting.</td>
+</tr>
+<tr>
+<td><strong>Occupation</strong></td>
+<td>Physical education teacher and track coach, Riverside Ward High School</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>Recluse network — active, informal</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active — emerging. Unregistered. Knows who Riley is.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Powers</h2>
+<p><strong>Kinetic absorption and redistribution.</strong></p>
+<p>Darcy absorbs incoming kinetic energy — impacts, shockwaves, force transferred through contact — and can redistribute it outward on demand. Practically: hits that should hurt her, don't. What she sends back is proportional to what she absorbed, plus her own output.</p>
+<p>She is extremely hard to put down through conventional force. The harder someone tries, the more dangerous she becomes in response.</p>
+<p><strong>Current state:</strong> Functional but unrefined. She has no formal training in using the ability offensively and has mostly avoided testing its upper limits. What she knows is empirical — she has taken hits and walked away, returned force when she had to, and has a reasonably accurate intuitive sense of what she can handle. She does not know the ceiling. She has not wanted to find out badly enough to push for it.</p>
+<p><strong>Manifestation:</strong> A building fire in the Ironworks, two years ago. A residential structure, old wiring, a Saturday afternoon when the block was home. She was a block away on a run when it went up. She was not the first person to try to get in — she was just the first one who made it back out.</p>
+<p>She was caught in a partial floor collapse on the second level. The force of it should have broken both her legs. It didn't. She walked out carrying a seven-year-old girl and a man in his sixties and had what she later described to her friend as "extremely good luck."</p>
+<p>The ability was present before the fire — in retrospect, the hits she absorbed during fifteen years of competitive athletics that should have left more damage than they did suggest it was there. The fire activated something that was already in place.</p>
+<p><strong>She has told one person:</strong> Her best friend and former college roommate, Priya, who works in clinical psychology and responded by saying "okay, and?" and asking if she wanted Thai food. This is one of the things Darcy Cole most values about Priya.</p>
+<p>She has not told anyone else. Not her mother. Not her school. She told Riley when he recruited her because he told her first, and that felt like the minimum condition of a fair conversation.</p>
+<hr>
+<h2>Background</h2>
+<p>Darcy grew up in Riverside Ward, four blocks from where she now teaches. Her mother, Gloria, raised her alone from age nine after her father left — not dramatically, just incrementally, the way some people do. Gloria has worked dispatch for the city transit authority for twenty-three years. She is a practical woman who does not ask questions she doesn't want answers to, which is both a survival mechanism and an occasionally frustrating trait in a mother.</p>
+<p>Darcy was a track athlete from age eleven. Good enough for a full scholarship to Halden University, where she ran the 400 and the hurdles for four years and graduated with a degree in kinesiology. She came back to Riverside Ward to teach. This was not a compromise or a falling short — it was a choice she made with open eyes, because the school she went to is the school she teaches at now, and she knows exactly what it costs a kid from this neighborhood to get through it without someone who shows up.</p>
+<p>She has been at the school for three years. She coaches the varsity track team and the JV girls' basketball team in the winter. She is considered one of the better teachers in the building by students and one of the more inconveniently honest ones by administration.</p>
+<p><strong>How Riley found her:</strong> Sloane's network flagged the fire incident — anomalous outcome data. A woman carried two people out of a partial floor collapse with no reported injuries to herself. The incident report is a matter of public record. Sloane pulled it, matched it to Darcy's name, cross-referenced her school employment, and had a full picture inside an hour. Riley sat on it for three weeks before showing up at the school, because showing up at someone's workplace to recruit them for a shadow hero network is something he has learned to approach carefully.</p>
+<p>He came to one of her track practices. He watched for twenty minutes. He introduced himself after as a friend of a friend of someone she'd helped that night. It took two more conversations before he told her who he was. She didn't react the way people usually do — no awe, no over-adjustment. She said she'd heard of him, and then she asked what he actually needed from her. He found this refreshing. He has not told her that.</p>
+<hr>
+<h2>Character Profile</h2>
+<p>Darcy is genuinely, non-performatively warm. She doesn't project toughness because she doesn't need to — it's there, but it's not something she leads with or needs to demonstrate. She coaches kids because she's good at it and it matters to her. She shows up the same way for everyone: direct, attentive, without agenda.</p>
+<p>This unsettles Riley in a specific way. His composure is load-bearing — it is the thing that keeps everything from showing. Darcy's openness is structural in a different sense: it isn't covering anything. She is not managing her presentation. She is just present, and what she presents is what she is. He doesn't entirely know what to do with a person who operates that way, and so he relaxes around her in ways he doesn't around most people, which he has probably not fully examined.</p>
+<p>She reads him accurately. She has not said this to him. She is not sure it would help.</p>
+<p><strong>She is not naive.</strong> The warmth is real and the ease is real and neither of them means she doesn't see things clearly. She grew up in this neighborhood. She knows what the Ironworks costs people. She knows what it means when someone presents themselves as put-together and watches every exit. She has been watching Riley Thomas manage himself since the first conversation and she has a fair idea of what that management is for. She has not pushed. She may eventually.</p>
+<p><strong>The student situation:</strong> One of her track kids, a sixteen-year-old named Deon, has been showing up to practice with healing injuries that resolve faster than they should. She has noticed. She has not yet told Riley. She is still deciding whether it's her place to bring someone else into a kid's life without knowing what that kid needs first. This is a live wire.</p>
+<hr>
+<h2>Relationships</h2>
+<table>
+<thead><tr>
+<th>Person</th>
+<th>Relationship</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Riley Thomas / Recluse</strong></td>
+<td>She disarms him, and she knows it, and she doesn't use it for anything. He told her who he was because the recruitment required it. She thinks he would have told her eventually anyway. He probably wouldn't have. She is probably right.</td>
+</tr>
+<tr>
+<td><strong>Sloane Callahan / Arachne</strong></td>
+<td>Has met her twice. Thinks she is very funny and slightly terrifying. Sloane has clocked that Darcy is one of the few people Riley doesn't perform composure around and has filed this information away without comment.</td>
+</tr>
+<tr>
+<td><strong>Avi</strong></td>
+<td>Avi is quietly wounded by how naturally Riley opens around Darcy. Darcy doesn't know the wound is there. She would feel bad about it if she did. She would also not change how she is with Riley, because she didn't do anything wrong.</td>
+</tr>
+<tr>
+<td><strong>Priya</strong></td>
+<td>Best friend, former college roommate, clinical psychologist. The one civilian in Darcy's life who knows about the powers. Not in the network. Not going to be.</td>
+</tr>
+<tr>
+<td><strong>Gloria Cole</strong></td>
+<td>Her mother. Practical, perceptive, asks fewer questions than she notices things. Has clocked that Darcy's schedule has changed in the past several months and has said nothing yet.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Voice &amp; Dialogue Notes</h2>
+<ul><li>Direct and easy in equal measure — she doesn't talk around things but she's not blunt in a way that feels like pressure</li><li>Comfortable with silence; she doesn't fill it</li><li>Laughs readily and genuinely, which is the thing that catches people off guard first</li><li>Does not flatter. Does not hedge. Gives you the accurate version.</li><li>To Riley, with complete sincerity: <em>"You do know you don't have to do that thing with your face, right?"</em> / <em>"I'm not going to break."</em></li><li>To a track kid who's sandbagging practice: <em>"I see you. Run the rep."</em></li></ul>
+<hr>
+<h2>Midjourney Reference Prompts</h2>
+<p><strong>Civilian / school:</strong></p>
+<pre><code>character art of a young Black woman in her mid-twenties, mixed race Black and Irish, warm dark brown eyes, natural hair in a high puff, strong athletic build, wearing a school track jacket over a fitted t-shirt, relaxed confident posture, small scar through left eyebrow, genuinely expressive face, graphic novel illustration style, clean linework, comic book shading, muted warm color palette, white background, character reference sheet --ar 2:3 --style raw --v 6</code></pre>
+<p><strong>Field / operational:</strong></p>
+<pre><code>character art of a young Black woman in her mid-twenties, mixed race Black and Irish, warm dark brown eyes, natural hair loose, strong athletic build, wearing a dark fitted jacket, urban nighttime setting, low warm streetlight, expression open and self-possessed, not performing anything, graphic novel illustration style, clean linework, comic book shading, noir color palette --ar 2:3 --style raw --v 6</code></pre>
+<hr>
+<h2>Open Questions</h2>
+<ul><li><input type="checkbox" disabled> When does Darcy tell Riley about Deon — and how does Riley handle it?</li><li><input type="checkbox" disabled> Does Gloria Cole figure out what her daughter is doing, and if so, does she ask or wait to be told?</li><li><input type="checkbox" disabled> Has Darcy ever actually tested the upper limit of her absorption — and what happens if she takes on more than she can hold?</li><li><input type="checkbox" disabled> What does Darcy make of the team as she encounters them — particularly Avi, whose situation she'd probably read clearly?</li><li><input type="checkbox" disabled> Does she ever name what she reads in Riley, or does she keep it to herself?</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

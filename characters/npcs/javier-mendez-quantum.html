@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Javier Mendez / Quantum — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../../characters/pcs/index.html" class="nav-section-link"><span class="nav-icon">★</span>Player Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../../characters/npcs/index.html" class="nav-section-link active-section"><span class="nav-icon">◈</span>Characters</a>
+  <div class="nav-mini">
+    <a href="../../characters/npcs/adrian-vega-breakpoint.html" class="nav-mini-link" title="Adrian Vega / Breakpoint">Adrian Vega / Breakpoint</a>
+    <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-mini-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+    <a href="../../characters/npcs/anonymous-signal.html" class="nav-mini-link" title="Anonymous Signal">Anonymous Signal</a>
+    <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-mini-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
+    <a href="../../characters/npcs/brackish-linus-peters.html" class="nav-mini-link" title="Linus Peters / Brackish">Linus Peters / Brackish</a>
+    <a href="../../characters/npcs/caliber-deshawn-merritt.html" class="nav-mini-link" title="Deshawn Merritt / Caliber">Deshawn Merritt / Caliber</a>
+    <a href="../../characters/npcs/carter-williams.html" class="nav-mini-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+    <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-mini-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
+    <a href="../../characters/npcs/casimir-vane.html" class="nav-mini-link" title="Casimir Vane">Casimir Vane</a>
+    <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-mini-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+    <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-mini-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
+    <a href="../../characters/npcs/darcy-cole-rampart.html" class="nav-mini-link" title="Darcy Cole / Rampart">Darcy Cole / Rampart</a>
+    <a href="../../characters/npcs/darius-cole-aegis-prime.html" class="nav-mini-link" title="Darius Cole / Aegis Prime">Darius Cole / Aegis Prime</a>
+    <a href="../../characters/npcs/darkstar.html" class="nav-mini-link" title="Darkstar">Darkstar</a>
+    <a href="../../characters/npcs/declan-harrow-shroud.html" class="nav-mini-link" title="Declan Harrow / Shroud">Declan Harrow / Shroud</a>
+    <a href="../../characters/npcs/detectives-shea-and-paz.html" class="nav-mini-link" title="HCPD Detectives — Rowan Shea & Victor Paz">HCPD Detectives — Rowan Shea & Victor Paz</a>
+    <a href="../../characters/npcs/dr-cassius-vrell.html" class="nav-mini-link" title="Dr. Cassius Vrell">Dr. Cassius Vrell</a>
+    <a href="../../characters/npcs/edmund-crale.html" class="nav-mini-link" title="Edmund Crale">Edmund Crale</a>
+    <a href="../../characters/npcs/elena-marquez-riftfire.html" class="nav-mini-link" title="Elena Marquez / Riftfire">Elena Marquez / Riftfire</a>
+    <a href="../../characters/npcs/emmett-lorne.html" class="nav-mini-link" title="Emmett Lorne">Emmett Lorne</a>
+    <a href="../../characters/npcs/ethan-roberts-paragon.html" class="nav-mini-link" title="Ethan Roberts / Paragon">Ethan Roberts / Paragon</a>
+    <a href="../../characters/npcs/gilt-nadia-osei.html" class="nav-mini-link" title="Nadia Osei / Gilt">Nadia Osei / Gilt</a>
+    <a href="../../characters/npcs/halcyon.html" class="nav-mini-link" title="Halcyon">Halcyon</a>
+    <a href="../../characters/npcs/javier-mendez-quantum.html" class="nav-mini-link active" title="Dr. Javier Mendez / Quantum">Dr. Javier Mendez / Quantum</a>
+    <a href="../../characters/npcs/kiara-jerach-starfall.html" class="nav-mini-link" title="Kiara Je-rach / Starfall">Kiara Je-rach / Starfall</a>
+    <a href="../../characters/npcs/lily-matthews.html" class="nav-mini-link" title="Lily Matthews">Lily Matthews</a>
+    <a href="../../characters/npcs/marcus-webb-requiem.html" class="nav-mini-link" title="Marcus Webb / Requiem">Marcus Webb / Requiem</a>
+    <a href="../../characters/npcs/mayor-theo-alcantara.html" class="nav-mini-link" title="Mayor Theodore "Theo" Alcantara">Mayor Theodore "Theo" Alcantara</a>
+    <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-mini-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+    <a href="../../characters/npcs/natalia-orlov-vanguard.html" class="nav-mini-link" title="Natalia Orlov / The Vanguard">Natalia Orlov / The Vanguard</a>
+    <a href="../../characters/npcs/police-chief-hector-reyes.html" class="nav-mini-link" title="Police Chief Hector Reyes">Police Chief Hector Reyes</a>
+    <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-mini-link" title="Owen Watson / Red Pill">Owen Watson / Red Pill</a>
+    <a href="../../characters/npcs/remnant.html" class="nav-mini-link" title="Remnant">Remnant</a>
+    <a href="../../characters/npcs/riley-thomas-recluse.html" class="nav-mini-link" title="Riley Thomas / Recluse">Riley Thomas / Recluse</a>
+    <a href="../../characters/npcs/senator-diana-okafor.html" class="nav-mini-link" title="Senator Diana Okafor">Senator Diana Okafor</a>
+    <a href="../../characters/npcs/slake-barry-black.html" class="nav-mini-link" title="Barry Black / Slake">Barry Black / Slake</a>
+    <a href="../../characters/npcs/sloane-callahan-arachne.html" class="nav-mini-link" title="Sloane Callahan / Arachne">Sloane Callahan / Arachne</a>
+    <a href="../../characters/npcs/the-conductor-elliot-marsh.html" class="nav-mini-link" title="Elliot Marsh / The Conductor">Elliot Marsh / The Conductor</a>
+    <a href="../../characters/npcs/zara-thorne-filament.html" class="nav-mini-link" title="Zara Thorne / Filament">Zara Thorne / Filament</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../../factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="../../locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="../../lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../characters/npcs/index.html">Characters</a><span class="sep">/</span>Dr. Javier Mendez / Quantum</div>
+    <article class="content clearfix">
+      <div class="portrait-wrap"><img src="../../images/characters/javier-mendez-quantum.png" alt="Dr. Javier Mendez / Quantum" class="portrait-img"></div>
+<h1>Dr. Javier Mendez / Quantum</h1>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Full Name</strong></td>
+<td>Dr. Javier Mendez</td>
+</tr>
+<tr>
+<td><strong>Hero Name</strong></td>
+<td>Quantum</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. File</strong></td>
+<td>AEGIS-QNT-004</td>
+</tr>
+<tr>
+<td><strong>DOB</strong></td>
+<td>February 9, 1970</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>56</td>
+</tr>
+<tr>
+<td><strong>Birthplace</strong></td>
+<td>[Unknown]</td>
+</tr>
+<tr>
+<td><strong>Physical</strong></td>
+<td>Confined to a containment suit outside controlled conditions. What he looks like beneath it is rarely relevant.</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>The Alliance — Core Member; A.E.G.I.S. advisory asset</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Powers</h2>
+<p><strong>Entangled with the underlying structure of reality.</strong> Since the 2006 accident, Javier Mendez exists in a state that requires a specially engineered containment suit to hold him in singular form outside controlled environments.</p>
+<ul><li>Teleportation</li><li>Matter phasing (between states of density)</li><li>Accelerated cognition</li><li>Limited duplication — extended use causes local reality instability; the longer he maintains it, the worse the environment around him becomes</li></ul>
+<hr>
+<h2>Background</h2>
+<p>Glass District physicist. Spent years obsessively working to prove reality could be harnessed through quantum manipulation. In 2006, the experiment succeeded catastrophically. His particles scattered across multiple quantum states simultaneously. A.E.G.I.S. spent months constructing the containment suit that allows him to exist in singular form.</p>
+<p>He serves the Alliance as both field asset and scientific resource. He treats almost everything — conflict, morality, people — as engineering problems waiting for solutions. This is not coldness. It is how he has learned to function since 2006.</p>
+<hr>
+<h2>Character Profile</h2>
+<p>Brilliant and contained. Rarely engages in conversations beyond the task at hand. The suit marks him as different in every room he enters, which means he has never had the option of being ordinary in public since the accident. Whether that has made him more or less present to the people around him is unclear.</p>
+<p><strong>The Avi thread:</strong> Javier Mendez is Avi Park's biological father. He departed before Avi was born and does not know Avi exists. They are now on the same team. He has not made this connection. The slow build of this relationship — before and after any revelation — belongs to the players. Do not accelerate it.</p>
+<hr>
+<h2>Relationships</h2>
+<table>
+<thead><tr>
+<th>Person</th>
+<th>Relationship</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>The Alliance</strong></td>
+<td>Core member since 2015. Scientific and analytical backbone.</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S.</strong></td>
+<td>Advisory asset — he operates more as independent scientific resource than agent. The relationship is transactional and mutual.</td>
+</tr>
+<tr>
+<td><strong>Avi Park / Nova</strong></td>
+<td>Biological father. Does not know.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Open Questions</h2>
+<ul><li><input type="checkbox" disabled> What does Javier know or suspect about the quantum instability that produced Avi's telekinesis — is there a scientific thread connecting them he might recognize?</li><li><input type="checkbox" disabled> Does anyone in the Alliance know about Avi's parentage?</li><li><input type="checkbox" disabled> What is his relationship to the Glass District research community — who does he still talk to, who does he avoid?</li><li><input type="checkbox" disabled> Has he ever fully examined what his own powers cost him in terms of human connection?</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

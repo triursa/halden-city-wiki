@@ -261,6 +261,11 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 | `characters/npcs/casey-holt-scythe.md` | **[GM EYES ONLY]** Casey Holt / Scythe — MANIFEST asset, Adrian's girlfriend |
 | `characters/npcs/edmund-crale.md` | **[GM EYES ONLY]** Edmund Crale — Eclipse CEO, PROMETHEUS architect |
 | `characters/npcs/red-pill-owen-watson.md` | Red Pill / Owen Watson |
+| `characters/npcs/senator-diana-okafor.md` | Senator Diana Okafor — Beat 2 abduction target, SARA legislative trigger |
+| `characters/npcs/mayor-theo-alcantara.md` | Mayor Theo Alcantara — Halden City Mayor, pragmatist, not an ally |
+| `characters/npcs/police-chief-hector-reyes.md` | Chief Hector Reyes — HCPD, uneasy A.E.G.I.S. adjacency, useful friction |
+| `characters/npcs/detectives-shea-and-paz.md` | Det. Rowan Shea & Victor Paz — contrasting orientations toward metas |
+| `characters/npcs/halcyon.md` | Halcyon — Riverside Ward pop group, background texture only |
 
 ### Factions
 | File | Contents |
@@ -310,5 +315,5 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 
 ---
 
-*Last updated: March 2026 — Session prep for Arc 1 "Who Decides." New files this session: SHADE construct stat block, Signal Beat 3 broadcast script, Red Pill villain sheet (Labels + amplification field mechanic + exit condition), Lily Matthews NPC stub, Lily Matthews scene note (Jason nemesis thread), Signal label targets by reveal (primary + ripple, all PCs). WIKI-INDEX updated to reflect all new files.*
+*Last updated: March 2026 — New files this session: Senator Diana Okafor (Beat 2 abduction target, SARA trigger), Mayor Theo Alcantara, Police Chief Hector Reyes, Detectives Shea & Paz, Halcyon (pop group, background texture). WIKI-INDEX updated.*
 *To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*

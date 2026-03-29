@@ -47,7 +47,7 @@ The cameras at the press conference don't catch this. The players might.
 
 - **Make it look worse.** A construct grabs a civilian — not as a hostage, just to drag them into frame. Whatever the heroes do next looks dangerous, reactive, or excessive on camera.
 - **Escalate visibly.** When a construct marks a condition, it doesn't slow down — it gets louder. Throws something large, shoves a podium into a crowd, cracks a wall. Each hit the heroes land looks like it's making things worse, not better.
-- **Advance in formation.** Two constructs push forward simultaneously with no signal between them, forcing a PC to choose between two threats in public view. The coordination is wrong for humans. The cameras don't catch that.
+- **Mirror the threat.** When a PC uses their power visibly, a construct responds with equivalent-scale destruction aimed at the same space — not copying the ability, just the *consequence*. Avi shoves a construct telekinetically; one throws a chair into the same section of crowd. Sterling pushes through a line of constructs; one drives itself through a wall of the press room. The camera can't tell the difference between what the heroes did and what the constructs did. That's the point.
 
 ---
 
@@ -77,7 +77,8 @@ Not improvisers. They execute their drive with precision, but they cannot adapt 
 
 ## GM Notes
 
-- The scene's success condition for Signal is footage, not the constructs' survival. Even if the team handles them well, Signal can cut the footage to look worse. Reward smart play (containing them fast, protecting civilians first) with a better position going into Beat 3 — not with Signal failing to broadcast.
+- The scene's success condition for Signal is footage, not the constructs' survival. Even if the team handles them well, Signal can cut the footage to look worse. Reward smart play with a better position going into Beat 3 — not with Signal failing to broadcast.
+- **Smart play looks like restraint.** "Mirror the threat" punishes spectacle. A player who keeps their power use small, close, and contained — no big displays, no visible destruction — doesn't trigger the mirror effect. Honor that at the table. It should feel correct to play it quiet here.
 - The constructs wearing A.E.G.I.S. uniforms is the first suggestion of Eclipse's reach into institutional infrastructure. Don't underline it. Let it sit.
 - The designation "SHADE" and the Eclipse connection are Beat 6 payoff. Do not surface them here.
 

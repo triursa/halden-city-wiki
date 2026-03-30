@@ -23,7 +23,7 @@ She is not a true believer in superheroes. She is a believer in useful relations
 
 She is the detective the team is most likely to encounter in a cooperative frame — not because she likes them, but because she has decided that the cases that matter get closed better with the right information moving in both directions. She gives selectively. She notices what she gets back.
 
-She is also keeping her own files. Not on the team — on the enhanced incident cases that don't pattern-match with known actors. Whatever is leaving Glass District researchers dead or missing, the SMAB line of no confirmed causal link does not satisfy her.
+She is also keeping her own files. Not on the team — on the enhanced incident cases that don't pattern-match with known actors. Whatever is leaving Glass District researchers dead or missing, the SEIB line of no confirmed causal link does not satisfy her.
 
 **Voice:** Brisk, economical. She has had the conversation where the other person was not honest with her and she is factoring that in from the first exchange. *"I don't need the full picture. I need the part that helps me close the case I'm looking at."*
 

@@ -119,6 +119,16 @@ Neither outcome is wrong. Both are real.
 - [x] Is there any theoretical path other than releasing the low-spectrum energy to Morgan, or is that the only door?
   - Possibly: learning to contain both High and Low Spectrum himself. A difficult and risky thread. Not confirmed viable — the story should leave this genuinely open.
 
+
+---
+
+## See Also
+
+- [The Wavelengths](../../lore/the-wavelengths.md) — full Wavelengths lore; High/Low Spectrum mechanics
+- [Morgan Vale / Nightfall](../npcs/morgan-vale-nightfall.md) — killed Artemis; approaching the team
+- [Lily Matthews](../alliance/lily-matthews.md) — Mary's younger sister; Jason's civilian thread
+- [Jason / Lily Matthews Scene](../../plot/jason-lily-matthews-scene.md) — scene notes for Beats 3–5
+
 ---
 
 *Last updated: March 2026*

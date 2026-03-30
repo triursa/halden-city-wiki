@@ -49,7 +49,7 @@ His defected son Sterling Slate / Cosmic Knight is active on the new Alliance te
 
 Darkstar's ship was publicly destroyed in the incident preceding Arc 1 (the Renegade Force / Carter Williams attack that the Alliance was dispatched to respond to). Whether Darkstar survived is unknown — the attack was not designed to kill him, but the outcome is unconfirmed.
 
-**Raze does not know if his father is alive.** Raze was off the ship hunting Sterling when the ship was attacked. He was not present for the destruction. This has reframed his original mission: retrieval of Sterling is now a revenge plot operating under the assumption that Darkstar is dead. Raze has license to kill.
+**Raze does not know if his father is alive.** Raze was off the ship hunting Sterling when the ship was attacked. He was not present for the destruction. This has reframed his original mission: retrieval of Sterling is now a revenge plot operating under the assumption that Darkstar is dead. Raze has license to kill. See `characters/npcs/raze.md` for full profile.
 
 **Working assumption (GM eyes only):** Darkstar is wounded but alive. He has retreated to recover and is working on a weapon designed to permanently end the Paragon and Renegade Force cycle — a deterrent capable of destroying both cosmic principles simultaneously. His diagnosis of the problem is not wrong. His solution will be.
 
@@ -68,6 +68,20 @@ The weapon is seeded in Arc 1. It does not surface as a central threat until lat
 
 ---
 
+## Engineered Children
+
+Darkstar creates his children by splicing his Umbraeon DNA with a target species to produce the ultimate expression of that species' potential. Each child has a specific designed purpose.
+
+| Name | Species Splice | Purpose | Status |
+|---|---|---|---|
+| **Sterling Slate / Cosmic Knight** | Human | Infiltration and targeted elimination | Defected |
+| **Raze** | Vorrkai (from Vorr) | Assassination and field enforcement | Active — revenge plot, assumes Darkstar dead |
+| Others | Unknown | Unknown | Unknown |
+
+The Vorrkai are a tribal, space-faring warrior race. See `characters/npcs/raze.md` for full Vorrkai detail.
+
+---
+
 ## Character Profile
 
 Darkstar is not a villain who wants to destroy. He is something more unsettling: an observer who genuinely believes the things he does to people are good for them. His frame is evolutionary. His methods are experiments. The people he empowers or harms are data points in a study he's been running for longer than most institutions have existed.
@@ -81,7 +95,7 @@ The Sterling situation complicates this. His son is a defection — a data point
 | Person | Relationship |
 |---|---|
 | **Sterling Slate / Cosmic Knight** | His son. Engineered half-Umbraeon. Defected. Darkstar's interest in the new team runs through this. |
-| **Raze** | Another engineered child. Was on a retrieval mission for Sterling when the ship was destroyed. Now operating independently under the assumption Darkstar is dead. |
+| **Raze** | Engineered child. Vorrkai/Umbraeon hybrid. Was on a retrieval mission when the ship was destroyed. Now operating independently, assumes Darkstar dead. Full profile: `characters/npcs/raze.md`. |
 | **Riley Thomas / Recluse** | Aware of. Has been monitoring Riley's parasite situation with interest. Not intervening — yet. |
 
 ---
@@ -120,3 +134,4 @@ Darkstar is monitoring. His posture is passive — he seeded the experiment and 
 ---
 
 *Last updated: March 2026*
+*Raze file created — see characters/npcs/raze.md. Engineered children table added.*

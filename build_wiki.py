@@ -24,7 +24,7 @@ IMAGES_SRC = REPO_ROOT / "images"
 IMAGES_DST = DOCS_DIR  / "images"
 
 IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp"]
-PORTRAIT_SECTIONS = {"pcs", "npcs"}
+PORTRAIT_SECTIONS = {"pcs", "npcs", "alliance"}
 
 # ── Scene image mapping ────────────────────────────────────────────────────────
 
@@ -46,6 +46,7 @@ DISTRICT_HEADING_MAP = {
 
 SECTION_CONFIG = [
     {"key": "pcs",       "label": "Player Characters", "icon": "★", "subfolder": "characters/pcs"},
+    {"key": "alliance",  "label": "Alliance & Network",  "icon": "⬡", "subfolder": "characters/alliance"},
     {"key": "npcs",      "label": "Characters",        "icon": "◈", "subfolder": "characters/npcs"},
     {"key": "factions",  "label": "Factions",          "icon": "◉", "subfolder": "factions"},
     {"key": "locations", "label": "Locations",         "icon": "◎", "subfolder": "locations"},

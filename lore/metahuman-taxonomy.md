@@ -50,7 +50,7 @@ Quantum's working theory — that the Forces are embedded cosmic principles rath
 - Zara Thorne / Filament (spider-gene entanglement — genetically linked to Thomas's expression in ways neither fully understands)
 
 **SEIB notes:**
-The Thomas/Webb/Thorne cluster represents the most documented Category II lineage in A.E.G.I.S. files. Three individuals in the same city with spider-derived genetics, manifesting within approximately a decade of each other. Whether this is coincidence, environmental clustering, or evidence of a dormant gene becoming active in a population is an open question SMAB has been quietly sitting on since 2023.
+The Thomas/Webb/Thorne cluster represents the most documented Category II lineage in A.E.G.I.S. files. Three individuals in the same city with spider-derived genetics, manifesting within approximately a decade of each other. Whether this is coincidence, environmental clustering, or evidence of a dormant gene becoming active in a population is an open question SEIB has been quietly sitting on since 2023.
 
 The entanglement between Thomas and Thorne is the most anomalous data point in the cluster. Genetic entanglement producing a passive interpersonal signal — Thorne receives somatic distress input from Thomas without physical proximity — does not fit neatly into any existing Category II sub-classification. It has been filed under the genetic category by default.
 
@@ -134,7 +134,7 @@ The Scythe case is formally classified as Category IV enhancement but the mechan
 - Sterling Slate / Cosmic Knight (half-Umbraeon, engineered by Darkstar — dark matter manipulation)
 
 **SEIB notes:**
-Calypso's classification has been contested since A.E.G.I.S. first created a file for her in 1979. She predates the enhanced individual framework by centuries or millennia. Categorizing her as Category V is technically accurate (non-terrestrial/mythological origin) but loses the distinction between an ancient entity operating on human timescales and a contemporary alien like Darkstar. The file exists. Nobody in SMAB is particularly comfortable with what's in it.
+Calypso's classification has been contested since A.E.G.I.S. first created a file for her in 1979. She predates the enhanced individual framework by centuries or millennia. Categorizing her as Category V is technically accurate (non-terrestrial/mythological origin) but loses the distinction between an ancient entity operating on human timescales and a contemporary alien like Darkstar. The file exists. Nobody in SEIB is particularly comfortable with what's in it.
 
 The Auditors — Kiara's creators — represent an institutional threat that A.E.G.I.S. has no operational response to. The file exists. It references Kiara's value as an informational asset. It does not document what A.E.G.I.S. would do if the Auditors returned in force, because no credible answer exists.
 

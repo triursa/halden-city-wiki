@@ -27,10 +27,10 @@
 - **Scion mechanical note:** Kiara is Sterling's Personal Idol Respect slot. Asynchronous contact ruling in effect — moves made in response to her messages count toward Respect.
 - **Stakes:** Paragon's reputation took damage defending her. She left before she could answer that. Sterling is holding a message from someone who made a deliberate exit. What that costs him is his to carry.
 
-### Lily Ortega — Influence Gained
-- Agent Lily Ortega (MANIFEST director) was present at the press conference and attacked by SHADE constructs
+### Lila Ortega — Influence Gained
+- Agent Lila Ortega (MANIFEST director) was present at the press conference and attacked by SHADE constructs
 - The players saved her during the fight
-- The team now has influence over Lily Ortega — a bureaucratic inside contact at exactly the moment A.E.G.I.S. is in lockdown and circling wagons
+- The team now has influence over Lila Ortega — a bureaucratic inside contact at exactly the moment A.E.G.I.S. is in lockdown and circling wagons
 - **Stakes:** She owes them. She also works for an agency that is now compromised and defensive. Those two facts will create friction eventually.
 
 ### Raze — Revenge Plot
@@ -126,7 +126,7 @@
 
 | Thread | What Was Planted | Potential Payoff |
 |---|---|---|
-| Three missing Glass District researchers | SMAB has no confirmed causal link as of 2025. Possible Eclipse connection — unconfirmed. One or two may have been working on force-binding theory with an unnamed buyer. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS or Darkstar's weapon research, the researchers stumbled into something they weren't supposed to see. |
+| Three missing Glass District researchers | SEIB has no confirmed causal link as of 2025. Possible Eclipse connection — unconfirmed. One or two may have been working on force-binding theory with an unnamed buyer. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS or Darkstar's weapon research, the researchers stumbled into something they weren't supposed to see. |
 | Darkstar's weapon | Wounded and in recovery. Building a deterrent to permanently end the Paragon/Renegade cycle. Evidence seeded via Glass District research anomalies, Quantum's cosmic signature readings, and Raze's movements. | Arc 4 territory. Correct diagnosis, catastrophic solution. |
 | Joseph Persico's return | Released from prison; re-establishing his Dockside network | First major street-level confrontation with the new team |
 | The Hall — locked room (3/F) | Key not transferred with the building. Room is larger than the 1938 city filing indicates. | What's in it, who put it there, and why wasn't the key included in the transfer? |
@@ -148,7 +148,7 @@
 | **Kiara's departure** | Cosmic Knight | Sterling's mentor left. He has a message from her. The Respect relationship continues asynchronously. | What it means to carry someone's belief in you when they're not there. |
 | **Celeste Timber** | Cosmic Knight | Sterling's first target. He couldn't do it. She doesn't know he exists. | Whether and how this surfaces is the player's call — but she's out there. |
 | **Eclipse / Rhys's compound** | Noc | Eclipse's biotech compound is running through Rhys's body. Ivan is dead. Eclipse wants the asset back. Eclipse does not fully believe the death record Ivan falsified — they know Noch is the asset they're looking for; they are still working out Rhys's current civilian identity. Ivan's research was seized after his death. | Eclipse has a direct, personal claim on Rhys that has never been resolved. The hunt is active, not hypothetical. |
-| **Ivan's research** | Noc | Whatever Eclipse was doing with the compound exists in files somewhere. | If those files surface — through Rhys, through someone else, through SMAB — the compound becomes a larger story. |
+| **Ivan's research** | Noc | Whatever Eclipse was doing with the compound exists in files somewhere. | If those files surface — through Rhys, through someone else, through SEIB — the compound becomes a larger story. |
 | **Carter Williams / Avi's origin** | Nova | Carter's paralysis came from the incident at the party. The Force healed him on bonding. Avi does not know the connection. Riley knows. Signal knows. | The person who assaulted Avi is now the Renegade Force host. That fact has to come out eventually. |
 | **Aubrey's text** | Nova | Aubrey reached out after Session 1. Unwitting Signal-adjacent witness. | Avi's to pull or not. |
 | **Quantum / Avi's parentage** | Nova | Dr. Javier Mendez is Avi's biological father. Quantum discovered Avi's existence shortly after birth and chose not to make contact — personal relationships are a hazard by his operating philosophy, especially given his condition. Avi does not know. They are on the same team. | Slow burn. Earns its weight through relationship development, not a reveal scene. |

@@ -27,7 +27,7 @@ His diagnosis is not entirely wrong. That's what makes him dangerous.
 - Lily Matthews texted Jason
 - Aubrey texted Avi
 - Avi's telepathy intel from the constructs: built from human bodies, commissioned by Vane, controlled by Signal
-- Lily Ortega saved — team has influence over MANIFEST director
+- Lila Ortega saved — team has influence over MANIFEST director
 - Casimir out on bail, throwing a DA fundraiser gala
 
 ---
@@ -73,7 +73,7 @@ Avi's telepathy cracked the constructs' minds during the fight and extracted thr
 
 Signal used the A.E.G.I.S. blackout window to broadcast Kiara's full origin publicly: her engineered nature, original Earth-removal mission, Auditor "defective" designation, barista civilian identity, and the internal A.E.G.I.S. transcript of their argument with Paragon over whether to trust her.
 
-Agent Lily Ortega (MANIFEST director) was present and attacked. Players saved her. Team now has influence over Lily Ortega.
+Agent Lila Ortega (MANIFEST director) was present and attacked. Players saved her. Team now has influence over Lila Ortega.
 
 A.E.G.I.S. went into full lockdown following the hack.
 
@@ -113,7 +113,7 @@ It's Carter. Avi may or may not recognize it at this stage. Either way, the imag
 
 ---
 
-### Beat 4 — Secret Drop 2 / Red Pill Cameo
+### Beat 4 — Sterling Reveal / Red Pill Cameo
 
 **Reveal 1 — Starfall:**
 **STATUS: DONE** — Signal surfaced Kiara's origin during Beat 2. This reveal is spent.
@@ -123,16 +123,20 @@ It's Carter. Avi may or may not recognize it at this stage. Either way, the imag
 
 Signal reveals publicly that Cosmic Knight is the biological son of Darkstar — the alien threat currently in the news. Engineered in his lab. Designed for a purpose. *The new team's heavy hitter was built by the enemy. Ask him what he was built to do.*
 
-Sterling's parentage is still unknown to the public as of Session 1. This is Signal's next weapon. The sting is the loss of control — Sterling knew, and his teammates are finding out alongside the world.
+Sterling's parentage is still unknown to the public as of Session 1. This is Signal's next weapon. The team already knows — the fracture isn't internal. It's external. Signal is not trying to make the team doubt Sterling. He is making the *city* doubt the team for standing beside him.
 
 **Red Pill Cameo:**
 The city is already reactive from the Kiara reveals. Owen Watson transforms in a charged public space — a protest outside Alliance Tower, a press scrum. His emotional amplification field makes the crowd worse.
 
 **GM Notes:**
-- The reveal's sting for Sterling is the loss of control, not the information — he knew and the team didn't. That's the fracture.
+- Signal's framing is a legitimacy attack, not a trust break. The question he's placing isn't "did Sterling deceive you?" It's "why are you fighting alongside something that was built to cull you?"
+- Sterling's arc here is external pressure, not internal crisis — he has chosen humanity and is holding that choice. What the beat costs him is the city's willingness to accept that choice.
+- The Scion Respect mechanic becomes harder after this beat, not easier. The city's greatest leader may now be actively hostile. Earn that difficulty.
+- Watch for Raze's timing. If Raze surfaces publicly while this narrative is hot, he doesn't need to say anything — his existence confirms the fear. Signal won't even need to frame it.
+- The civilian anchor matters. Sterling proving himself through a fight won is less legible to the public than a human moment. Celeste Timber is out there. The story should put that option in reach without forcing it.
 - Red Pill is a scene complication, not a primary threat — two conditions, folds when hit hard enough
 - Smart play: engaging with the crowd rather than just fighting Owen; brute-forcing in public feeds Signal's narrative
-- Red Pill's amplification field puts pressure on team dynamics that are already strained — use it
+- Red Pill's amplification field puts pressure on a crowd already primed by the Sterling reveal — the two land hardest together
 
 ---
 
@@ -240,7 +244,7 @@ Before Carter is unleashed, Signal removes each Alliance member from the board.
 | Session | Reveal | Who Knew Before | Signal's Weapon | Status |
 |---|---|---|---|---|
 | Session 1 | Starfall engineered as a weapon / Kiara's origin | Kiara, Paragon, A.E.G.I.S. | Public trust in Paragon and Alliance | **DONE** |
-| Session 2 | Sterling is Darkstar's son | Sterling, Kiara | Sterling's withheld truth; team fracture | Pending |
+| Session 2 | Sterling is Darkstar's son | Sterling, team | Public legitimacy of the team; city trust in Cosmic Knight | Pending |
 | Mid | Paragon Force can be released / Ethan was chosen | Ethan | Paragon's legitimacy; endgame setup | Pending |
 | Mid | Half-Life was Decay | Casper (player) | Public exposure; team trust | Pending |
 | Endgame | Riley/Carter tape | Signal, Riley | Recluse's moral authority; held as the final weapon | Pending |
@@ -274,4 +278,4 @@ Before Carter is unleashed, Signal removes each Alliance member from the board.
 ---
 
 *Last updated: March 2026*
-*Session 1 logged. Kiara departure noted. Raze name confirmed. Beat 2 marked as played. Sterling reveal confirmed pending — moved to Session 2 slot.*
+*Session 1 logged. Kiara departure noted. Raze name confirmed. Beat 2 marked as played. Sterling reveal confirmed pending — moved to Session 2 slot. Beat 4 GM notes updated to reflect external legitimacy framing.*

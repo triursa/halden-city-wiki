@@ -71,7 +71,7 @@ PC. Full profile: `characters/pcs/avi-park-nova.md`. Do not over-document intern
 PC. Plays the Doomed playbook. Dual-power instability is a felt sense with no precise timeline — not a countdown. Full profile: `characters/pcs/jason-apollo.md`.
 
 ### Sterling Slate / Cosmic Knight
-PC. Darkstar's defected son. Full profile: `characters/pcs/sterling-slate-cosmic-knight.md`.
+PC. Darkstar's defected son. Kiara's mentee — asynchronous contact ruling in effect after her departure. Raze (half-sibling) is on a revenge plot. Full profile: `characters/pcs/sterling-slate-cosmic-knight.md`.
 
 ### Rhys Romneya / Noc
 PC. Eclipse proprietary compound in his biology — unclosed asset file. Halden University student, music major, band: Neon Orchard. Ivan Romneya's death tied to his origin. Full profile: `characters/pcs/rhys-romneya-noc.md`.
@@ -93,7 +93,7 @@ Black hair (greying at temples), blue eyes, 5'11"/190 lbs. Extensive scarring.
 **DOB:** March 14, 1981 | **Age:** 45 | **File:** AEGIS-PRG-001
 Former Air Force pilot. Reluctant Paragon Force host since 2005. Methodical, acutely aware of his predecessor's failures.
 Powers: Flight, super strength, super speed, heat vision, x-ray vision, extreme durability.
-**Key secret:** Has known how to end the Paragon cycle and chosen not to act (Virek cache revelation).
+**Key secret:** Has known how to end the Paragon cycle and chosen not to act (Virek cache revelation). Public credibility damaged by Signal's Session 1 broadcast — transcript of him vouching for Kiara is now public.
 
 ### Elena "Lena" Marquez / Riftfire
 **DOB:** October 3, 1992 | **Age:** 33 | **File:** AEGIS-RFT-003
@@ -107,7 +107,7 @@ Powers: Teleportation, matter phasing, accelerated cognition, limited duplicatio
 
 ### Kiara Je-rach / Starfall
 **Age:** Unknown (engineered cosmic envoy, no birth date) | **File:** AEGIS-STF-006
-Defected from the Auditors after Paragon asked her what she believed instead of fighting her. Marked "defective." Resident in Alliance Tower.
+**Status: OFF-EARTH** — departed following Signal's Session 1 broadcast of her origin. Left Sterling a message. Asynchronous contact ruling in effect for Scion Respect mechanic.
 Powers: Energy projection, limited matter restructuring, localized gravity manipulation, near-invulnerability, super-intelligence.
 
 ### Natalia Orlov / The Vanguard
@@ -132,7 +132,7 @@ Powers: Gravitational force manipulation — immobilization, momentum nullificat
 
 ### Zara Thorne / Filament
 **Age:** ~34 | Persian | Retired hero, choreographer, runs a dance studio in Riverside Ward.
-Genetically entangled with Riley's spider gene — passively receives a somatic distress signal when Riley is injured or under physical strain. The signal is intensifying as Riley's condition worsens. She does not know why. Powers: filament generation, enhanced agility. Assists Recluse network on her own terms. Possible secondary host in a future arc beat — not current.
+Genetically entangled with Riley's spider gene — passively receives a somatic distress signal when Riley is injured or under physical strain. The signal is intensifying as Riley's condition worsens. She does not know why. Powers: filament generation, enhanced agility. Assists Recluse network on her own terms.
 
 ### Darcy Cole / Rampart
 **Age:** 26 | High school gym teacher and track coach.
@@ -140,31 +140,34 @@ Powers: Kinetic absorption and redistribution — incoming force doesn't hurt he
 
 ### Marcus Webb / Requiem
 **Age:** ~28 | Origin: The Ironworks.
-Spider-derived powers (distinct from Riley's) — wall adhesion, enhanced strength, omni-directional threat sense (persistent 360° ambient awareness, not a precognitive flash). Killed publicly by Perdition. Resurrected via Dr. Selin Adeyemi's cellular regrowth procedure — authorized by Riley, off A.E.G.I.S. books. Adeyemi disappeared after; presumed dead. Marcus is alive, functional, and has not forgiven anyone for his resurrection. Does not know who Adeyemi was or what happened to her.
+Spider-derived powers (distinct from Riley's) — wall adhesion, enhanced strength, omni-directional threat sense. Killed publicly by Perdition. Resurrected via Dr. Selin Adeyemi's cellular regrowth procedure — authorized by Riley, off A.E.G.I.S. books. Adeyemi disappeared after; presumed dead. Marcus is alive, functional, and has not forgiven anyone for his resurrection.
 
 ### Declan Harrow / Shroud
 **DOB:** June 30, 1996 | **Age:** 29 | **File:** AEGIS-SHR-009
-Hunts the things A.E.G.I.S. has no language for — the older things in Halden City's forgotten infrastructure. Operates along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident. **Note: Shroud's canonical name is Declan Harrow. Marcus Harrow is an earlier erroneous reference.**
+Hunts the things A.E.G.I.S. has no language for — the older things in Halden City's forgotten infrastructure. Operates along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident. **Note: Canonical name is Declan Harrow. Marcus Harrow is an earlier erroneous reference.**
 
 ### Lily Matthews
-**Age:** 15 | Civilian. Younger sister of Mary Matthews / Artemis (deceased). Knew Mary's secret. Does not know why Mary is gone. Recognized Jason from Signal's broadcast and sought him out. Full profile: `characters/npcs/lily-matthews.md`.
+**Age:** 15 | Civilian. Younger sister of Mary Matthews / Artemis (deceased). Texted Jason after Session 1. Full profile: `characters/alliance/lily-matthews.md`.
 
 ---
 
 ## Characters — NPCs: Antagonists
 
 ### Signal
-Real name unknown. Former Renegade Force host — voluntarily relinquished as part of his ideological plan. Currently no residual powers ("ordinary human" in public records is a half-truth reflecting post-relinquishment status). Master hacker and social engineer. Orchestrates public crises for revelation, not chaos. Cult-of-personality antagonist. Already holds a recording of Riley threatening Carter Williams. Building toward a public exposure event. Voice: focused, cold, measured — places a question and exits.
+Real name unknown. Former Renegade Force host — voluntarily relinquished as part of his ideological plan. Currently no residual powers. Master hacker and social engineer. Orchestrates public crises for revelation, not chaos. Already holds the Riley/Carter hospital recording. Building toward a public exposure event. **Session 1: Kiara reveal spent. Sterling reveal pending.**
 
 ### Casimir Vane
 **DOB:** October 31, 1974 | **Age:** 52
-CEO of Vane Capital Group. Self-made billionaire from the Ironworks. Public philanthropist. Knowing, ideological investing partner in Eclipse's PROMETHEUS program. His civic sincerity is real. So is his complicity.
+CEO of Vane Capital Group. Knowing, ideological Eclipse/PROMETHEUS partner. Currently out on bail — throwing a DA fundraiser gala. Public philanthropist. Civic sincerity is real. So is his complicity.
 
 ### Carter Williams / Renegade Force Host
 Current Renegade Force host. Was paralyzed from the waist down prior to bonding; the Force healed him on binding. Personal history tied to Avi's backstory — Avi does not know. Signal is using him as a pawn.
 
+### Raze
+Darkstar's engineered child, Sterling's half-sibling. Was off Darkstar's ship hunting Sterling when the ship was destroyed. Assumes Darkstar is dead. Original retrieval mission is now a revenge plot. Has license to kill. No current file — tracked in `characters/npcs/darkstar.md` pending own NPC file.
+
 ### Edmund Crale — [GM EYES ONLY]
-Mid-40s. Eclipse CEO. Crale family present at A.E.G.I.S.'s 1925 founding. Built Eclipse using generational institutional knowledge of A.E.G.I.S.'s oversight architecture. PROMETHEUS has stayed invisible because he designed it to be. Does not appear in any public Eclipse material. Casimir Vane knows who he is. Almost no one else does. **Do not surface until players reach PROMETHEUS operations directly.** Full profile: `characters/npcs/edmund-crale.md`.
+Eclipse CEO. Crale family present at A.E.G.I.S.'s 1925 founding. Do not surface until players reach PROMETHEUS directly. Full profile: `characters/npcs/edmund-crale.md`.
 
 ---
 
@@ -172,7 +175,7 @@ Mid-40s. Eclipse CEO. Crale family present at A.E.G.I.S.'s 1925 founding. Built 
 
 ### Casey Holt / Scythe — [GM EYES ONLY]
 **Age:** ~24–25 | **File:** AEGIS-SYC-REDACTED
-Second-generation MANIFEST asset. Built as a contingency for the day Recluse becomes a liability. Conditioned from childhood to produce none of the physiological signals Riley's precognitive flash reads — the blind spot is a discipline, not a power. Her absence of threat-state arousal is architecture, not performance. Cover: nursing student at Halden University, EMT-certified. Currently dating Adrian Vega (~2 months at campaign start) — insertion that developed past what the program designed. Has reported Riley's physical deterioration to A.E.G.I.S. via Shaw through clinical observation. Adrian does not know she is an asset. Has never received a deployment order. Whether her certainty holds when Adrian is standing between her and the mission is the untested variable. **File withheld from Riley deliberately.** Full profile: `characters/npcs/casey-holt-scythe.md`. Do not surface until appropriate.
+Second-generation MANIFEST asset. Dormant — no deployment orders. Dating Adrian Vega. Has reported Riley's deterioration to Shaw. File withheld from Riley deliberately. Full profile: `characters/npcs/casey-holt-scythe.md`.
 
 ---
 
@@ -185,10 +188,10 @@ Cosmic intelligence bonded to a single host. Transfers only on host's death. Gra
 Equal and opposite to the Paragon Force. Can be voluntarily relinquished (unlike the Paragon Force). When relinquished, host retains no abilities. Current host: Carter Williams.
 
 ### The Virek Papers
-Compiled by Dr. Gabriel Virek — evidence of Paragon's extralegal interventions across decades. A 2022 partially decrypted cache confirmed election interference. Still mostly encrypted. Publication delayed by legal injunction. Contains the revelation that Ethan Roberts has known how to end the Paragon cycle and chose not to act.
+Compiled by Dr. Gabriel Virek — evidence of Paragon's extralegal interventions across decades. A 2022 partially decrypted cache confirmed election interference. Still mostly encrypted. Contains the revelation that Ethan Roberts has known how to end the Paragon cycle and chose not to act.
 
 ### The Auditors
-Kiara's creators. Believe themselves auditors of cosmic stability — Earth's instability warrants removal from the cosmic record. Their original assessment becomes defensible again in Arc 3 once the Paragon Force is gone.
+Kiara's creators. Their original assessment of Earth becomes defensible again in Arc 3 once the Paragon Force is gone.
 
 ---
 
@@ -207,17 +210,20 @@ Kiara's creators. Believe themselves auditors of cosmic stability — Earth's in
 
 | Thread | Status | Stakes |
 |---|---|---|
-| **Riley's physical deterioration** | Active, hidden | Slower healing, stiff joints. Hiding from A.E.G.I.S. Casey Holt has reported clinical observations to Shaw. What breaks first — body, cover, or relationships? |
-| **Riley's parasite arc** | Seeded — not yet active | Parasite contracted on Darkstar's ship. Targets spider gene specifically. Goal: strip moral restraint, not kill. Zara's distress signal amplifying. |
-| **Signal's recorded evidence** | Active | Signal recorded Riley threatening Carter in the hospital. Building toward a public exposure event. |
-| **Scythe / Casey Holt** | Seeded | MANIFEST asset dating Adrian. Dormant — no orders yet. A.E.G.I.S. withholds AEGIS-SYC-REDACTED from Riley deliberately. |
-| **The Virek Papers** | Active | Still mostly encrypted. Paragon/end-cycle revelation is out there but not yet public. |
-| **Carter Williams / Renegade Force** | Active | Healed by the Force on bonding. Signal is using him. Personal history with Avi — Avi doesn't know. |
-| **Eclipse / PROMETHEUS** | Seeded | Black program running beneath a legitimate biotech company. Rhys is an unclosed asset. Edmund Crale is the hidden center. |
-| **Persico's return** | Seeded | Released from prison 2025. Re-establishing Dockside network. |
-| **Three missing Glass District researchers** | Seeded | SEIB has no confirmed causal link. May connect to Eclipse. |
-| **The Hall — locked room (3/F)** | Seeded | Key not transferred with the building. Room is larger than the 1938 building plans indicate. |
-| **Local 44 records (3/F)** | Seeded | Six boxes, 1938–present. Unexamined. Could contain records of early Ironworks enhanced individual history. |
+| **Riley's physical deterioration** | Active, hidden | Slower healing, stiff joints. Casey Holt has reported to Shaw. What breaks first — body, cover, or relationships? |
+| **Riley's parasite arc** | Seeded — not yet active | Targets spider gene. Goal: strip moral restraint. Zara's distress signal amplifying. |
+| **Signal's recorded evidence** | Active | Hospital recording in hand. Not yet deployed. |
+| **Scythe / Casey Holt** | Seeded | Dating Adrian. No deployment orders yet. A.E.G.I.S. withholds from Riley. |
+| **The Virek Papers** | Active | Mostly encrypted. End-cycle revelation not yet public. |
+| **Carter Williams / Renegade Force** | Active | Signal's pawn. Personal history with Avi — Avi doesn't know. |
+| **Eclipse / PROMETHEUS** | Seeded | Black program beneath legit biotech. Rhys is unclosed asset. Crale is hidden center. |
+| **Raze — revenge plot** | Active, off-screen | Assumes Darkstar dead. License to kill. Will surface when dramatically right. |
+| **Darkstar — deterrent weapon** | Seeded | Wounded, building weapon to end Paragon/Renegade cycle. Evidence to surface gradually. |
+| **Casimir out on bail** | Active | Throwing DA fundraiser gala. Brazen public move while under indictment. |
+| **Persico's return** | Seeded | Re-establishing Dockside network. |
+| **Three missing Glass District researchers** | Seeded | May connect to Eclipse or Darkstar's weapon research. |
+| **The Hall — locked room (3/F)** | Seeded | Key not transferred. Room larger than building plans indicate. |
+| **Local 44 records (3/F)** | Seeded | Six boxes, 1938–present. Unexamined. |
 
 ---
 
@@ -230,42 +236,44 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 |---|---|
 | `characters/pcs/avi-park-nova.md` | Avi Park / Nova |
 | `characters/pcs/jason-apollo.md` | Jason / Apollo — Doomed playbook |
-| `characters/pcs/sterling-slate-cosmic-knight.md` | Sterling Slate / Cosmic Knight — Darkstar's defected son |
+| `characters/pcs/sterling-slate-cosmic-knight.md` | Sterling Slate / Cosmic Knight — Scion playbook, Darkstar's son |
 | `characters/pcs/rhys-romneya-noc.md` | Rhys Romneya / Noc — Eclipse compound, unclosed asset file |
 | `characters/pcs/casper-curie-half-life.md` | Casper Curie / Half-Life |
 
-### NPCs — Alliance & Network
+### Alliance & Network
 | File | Contents |
 |---|---|
-| `characters/npcs/riley-thomas-recluse.md` | Full Riley dossier |
-| `characters/npcs/ethan-roberts-paragon.md` | Paragon / Ethan Roberts |
-| `characters/npcs/elena-marquez-riftfire.md` | Riftfire / Elena Marquez |
-| `characters/npcs/javier-mendez-quantum.md` | Quantum / Dr. Javier Mendez |
-| `characters/npcs/kiara-jerach-starfall.md` | Starfall / Kiara Je-rach |
-| `characters/npcs/natalia-orlov-vanguard.md` | The Vanguard / Natalia Orlov |
-| `characters/npcs/adrian-vega-breakpoint.md` | Breakpoint / Adrian Vega |
-| `characters/npcs/sloane-callahan-arachne.md` | Arachne / Sloane Callahan |
-| `characters/npcs/darius-cole-aegis-prime.md` | Aegis Prime / Darius Cole |
-| `characters/npcs/darcy-cole-rampart.md` | Rampart / Darcy Cole |
-| `characters/npcs/marcus-webb-requiem.md` | Requiem / Marcus Webb — resurrection arc, Adeyemi connection |
-| `characters/npcs/zara-thorne-filament.md` | Filament / Zara Thorne |
-| `characters/npcs/declan-harrow-shroud.md` | Shroud / Declan Harrow |
-| `characters/npcs/lily-matthews.md` | Lily Matthews — Mary's younger sister, Jason's civilian thread |
+| `characters/alliance/riley-thomas-recluse.md` | Full Riley dossier |
+| `characters/alliance/ethan-roberts-paragon.md` | Paragon / Ethan Roberts |
+| `characters/alliance/elena-marquez-riftfire.md` | Riftfire / Elena Marquez |
+| `characters/alliance/javier-mendez-quantum.md` | Quantum / Dr. Javier Mendez |
+| `characters/alliance/kiara-jerach-starfall.md` | Starfall / Kiara Je-rach — off-Earth, departed Session 1 |
+| `characters/alliance/natalia-orlov-vanguard.md` | The Vanguard / Natalia Orlov |
+| `characters/alliance/adrian-vega-breakpoint.md` | Breakpoint / Adrian Vega |
+| `characters/alliance/sloane-callahan-arachne.md` | Arachne / Sloane Callahan |
+| `characters/alliance/darius-cole-aegis-prime.md` | Aegis Prime / Darius Cole |
+| `characters/alliance/darcy-cole-rampart.md` | Rampart / Darcy Cole |
+| `characters/alliance/marcus-webb-requiem.md` | Requiem / Marcus Webb — resurrection arc, Adeyemi connection |
+| `characters/alliance/zara-thorne-filament.md` | Filament / Zara Thorne |
+| `characters/alliance/declan-harrow-shroud.md` | Shroud / Declan Harrow |
+| `characters/alliance/lily-matthews.md` | Lily Matthews — Mary's younger sister, Jason's civilian thread |
 
 ### NPCs — Antagonists & Assets
 | File | Contents |
 |---|---|
 | `characters/npcs/anonymous-signal.md` | Signal — full dossier |
-| `characters/npcs/casimir-vane.md` | Casimir Vane — Eclipse/PROMETHEUS partner |
+| `characters/npcs/casimir-vane.md` | Casimir Vane — Eclipse/PROMETHEUS partner, out on bail |
 | `characters/npcs/carter-williams.md` | Carter Williams / Renegade Force host |
-| `characters/npcs/casey-holt-scythe.md` | **[GM EYES ONLY]** Casey Holt / Scythe — MANIFEST asset, Adrian's girlfriend |
-| `characters/npcs/edmund-crale.md` | **[GM EYES ONLY]** Edmund Crale — Eclipse CEO, PROMETHEUS architect |
+| `characters/npcs/darkstar.md` | Darkstar — survival unknown, building deterrent weapon; Raze tracked here pending own file |
+| `characters/alliance/lila-ortega-manifest.md` | Lila Ortega — MANIFEST director, team influence, lockdown constraints |
+| `characters/npcs/casey-holt-scythe.md` | **[GM EYES ONLY]** Casey Holt / Scythe |
+| `characters/npcs/edmund-crale.md` | **[GM EYES ONLY]** Edmund Crale — Eclipse CEO |
 | `characters/npcs/red-pill-owen-watson.md` | Red Pill / Owen Watson |
-| `characters/npcs/senator-diana-okafor.md` | Senator Diana Okafor — Beat 2 abduction target, SARA legislative trigger |
-| `characters/npcs/mayor-theo-alcantara.md` | Mayor Theo Alcantara — Halden City Mayor, pragmatist, not an ally |
-| `characters/npcs/police-chief-hector-reyes.md` | Chief Hector Reyes — HCPD, uneasy A.E.G.I.S. adjacency, useful friction |
-| `characters/npcs/detectives-shea-and-paz.md` | Det. Rowan Shea & Victor Paz — contrasting orientations toward metas |
-| `characters/npcs/halcyon.md` | Halcyon — Riverside Ward pop group, background texture only |
+| `characters/npcs/senator-diana-okafor.md` | Senator Diana Okafor — Beat 2 abduction target, SARA trigger |
+| `characters/npcs/mayor-theo-alcantara.md` | Mayor Theo Alcantara |
+| `characters/npcs/police-chief-hector-reyes.md` | Chief Hector Reyes |
+| `characters/npcs/detectives-shea-and-paz.md` | Det. Rowan Shea & Victor Paz |
+| `characters/npcs/halcyon.md` | Halcyon — background texture only |
 
 ### Factions
 | File | Contents |
@@ -278,8 +286,8 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 ### Locations
 | File | Contents |
 |---|---|
+| `locations/hq-ironworkers-hall.md` | **The Hall** — player HQ, Ironworkers' Local 44 |
 | `locations/districts.md` | All six districts with key locations |
-| `locations/hq-ironworkers-hall.md` | The Hall — player HQ, Ironworkers' Local 44 |
 | `locations/alliance-tower.md` | Alliance Tower — full build, layout, culture, personnel |
 | `locations/aegis-halden-regional-command.md` | A.E.G.I.S. Regional Command — full build, 7 sub-levels, personnel, culture |
 | `locations/street-texture.md` | Named civilian locations, recurring faces, shadow infrastructure by district |
@@ -289,22 +297,24 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 |---|---|
 | `lore/world-history.md` | Full 100-year timeline |
 | `lore/paragon-renegade-forces.md` | Cosmic lore, all known hosts |
-| `lore/metahuman-taxonomy.md` | Enhanced individual taxonomy — six origin categories, modifier flags, known instances, unclassified edge cases |
+| `lore/metahuman-taxonomy.md` | Enhanced individual taxonomy — six origin categories, modifier flags, known instances |
 
 ### Plot
 | File | Contents |
 |---|---|
-| `plot/open-threads.md` | Active threads with stakes |
-| `plot/macro-arc-structure.md` | Four-arc philosophical spine — pre-play placeholder |
-| `plot/riley-parasite-arc.md` | Riley's parasite arc — seeded, not yet active |
+| `plot/gm-quick-ref.md` | **START HERE mid-session** — reveal status, active seeds, threat board, NPC influence states |
+| `plot/session-log.md` | Running session log — what happened, seeds planted, state at end of each session |
+| `plot/open-threads.md` | Active threads with full stakes detail |
 | `plot/who-decides-arc.md` | Arc 1 full beat sheet — "Who Decides" |
-| `plot/signal-beat3-broadcast.md` | Signal's Beat 3 broadcast script — register anchor for GM use |
-| `plot/signal-label-targets.md` | Signal's label shift targets by reveal — primary and ripple effects per PC |
-| `plot/jason-lily-matthews-scene.md` | Lily Matthews scene — Jason's Doomed nemesis thread, Beat 3–5 |
+| `plot/macro-arc-structure.md` | Four-arc philosophical spine |
+| `plot/riley-parasite-arc.md` | Riley's parasite arc — seeded, not yet active |
+| `plot/signal-beat3-broadcast.md` | Signal's Beat 3 broadcast script — register anchor |
+| `plot/signal-label-targets.md` | Signal's label shift targets by reveal — per PC |
+| `plot/jason-lily-matthews-scene.md` | Lily Matthews scene — Jason's Doomed nemesis thread |
 | `plot/villain-sheets/signal.md` | Signal — campaign-use villain sheet |
 | `plot/villain-sheets/casimir-vane.md` | Casimir Vane — villain sheet |
 | `plot/villain-sheets/carter-williams-renegade.md` | Carter Williams — villain sheet |
-| `plot/villain-sheets/red-pill-owen-watson.md` | Red Pill — villain sheet with Labels, amplification field mechanic, exit condition |
+| `plot/villain-sheets/red-pill-owen-watson.md` | Red Pill — villain sheet with Labels, amplification field, exit condition |
 | `plot/villain-sheets/shade-construct.md` | SHADE Unit — PROMETHEUS construct, Beat 2 threat |
 
 ### Meta
@@ -315,5 +325,5 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 
 ---
 
-*Last updated: March 2026 — New files this session: Senator Diana Okafor (Beat 2 abduction target, SARA trigger), Mayor Theo Alcantara, Police Chief Hector Reyes, Detectives Shea & Paz, Halcyon (pop group, background texture). WIKI-INDEX updated.*
+*Last updated: March 2026 — Session 1 logged. New files: plot/session-log.md, plot/gm-quick-ref.md. Active thread table updated with Raze and Darkstar weapon. Kiara status updated to off-Earth. Locations table reordered with The Hall first.*
 *To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*

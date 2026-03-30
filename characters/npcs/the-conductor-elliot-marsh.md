@@ -76,7 +76,7 @@ The price is always the same: what do you know that I don't? He means this. He i
 |---|---|
 | **Signal** | Possibly in contact. Terms unknown. This is the relationship that determines his threat level. |
 | **Sloane / Arachne** | The one person in Halden City whose surveillance capability approaches his. They have been circling each other's operational edges for a year without direct contact. |
-| **A.E.G.I.S. / SMAB** | They know a brokerage exists. They do not have a name. Dr. Kadeem has flagged it as a priority identification target. |
+| **A.E.G.I.S. / SEIB** | They know a brokerage exists. They do not have a name. Dr. Kadeem has flagged it as a priority identification target. |
 
 ---
 

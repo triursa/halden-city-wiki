@@ -1,4 +1,4 @@
-~# Signal
+# Signal
 
 > *"Absolute power corrupts absolutely. The revolution has begun."*
 
@@ -40,7 +40,20 @@ He retains no residual Force abilities.
 
 ## Current Operations
 
-Signal is building toward an exposure event. He already holds a recording of Riley Thomas threatening Carter Williams in his hospital room. He engineered the hospital situation specifically to obtain this — he predicted Recluse would show up, and he was right.
+### Session 1 — The Press Conference
+
+Signal hacked A.E.G.I.S. communications during the new team's public debut press conference, taking down all agency comms simultaneously. He used the window to:
+
+- Deploy SHADE constructs (cyborg cadavers in A.E.G.I.S. uniforms) to attack the conference and extract Senator Okafor
+- Broadcast Kiara Je-rach's full origin publicly: her engineered nature, her original mission to determine whether Earth should be removed from the cosmic record, her "defective" designation with the Auditors, her barista cover identity, and the internal A.E.G.I.S. transcript showing their argument with Paragon over whether to trust her — a transcript in which Paragon staked his public reputation on her
+
+A.E.G.I.S. is now in full lockdown. Their comms were compromised by an outside actor and they cannot confirm the extent of what was accessed. The institutional trust fracture is real and Signal engineered it deliberately.
+
+**What the hack accomplished:** Three targets damaged simultaneously — Kiara's private life and safety, Paragon's credibility as a reliable institutional partner, and A.E.G.I.S.'s demonstrated ability to secure its own intelligence.
+
+### Prior Operations
+
+Signal already holds a recording of Riley Thomas threatening Carter Williams in his hospital room. He engineered the hospital situation specifically to obtain it — he predicted Recluse would show up, and he was right. This recording is held in reserve.
 
 He is two steps ahead. He is waiting for the right moment. When he finally acts, he intends for the whole world to be watching.
 
@@ -63,6 +76,7 @@ He is two steps ahead. He is waiting for the right moment. When he finally acts,
 - [ ] Who is in his inner circle, if anyone?
 - [ ] What is his specific plan for the exposure event — how does the Riley footage fit in?
 - [ ] Does he know Riley is physically declining? Would that change his calculations?
+- [ ] What is the full scope of what he accessed in the A.E.G.I.S. hack — did he take files, or just take comms down?
 
 ---
 

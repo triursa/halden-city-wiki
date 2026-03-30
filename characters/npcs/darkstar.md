@@ -12,7 +12,7 @@
 | **Species** | Umbraeon |
 | **Age** | Unknown — near-immortal by human timescales |
 | **Affiliation** | None formal. Self-directed. Fringe of Umbraeon civilization. |
-| **Status** | Active in Halden City — passive observer/experimenter |
+| **Status** | Unknown — ship publicly destroyed; survival unconfirmed. Believed wounded. |
 | **Origin Category** | Category Va — Cosmic/Alien Origin (Full Non-Human) |
 
 ---
@@ -41,7 +41,30 @@ First documented contact with Halden City: 2012. Operating through intermediarie
 
 He believes suffering accelerates evolution. He considers himself a catalyst to greatness. He is calm, analytical, and patient in a way that reads as genuinely alien — not performed patience, but the actual temporal perspective of something that has watched civilizations rise and fall.
 
-His defected son Sterling Slate / Cosmic Knight is active in Halden City and has crossed paths with the new team. Darkstar's interest in the team is personal now in a way it was not before.
+His defected son Sterling Slate / Cosmic Knight is active on the new Alliance team. Darkstar's interest in this team is personal now in a way it was not before.
+
+---
+
+## Current Status — Ship Destroyed, Survival Unknown
+
+Darkstar's ship was publicly destroyed in the incident preceding Arc 1 (the Renegade Force / Carter Williams attack that the Alliance was dispatched to respond to). Whether Darkstar survived is unknown — the attack was not designed to kill him, but the outcome is unconfirmed.
+
+**Raze does not know if his father is alive.** Raze was off the ship hunting Sterling when the ship was attacked. He was not present for the destruction. This has reframed his original mission: retrieval of Sterling is now a revenge plot operating under the assumption that Darkstar is dead. Raze has license to kill.
+
+**Working assumption (GM eyes only):** Darkstar is wounded but alive. He has retreated to recover and is working on a weapon designed to permanently end the Paragon and Renegade Force cycle — a deterrent capable of destroying both cosmic principles simultaneously. His diagnosis of the problem is not wrong. His solution will be.
+
+---
+
+## The Deterrent Weapon — Seeding Notes
+
+Darkstar is building something. Evidence of this work should surface gradually across Arc 1 before the weapon itself becomes legible.
+
+**Suggested breadcrumbs:**
+- One or two of the three missing Glass District researchers were working on energy containment or force-binding theory. Their notes reference an outside buyer or unnamed contractor — nothing that reads as alien, just work that shouldn't exist yet pointing somewhere it shouldn't point.
+- Quantum notices an anomalous reading — something actively studying or mapping the Paragon/Renegade Force's cosmic signature. One unexplained data point. No attribution.
+- Raze's movements correlate with Darkstar's last known work sites. Where Raze goes, evidence of the weapon's development follows — the players learn about the weapon partly by learning about Raze's search for his father.
+
+The weapon is seeded in Arc 1. It does not surface as a central threat until later arcs.
 
 ---
 
@@ -58,6 +81,7 @@ The Sterling situation complicates this. His son is a defection — a data point
 | Person | Relationship |
 |---|---|
 | **Sterling Slate / Cosmic Knight** | His son. Engineered half-Umbraeon. Defected. Darkstar's interest in the new team runs through this. |
+| **Raze** | Another engineered child. Was on a retrieval mission for Sterling when the ship was destroyed. Now operating independently under the assumption Darkstar is dead. |
 | **Riley Thomas / Recluse** | Aware of. Has been monitoring Riley's parasite situation with interest. Not intervening — yet. |
 
 ---
@@ -66,36 +90,32 @@ The Sterling situation complicates this. His son is a defection — a data point
 
 ### Origin — The Abduction Mission (~2015–2016)
 
-The parasite was introduced during one of the Alliance's earliest formal operations — a response to a Darkstar-linked abduction event, likely within the first year of the Alliance's founding. The mission was a team effort: Riley's first joint operation with the Alliance rather than the Recluse network, which by itself marks it as significant. He had spent fifteen years working alone or with a small trusted circle. This was new.
+The parasite was introduced during one of the Alliance's earliest formal operations — a response to a Darkstar-linked abduction event, likely within the first year of the Alliance's founding. Riley did not know he had been exposed to anything when he left the ship. There was no injury, no obvious intervention. Whatever Darkstar introduced was introduced quietly, in the margins of a mission Riley considered concluded.
 
-The team boarded Darkstar's ship. They extracted whoever had been taken. The operation was, by surface metrics, a success. Darkstar permitted it — passively, deliberately. He had no interest in the abductee. He had interest in the heroes who came for them.
-
-Riley did not know he had been exposed to anything when he left the ship. There was no injury, no obvious intervention. Whatever Darkstar introduced was introduced quietly, in the margins of a mission Riley considered concluded.
-
-**Why Riley specifically:** Darkstar had been studying Halden City's enhanced individuals since 2012. The spider gene is unusual — a distributed genetic expression with documented precognitive capacity, not an accident or a lab product. Riley had been operating unsanctioned for nearly a decade before the Alliance gave him institutional cover. Darkstar had been watching him for years before the ship encounter. The parasite was not opportunistic. It was selected.
+**Why Riley specifically:** Darkstar had been studying Halden City's enhanced individuals since 2012. The spider gene is unusual — a distributed genetic expression with documented precognitive capacity, not an accident or a lab product. The parasite was not opportunistic. It was selected.
 
 **Timeline:** ~10 years elapsed between exposure and the campaign's present. The parasite is slow. This was designed.
 
 ### What the Parasite Does
 
-Targets the spider gene specifically. Designed to strip moral restraint rather than kill the host. Darkstar's hypothesis: the spider gene's precognitive function is entangled with threat-assessment, which is entangled with ethical weighting. Remove the restraint, and what remains is a faster, more efficient predator — a genuine evolutionary step, by his frame.
+Targets the spider gene specifically. Designed to strip moral restraint rather than kill the host. Darkstar's hypothesis: the spider gene's precognitive function is entangled with threat-assessment, which is entangled with ethical weighting. Remove the restraint, and what remains is a faster, more efficient predator — an evolutionary step, by his frame.
 
-Riley's physical deterioration (slower healing, stiff joints) is a side effect of the parasite's progress, not the goal. The degradation of his body is the price of something Darkstar considers an upgrade.
+Riley's physical deterioration (slower healing, stiff joints) is a side effect of the parasite's progress, not the goal.
 
 **Zara Thorne** receives Riley's physical distress passively through genetic entanglement — she is getting a signal, not symptoms. The signal has been intensifying. She doesn't know about the parasite. She knows something is wrong.
 
-Darkstar is monitoring. His posture is passive — he seeded the experiment and is observing results. He considers intervention unnecessary. He expects the data to arrive on its own timeline.
+Darkstar is monitoring. His posture is passive — he seeded the experiment and is observing results. He considers active intervention unnecessary. He expects the data to arrive on its own timeline.
 
 ---
 
 ## Open Questions
 
-- [ ] What is Darkstar's actual long-term objective in Halden City — what does he expect to find?
-- [ ] How does Sterling's defection factor into his calculations going forward?
-- [ ] When, if ever, does he shift from passive observation to active intervention?
-- [ ] Has he made contact with Signal, Vane, or any other active antagonist?
-- [ ] What does A.E.G.I.S. actually know about him — their Watch Status file suggests awareness, but what is its depth?
-- [ ] Does A.E.G.I.S. know Riley was exposed during the abduction mission? Is there any field report from that operation?
+- [ ] Did Darkstar survive the ship's destruction? (Working assumption: yes, wounded)
+- [ ] What is the deterrent weapon's mechanism — how does it target the Paragon and Renegade Forces specifically?
+- [ ] How long until the weapon is functional?
+- [ ] Has Darkstar made contact with Signal, Vane, or any other active antagonist?
+- [ ] What does A.E.G.I.S. know about the ship destruction — and do they know Darkstar may have survived?
+- [ ] Does Darkstar know Sterling is on the team, and does that affect his weapon's design?
 
 ---
 

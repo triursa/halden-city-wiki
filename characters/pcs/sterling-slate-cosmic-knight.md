@@ -15,8 +15,9 @@
 | **Occupation** | Sophomore at Halden University — astrophysics major, biochemistry minor |
 | **A.E.G.I.S. File** | AEGIS-CSK-015 |
 | **Affiliation** | Alliance — new team (Legacy of Halden City) |
-| **Mentor** | Starfall / Kiara Je-rach |
-| **Status** | Active — defected asset; Darkstar is aware |
+| **Playbook** | The Scion |
+| **Mentor** | Starfall / Kiara Je-rach (departed — asynchronous contact) |
+| **Status** | Active — defected asset; Darkstar's survival unknown |
 
 ---
 
@@ -52,7 +53,30 @@ Whatever Darkstar had engineered in him had not accounted for the experience of 
 
 He abandoned the mission. He made a vow. He took the name Cosmic Knight and turned against everything he was built to do.
 
-**What he left behind:** A father who knows he defected. Half-siblings who may still be active. A designation — Void Reaper — that he hasn't fully put down, evidenced by the fact that he still calls the sword by its old name.
+**What he left behind:** A father whose survival is now unknown. Half-siblings who may still be active. A designation — Void Reaper — that he hasn't fully put down, evidenced by the fact that he still calls the sword by its old name.
+
+---
+
+## Scion Playbook — Respect Slots
+
+| Slot | Person | Notes |
+|---|---|---|
+| Your parent's greatest enemy | TBD | |
+| Your parent's greatest victim | TBD | |
+| Your personal idol | **Kiara Je-rach / Starfall** | Departed. Asynchronous contact ruling in effect — see below. |
+| The city's greatest leader | TBD | |
+| The city's greatest hero | **Ethan Roberts / Paragon** | |
+| The city's biggest celebrity | TBD | |
+
+**Villain parent:** Darkstar
+**Villain type:** Cruel mastermind / zealous crusader
+**Relationship type:** Actively adversarial
+
+### Kiara — Asynchronous Contact Ruling
+
+Kiara is physically absent. The ruling for Respect interactions: any move Sterling makes in direct response to her messages — acting on her advice, wrestling with something she said, sending a reply she may never receive — counts as a valid Respect interaction. Presence does not equal weight.
+
+Her messages should do real work when they arrive. Not reassurance. Something Sterling has to carry.
 
 ---
 
@@ -60,44 +84,56 @@ He abandoned the mission. He made a vow. He took the name Cosmic Knight and turn
 
 | Person | Relationship |
 |---|---|
-| **Darkstar** | Father, creator, primary antagonist threat. Darkstar is aware Sterling defected. The relationship is not resolved — it is deferred. |
+| **Darkstar** | Father, creator. Ship destroyed — survival unknown. The relationship is suspended, not resolved. |
+| **Raze** | Half-sibling. Was off the ship hunting Sterling when it was destroyed. Now operating under the assumption Darkstar is dead. Retrieval mission has become a revenge plot. Raze has license to kill. |
 | **Celeste Timber** | The human whose music broke his mission. Does not know what she stopped. Does not know he exists. |
-| **Starfall / Kiara Je-rach** | Mentor. Kiara defected from cosmic duty for her own reasons. The parallel is not incidental. Two engineered/created beings who chose something their creators didn't intend. |
-| **Other Darkstar children** | Half-siblings. Number and status unknown. May still be operational. |
+| **Kiara Je-rach / Starfall** | Mentor. Left Earth following Signal's Session 1 broadcast. Left Sterling a message. The relationship continues at a distance. |
+| **Other Darkstar children** | Half-siblings. Number and status unknown. May still be operational. Raze is the known active threat. |
+
+---
+
+## Session 1 Events
+
+- The team's origin event (weeks prior): warehouse confrontation with Casimir Vane, Burnout also present, large explosion, Raze witnessed the event
+- Press conference: SHADE construct attack, Signal's A.E.G.I.S. hack, Kiara's origin broadcast publicly
+- Kiara's departure: left Earth following the broadcast, left Sterling a message
+- Raze's status: off the ship when it was destroyed, now on a revenge plot with license to kill
+
+**Public knowledge as of Session 1:** Sterling's identity as Darkstar's son is publicly known — Signal's broadcast made it so. The team knows. The city knows.
 
 ---
 
 ## GM Arc Notes
 
 **What the story should give him:**
-- Encounters with what he was built to be — either through half-siblings still running missions, or through Darkstar moving to reclaim or neutralize him
-- The question of Celeste Timber: she is still out there and doesn't know. Whether Sterling ever faces that directly is his call, but the story can put her in proximity
-- The Starfall parallel is rich: two defectors from cosmic/alien hierarchy, both "defective" by their creators' standards. Let them actually compare notes
-- The Void Sword name: a small thread worth pulling eventually. He chose a new name. He kept the weapon's old one. What does that mean to him?
+- Encounters with what he was built to be — through Raze's active hunt, through half-siblings still running missions, through the question of what Darkstar was building before the ship went down
+- The question of Celeste Timber: she is still out there and doesn't know. Whether Sterling ever faces that directly is his call.
+- The Kiara parallel: two defectors from cosmic/alien hierarchy, both "defective" by their creators' standards. The relationship continuing through messages is its own kind of ongoing conversation.
+- The Void Sword name: a small thread worth pulling eventually. He chose a new name. He kept the weapon's old one.
 
-**Darkstar upgrade:** Sterling's existence as a PC directly upgrades Darkstar from passive observer to a character with a personal stake in what happens to this team. Darkstar may continue to observe, but what he is observing now includes his defected son. That changes the nature of the observation.
+**Darkstar upgrade:** With the ship destroyed and survival unknown, Darkstar shifts from passive observer to a character whose status is itself a weight Sterling carries. If Darkstar is alive and building something, Sterling's defection is now relevant to that project in ways it wasn't before.
 
 **What to avoid:**
-- Making the Darkstar confrontation inevitable and soon — the threat should be present but patient, consistent with Darkstar's established characterization
+- Making the Raze confrontation happen before the player has had time to develop what it means
 - Resolving the Celeste thread without Sterling's player driving it
+- Over-documenting Sterling's internal relationship to Kiara's departure — that's his to develop
 
 ---
 
 ## Open Questions
 
 - [x] Does Sterling know how many other Darkstar children there are?
-  - He knows his immediate "peers" — around 8 half-siblings he's aware of. Darkstar has many more "children" scattered through human society who don't know what they are.
-- [x] Has Darkstar made any direct move since Sterling defected, or is he still in observation mode?
-  - Still in observation mode.
-- [x] What does Sterling's half-Umbraeon true form look like and what additional capabilities does it have?
+  - He knows his immediate peers — around 8 half-siblings he's aware of. Darkstar has more scattered through human society.
+- [x] Has Darkstar made any direct move since Sterling defected?
+  - Was in observation mode. Ship destroyed — survival unconfirmed. Now unknown.
+- [x] What does Sterling's half-Umbraeon true form look like?
   - Otherworldly glow; looks something like a galaxy. Can fly. Can create weapons from dark matter. Standard Umbraeon-grade super strength and durability. Details belong to the player.
-- [x] Does Sterling know what happened to Celeste Timber after he walked away from the mission?
+- [x] Does Sterling know what happened to Celeste Timber after he walked away?
   - Yes — he kept in touch or watched over her from a distance.
 - [x] Why has he kept calling the weapon Void Sword?
-  - Two things, both true: the weapon is made from dark matter, so "void" is clinically accurate and simply fits what it is. But the name is also a remnant of the Void Reaper designation — an homage to the past he walked away from, not a symptom of unresolved attachment. The GM note about pulling this thread still stands: the two readings coexist, and whether Sterling has fully reckoned with the distinction is worth watching.
+  - Two things, both true: "void" is clinically accurate for dark matter. It is also a remnant of the Void Reaper designation. Whether Sterling has fully reckoned with the distinction is worth watching.
 
 ---
 
 *Last updated: March 2026*
-*Source: Player-authored origin fiction*
-
+*Session 1 events logged. Sibling name corrected to Raze.*

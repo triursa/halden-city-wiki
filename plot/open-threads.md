@@ -5,6 +5,64 @@
 
 ---
 
+## Session 1 — New Threads Introduced
+
+### SHADE Constructs — What Avi Knows
+- Avi's telepathy cracked the SHADE constructs during the press conference fight
+- **Confirmed via vision:** The constructs are built from human bodies. They were commissioned by Casimir Vane. They were being controlled by Signal at the time of the attack.
+- Avi has this intel. The team has this intel. It is not yet public.
+- **Stakes:** The construct bodies are the most legally explosive piece — that's not corruption, that's a war crime. What the players do with this information and when determines how hard it lands.
+- **What Avi does not know yet:** The Eclipse connection. The PROMETHEUS program. The scale of production.
+
+### Signal's A.E.G.I.S. Hack
+- Signal took down all A.E.G.I.S. comms during the press conference — simultaneous with the SHADE construct attack
+- Used the window to broadcast Kiara's full origin: engineered nature, original mission to assess Earth for removal, "defective" Auditor designation, barista civilian cover, and the internal A.E.G.I.S. transcript of their argument with Paragon over whether to trust her
+- A.E.G.I.S. is in full lockdown. They cannot confirm what else was accessed.
+- **Stakes:** Three targets damaged at once — Kiara's safety, Paragon's credibility, A.E.G.I.S.'s institutional competence. Signal is operating at a level the agency did not anticipate.
+
+### Kiara's Departure
+- Kiara left Earth following Signal's broadcast — her cover is blown, her origin is public, and staying meant becoming a political object
+- She left Sterling a message: she explained her reasons, expressed belief in him, said she wants to find her place in the universe
+- Her departure is a choice, not a flight. She left on her own terms.
+- **Scion mechanical note:** Kiara is Sterling's Personal Idol Respect slot. Asynchronous contact ruling in effect — moves made in response to her messages count toward Respect.
+- **Stakes:** Paragon's reputation took damage defending her. She left before she could answer that. Sterling is holding a message from someone who made a deliberate exit. What that costs him is his to carry.
+
+### Lily Ortega — Influence Gained
+- Agent Lily Ortega (MANIFEST director) was present at the press conference and attacked by SHADE constructs
+- The players saved her during the fight
+- The team now has influence over Lily Ortega — a bureaucratic inside contact at exactly the moment A.E.G.I.S. is in lockdown and circling wagons
+- **Stakes:** She owes them. She also works for an agency that is now compromised and defensive. Those two facts will create friction eventually.
+
+### Raze — Revenge Plot
+- Raze (Sterling's half-sibling, Darkstar's engineered child) was off Darkstar's ship hunting Sterling when the ship was destroyed
+- He does not know if Darkstar is alive or dead. He is operating under the assumption that Darkstar is dead.
+- His original mission — retrieve Sterling — is now a revenge plot. He has license to kill.
+- **Stakes:** Sterling and Raze are in mirror positions: both lost Darkstar, both defined by that loss, moving in opposite directions because of it. Raze is the most personal physical threat Sterling faces in this arc.
+
+### Darkstar's Weapon — Seeded Thread
+- Working assumption (GM eyes only): Darkstar survived the ship's destruction, wounded
+- He is building a deterrent weapon designed to permanently end the Paragon and Renegade Force cycle
+- Evidence should surface gradually: anomalous Glass District research pointing to an unnamed buyer, Quantum noticing a cosmic signature being mapped, Raze's movements correlating with Darkstar's last work sites
+- **Stakes:** His diagnosis of the problem may not be wrong. His solution will be. This is Arc 4 territory seeded now.
+
+### Casimir Vane — Out on Bail
+- Casimir was arrested following the warehouse event (team's origin incident) but is out on bail
+- He is throwing a fundraiser gala for the city's DA — a brazen display of operating in the open while under indictment
+- The players have Avi's construct visions connecting him to the SHADE units. He does not know what they know yet.
+- **Stakes:** The gala is the beat where the Vane/Signal/Eclipse connection becomes legible. He is not hiding. That is the point.
+
+### Aubrey's Text (Nova / Avi) — Planted Seed
+- Aubrey reached out to Avi by text: something to the effect of "I saw Carter last week. I don't know what I'm telling you except I thought you should know."
+- Civilian thread Avi can pull, ignore, or sit on. Aubrey is an unwitting Signal-adjacent witness.
+- **Stakes:** If followed up, Aubrey eventually describes the person Carter was with — a face that connects to Signal's network.
+
+### Lily Matthews' Text (Apollo / Jason) — Planted Seed
+- Lily Matthews (Mary's 15-year-old sister) reached out to Jason by text
+- Content TBD / to emerge in play
+- **Stakes:** Lily is Jason's connection to what Nightfall took from him at a human scale. She is not a mission. She is a person.
+
+---
+
 ## Priority Threads — Active Right Now
 
 ### Riley's Physical Deterioration
@@ -68,8 +126,8 @@
 
 | Thread | What Was Planted | Potential Payoff |
 |---|---|---|
-| Three missing Glass District researchers | SMAB has no confirmed causal link as of 2025. Possible Eclipse connection — unconfirmed. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS, the researchers may have stumbled into something they weren't supposed to see. |
-| Darkstar's long game | Engineering stress-test scenarios since 2012. Passive observer — but observation now includes a defected son on the new team and an active parasite experiment on Riley. | When Darkstar decides to stop observing. His data set is thirteen years deep. |
+| Three missing Glass District researchers | SMAB has no confirmed causal link as of 2025. Possible Eclipse connection — unconfirmed. One or two may have been working on force-binding theory with an unnamed buyer. | A pattern is being suppressed or hasn't been recognized yet. If it connects to PROMETHEUS or Darkstar's weapon research, the researchers stumbled into something they weren't supposed to see. |
+| Darkstar's weapon | Wounded and in recovery. Building a deterrent to permanently end the Paragon/Renegade cycle. Evidence seeded via Glass District research anomalies, Quantum's cosmic signature readings, and Raze's movements. | Arc 4 territory. Correct diagnosis, catastrophic solution. |
 | Joseph Persico's return | Released from prison; re-establishing his Dockside network | First major street-level confrontation with the new team |
 | The Hall — locked room (3/F) | Key not transferred with the building. Room is larger than the 1938 city filing indicates. | What's in it, who put it there, and why wasn't the key included in the transfer? |
 | Local 44 records (3/F) | Six boxes of union records, 1938–present. Unexamined. | Could contain records of early Ironworks enhanced individual history — the 1958 Blackwater Harbor incident, labor disputes with anomalous outcomes, names that connect to current threads. |
@@ -85,11 +143,14 @@
 |---|---|---|---|
 | **Jason's countdown** | Apollo | Holding both photokinesis and Artemis's shadow power; no one was meant to carry both. He can feel it. | Does he find a reason to live past Nightfall, or is this a death mission? |
 | **Nightfall / Mary's death** | Apollo | Nightfall killed Artemis and left Jason a warning he didn't hear. Connection: Morgan Vale, 2022 manifestation, Ironworks A.E.G.I.S. materials lab. | Apollo joined the team for this. The hunt is the frame. The question is what he finds when he gets there. |
-| **Darkstar / Sterling's defection** | Cosmic Knight | Sterling is Darkstar's engineered son. He defected. Darkstar knows. The observation Darkstar has been doing now includes watching a defected asset on the new Alliance team. | Darkstar's personal stake in the team is no longer passive. |
+| **Lily Matthews** | Apollo | Mary's 15-year-old sister reached out to Jason by text after Session 1. | Lily is not a mission. She is a person. What Jason does with that is his call. |
+| **Darkstar / Sterling's defection** | Cosmic Knight | Sterling is Darkstar's engineered son. He defected. Darkstar is wounded and building something. Raze is hunting Sterling with license to kill. | Darkstar's personal stake in the team is no longer passive. Raze is the immediate threat. |
+| **Kiara's departure** | Cosmic Knight | Sterling's mentor left. He has a message from her. The Respect relationship continues asynchronously. | What it means to carry someone's belief in you when they're not there. |
 | **Celeste Timber** | Cosmic Knight | Sterling's first target. He couldn't do it. She doesn't know he exists. | Whether and how this surfaces is the player's call — but she's out there. |
 | **Eclipse / Rhys's compound** | Noc | Eclipse's biotech compound is running through Rhys's body. Ivan is dead. Eclipse wants the asset back. Eclipse does not fully believe the death record Ivan falsified — they know Noch is the asset they're looking for; they are still working out Rhys's current civilian identity. Ivan's research was seized after his death. | Eclipse has a direct, personal claim on Rhys that has never been resolved. The hunt is active, not hypothetical. |
 | **Ivan's research** | Noc | Whatever Eclipse was doing with the compound exists in files somewhere. | If those files surface — through Rhys, through someone else, through SMAB — the compound becomes a larger story. |
 | **Carter Williams / Avi's origin** | Nova | Carter's paralysis came from the incident at the party. The Force healed him on bonding. Avi does not know the connection. Riley knows. Signal knows. | The person who assaulted Avi is now the Renegade Force host. That fact has to come out eventually. |
+| **Aubrey's text** | Nova | Aubrey reached out after Session 1. Unwitting Signal-adjacent witness. | Avi's to pull or not. |
 | **Quantum / Avi's parentage** | Nova | Dr. Javier Mendez is Avi's biological father. Quantum discovered Avi's existence shortly after birth and chose not to make contact — personal relationships are a hazard by his operating philosophy, especially given his condition. Avi does not know. They are on the same team. | Slow burn. Earns its weight through relationship development, not a reveal scene. |
 | **Scythe / Adrian's relationship** | Breakpoint | Scythe is Adrian's girlfriend. She is a dormant MANIFEST asset built to neutralize Riley. Adrian doesn't know. Riley doesn't know. | When this surfaces it hits Adrian hardest — he fights from clarity. This is the thing that will compromise it. |
 

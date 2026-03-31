@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emmett Lorne — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../../characters/pcs/index.html" class="nav-section-link"><span class="nav-icon">★</span>Player Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../../characters/alliance/index.html" class="nav-section-link"><span class="nav-icon">⬡</span>Alliance & Network</a>
+</div>
+<div class="nav-section">
+  <a href="../../characters/npcs/index.html" class="nav-section-link active-section"><span class="nav-icon">◈</span>Characters</a>
+  <div class="nav-mini">
+    <a href="../../characters/npcs/allison-bryne-carrion.html" class="nav-mini-link" title="Allison Bryne / Carrion">Allison Bryne / Carrion</a>
+    <a href="../../characters/npcs/anonymous-signal.html" class="nav-mini-link" title="Signal">Signal</a>
+    <a href="../../characters/npcs/ava-kincaid-circuit-breaker.html" class="nav-mini-link" title="Ava Kincaid / Circuit Breaker">Ava Kincaid / Circuit Breaker</a>
+    <a href="../../characters/npcs/brackish-linus-peters.html" class="nav-mini-link" title="Linus Peters / Brackish">Linus Peters / Brackish</a>
+    <a href="../../characters/npcs/caliber-deshawn-merritt.html" class="nav-mini-link" title="Deshawn Merritt / Caliber">Deshawn Merritt / Caliber</a>
+    <a href="../../characters/npcs/carter-williams.html" class="nav-mini-link" title="Carter Williams / Renegade Force">Carter Williams / Renegade Force</a>
+    <a href="../../characters/npcs/casey-holt-scythe.html" class="nav-mini-link" title="Casey Holt / Scythe">Casey Holt / Scythe</a>
+    <a href="../../characters/npcs/casimir-vane.html" class="nav-mini-link" title="Casimir Vane">Casimir Vane</a>
+    <a href="../../characters/npcs/daniel-rojas-burnout.html" class="nav-mini-link" title="Daniel Rojas / Burnout">Daniel Rojas / Burnout</a>
+    <a href="../../characters/npcs/danielle-whittaker-wraith.html" class="nav-mini-link" title="Danielle Whittaker / Wraith">Danielle Whittaker / Wraith</a>
+    <a href="../../characters/npcs/darkstar.html" class="nav-mini-link" title="Darkstar">Darkstar</a>
+    <a href="../../characters/npcs/detectives-shea-and-paz.html" class="nav-mini-link" title="HCPD Detectives — Rowan Shea & Victor Paz">HCPD Detectives — Rowan Shea & Victor Paz</a>
+    <a href="../../characters/npcs/dr-cassius-vrell.html" class="nav-mini-link" title="Dr. Cassius Vrell">Dr. Cassius Vrell</a>
+    <a href="../../characters/npcs/edmund-crale.html" class="nav-mini-link" title="Edmund Crale">Edmund Crale</a>
+    <a href="../../characters/npcs/eli-crane-fault.html" class="nav-mini-link" title="Eli Crane / Fault">Eli Crane / Fault</a>
+    <a href="../../characters/npcs/emmett-lorne.html" class="nav-mini-link active" title="Emmett Lorne">Emmett Lorne</a>
+    <a href="../../characters/npcs/gilt-nadia-osei.html" class="nav-mini-link" title="Nadia Osei / Gilt">Nadia Osei / Gilt</a>
+    <a href="../../characters/npcs/halcyon.html" class="nav-mini-link" title="Halcyon">Halcyon</a>
+    <a href="../../characters/npcs/mayor-theo-alcantara.html" class="nav-mini-link" title="Mayor Theodore "Theo" Alcantara">Mayor Theodore "Theo" Alcantara</a>
+    <a href="../../characters/npcs/morgan-vale-nightfall.html" class="nav-mini-link" title="Morgan Vale / Nightfall">Morgan Vale / Nightfall</a>
+    <a href="../../characters/npcs/petra-mace-sable.html" class="nav-mini-link" title="Petra Mace / Sable">Petra Mace / Sable</a>
+    <a href="../../characters/npcs/police-chief-hector-reyes.html" class="nav-mini-link" title="Police Chief Hector Reyes">Police Chief Hector Reyes</a>
+    <a href="../../characters/npcs/raze.html" class="nav-mini-link" title="Raze">Raze</a>
+    <a href="../../characters/npcs/red-pill-owen-watson.html" class="nav-mini-link" title="Owen Watson / Red Pill">Owen Watson / Red Pill</a>
+    <a href="../../characters/npcs/remnant.html" class="nav-mini-link" title="Remnant">Remnant</a>
+    <a href="../../characters/npcs/senator-diana-okafor.html" class="nav-mini-link" title="Senator Diana Okafor">Senator Diana Okafor</a>
+    <a href="../../characters/npcs/slake-barry-black.html" class="nav-mini-link" title="Barry Black / Slake">Barry Black / Slake</a>
+    <a href="../../characters/npcs/the-conductor-elliot-marsh.html" class="nav-mini-link" title="Elliot Marsh / The Conductor">Elliot Marsh / The Conductor</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../../factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="../../locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="../../lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../characters/npcs/index.html">Characters</a><span class="sep">/</span>Emmett Lorne</div>
+    <article class="content clearfix">
+      <div class="portrait-wrap"><img src="../../images/characters/emmett-lorne.png" alt="Emmett Lorne" class="portrait-img"></div>
+<h1>Emmett Lorne</h1>
+<blockquote><p><em>"I don't want anything from you that you wouldn't freely give. I want you to remember that."</em></p></blockquote>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Full Name</strong></td>
+<td>Emmett Lorne</td>
+</tr>
+<tr>
+<td><strong>Known As</strong></td>
+<td>— no alias; the name is the brand</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. File</strong></td>
+<td>None. The absence is itself a data point.</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>Late 50s (exact DOB unconfirmed)</td>
+</tr>
+<tr>
+<td><strong>Origin</strong></td>
+<td>Deep South — rural Alabama or east Texas (unconfirmed)</td>
+</tr>
+<tr>
+<td><strong>Physical</strong></td>
+<td>Lean, unhurried. All white suit, black tie, white cattleman's hat. Never a stain.</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>Independent — controls Persico's operation from behind it</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active — unknown to most</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. Threat Level</strong></td>
+<td>Not assessed. Not on file.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Powers</h2>
+<p><strong>Low-grade psychic influence.</strong> Not commands. Not possession. In conversation, he tips the scales — agreement feels natural, resistance feels irrational, trust feels earned. The effect is subtle, cumulative, and nearly impossible to isolate.</p>
+<p>He has never fully admitted to himself that it is a <em>power</em>. His working story is that he is simply good with people. That self-deception is load-bearing: he cannot reconcile <em>manipulating people against their will</em> with being a man of integrity, so he doesn't try. He uses the ability sparingly, which makes it harder to detect and easier for him to ignore.</p>
+<p><strong>Long-term tells:</strong> People he has influenced deeply show subtle wrongness — loyalty slightly too absolute, opinions that drifted his direction without clear cause, a resistance to reconsidering him even when evidence suggests they should. Sloane would notice the pattern given enough data points. Riley would smell something off in direct conversation, though he couldn't name it.</p>
+<hr>
+<h2>Background</h2>
+<p>Born poor, proud, and Southern — the kind of household where you didn't have much but you had your name. Left in his twenties, drifted north, arrived in the Ironworks when it was still half-alive industrially. Started small. Built slow. Never rushed.</p>
+<p>He found Joseph Persico — or Persico found him — and over years made himself indispensable. He was always the one the problems got brought to. Persico started doing what he suggested. Then Persico started doing <em>only</em> what he suggested. Neither man can fully account for how it happened.</p>
+<p>Emmett Lorne has watched the Ironworks die. He remembers it when it was something. That history isn't nostalgia — it's gravity. He has been here longer than most of the people who think they run things.</p>
+<p>He controls a significant corner of the Ironworks drug trade. He does not think of himself as a drug dealer. He thinks of himself as a stabilizing force. The product moves whether he's involved or not — he simply ensures it moves cleanly, minimizes violence, and keeps the peace. In his mind, the alternative is chaos. He may not be wrong.</p>
+<hr>
+<h2>Code of Conduct</h2>
+<p>He holds these sincerely. They are not performance.</p>
+<ul><li><strong>No product near children.</strong> Absolute. He has ended relationships over this without anger and without exception.</li><li><strong>No unnecessary violence.</strong> Violence is overhead. It draws attention and wastes resources. He prefers problems solved before they become violent.</li><li><strong>A man's word is his contract.</strong> He honors deals even when they hurt him. Betrayal of trust is the one thing that changes his temperature.</li><li><strong>He doesn't lie.</strong> He omits. He frames. He lets people believe things he doesn't correct. But he will not look someone in the eye and say something he knows to be false. This distinction matters enormously to him.</li><li><strong>He respects people who stand up to him.</strong> Sycophants bore him. Genuine backbone earns genuine regard.</li></ul>
+<hr>
+<h2>The White Suit</h2>
+<p>Deliberate. Personal. He stays clean because he doesn't do the dirty work himself — hasn't in years. The white suit is a daily reminder: <em>I am untouchable.</em> It is also the one place his ego is visible, if you know how to look. Purity and control, worn as philosophy.</p>
+<p>It never stains. He makes sure of that.</p>
+<hr>
+<h2>Relationships</h2>
+<table>
+<thead><tr>
+<th>Person</th>
+<th>Relationship</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Joseph Persico</strong></td>
+<td>Persico is the face. Emmett is the architecture. Persico takes the arrests, the headlines, the heat. He does not fully understand how completely he answers to Emmett.</td>
+</tr>
+<tr>
+<td><strong>Casimir Vane</strong></td>
+<td>They know each other socially — two Ironworks success stories. Mutual respect, mutual suspicion, careful distance. Possibly overlapping interests; not allies.</td>
+</tr>
+<tr>
+<td><strong>Riley / Recluse</strong></td>
+<td>Riley would smell this man from a mile away and still find himself being more charitable than intended in a direct conversation. Nothing provable. Everything wrong.</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S.</strong></td>
+<td>No file. No profile. The absence is deliberate — a man this embedded in Ironworks infrastructure for this long should have <em>something</em> on record. He doesn't.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Voice &amp; Dialogue Notes</h2>
+<ul><li>Southern cadence. Unhurried. Long sentences when comfortable, short ones when done.</li><li>Addresses almost everyone with courtesy titles — <em>"son," "darlin'," "friend."</em> Not condescending. Habitual formality.</li><li>Does not raise his voice. Raised voices are for people who haven't learned how to be heard.</li><li>Speaks in the register of a man who has already decided how things will go and is simply being polite about it.</li></ul>
+<p><strong>Sample lines:</strong></p>
+<p><em>"I don't want anything from you that you wouldn't freely give. I want you to remember that."</em></p>
+<p><em>"A man who doesn't know what he stands for will eventually stand for whatever's convenient. That's a particular kind of poverty."</em></p>
+<p><em>"I'm not angry with you. Anger's a waste of a good afternoon."</em></p>
+<p><em>"You're going to want to think carefully about what you do next. Not because I'm threatening you — I'm not. I just know you, and I'd hate to see you make a decision you can't walk back."</em></p>
+<hr>
+<h2>Open Questions</h2>
+<ul><li><input type="checkbox" disabled> What is Emmett's exact origin — how specific is the Southern background?</li><li><input type="checkbox" disabled> Does he have any genuine relationships, or has the compulsion power made that impossible?</li><li><input type="checkbox" disabled> What would it take to make him feel genuinely threatened?</li><li><input type="checkbox" disabled> Does Persico suspect anything, or is the influence complete?</li><li><input type="checkbox" disabled> What is his long-term want — legacy, control maintained indefinitely, something else?</li><li><input type="checkbox" disabled> Has he ever used the power on someone and regretted it?</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

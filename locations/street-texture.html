@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halden City — Street Texture — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../characters/pcs/index.html" class="nav-section-link"><span class="nav-icon">★</span>Player Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../characters/alliance/index.html" class="nav-section-link"><span class="nav-icon">⬡</span>Alliance & Network</a>
+</div>
+<div class="nav-section">
+  <a href="../characters/npcs/index.html" class="nav-section-link"><span class="nav-icon">◈</span>Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="../locations/index.html" class="nav-section-link active-section"><span class="nav-icon">◎</span>Locations</a>
+  <div class="nav-mini">
+    <a href="../locations/aegis-halden-regional-command.html" class="nav-mini-link" title="A.E.G.I.S. Halden Regional Command">A.E.G.I.S. Halden Regional Command</a>
+    <a href="../locations/alliance-tower.html" class="nav-mini-link" title="Alliance Tower">Alliance Tower</a>
+    <a href="../locations/districts.html" class="nav-mini-link" title="Halden City — Districts & Locations">Halden City — Districts & Locations</a>
+    <a href="../locations/hq-ironworkers-hall.html" class="nav-mini-link" title="The Hall — Ironworkers' Local 44">The Hall — Ironworkers' Local 44</a>
+    <a href="../locations/street-texture.html" class="nav-mini-link active" title="Halden City — Street Texture">Halden City — Street Texture</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../locations/index.html">Locations</a><span class="sep">/</span>Halden City — Street Texture</div>
+    <article class="content clearfix">
+      <h1>Halden City — Street Texture</h1>
+<h3>Named Locations, Recurring Faces, Shadow Infrastructure</h3>
+<blockquote><p>Use these when players need somewhere to land. Each district has civilian anchors and one shadow location the mask community knows about. Civilian locations exist whether heroes show up or not. Shadow locations are word-of-mouth, never advertised.</p></blockquote>
+<hr>
+<h2>The Ironworks</h2>
+<p><em>Primary campaign district. Post-industrial, personal, thinly policed. The law here is more suggestion than structure.</em></p>
+<h3>Civilian Anchors</h3>
+<p><strong>Daly’s Tap</strong> Corner bar on Kessler and 9th. Cash only, no tabs, no cameras. The kind of place that’s been there so long the regulars stop noticing the water stains. Owned by Vera Daly, 60s, who has outlasted four neighborhood takeovers and two fires and shows no sign of leaving. She doesn’t ask questions and doesn’t repeat answers. The union guys drink here after shift. So do the guys who aren’t union anymore. Persico’s people used to drink here before the conviction — some of them still do. Vera notices everything and says nothing unless she decides to.</p>
+<p><em>Recurring face:</em> <strong>Vera Daly</strong> — 63, grey-haired, deliberately unremarkable. Has kept secrets for thirty years because she chose to, not because she was asked.</p>
+<hr>
+<p><strong>The Kessler Market</strong> Open-air produce and goods market, runs Thursday through Sunday under a rusted iron awning on the old loading dock at 14th. Half the stalls are the same families who’ve been there since the factories closed. The other half rotate. Cash moves here that doesn’t show up anywhere else. It’s not a criminal enterprise — it’s just the informal economy of a neighborhood that stopped trusting banks in 1987 and never fully came back.</p>
+<p><em>Recurring face:</em> <strong>Tomás Reyes</strong> — 50s, runs a hardware stall, knows everyone, hears everything. Has a policy of not repeating what he hears, which means people tell him things they shouldn’t.</p>
+<hr>
+<p><strong>St. Casimir’s</strong> A Catholic church at the corner of Dolan and Renner, named for the patron saint of Poland, built by the Polish steelworkers in 1934. Still runs a food pantry on Tuesdays and Fridays. Father Benedikt Wróbel, 70, has been the priest here for twenty-two years and has heard confessions from everyone: the desperate, the guilty, and at least twice, people who probably shouldn’t be inside a church at all. The building itself is slightly warped from a structural fire in 1998 that nobody fully explained.</p>
+<p><em>Recurring face:</em> <strong>Father Benedikt Wróbel</strong> — 70, Polish-born, practical faith rather than performative faith. Does not moralize. Will help if you need help and ask directly.</p>
+<hr>
+<h3>Shadow Infrastructure</h3>
+<p><strong>The Freight Room</strong> Basement level of a decommissioned freight depot on Crane Street, two blocks from the active shipyard. Surface level is a legitimate-seeming storage operation; the basement is a community of a different kind. The Freight Room is the closest thing the Ironworks has to a mask community hub — not a hero bar, not a villain meeting point, something grayer than either. Enhanced individuals, street-level operators, people who know people. There’s a medic who works two nights a week and doesn’t log names. There’s a locked board in the back with jobs, warnings, and missing persons notices written in code most regulars can read.</p>
+<p>No one runs it officially. Unofficially, a woman named <strong>Dex</strong> (Dextera Okafor, 40s, retired, no file) keeps it from becoming something worse. She was enhanced once. She isn’t anymore. She doesn’t talk about it.</p>
+<p><em>What players can get here:</em> Off-grid medical attention, street-level intelligence, connections to people who move in the gaps. Also: the sense that they’re not the only ones.</p>
+<hr>
+<h2>Riverside Ward</h2>
+<p><em>Where most of Halden lives. Dense, transit-connected, working class. Heroes come from here. So do a lot of the problems heroes try to solve.</em></p>
+<h3>Civilian Anchors</h3>
+<p><strong>Ortega’s Bodega</strong> 24-hour corner store on Mercer and 5th. Has been open continuously since 1991. The current owner, <strong>Carmen Ortega</strong>, is the daughter of the original owner. She stocks the back wall with a rotating selection of hot food that people from six blocks away come specifically for. She has a picture of the previous Paragon on the wall behind the register — not out of reverence, out of the same impulse people have to hang family photos. It was there when she was growing up. It stayed.</p>
+<p><em>This is where Riley buys coffee at 2am. He’s been doing it for fifteen years. Carmen knows his name and doesn’t ask about the bruises.</em></p>
+<hr>
+<p><strong>Memorial Transit Station — Riverside/8th</strong> The largest transit hub in the Ward. Six lines converge here. During rush hours it’s a controlled flood; at 3am it’s a different city entirely. The old station art — a mosaic of the neighborhood’s history installed in 1978 — covers the main concourse walls. One panel depicts a masked figure, added unofficially sometime in the early 2000s, that transit authority has never bothered to remove.</p>
+<p><em>Recurring face:</em> <strong>Officer Diane Chu</strong> — 38, transit police, 10-year veteran of this specific station. Practical, tired, not corrupt. Has a complicated relationship with vigilante activity: she’s seen it save lives and she’s also filled out the paperwork when it didn’t.</p>
+<hr>
+<p><strong>Riverside Community Rec Center</strong> City-funded. Perpetually underfunded. After-school programs, adult GED classes, a boxing gym in the basement that a retired trainer named <strong>“Coach” Elias Pruitt</strong> (68) has kept running on donations and stubbornness for twenty years. The boxing gym is where Adrian Vega trained before Riley took over his development. Coach Pruitt knows Adrian is doing something he shouldn’t be. He’s decided that’s not his business.</p>
+<hr>
+<h3>Shadow Infrastructure</h3>
+<p><strong>The Roof</strong> Not a building. A network. There are seven rooftops in Riverside Ward that the mask community uses as relay points — safe landing spots, drop boxes, emergency caches. The collective is called “The Roof” by the people who use it. Each location is marked with a small painted symbol (a circle with a horizontal line) that looks like old graffiti to civilians. Recluse established the network. Arachne maintains the caches remotely. Adrian is the only other person who knows all seven locations.</p>
+<p><em>What players can find here:</em> Emergency medical supplies, burner comms, intel drops from Arachne, occasionally notes from other street-level operators who use the network. Also a standing rule: whatever you take, you replace.</p>
+<hr>
+<h2>The Glass District</h2>
+<p><em>Pristine surface, rotten foundation. The labs don’t advertise their mistakes.</em></p>
+<h3>Civilian Anchors</h3>
+<p><strong>Lattice Coffee</strong> Upscale coffee shop on the ground floor of a research campus tower. The kind of place that serves single-origin pour-overs and has good wifi. Researchers, grad students, and corporate liaisons cycle through all day. It’s public, well-lit, and busy — which is exactly why it’s where Glass District people meet when they want to be seen having a normal conversation. Also where Danielle Whittaker (Wraith) does her reading on Tuesday afternoons, invisible, in the corner armchair.</p>
+<p><em>Recurring face:</em> <strong>Marcus Fell</strong> — 29, barista, has worked here three years, has overheard enough that he’s started keeping a private journal. Doesn’t know what to do with it yet.</p>
+<hr>
+<p><strong>Haverford Park</strong> Small public green space wedged between two research campuses. Technically open to the public; in practice, used almost exclusively by Glass District workers on lunch breaks. There’s a memorial bench for a researcher who died in the 2020 gravity core disaster. Someone leaves flowers on it every few weeks. No one knows who.</p>
+<hr>
+<h3>Shadow Infrastructure</h3>
+<p><strong>The Clinic at Rosen Street</strong> Registered as a private urgent care practice. Staffed by two doctors and a nurse, all of whom are former A.E.G.I.S. medical personnel who left under various circumstances. They treat enhanced individuals and people with unusual physiological situations without filing incident reports. They charge on a sliding scale and keep their own records in a system that isn’t connected to anything governmental.</p>
+<p>Dr. <strong>Yolanda Marsh</strong> (52) runs it. She left A.E.G.I.S. after the 2010 restructuring. She will not say why. She will say that her job is medicine, not surveillance, and that these are not the same thing.</p>
+<p><em>This is where Riley would go if he ever admitted he needed help. He hasn’t.</em></p>
+<hr>
+<h2>Crownpoint</h2>
+<p><em>Power district. Everyone here is performing something. The buildings are expensive and so are the people inside them.</em></p>
+<h3>Civilian Anchors</h3>
+<p><strong>The Meridian Club</strong> Private members club, 38th floor of the Aldren Building. Old money, political money, and the newer money trying to look like the first two. Casimir Vane has a standing reservation. A.E.G.I.S. Regional Director Evelyn Shaw attends quarterly. The wine list is excellent and the conversation is never entirely about what it appears to be about.</p>
+<p><em>Not a place players will enter easily. But it’s a place they’ll hear about, and occasionally need to.</em></p>
+<hr>
+<p><strong>Crownpoint Federal Plaza</strong> The public-facing courtyard of the Federal Tower complex. There’s a small memorial here to enhanced individuals who died in service — a tasteful abstract sculpture that manages to honor no one specifically. People eat lunch here. Protests stage here. A.E.G.I.S. has eyes on it at all times.</p>
+<hr>
+<h3>Shadow Infrastructure</h3>
+<p><strong>Suite 1140, Aldren Building</strong> Listed as the offices of a mid-sized consulting firm (Harwick &amp; Associates, LLC). Harwick &amp; Associates does not appear to do any consulting. The suite is rented year-round and occasionally occupied by people who need a legitimate address in Crownpoint for a few hours. The mask community knows it exists; nobody knows who actually controls it or who set it up. The running theory is it’s been passed between parties for twenty years and nobody’s entirely sure who holds the lease anymore.</p>
+<p><em>Useful for:</em> A meeting point with plausible cover, a mail drop, or a place to change before walking into somewhere that expects you to look like you belong.</p>
+<hr>
+<h2>Monument Circle</h2>
+<p><em>The city’s civic theater. Everything here is a performance — memorials, protests, press conferences, showdowns. The statues watch.</em></p>
+<h3>Civilian Anchors</h3>
+<p><strong>The Circle Diner</strong> Sits directly across from the north entrance to Monument Circle. Has been there since 1961. Photos of every major public event in the Circle’s history line the walls — protests, memorials, superhero confrontations caught on tourist cameras. The food is mediocre and the coffee is bad and it’s always full. Journalists come here after press conferences. Protestors eat here before marches. The booths in the back are where you go when you need to have a conversation near the center of things but don’t want to be visible.</p>
+<p><em>Recurring face:</em> <strong>Nora Selleck</strong> — 44, journalist at the Halden City Courier, has been sitting on a Virek Papers adjacent story for eight months while her lawyers fight the injunction. Comes here to think. Has a habit of leaving her recorder running while she does.</p>
+<hr>
+<p><strong>Heroes’ Walk</strong> The formal name for the statue-lined promenade ringing the plaza. The statues are generic enough to honor no one specifically and therefore offend no one specifically. There’s a newer installation — added 2021 — of a figure mid-flight, clearly modeled on Paragon’s silhouette. He has never publicly commented on it.</p>
+<p><em>Civilians use this as a park. Kids take photos with the statues. It’s also where, in three separate incidents over the last decade, superhuman confrontations have ended publicly enough to make the evening news.</em></p>
+<hr>
+<h3>Shadow Infrastructure</h3>
+<p><strong>The Archive — Lower Level, Halden City Public Library (Monument Branch)</strong> The Monument Circle branch of the public library has a lower-level archive that contains physical copies of civic records, old newspaper morgues, and miscellaneous city documents going back to the 1890s. It’s understaffed, poorly indexed, and rarely visited. It’s also where a city archivist named <strong>Declan Price</strong> (58) has quietly assembled, over fifteen years, one of the most complete informal histories of enhanced individual activity in Halden City. He’s a civilian. He’s not connected to any faction. He just pays attention and writes things down.</p>
+<p><em>What players can find here:</em> Historical context, civilian-eye-view records of events that A.E.G.I.S. has sanitized, and Declan Price — who will share what he knows if he decides you’re worth talking to.*</p>
+<hr>
+<h2>Blackwater Harbor (Dockside)</h2>
+<p><em>Fog, dark water, cargo that doesn’t ask questions. Shroud’s territory. Persico’s territory, reestablished. Both of these things are true.</em></p>
+<h3>Civilian Anchors</h3>
+<p><strong>The Harbormaster’s Office</strong> A functional port authority office that also serves as the informal hub for the dockworkers’ community. The union bulletin board here has been tracking unusual incidents at the harbor since 1958 — informally, persistently, in a tradition passed from shift supervisor to shift supervisor. The current keeper of that informal record is <strong>Augie Ferreira</strong> (56), dockworkers’ union steward, who has a filing cabinet in his office that no one outside the union has ever seen the inside of.</p>
+<p><em>Augie knows Marcus Harrow works the waterfront. He’s never asked what Marcus does. He leaves a light on.</em></p>
+<hr>
+<p><strong>Sal’s Harbor Grill</strong> Diner attached to the working waterfront, open from 4am. Fishermen, dock crews, the occasional late-night reporter, and people who want to watch the water think. The coffee is strong, the booths face the harbor, and nobody cares who you are at 5am. Has been owned by the Salvatore family since 1974. The current owner, <strong>Maria Salvatore</strong> (48), has a policy of not asking about the things that wash up or the people who come in with wet clothes.</p>
+<hr>
+<h3>Shadow Infrastructure</h3>
+<p><strong>Pier 19 — The Slip</strong> An inactive pier at the edge of the commercial dock zone, technically owned by a holding company that hasn’t responded to city correspondence in six years. The slip beneath the pier is accessible by water and has an interior staging area — old dock equipment, dry enough. The mask community knows it as a dead drop and emergency meeting point for anything that needs to stay off the grid entirely.</p>
+<p>Declan Harrow uses it. Recluse’s network uses it. Persico’s people used it before Persico went to prison and it’s unclear whether they know it was repurposed while he was gone.</p>
+<p><em>That’s a potential collision course. Whether and when it goes off is up to the table.</em></p>
+<hr>
+<h2>GM Notes — Using Street Texture</h2>
+<p><strong>Make locations recur.</strong> The first time players visit Daly’s Tap, it’s a location. The third time, it’s home base. Pick one or two locations per arc and bring them back.</p>
+<p><strong>Let civilians have opinions.</strong> Vera Daly isn’t impressed. Carmen Ortega is fond. Nora Selleck is watching. Coach Pruitt has decided not to ask. These aren’t neutrals — they’re people with stances. Let players feel that.</p>
+<p><strong>The shadow infrastructure is earned, not given.</strong> Players shouldn’t walk into the Freight Room in session one. Someone who knows someone vouches for them, or they find it because they were looking. The network has vetting because it has to.</p>
+<p><strong>Collision points are the story.</strong> The Pier 19 situation. Nora Selleck with her recorder running. Declan Price’s filing cabinet. Marcus Fell’s journal. These are fuses. Light them when the table is ready.</p>
+<hr>
+<p><em>Created: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

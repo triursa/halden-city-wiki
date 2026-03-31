@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhys Romneya / Noch — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../../characters/pcs/index.html" class="nav-section-link active-section pc-section"><span class="nav-icon">★</span>Player Characters</a>
+  <div class="nav-mini">
+    <a href="../../characters/pcs/avi-park-nova.html" class="nav-mini-link" title="Avi Park / Nova">Avi Park / Nova</a>
+    <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-mini-link" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+    <a href="../../characters/pcs/jason-apollo.html" class="nav-mini-link" title="Jason James / Apollo">Jason James / Apollo</a>
+    <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-mini-link active pc" title="Rhys Romneya / Noch">Rhys Romneya / Noch</a>
+    <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-mini-link" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../../characters/alliance/index.html" class="nav-section-link"><span class="nav-icon">⬡</span>Alliance & Network</a>
+</div>
+<div class="nav-section">
+  <a href="../../characters/npcs/index.html" class="nav-section-link"><span class="nav-icon">◈</span>Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../../factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="../../locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="../../lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../characters/pcs/index.html">Player Characters</a><span class="sep">/</span>Rhys Romneya / Noch <span class="pc-badge">Player Character</span></div>
+    <article class="content clearfix">
+      <div class="portrait-wrap portrait-dual"><div class="portrait-panel"><img src="../../images/characters/rhys-romneya-noc-civilian.jpg" alt="Rhys Romneya / Noch — Civilian" class="portrait-img"><span class="portrait-label">Civilian</span></div><div class="portrait-panel"><img src="../../images/characters/rhys-romneya-noc-super.jpg" alt="Rhys Romneya / Noch — Superhero" class="portrait-img"><span class="portrait-label">Superhero</span></div></div>
+<h1>Rhys Romneya / Noch</h1>
+<blockquote><p><strong>PLAYER CHARACTER — Do not over-document internal states or future development. This file is a GM reference for arc planning, not a character bible.</strong></p></blockquote>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Hero Name</strong></td>
+<td>Noch</td>
+</tr>
+<tr>
+<td><strong>Civilian Name</strong></td>
+<td>Rhys Romneya</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>~18–19 (left Pine's school at 18)</td>
+</tr>
+<tr>
+<td><strong>Occupation</strong></td>
+<td>Halden University student — music major, percussion focus. Plays in a band called Neon Orchard.</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. File</strong></td>
+<td>AEGIS-NOC-014</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>Alliance — new team (Legacy of Halden City)</td>
+</tr>
+<tr>
+<td><strong>Mentor</strong></td>
+<td>Riftfire / Elena Marquez OR Recluse / Riley Thomas — [to be confirmed]</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active — hunted asset (Eclipse has not found them yet)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Biological Status</h2>
+<p><strong>Blind.</strong> Optic nerves destroyed in the bomb blast that killed their mother. Total and permanent. Visual sense replaced by:</p>
+<ul><li><strong>Tactile spatial mapping</strong> — vibrations through feet and fingertips, learned in Ivan's lab with sonic emitter infrastructure</li><li><strong>Acute hearing</strong> — near-superhuman sensitivity; can track heartbeat, breathing pattern, and subtle physiological tells in a conversation or a fight</li><li><strong>Proprioception</strong> — precise body awareness in three dimensions; they navigate via sound and vibration the way sighted people use sight</li></ul>
+<hr>
+<h2>Powers</h2>
+<p><strong>Quantum phase displacement</strong> — result of Eclipse's experimental compound injected into Rhys's carotid artery by Dr. Ivan Romneya to prevent death after the bomb blast.</p>
+<ul><li><strong>Short-range phasing</strong> — body desynchronizes from reality and reasserts nearby. Current documented range: approximately 5 feet. Cannot phase farther; the reassertion is non-negotiable.</li><li><strong>Enhanced physical durability</strong> — far beyond baseline human. The compound reinforced cellular integrity systemically.</li><li><strong>Uncontrolled onset, originally</strong> — waking embedded in furniture, reappearing mid-fall. Now mostly trained into a precise tactical tool.</li></ul>
+<p><strong>Compound origin:</strong> Eclipse biotech research arm. Ivan's work was on battlefield survivability. The compound was unstable and untested at the time of injection. Rhys is the only documented survivor of a live application.</p>
+<hr>
+<h2>Origin</h2>
+<p>Rhys's mother was a public defender who took lost causes. She was assigned to a mob accountant who knew enough to be dangerous. Certain people decided to erase the variable.</p>
+<p>The bomb killed her in the parking lot. Rhys was ten steps away.</p>
+<p>Dr. Ivan Romneya — Rhys's uncle, an Eclipse-funded researcher — reached them first. He injected the compound to prevent their death. It worked. It took their sight and gave them something else.</p>
+<p>Ivan hid them for months. Falsified death records. Trained them to adapt to blindness using the lab's sonic infrastructure. When Eclipse noticed the research irregularities and sent retrieval operatives, Ivan told Rhys to run. He was tortured for access and identifiers. He gave them nothing. His body disappeared.</p>
+<p><strong>Rhys ran.</strong> Months living in Halden's infrastructure — train tunnels, rooftops, abandoned spaces. Eventually Master Pine found them sleeping in an alley.</p>
+<p>Pine's training was brutal and impersonal. He trained them like a weapon being sharpened, never like a grieving child. Rhys hated him for it. The training was effective anyway. They left at 18 without a goodbye.</p>
+<p><strong>Now:</strong> Music major. Drummer in Neon Orchard. Rakish off-stage persona. At night, Noc — breaking up gun deals and loan shark operations in the Ironworks and Dockside, five feet at a time.</p>
+<hr>
+<h2>Eclipse — Direct Connection</h2>
+<p>Eclipse is not an abstract antagonist for Rhys. Eclipse funded Ivan's research. Eclipse's biotech compound is the reason Rhys is alive and the reason Ivan is dead. Eclipse sent the operatives who tortured and killed him.</p>
+<p>Rhys does not know the full scope of what Eclipse is. They know Eclipse as the organization that took their uncle and wants them back as an asset. The upgrade of Eclipse from "institutional pattern" to "named enemy" is personal.</p>
+<p><strong>Eclipse still wants them.</strong> The compound running through Rhys's system is proprietary research. Retrieving the asset is likely still an active directive, even years later.</p>
+<hr>
+<h2>Key Relationships</h2>
+<table>
+<thead><tr>
+<th>Person</th>
+<th>Relationship</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Mother (deceased)</strong></td>
+<td>Public defender. Took the lost causes. The moral north star Rhys operates by, even now.</td>
+</tr>
+<tr>
+<td><strong>Dr. Ivan Romneya (deceased)</strong></td>
+<td>Uncle. Saved Rhys's life and lost his own for it. The debt is not abstract.</td>
+</tr>
+<tr>
+<td><strong>Master Pine</strong></td>
+<td>Former trainer. Effective. Cold. Rhys left without looking back and has not forgiven him for treating survival as a technical problem.</td>
+</tr>
+<tr>
+<td><strong>Eclipse</strong></td>
+<td>The enemy. Personal.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Field Notes — Operating Style</h2>
+<p>From observed scene (player fiction):</p>
+<ul><li>Uses a handheld recorder in the field. Tactical.</li><li>Reads targets through sound: heartbeat, breath, weight shift, pulse spike under pressure. "I'll know" is not a bluff.</li><li>Violence is precise and purposeful — arm broken to disarm, jaw broken to complete a task, phone left as evidence. Not gratuitous. Efficient.</li><li>Dry, direct voice in the field. Calm. The calm is trained, not natural.</li><li>Civilian persona: rakish, relaxed, socially capable. The contrast is notable.</li></ul>
+<hr>
+<h2>GM Arc Notes</h2>
+<p><strong>What the story should give them:</strong></p>
+<ul><li>Eclipse moving — either escalating a search for the asset or Rhys stumbling into an Eclipse operation while running a street-level job</li><li>Ivan's research surfacing — whatever Eclipse was doing with the compound exists in files somewhere. Rhys finding those files (or someone else finding them) is a significant thread</li><li>Master Pine reappearing — not as a villain, but as an unresolved relationship. The training was real. The coldness was real. Both things are true.</li><li>Something that costs them the solo framing — Noc operates alone by design. The team is going to challenge that.</li></ul>
+<p><strong>What to avoid:</strong></p>
+<ul><li>Restoring their sight as a reward or resolution — the blindness is fundamental to how Rhys experiences the world and it's a source of genuine characterization</li><li>Making Eclipse purely an action threat — the personal dimension (Ivan, the compound in their body, being someone's asset) is more interesting than a retrieval squad</li></ul>
+<hr>
+<h2>Open Questions</h2>
+<p>- Romneya.</p>
+<p>- Eclipse does not fully believe the death record, but is still working out Rhys's current identity. They know Noch is the asset they're looking for.</p>
+<p>- Seized by Eclipse.</p>
+<p>- Unlikely. Ivan's disclosures were limited and protective.</p>
+<p>- A genuine outlet.</p>
+<ul><li><input type="checkbox" checked disabled> What is Rhys's last name?</li><li><input type="checkbox" checked disabled> Does Eclipse know Rhys is in Halden City attending university, or do they believe the death record Ivan falsified?</li><li><input type="checkbox" checked disabled> What happened to Ivan's research after Eclipse recovered the lab?</li><li><input type="checkbox" checked disabled> Does Rhys know anything about what the compound was designed for beyond what Ivan told them?</li><li><input type="checkbox" checked disabled> What is the band Neon Orchard like — is it a genuine outlet or another layer of persona?</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em> <em>Source: Player-authored origin fiction</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

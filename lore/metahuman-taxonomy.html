@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Individual Taxonomy — Halden City — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../characters/pcs/index.html" class="nav-section-link"><span class="nav-icon">★</span>Player Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../characters/alliance/index.html" class="nav-section-link"><span class="nav-icon">⬡</span>Alliance & Network</a>
+</div>
+<div class="nav-section">
+  <a href="../characters/npcs/index.html" class="nav-section-link"><span class="nav-icon">◈</span>Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="../locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="../lore/index.html" class="nav-section-link active-section"><span class="nav-icon">◇</span>Lore</a>
+  <div class="nav-mini">
+    <a href="../lore/metahuman-taxonomy.html" class="nav-mini-link active" title="Enhanced Individual Taxonomy — Halden City">Enhanced Individual Taxonomy — Halden City</a>
+    <a href="../lore/paragon-renegade-forces.html" class="nav-mini-link" title="The Paragon and Renegade Forces">The Paragon and Renegade Forces</a>
+    <a href="../lore/the-wavelengths.html" class="nav-mini-link" title="The Wavelengths">The Wavelengths</a>
+    <a href="../lore/world-history.html" class="nav-mini-link" title="World History — Halden City Timeline">World History — Halden City Timeline</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../lore/index.html">Lore</a><span class="sep">/</span>Enhanced Individual Taxonomy — Halden City</div>
+    <article class="content clearfix">
+      <h1>Enhanced Individual Taxonomy — Halden City</h1>
+<blockquote><p>A working classification of how people in this setting acquire and express extraordinary ability. This is an in-world analytical document — the framework A.E.G.I.S.'s SEIB division uses internally, with annotations reflecting what they don't know or won't admit.</p></blockquote>
+<hr>
+<h2>Preface</h2>
+<p>A.E.G.I.S. has been classifying enhanced individual phenomena since 1925. The taxonomy has been revised eight times. Each revision was triggered not by new theory but by a new phenomenon the existing categories couldn't hold.</p>
+<p>The current framework — SEIB Classification Version 8, adopted 2018 — uses six primary origin categories and three modifier flags. It is the most sophisticated system the agency has produced. It is also, as the prior seven versions were, incomplete in ways nobody wants to formally document.</p>
+<p>What follows is the operative version as of 2025, with annotations where the classification fails to capture what's actually happening.</p>
+<hr>
+<h2>Origin Categories</h2>
+<hr>
+<h3>CATEGORY I — Cosmic Force Bonding</h3>
+<p><strong>Working definition:</strong> A host human bonded to a non-terrestrial intelligence or principle that grants power as a function of the bond rather than as a modification of the host's biology.</p>
+<p><strong>Distinguishing feature:</strong> The power does not belong to the host. It passes through them. When the bond ends — by death, relinquishment, or displacement — the host returns to baseline. The Force, not the person, is the continuous entity.</p>
+<p><strong>Known instances:</strong></p>
+<ul><li>The Paragon Force (current host: Ethan Roberts)</li><li>The Renegade Force (current host: Carter Williams; previous hosts include Gabriel Virek/Nemesis, Signal)</li></ul>
+<p><strong>SEIB notes:</strong> The Paragon Force transfers only upon host death. The Renegade Force can be voluntarily relinquished, which places it in an anomalous sub-category — the only confirmed Category I instance where the host can end the bond unilaterally and survive. Why this asymmetry exists between the two Forces is undocumented.</p>
+<p>Quantum's working theory — that the Forces are embedded cosmic principles rather than independent intelligences — would, if correct, reclassify this category entirely. SEIB has not formally adopted this theory. It has not formally rejected it.</p>
+<p><strong>What the category doesn't capture:</strong> The question of whether Force bonding changes the host in ways that persist after relinquishment. Signal relinquished the Renegade Force and has no detectable residual abilities. Whether anything else persisted is not something current screening methodology would find.</p>
+<hr>
+<h3>CATEGORY II — Genetic Manifestation</h3>
+<p><strong>Working definition:</strong> Ability arising from within the host's own biology — a gene expression that produces extraordinary capability without external event as a direct cause. The ability is native to the organism.</p>
+<p><strong>Distinguishing feature:</strong> The power is the person's own. It develops rather than activates. It does not disappear if circumstances change. It can, in principle, be inherited.</p>
+<p><strong>Known instances:</strong></p>
+<ul><li>Riley Thomas / Recluse (spider-derived genetics — wall adhesion, enhanced strength and agility, one-second precognitive flash)</li><li>Marcus Webb / Requiem (parallel spider-gene manifestation — distinct expression from Thomas's, not a derivative)</li><li>Zara Thorne / Filament (spider-gene entanglement — genetically linked to Thomas's expression in ways neither fully understands)</li></ul>
+<p><strong>SEIB notes:</strong> The Thomas/Webb/Thorne cluster represents the most documented Category II lineage in A.E.G.I.S. files. Three individuals in the same city with spider-derived genetics, manifesting within approximately a decade of each other. Whether this is coincidence, environmental clustering, or evidence of a dormant gene becoming active in a population is an open question SEIB has been quietly sitting on since 2023.</p>
+<p>The entanglement between Thomas and Thorne is the most anomalous data point in the cluster. Genetic entanglement producing a passive interpersonal signal — Thorne receives somatic distress input from Thomas without physical proximity — does not fit neatly into any existing Category II sub-classification. It has been filed under the genetic category by default.</p>
+<p><strong>What the category doesn't capture:</strong> The distinction between genetic ability that was always present and genetic ability that was latent until triggered. Darcy Cole / Rampart appears to have had kinetic absorption capacity for years before the fire incident. The fire did not create the ability; it activated it. Current Category II classification does not differentiate between these cases.</p>
+<hr>
+<h3>CATEGORY III — Experimental Exposure</h3>
+<p><strong>Working definition:</strong> Ability arising from contact with anomalous materials, energies, or events of human or extraterrestrial origin. The host was not selected; the exposure was the mechanism.</p>
+<p><strong>Distinguishing feature:</strong> The power was conferred by an event, not expressed from within. Most Category III individuals can identify a specific incident as the origin point.</p>
+<p><strong>Sub-categories:</strong></p>
+<ul><li><strong>IIIa — Laboratory/Industrial Accident:</strong> Exposure occurring in or adjacent to research or industrial contexts, typically involving experimental materials not yet in public domain.</li><li><strong>IIIb — Environmental/Contextual:</strong> Exposure occurring in ordinary circumstances through contact with anomalous materials or events without a clear institutional origin.</li></ul>
+<p><strong>Known instances (IIIa):</strong></p>
+<ul><li>Dr. Javier Mendez / Quantum (quantum probability experiment, Glass District, 2006)</li><li>Avi Park / Nova (Glass District lab explosion — shared with Jason)</li><li>Jason / Apollo (Glass District lab explosion — shared with Avi)</li><li>Darius Cole / Aegis Prime (experimental gravity core collapse, Glass District, 2020)</li><li>Danielle Whittaker / Wraith (solar flare interaction with modified MRI equipment, Glass District, 2022)</li><li>Ava Kincaid / Circuit Breaker (experimental ATM biometric encryption surge, Riverside Ward, 2021)</li><li>Casper Curie / Half-Life (details under separate classification — radiation absorption, origin circumstances undisclosed)</li></ul>
+<p><strong>Known instances (IIIb):</strong></p>
+<ul><li>Morgan Vale / Nightfall (fell into sealed vat of experimental light-absorptive fluid, abandoned A.E.G.I.S. materials lab, Ironworks, 2022)</li></ul>
+<p><strong>SEIB notes:</strong> The Glass District cluster is statistically anomalous. The number of Category IIIa manifestations traceable to Glass District facilities — in incidents spanning 2006 to 2022 — exceeds what random distribution would predict. SEIB's running analysis flagged this in 2023. The analysis has not been shared with the Alliance. Whether the clustering reflects the concentration of experimental activity in the district or something else is not formally documented.</p>
+<p>The Nightfall case technically qualifies as IIIa (the fluid was an A.E.G.I.S. contract material) but was filed under IIIb because the lab had been officially decommissioned. The distinction is administrative rather than analytical.</p>
+<p><strong>What the category doesn't capture:</strong> Whether Category IIIa manifestations involving the same facility should be considered linked events. The Glass District cases are currently treated as independent. That assumption has not been tested.</p>
+<hr>
+<h3>CATEGORY IV — Program Enhancement</h3>
+<p><strong>Working definition:</strong> Ability deliberately engineered by institutional or organizational actors, applied to a human subject through controlled processes.</p>
+<p><strong>Distinguishing feature:</strong> The power was a goal, not an accident. Someone decided this person should be enhanced and executed a process to achieve it. The ability is artificial in origin even if it becomes fully biological over time.</p>
+<p><strong>Sub-categories:</strong></p>
+<ul><li><strong>IVa — State/Institutional Program:</strong> Enhancement authorized and executed by government or quasi-governmental entities.</li><li><strong>IVb — Private/Corporate Program:</strong> Enhancement developed and applied outside state oversight. Classification pending formal confirmation of Eclipse PROMETHEUS capabilities.</li></ul>
+<p><strong>Known instances (IVa):</strong></p>
+<ul><li>Natalia Orlov / The Vanguard (Operation MANIFEST, first generation — neural implants, gene-locked muscle density, bioelectric organ integration, pain suppression, uploaded combat training)</li><li>Casey Holt / Scythe (Operation MANIFEST, second generation — conditioning protocol producing absence of threat-state physiological signals; the blind spot in Recluse's precognitive flash is a trained artifact, not a power)</li></ul>
+<p><strong>Known instances (IVb):</strong></p>
+<ul><li>[CLASSIFIED — PROMETHEUS FILE, SEIB RESTRICTED ACCESS]</li></ul>
+<p><strong>SEIB notes:</strong> The MANIFEST program is A.E.G.I.S.'s own. The first generation was authorized in 1953 as a god-killer contingency. The second generation was authorized quietly during the 2010 restructuring. The institutional logic is continuous across seventy years: the agency that works with enhanced individuals maintains a private asset designed to neutralize them if necessary.</p>
+<p>The Scythe case is formally classified as Category IV enhancement but the mechanism is unusual enough to warrant its own note: what was enhanced is not a capability. It is an absence. The program trained away a physiological response rather than introducing a new one. By standard metrics, Casey Holt is an ordinary human. That is precisely the point.</p>
+<p><strong>What the category doesn't capture:</strong> The question of whether subjects enhanced under IVb programs (Eclipse/PROMETHEUS) should be classified differently from state-program subjects, given that their enhancement was performed without any regulatory oversight and may involve mechanisms outside current biological understanding. The category is currently too broad for what PROMETHEUS may represent.</p>
+<hr>
+<h3>CATEGORY V — Cosmic/Alien Origin</h3>
+<p><strong>Working definition:</strong> Non-terrestrial-origin ability arising from non-terrestrial biology, engineering, or inheritance. The entity is not human or not entirely human in origin.</p>
+<p><strong>Distinguishing feature:</strong> The capability set does not map to any known mechanism of human enhanced-individual manifestation. The origin is extraterrestrial, cosmic, or involves non-human genetic contribution.</p>
+<p><strong>Sub-categories:</strong></p>
+<ul><li><strong>Va — Full Non-Human:</strong> Entity of entirely non-terrestrial origin, operating in or interacting with human civilization.</li><li><strong>Vb — Hybrid:</strong> Entity of partial non-terrestrial origin, typically through deliberate engineering or biological combination.</li></ul>
+<p><strong>Known instances (Va):</strong></p>
+<ul><li>Kiara Je-rach / Starfall (engineered cosmic envoy, Auditor origin — energy projection, matter restructuring, gravity manipulation, near-invulnerability, super-intelligence)</li><li>Darkstar (Umbraeon explorer — dark matter manipulation, advanced genetic engineering capability)</li><li>Calypso (immortal mythological entity — classification contested; see below)</li></ul>
+<p><strong>Known instances (Vb):</strong></p>
+<ul><li>Sterling Slate / Cosmic Knight (half-Umbraeon, engineered by Darkstar — dark matter manipulation)</li></ul>
+<p><strong>SEIB notes:</strong> Calypso's classification has been contested since A.E.G.I.S. first created a file for her in 1979. She predates the enhanced individual framework by centuries or millennia. Categorizing her as Category V is technically accurate (non-terrestrial/mythological origin) but loses the distinction between an ancient entity operating on human timescales and a contemporary alien like Darkstar. The file exists. Nobody in SEIB is particularly comfortable with what's in it.</p>
+<p>The Auditors — Kiara's creators — represent an institutional threat that A.E.G.I.S. has no operational response to. The file exists. It references Kiara's value as an informational asset. It does not document what A.E.G.I.S. would do if the Auditors returned in force, because no credible answer exists.</p>
+<p><strong>What the category doesn't capture:</strong> The distinction between alien entities who arrived on Earth and alien entities who were engineered specifically to interact with Earth (Kiara, Sterling). The engineering distinction matters because it implies a creator with an agenda, which is operationally different from an explorer passing through.</p>
+<hr>
+<h3>CATEGORY VI — Mythological/Divine Channeling</h3>
+<p><strong>Working definition:</strong> A human host who has been chosen, bonded to, or empowered by a non-cosmic supernatural entity — typically one with historical or mythological provenance.</p>
+<p><strong>Distinguishing feature:</strong> Power is relational rather than intrinsic. The ability exists because of an ongoing bond between the host and an entity that operates outside the cosmic Force framework. Unlike Category I, the granting entity is not a cosmic principle — it is a distinct being with its own will, history, and agenda.</p>
+<p><strong>Known instances:</strong></p>
+<ul><li>Allison Bryne / Carrion (champion of the Morrigan, Celtic goddess of death — enhanced endurance, reflexes, battle insight, strength; ability scales in combat; passive death-sight)</li></ul>
+<p><strong>SEIB notes:</strong> A.E.G.I.S. classification frameworks were not built with mythological deities in mind. The category exists because Carrion exists and had to go somewhere. The file is functional. It does not address what the Morrigan wants, why she chose a trauma surgeon in Halden City, or what the terms of the bond are. These are questions SEIB considers outside their operational mandate, which is itself a kind of answer.</p>
+<p><strong>What the category doesn't capture:</strong> Whether there are other active Category VI hosts in the city or elsewhere, and whether different mythological entities represent different threat levels or intentions.</p>
+<hr>
+<h2>Modifier Flags</h2>
+<p>Modifier flags can be applied to any origin category to note complicating factors.</p>
+<hr>
+<h3>FLAG: DETERIORATING</h3>
+<p>Applied when the ability or the host's relationship to it is in measurable decline. Deterioration may be biological, mechanical, or external in cause.</p>
+<p><strong>Current flagged individuals:</strong></p>
+<ul><li>Riley Thomas / Recluse (AEGIS-RCL-002) — healing rates and physical recovery are below documented baseline. Cause undetermined. Subject is concealing the decline from A.E.G.I.S. medical staff. A.E.G.I.S. has independent clinical intelligence on the decline's progression through separate channels.</li><li>Jason / Apollo — dual-power instability from absorbing Artemis's ability at death. Two Category IIIa power sets in one host; neither was designed for the configuration. The deterioration is a felt sense with no confirmed timeline.</li></ul>
+<hr>
+<h3>FLAG: COMPOUND</h3>
+<p>Applied when a host carries more than one distinct ability set, particularly when the sets are of different origins or are in conflict.</p>
+<p><strong>Current flagged individuals:</strong></p>
+<ul><li>Jason / Apollo — photokinesis (original) and shadow manipulation (absorbed from Artemis at death). Both Category IIIa in origin, but the compound configuration was not intentional and is unstable. DETERIORATING flag co-applied.</li><li>Dr. Javier Mendez / Quantum — multiple distinct capabilities (teleportation, matter phasing, accelerated cognition, limited duplication) arising from a single exposure event. Not inherently unstable; noted for complexity of power profile.</li></ul>
+<hr>
+<h3>FLAG: ENTANGLED</h3>
+<p>Applied when an individual's ability is partially or fully contingent on, linked to, or affected by another individual's biology or power state.</p>
+<p><strong>Current flagged individuals:</strong></p>
+<ul><li>Zara Thorne / Filament — spider-gene entanglement with Riley Thomas. Passive somatic signal reception; signal intensity correlates with Thomas's physical state. One-directional as currently understood.</li><li>The Paragon Force / Renegade Force hosts — not applied to individual hosts, but noted in the cosmic forces file that the two Forces are entangled as paired principles. Strengthening of one has historically corresponded with strengthening of the other.</li></ul>
+<hr>
+<h2>The Unclassified Problem</h2>
+<p>There are phenomena in Halden City that the current taxonomy does not address.</p>
+<p><strong>Darkstar's experimental subjects:</strong> Darkstar has been introducing experimental biological agents and empowering unstable individuals since 2012. The resulting cases do not fit cleanly into any existing category. They are currently filed under a provisional Category III sub-designation pending further analysis. This provisional classification is thirteen years old.</p>
+<p><strong>Eclipse PROMETHEUS — synthetic manufacture:</strong> If PROMETHEUS has achieved what its internal documentation claims — reverse-engineered enhanced capability and produced it synthetically — this represents a Category IV sub-type with no current classification. Engineered ability applied to subjects outside any state oversight framework, potentially at scale. SEIB's restricted access file acknowledges the program's probable existence. No formal taxonomy update has been drafted.</p>
+<p><strong>Marcus Harrow / Shroud:</strong> Filed, redacted, misfiled. The phenomena Harrow investigates — the older things in Halden's infrastructure — have no classification category. A.E.G.I.S. has no file category for whatever those things are, which means it has no classification framework for someone whose capability set is built around hunting them. The file exists. It reads as a Category II genetic case. This is almost certainly incomplete.</p>
+<hr>
+<h2>Classification Failure: A Recurring Pattern</h2>
+<p>Every version of this taxonomy since 1925 has been revised when a new phenomenon exceeded the existing framework. The Glass District clustering is not in the current revision. The PROMETHEUS synthetic manufacturing question is not in the current revision. The older infrastructure phenomena Shroud investigates are not in the current revision.</p>
+<p>Version 9 will be written when something happens that forces it.</p>
+<hr>
+<p><em>Last updated: March 2026</em> <em>SEIB Classification Document — Internal Reference</em> <em>For field use: cross-reference individual character files for specific power profiles</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

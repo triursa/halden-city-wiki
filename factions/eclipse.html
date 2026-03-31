@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eclipse — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../characters/pcs/index.html" class="nav-section-link"><span class="nav-icon">★</span>Player Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../characters/alliance/index.html" class="nav-section-link"><span class="nav-icon">⬡</span>Alliance & Network</a>
+</div>
+<div class="nav-section">
+  <a href="../characters/npcs/index.html" class="nav-section-link"><span class="nav-icon">◈</span>Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../factions/index.html" class="nav-section-link active-section"><span class="nav-icon">◉</span>Factions</a>
+  <div class="nav-mini">
+    <a href="../factions/aegis.html" class="nav-mini-link" title="A.E.G.I.S.">A.E.G.I.S.</a>
+    <a href="../factions/eclipse.html" class="nav-mini-link active" title="Eclipse">Eclipse</a>
+    <a href="../factions/the-alliance.html" class="nav-mini-link" title="The Alliance">The Alliance</a>
+    <a href="../factions/vane-capital-group.html" class="nav-mini-link" title="Vane Capital Group">Vane Capital Group</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="../lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../factions/index.html">Factions</a><span class="sep">/</span>Eclipse</div>
+    <article class="content clearfix">
+      <h1>Eclipse</h1>
+<blockquote><p><em>"The future of human capability isn't cosmic. It's engineered."</em></p></blockquote>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>Private biotech corporation — public company, government contracts</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active — legitimate surface, black program running underneath</td>
+</tr>
+<tr>
+<td><strong>Public Profile</strong></td>
+<td>Yes. Eclipse is a known entity in medical and defense contracting circles.</td>
+</tr>
+<tr>
+<td><strong>Known to</strong></td>
+<td>General public (as a biotech company); A.E.G.I.S. (flagged for deeper connections, not confirmed); select Alliance members</td>
+</tr>
+<tr>
+<td><strong>Black Program</strong></td>
+<td>PROMETHEUS — classified internally, unknown to the public</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Public Face</h2>
+<p>Eclipse is a legitimate biotech corporation with government contracts and a broad commercial portfolio. Their public business covers:</p>
+<ul><li><strong>Prosthetics and assistive technology</strong> — high-end neural-linked prosthetics, considered among the best in the field</li><li><strong>Pharmaceuticals and regenerative medicine</strong> — accelerated healing compounds, cellular repair therapies, trauma response medication</li><li><strong>Medical equipment and diagnostics</strong> — imaging systems, surgical tools, monitoring infrastructure sold to hospitals and military medical programs</li></ul>
+<p>Their public reputation is credible and largely positive. They are not a household name but they are well-regarded in defense contracting, medical research, and biotech investment circles. Their government contracts are real. Their humanitarian applications are real.</p>
+<p>The respectable business is not a cover story. It is a funding engine and a legitimizing layer for what happens underneath it.</p>
+<hr>
+<h2>Program PROMETHEUS</h2>
+<p>Eclipse's black program. Internal designation only — it does not appear in any public filing, contract, or press release.</p>
+<p><strong>The thesis:</strong> Enhanced individual power exists. It is currently uncontrolled, cosmically arbitrary, and impossible to regulate. Eclipse believes this represents an enormous unsolved market problem — and an even larger national security problem. PROMETHEUS exists to solve both.</p>
+<p><strong>Three revenue streams in development:</strong></p>
+<p><strong>1. Superhuman Deterrence</strong> Engineered countermeasures, dampeners, and neutralization tools designed for sale to governments and military contractors. If you can't control the enhanced individual, you sell the thing that can stop them. A.E.G.I.S. does this through bureaucracy and detention. Eclipse intends to do it through product.</p>
+<p><strong>2. Controlled Superhuman Assets</strong> PROMETHEUS's most ambitious thread. Eclipse is developing synthetic human drones — baseline humans enhanced through the biotech research arm to function as controllable enhanced assets. Not cosmic. Not accidental. Engineered, owned, and deployable on contract. The early investor in this program is Casimir Vane.</p>
+<p><strong>3. Synthetic Power Manufacturing</strong> The long game. Eclipse believes cosmically-derived powers can be reverse-engineered, synthesized, and sold. The Rhys compound was early-stage research in this direction — battlefield survivability as a proof of concept for what comes next. If they can bottle what happened to Rhys, they can sell it.</p>
+<hr>
+<h2>Key Assets and Connections</h2>
+<h3>Dr. Ivan Romneya — Deceased</h3>
+<p>Eclipse-funded researcher. Worked on the battlefield survivability compound that became the PROMETHEUS biotech line. When he used an unstable, unauthorized version of the compound to save his nephew (Rhys) after a bomb blast, Eclipse sent retrieval operatives. Ivan was tortured for access codes and identifiers. He gave them nothing. His body disappeared.</p>
+<p>Ivan was almost certainly not a true believer in PROMETHEUS's goals. He was a researcher who needed funding and ended up too far in to get out. His death is the clearest example of what Eclipse does when a resource becomes a liability.</p>
+<h3>Dr. Selin Adeyemi — Deceased (presumed)</h3>
+<p>Independent Glass District researcher specializing in cellular regrowth and renewal — theoretical work at the edge of what peer review will touch, credible enough to attract serious interest. PROMETHEUS identified her and approached her for recruitment. How far that recruitment progressed before it stalled is unclear; what is clear is that she was not fully inside the program.</p>
+<p>Riley Thomas pulled her out of a Persico operation years earlier — collateral damage, wrong place, the kind of situation neither party filed a report about. She owed him. When Marcus Webb died and Riley couldn't bring the problem to A.E.G.I.S., he called in the debt.</p>
+<p>She performed the resurrection procedure using her own cellular regrowth research, drawing on frameworks that overlapped with PROMETHEUS's biotech line without being Eclipse science directly. The procedure worked. At some point afterward — whether days or months is undocumented — Eclipse identified the fingerprints of their recruited researcher doing unauthorized work in the Glass District. She disappeared. Dead or taken; no body confirmed.</p>
+<p>Riley does not know what happened to her. He may not have asked.</p>
+<p><strong>Marcus is alive because of her work. She is gone because of it. Riley carries this even if he has never said so out loud.</strong></p>
+<h3>Rhys / Noc — Unclosed Asset</h3>
+<p>The compound running through Rhys's system is PROMETHEUS proprietary research. Rhys is the only documented survivor of a live application. Eclipse has never formally closed the asset file. Whether they believe Ivan's falsified death record or have since identified it as fabricated is undocumented.</p>
+<p>Rhys is walking proof-of-concept for everything PROMETHEUS wants to manufacture at scale. Eclipse wants them back. Not as a person — as data.</p>
+<h3>Marcus Webb / Requiem — Flagged</h3>
+<p>The procedure that resurrected Marcus was Adeyemi's work, not Eclipse science directly — but the theoretical overlap is close enough that Eclipse may have flagged the outcome anyway. Whether they have an active file on Marcus as a result is undocumented. A.E.G.I.S. was never involved; Riley kept it entirely off-books.</p>
+<p>Marcus knows he was brought back through an experimental procedure by someone Riley trusted. He does not know who that person was, what happened to her, or what his resurrection may have cost her.</p>
+<h3>Casimir Vane — Investing Partner</h3>
+<p>Early investor in the synthetic human drone program. Vane is a knowing partner — he understands what PROMETHEUS is and believes in it. His thesis: Halden City is heading toward an enhanced individual crisis that existing institutions cannot manage. Eclipse's controlled asset program is, in his view, the only rational answer. He is not covering for monsters. He believes he is backing the people who are going to get the city through what's coming.</p>
+<p>His philanthropy is genuine. His vision for the city is genuine. He just believes that vision requires something most people aren't ready to accept yet.</p>
+<h3>The Face — [PROMETHEUS CLASSIFIED — GM EYES ONLY]</h3>
+<blockquote><p><strong>Edmund Crale.</strong> Mid-40s. CEO of Eclipse in practice if not always in title. His name does not appear in any public-facing Eclipse material — no press releases, no board listings, no government contract signatures that lead back to him directly. He operates through proxies, contracting structures, and intermediaries built over decades.</p>
+<p>Crale family history: present at A.E.G.I.S.'s 1925 founding. Two generations of quiet institutional influence that eroded over time. Edmund built Eclipse using a century of accumulated knowledge about how A.E.G.I.S. operates, what it can see, and what it cannot. PROMETHEUS has stayed invisible because he designed it to be invisible using the same architectural knowledge his family used to help build the oversight mechanisms in the first place.</p>
+<p>Casimir Vane knows who he is. Almost no one else does.</p>
+<p>Full profile: characters/npcs/edmund-crale.md</p>
+<p>Do not surface this thread until players have established a direct line to PROMETHEUS operations.</p></blockquote>
+<hr>
+<h2>Relationship with A.E.G.I.S.</h2>
+<p>Complicated. A.E.G.I.S. has Eclipse flagged in connection with anomalous events — the 2020 Glass District disaster most prominently — but has not confirmed the PROMETHEUS connection. Eclipse holds government contracts, which creates institutional friction around aggressive investigation. The people at A.E.G.I.S. who would want to pull that thread may not have the clearance. The people who have the clearance may have reasons not to pull it.</p>
+<p>Whether this represents bureaucratic paralysis, compartmentalization, or something worse is an open question. Given Edmund Crale's generational knowledge of A.E.G.I.S.'s internal architecture, the answer may be more troubling than paralysis.</p>
+<hr>
+<h2>Feel and Texture</h2>
+<p>Eclipse is not a supervillain organization. It is a company that has decided the enhanced individual question is a business problem and that they are the right people to solve it. Their employees mostly do legitimate work. Their researchers mostly believe they are advancing medicine and human capability.</p>
+<p>PROMETHEUS is real and it is monstrous, but it is monstrous in the way that defense contracting can be monstrous — incrementally, plausibly, with good arguments at every step and a great deal of money changing hands at the end.</p>
+<p>The horror is not that Eclipse is evil. The horror is that from inside Eclipse, most of what they are doing makes sense.</p>
+<hr>
+<h2>Open Questions</h2>
+<ul><li><input type="checkbox" disabled> Does Eclipse know Rhys is alive and in Halden City?</li><li><input type="checkbox" disabled> What is the current state of the synthetic drone program — early prototype, field-ready, or already deployed?</li><li><input type="checkbox" disabled> What was Eclipse's role in the 2020 Glass District disaster — accidental proximity, deliberate engineering, or opportunistic recovery?</li><li><input type="checkbox" disabled> Does A.E.G.I.S. have anyone inside Eclipse, or is it the other way around — does Edmund have assets placed inside A.E.G.I.S.?</li><li><input type="checkbox" disabled> What does the PROMETHEUS end-state actually look like — what is Eclipse building toward specifically?</li><li><input type="checkbox" disabled> How many other researchers like Ivan Romneya and Adeyemi are there — people who took the funding or owed a debt and disappeared when they became inconvenient?</li><li><input type="checkbox" disabled> Does Marcus ever find out who Adeyemi was and what happened to her?</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

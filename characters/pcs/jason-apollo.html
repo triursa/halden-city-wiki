@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason James / Apollo — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="../../index.html" class="nav-home">Home</a>
+<div class="nav-section">
+  <a href="../../characters/pcs/index.html" class="nav-section-link active-section pc-section"><span class="nav-icon">★</span>Player Characters</a>
+  <div class="nav-mini">
+    <a href="../../characters/pcs/avi-park-nova.html" class="nav-mini-link" title="Avi Park / Nova">Avi Park / Nova</a>
+    <a href="../../characters/pcs/casper-curie-half-life.html" class="nav-mini-link" title="Casper Curie / Half-Life">Casper Curie / Half-Life</a>
+    <a href="../../characters/pcs/jason-apollo.html" class="nav-mini-link active pc" title="Jason James / Apollo">Jason James / Apollo</a>
+    <a href="../../characters/pcs/rhys-romneya-noc.html" class="nav-mini-link" title="Rhys Romneya / Noch">Rhys Romneya / Noch</a>
+    <a href="../../characters/pcs/sterling-slate-cosmic-knight.html" class="nav-mini-link" title="Sterling Slate / Cosmic Knight">Sterling Slate / Cosmic Knight</a>
+  </div>
+</div>
+<div class="nav-section">
+  <a href="../../characters/alliance/index.html" class="nav-section-link"><span class="nav-icon">⬡</span>Alliance & Network</a>
+</div>
+<div class="nav-section">
+  <a href="../../characters/npcs/index.html" class="nav-section-link"><span class="nav-icon">◈</span>Characters</a>
+</div>
+<div class="nav-section">
+  <a href="../../factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="../../locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="../../lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="../../plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="../../meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../characters/pcs/index.html">Player Characters</a><span class="sep">/</span>Jason James / Apollo <span class="pc-badge">Player Character</span></div>
+    <article class="content clearfix">
+      <div class="portrait-wrap"><img src="../../images/characters/jason-apollo-super.png" alt="Jason James / Apollo — Superhero" class="portrait-img"><span class="portrait-label">Superhero</span></div>
+<h1>Jason James / Apollo</h1>
+<blockquote><p><strong>PLAYER CHARACTER — Do not over-document internal states or future development. This file is a GM reference for arc planning, not a character bible.</strong></p></blockquote>
+<hr>
+<h2>At a Glance</h2>
+<table>
+<thead><tr>
+<th>Field</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Hero Name</strong></td>
+<td>Apollo</td>
+</tr>
+<tr>
+<td><strong>Civilian Name</strong></td>
+<td>Jason James</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>[Working assumption: 18–19, senior year at time of origin]</td>
+</tr>
+<tr>
+<td><strong>A.E.G.I.S. File</strong></td>
+<td>AEGIS-APL-013</td>
+</tr>
+<tr>
+<td><strong>Affiliation</strong></td>
+<td>Alliance — new team (Legacy of Halden City)</td>
+</tr>
+<tr>
+<td><strong>Mentor</strong></td>
+<td>[Unassigned as of current arc — Riftfire invited him to the team]</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Active — deteriorating. Operating on borrowed time.</td>
+</tr>
+<tr>
+<td><strong>Spectrum</strong></td>
+<td>High Spectrum host (Wavelength) — currently holding both</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Powers</h2>
+<p><strong>Photokinesis</strong> — light manipulation, Jason's original ability. High Spectrum Wavelength host.</p>
+<p><strong>Shadow manipulation</strong> — Artemis's low-spectrum ability, absorbed at her death when she pushed her energy to Jason rather than let it transfer to Nightfall.</p>
+<p>No single host was designed to carry both. The High Spectrum and Low Spectrum energies inside him are in constant friction — not because he is too weak, but because the low-spectrum energy is not fully bonded to him. It was designed to require a second host. It is searching for one. Jason holding it is temporary by the Wavelengths' own ecology. He does not know this yet.</p>
+<p><strong>Practical capability:</strong> Light-based offense and defense, shadow control with Artemis's full range of ability. Formidable. Unsustainable.</p>
+<hr>
+<h2>Origin</h2>
+<p>Jason and Mary Matthews ("Artemis") were strangers who walked to the same bus stop for years without speaking. In their senior year, a Glass District electromagnetic test — high-density radiation far beyond safe parameters — caught them both in the explosion. They were still in contact when it hit. Both bonded to Wavelength energy simultaneously: Jason to High Spectrum, Artemis to Low Spectrum.</p>
+<p>They woke up changed. Opposite spectrum hosts from the same origin event, drawn to each other from the start because the Wavelengths' ecology designed them to be. Light and dark. Complementary, not competing. Their partnership felt cosmically significant because it was — just not in the way either of them understood.</p>
+<p><strong>Mary's death:</strong> They went after Nightfall — a threat above their weight class. Nightfall is a Low Spectrum host, same faction as Artemis. Same-spectrum hosts are driven by the Wavelengths' ecology to compete — the stronger absorbs the weaker. Morgan's threat assessment was amplified far beyond what the situation warranted by years of Low Spectrum conditioning. They made the choice. Artemis died.</p>
+<p>In the moment before she died, Artemis understood enough. Instead of letting her energy transfer to Nightfall — which the ecology intended — she pushed it to Jason. No host had ever done that before.</p>
+<p>Her hair fanned out around her head. All color gone. Auburn like a broken halo.</p>
+<p>Jason barely registered the warning Nightfall left behind. He was already kneeling.</p>
+<p>He accepted Riftfire's invitation to join the new team because Artemis would have said yes. For no other reason, at first.</p>
+<hr>
+<h2>The Countdown</h2>
+<p><strong>Masks playbook: The Doomed.</strong></p>
+<p>Jason has no diagnosis, no timeline, no number. What he has is a feeling — two forces grinding against each other in a way that doesn't feel sustainable. He doesn't know if it takes a year or a month or one bad night.</p>
+<p><strong>What he doesn't know yet:</strong> The instability isn't his body failing to contain too much power. The Low Spectrum energy inside him is not bonded — it is searching for a proper anchor. He is trying to be the pair alone, and the pair was never designed to be one person. The countdown is not a death sentence. It is an unresolved question that will force an answer eventually.</p>
+<p>The answer requires letting go of the last thing he is holding that still feels like her.</p>
+<p><strong>The Doomed playbook means:</strong> The question of what he does with the time before the answer arrives belongs to the player. The story's job is to give him reasons to stay in it, people who complicate the plan, and — eventually — the information that reframes what the plan actually is.</p>
+<hr>
+<h2>Arc 1 — Jason's Thread</h2>
+<p>Jason enters Arc 1 hunting Nightfall. That is the only reason he is here.</p>
+<p>Over the course of the arc, he learns — in pieces, through sources that may include Morgan themselves — the nature of Wavelength powers. What he is. What Artemis was. Why the explosion made them both. What Morgan's kill instinct actually was, underneath the choice. None of this arrives as clean revelation. It arrives as complications that make the simple version of the story harder to hold.</p>
+<p>Signal's campaign creates a pressure point: the personal vendetta has to compete with something larger. Whether it can is a player question.</p>
+<p><strong>End of Arc 1 choice:</strong> Morgan offers what they know — the path forward, what it requires, an open hand. The player decides:</p>
+<ul><li><em>Extend grace:</em> Understanding what Morgan was working against does not erase the choice. But it is something. This is the harder path, not the easier one.</li><li><em>Hold the rage:</em> Also honest. Also earned. The cost of that choice extends into Arc 2.</li></ul>
+<p>Neither outcome is wrong. Both are real.</p>
+<hr>
+<h2>Key Relationships</h2>
+<table>
+<thead><tr>
+<th>Person</th>
+<th>Relationship</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Artemis / Mary Matthews</strong></td>
+<td>Deceased. His complement — literally and cosmically. The absence around which everything else orbits. The low-spectrum energy inside him is, in the only sense that remains, still her.</td>
+</tr>
+<tr>
+<td><strong>Nightfall / Morgan Vale</strong></td>
+<td>Killed Artemis. Primary target. The person who left a warning he didn't hear. Also, eventually: the person who knows what he actually is.</td>
+</tr>
+<tr>
+<td><strong>Riftfire / Elena Marquez</strong></td>
+<td>The door in. He knows her as Ms. Marquez. The shift from teacher to mentor is a dynamic worth watching.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>GM Arc Notes</h2>
+<p><strong>What the story should give him:</strong></p>
+<ul><li>Information about the Wavelengths — not all at once, in pieces that complicate his assumptions</li><li>Genuine bonds with the new team that make the "I'm doing this alone" framing harder to maintain</li><li>The question of whether Artemis would actually want this — not as cheap comfort, but as a real challenge</li><li>A reason to live past Nightfall, not just survive until then</li></ul>
+<p><strong>What to avoid:</strong></p>
+<ul><li>Resolving the countdown before the player has the full picture</li><li>Making Nightfall a straightforward revenge payoff — Morgan's complexity should resist that conclusion</li><li>Delivering the Wavelength lore as an exposition dump — it should arrive through encounter and conflict</li><li>Letting the grief stay purely internal — it should surface in how he treats the team</li></ul>
+<p><strong>The core dramatic question:</strong> He is holding something that belongs somewhere else. Whether he can let go of it — and what it means to do so — is the arc.</p>
+<hr>
+<h2>Open Questions</h2>
+<p>- Something about holding the power of both high and low spectrum. Jason was already kneeling over Artemis. It didn't land.</p>
+<p>- Morgan is the only logical source. This hasn't happened yet and would likely be several sessions out.</p>
+<p>- No.</p>
+<p>- Possibly: learning to contain both High and Low Spectrum himself. A difficult and risky thread. Not confirmed viable — the story should leave this genuinely open.</p>
+<ul><li><input type="checkbox" checked disabled> What exactly did Nightfall say as a warning before leaving — and why did it not register?</li><li><input type="checkbox" disabled> Who is the first person to give him real information about the Wavelengths — Morgan, A.E.G.I.S., someone else?</li><li><input type="checkbox" checked disabled> Does anyone on the team know about the countdown yet?</li><li><input type="checkbox" checked disabled> Is there any theoretical path other than releasing the low-spectrum energy to Morgan, or is that the only door?</li></ul>
+<hr>
+<h2>See Also</h2>
+<ul><li><a href="../../lore/the-wavelengths.md">The Wavelengths</a> — full Wavelengths lore; High/Low Spectrum mechanics</li><li><a href="../npcs/morgan-vale-nightfall.md">Morgan Vale / Nightfall</a> — killed Artemis; approaching the team</li><li><a href="../alliance/lily-matthews.md">Lily Matthews</a> — Mary's younger sister; Jason's civilian thread</li><li><a href="../../plot/jason-lily-matthews-scene.md">Jason / Lily Matthews Scene</a> — scene notes for Beats 3–5</li></ul>
+<hr>
+<p><em>Last updated: March 2026</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

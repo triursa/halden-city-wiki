@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Halden City Wiki</title>
+  <style>
+:root {
+  --bg:         #0d0d0f;
+  --bg-surface: #141418;
+  --bg-hover:   #1c1c22;
+  --border:     #2a2a35;
+  --accent:     #c8a96e;
+  --accent-dim: #7a6640;
+  --accent-pc:  #7eb8c8;
+  --text:       #d4d0c8;
+  --text-dim:   #7a7870;
+  --text-head:  #e8e4dc;
+  --link:       #c8a96e;
+  --link-hover: #e8c88a;
+  --code-bg:    #1a1a20;
+  --sidebar-w:  220px;
+  --font-mono:  'JetBrains Mono','Fira Code','Consolas',monospace;
+  --font-body:  'Inter','Segoe UI',system-ui,sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.7; }
+
+.layout { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-w); min-width: var(--sidebar-w);
+  background: var(--bg-surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto; overflow-x: hidden;
+}
+.sidebar-header {
+  padding: 24px 18px 16px; border-bottom: 1px solid var(--border);
+}
+.sidebar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); line-height: 1.3;
+}
+.sidebar-subtitle {
+  font-size: 11px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em;
+}
+.sidebar-nav { padding: 10px 0 24px; flex: 1; }
+
+/* Home link */
+.nav-home {
+  display: block; padding: 8px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; letter-spacing: .03em;
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav-home:hover, .nav-home.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+
+/* Section header — clickable, links to section index */
+.nav-section { margin-top: 4px; }
+.nav-section-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--text-dim);
+  border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-section-link:hover {
+  color: var(--text); background: var(--bg-hover);
+}
+.nav-section-link.active-section {
+  color: var(--accent); border-left-color: var(--accent-dim);
+}
+.nav-section-link.active-section.pc-section {
+  color: var(--accent-pc); border-left-color: var(--accent-pc);
+}
+.nav-icon { font-size: 11px; opacity: .7; flex-shrink: 0; }
+
+/* Mini-nav (siblings — shown on individual pages only) */
+.nav-mini { padding: 0 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.nav-mini-link {
+  display: block; padding: 5px 18px 5px 30px; color: var(--text-dim);
+  text-decoration: none; font-size: 12px; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-mini-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-mini-link.active {
+  color: var(--accent); border-left-color: var(--accent); background: var(--bg-hover);
+}
+.nav-mini-link.active.pc { color: var(--accent-pc); border-left-color: var(--accent-pc); }
+
+/* ── Main content ── */
+.main { flex: 1; min-width: 0; padding: 48px 64px; max-width: 940px; }
+
+.breadcrumb {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+.breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; }
+.pc-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent-pc);
+  border: 1px solid var(--accent-pc); padding: 2px 8px; border-radius: 3px;
+  margin-left: 12px; vertical-align: middle; opacity: .8;
+}
+
+/* ── Section index page ── */
+.section-index-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-index-title {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; line-height: 1.2;
+}
+.section-index-count {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px; letter-spacing: .05em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+.card.pc-card:hover { border-color: var(--accent-pc); }
+
+.card-img-wrap {
+  width: 100%; aspect-ratio: 3/4; overflow: hidden;
+  background: var(--bg-hover); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.card-img-placeholder {
+  font-size: 40px; font-weight: 700; color: var(--border);
+  letter-spacing: .05em;
+}
+
+.card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.card-title {
+  font-size: 13px; font-weight: 700; color: var(--text-head); line-height: 1.3;
+}
+.card-desc {
+  font-size: 11px; color: var(--text-dim); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Non-portrait cards (factions, locations, lore, plot, meta) */
+.card-wide {
+  flex-direction: row; align-items: stretch;
+}
+.card-wide .card-body {
+  justify-content: center;
+}
+.card-accent-bar {
+  width: 4px; flex-shrink: 0; background: var(--accent-dim);
+}
+.card.pc-card .card-accent-bar { background: var(--accent-pc); }
+
+/* ── Portrait — single ── */
+.portrait-wrap {
+  float: right; margin: 0 0 24px 32px; width: 220px;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-img { display: block; width: 100%; height: auto; }
+.portrait-label {
+  display: block; text-align: center; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+  padding: 6px 0 7px; background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+/* portrait — dual */
+.portrait-dual {
+  width: 460px; display: flex; flex-direction: row; gap: 0;
+  overflow: visible; background: none; border: none; box-shadow: none;
+}
+.portrait-panel {
+  flex: 1; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.portrait-panel + .portrait-panel { margin-left: 12px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── Scene banner ── */
+.scene-banner {
+  position: relative; width: 100%; margin: 0 0 32px 0;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 6px 32px rgba(0,0,0,.6);
+}
+.scene-banner-img {
+  display: block; width: 100%; height: auto;
+  max-height: 340px; object-fit: cover; object-position: center;
+}
+.scene-banner-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.scene-banner-inline {
+  position: relative; width: 100%; margin: 12px 0 24px 0;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.5);
+}
+.scene-banner-inline .scene-banner-img { max-height: 260px; }
+.scene-banner-inline .scene-banner-label {
+  font-size: 10px; letter-spacing: .12em; padding: 20px 16px 10px;
+}
+
+/* ── Typography ── */
+.content h1 {
+  font-size: 28px; font-weight: 700; color: var(--text-head);
+  letter-spacing: -.02em; margin-bottom: 8px; line-height: 1.2;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px;
+}
+.content h2 {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  letter-spacing: .11em; margin: 40px 0 12px; text-transform: uppercase;
+}
+.content h3 { font-size: 16px; font-weight: 600; color: var(--text-head); margin: 28px 0 8px; }
+.content h4 {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  margin: 20px 0 6px; text-transform: uppercase; letter-spacing: .08em;
+}
+.content p { margin-bottom: 14px; color: var(--text); }
+.content a {
+  color: var(--link); text-decoration: none; border-bottom: 1px solid var(--accent-dim);
+  transition: color .15s, border-color .15s;
+}
+.content a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+.content strong { color: var(--text-head); }
+.content em { color: var(--text); }
+
+/* ── Tables ── */
+.content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+.content thead th {
+  text-align: left; padding: 10px 14px; background: var(--bg-surface);
+  color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border);
+}
+.content tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+.content tbody tr:hover { background: var(--bg-hover); }
+.content tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+.content tbody td strong { color: var(--text-head); }
+
+/* ── Code ── */
+.content code {
+  font-family: var(--font-mono); font-size: 12px; background: var(--code-bg);
+  color: var(--accent); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--border);
+}
+.content pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 16px 20px; overflow-x: auto; margin: 16px 0;
+}
+.content pre code { background: none; border: none; padding: 0; color: var(--text); font-size: 13px; }
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--accent-dim); margin: 20px 0;
+  padding: 12px 20px; background: var(--bg-surface); color: var(--text-dim);
+  font-style: italic; border-radius: 0 4px 4px 0;
+}
+.content blockquote p { margin-bottom: 0; }
+
+/* ── Lists ── */
+.content ul, .content ol { padding-left: 24px; margin-bottom: 14px; }
+.content li { margin-bottom: 4px; }
+.content input[type=checkbox] { margin-right: 6px; accent-color: var(--accent); }
+
+/* ── HR ── */
+.content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -100%; z-index: 100; transition: left .25s; height: 100dvh; }
+  .sidebar.open { left: 0; }
+  .main { padding: 24px 20px; }
+  .menu-toggle {
+    display: flex; align-items: center; gap: 10px; position: fixed;
+    top: 12px; left: 16px; z-index: 200; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px;
+    color: var(--accent); font-size: 12px; font-family: var(--font-body);
+    cursor: pointer; letter-spacing: .08em;
+  }
+  .main { padding-top: 56px; }
+  .portrait-wrap { float: none; width: 100%; margin: 0 0 24px 0; max-width: 280px; }
+  .portrait-dual { width: 100%; flex-direction: column; gap: 12px; }
+  .portrait-panel + .portrait-panel { margin-left: 0; }
+  .scene-banner-img { max-height: 200px; }
+  .scene-banner-inline .scene-banner-img { max-height: 160px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">☰ MENU</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">Halden City</div>
+      <div class="sidebar-subtitle">World Wiki</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="index.html" class="nav-home active">Home</a>
+<div class="nav-section">
+  <a href="characters/pcs/index.html" class="nav-section-link"><span class="nav-icon">★</span>Player Characters</a>
+</div>
+<div class="nav-section">
+  <a href="characters/alliance/index.html" class="nav-section-link"><span class="nav-icon">⬡</span>Alliance & Network</a>
+</div>
+<div class="nav-section">
+  <a href="characters/npcs/index.html" class="nav-section-link"><span class="nav-icon">◈</span>Characters</a>
+</div>
+<div class="nav-section">
+  <a href="factions/index.html" class="nav-section-link"><span class="nav-icon">◉</span>Factions</a>
+</div>
+<div class="nav-section">
+  <a href="locations/index.html" class="nav-section-link"><span class="nav-icon">◎</span>Locations</a>
+</div>
+<div class="nav-section">
+  <a href="lore/index.html" class="nav-section-link"><span class="nav-icon">◇</span>Lore</a>
+</div>
+<div class="nav-section">
+  <a href="plot/index.html" class="nav-section-link"><span class="nav-icon">◆</span>Plot</a>
+</div>
+<div class="nav-section">
+  <a href="plot/villain-sheets/index.html" class="nav-section-link"><span class="nav-icon">◥</span>Villain Sheets</a>
+</div>
+<div class="nav-section">
+  <a href="meta/index.html" class="nav-section-link"><span class="nav-icon">◌</span>Meta</a>
+</div>
+    </div>
+  </nav>
+  <main class="main">
+    
+    <article class="content clearfix">
+      <h1>Halden City — Wiki Index</h1>
+<h3>Master Reference for Claude Project Context</h3>
+<blockquote><p>This file is the fast-load canon reference for the Halden City superhero setting. Full wiki lives at: D:\Kaleb\halden-city-wiki\ (GitHub: https://github.com/triursa/halden-city-wiki) For deep lookups, reference individual files in that directory.</p>
+<p><strong>Claude session protocol:</strong> At the start of each session, read local files via MCP to check current state. When any canon is added or changed during a session, update the relevant file(s) in D:\Kaleb\halden-city-wiki\ using the Filesystem tools, then prompt Kaleb to commit and push via GitHub Desktop.</p></blockquote>
+<hr>
+<h2>The Setting</h2>
+<p><strong>Halden City</strong> — Mid-Atlantic metropolis, population ~8–10 million. Between New York and D.C. A hundred years of enhanced individual history. The city tolerates its heroes. It does not worship them.</p>
+<p><strong>Primary use:</strong> Novel/novella fiction + Masks: The Next Generation TTRPG campaign ("Legacy of Halden City") <strong>Tone:</strong> Character-driven, noir-grounded, morally complex. Powers are metaphors. Heroism is exhausting. No one is purely anything. No em dashes in prose.</p>
+<hr>
+<h2>Districts</h2>
+<table>
+<thead><tr>
+<th>District</th>
+<th>Character</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Crownpoint</strong></td>
+<td>Corporate glass and steel. A.E.G.I.S. HQ beneath Crownpoint Federal Tower. Vane Capital's domain.</td>
+</tr>
+<tr>
+<td><strong>The Ironworks</strong></td>
+<td>Post-industrial. Shuttered factories, active shipyards. Persico's crime network. Law feels thinner here. <strong>The Hall</strong> (player HQ) is on the Ironworks/Riverside border.</td>
+</tr>
+<tr>
+<td><strong>Riverside Ward</strong></td>
+<td>Row houses, transit, real people. Riley and Adrian's home ground. Where Halden actually lives.</td>
+</tr>
+<tr>
+<td><strong>The Glass District</strong></td>
+<td>Labs, cover-ups, ethical shadows. Every miracle here has a cost. Founded 1968, secretly underwritten by A.E.G.I.S.</td>
+</tr>
+<tr>
+<td><strong>Monument Circle</strong></td>
+<td>Grand plaza, hero statues, protests and press conferences. Where the city tells itself what it wants to be.</td>
+</tr>
+<tr>
+<td><strong>Blackwater Harbor (Dockside)</strong></td>
+<td>Fog, shipping cranes, dark water. Documented and undocumented cargo. Shroud's territory.</td>
+</tr>
+</tbody></table>
+<p><strong>Player HQ:</strong> The Hall — former Ironworkers' Local 44 union hall, corner of Dolan and Renner (Ironworks/Riverside border). Alliance satellite. Three floors: training + equipment (G/F), Arachne's comms suite (2/F), undeveloped with six boxes of Local 44 records 1938+ and one locked room of unknown provenance (3/F). Union seal in entry floor. Tomás Reyes and Father Wróbel have noticed activity.</p>
+<hr>
+<h2>Factions</h2>
+<h3>A.E.G.I.S. — Advanced Expert Group for Intervention and Security</h3>
+<p>Federal agency for enhanced individuals. Founded 1925. HQ beneath Crownpoint Federal Tower (public front: FEMA office). Not malevolent — bureaucratic. Values stability, expands its own authority quietly, does not love surprises.</p>
+<p><strong>Halden Regional Command:</strong></p>
+<ul><li>Regional Director: <strong>Evelyn Shaw</strong></li><li>Deputy Director of Operations: Colonel Marcus Hale</li><li>Deputy Director of Intelligence: Dr. Samira Kadeem</li></ul>
+<p><strong>Divisions:</strong> ETR (Mercer), ACAD (Voss), SEIB (Kadeem), MANIFEST (Ortega)</p>
+<h3>The Alliance</h3>
+<p>Halden City's premiere independent hero team. Founded 2015 by Paragon. Cooperative with A.E.G.I.S. but not subordinate. HQ: Alliance Tower. Core members: Paragon, Recluse, Riftfire, Quantum, Starfall, The Vanguard.</p>
+<h3>Vane Capital Group</h3>
+<p>Private infrastructure firm. Near-monopoly on Crownpoint construction. CEO: Casimir Vane (b. 1974, raised in Ironworks). Early investing partner in Eclipse's PROMETHEUS program — knowing participant, ideological true believer.</p>
+<h3>Eclipse</h3>
+<p>Legitimate public biotech corporation with government contracts. Portfolio: prosthetics, pharmaceuticals, medical equipment. Well-regarded in defense contracting and medical research circles. <strong>Black program: PROMETHEUS</strong> — three revenue streams: superhuman deterrence (countermeasures and dampeners), controlled superhuman assets (synthetic human drones), synthetic power manufacturing (reverse-engineering enhanced capability). Not a shadow conspiracy — a company that decided the enhanced individual question is a business problem. <strong>CEO: Edmund Crale</strong> — [GM eyes only, do not surface until players reach PROMETHEUS]. Mid-40s. Crale family present at A.E.G.I.S.'s 1925 founding. Built Eclipse using a century of institutional knowledge about A.E.G.I.S.'s oversight architecture. <strong>Known connections:</strong> Rhys/Noc (proprietary compound, unclosed asset file), Marcus Webb/Requiem (indirect — Dr. Adeyemi's work), Casimir Vane (investing partner), 2020 Glass District disaster (flagged, unconfirmed).</p>
+<hr>
+<h2>Characters — Player Characters</h2>
+<h3>Avi Park / Nova</h3>
+<p>PC. Full profile: <code>characters/pcs/avi-park-nova.md</code>. Do not over-document internal states — creative ownership belongs to the player. Javier Mendez (Quantum) is his biological father; they are on the same team without Avi's knowledge. Carter Williams / Renegade Force has personal history tied to Avi's backstory. Avi does not know about the Carter/Avi connection. Riley and Signal both do.</p>
+<h3>Jason / Apollo</h3>
+<p>PC. Plays the Doomed playbook. Dual-power instability is a felt sense with no precise timeline — not a countdown. Full profile: <code>characters/pcs/jason-apollo.md</code>.</p>
+<h3>Sterling Slate / Cosmic Knight</h3>
+<p>PC. Darkstar's defected son. Kiara's mentee — asynchronous contact ruling in effect after her departure. Raze (half-sibling) is on a revenge plot. Full profile: <code>characters/pcs/sterling-slate-cosmic-knight.md</code>.</p>
+<h3>Rhys Romneya / Noc</h3>
+<p>PC. Eclipse proprietary compound in his biology — unclosed asset file. Halden University student, music major, band: Neon Orchard. Ivan Romneya's death tied to his origin. Full profile: <code>characters/pcs/rhys-romneya-noc.md</code>.</p>
+<h3>Casper Curie / Half-Life</h3>
+<p>PC. Full profile: <code>characters/pcs/casper-curie-half-life.md</code>.</p>
+<hr>
+<h2>Characters — NPCs: The Alliance &amp; Network</h2>
+<h3>Riley Thomas / Recluse</h3>
+<p><strong>DOB:</strong> July 30, 1990 | <strong>Age:</strong> 35 | <strong>File:</strong> AEGIS-RCL-002 Black hair (greying at temples), blue eyes, 5'11"/190 lbs. Extensive scarring. <strong>Powers:</strong> Spider-derived genetics — wall adhesion, enhanced agility, ~8x body weight strength, one-second precognitive flash. Web shooters are mechanical, not biological. Elite martial artist, detective-class aptitude. <strong>Key facts:</strong> Operated unsanctioned for 15 years before Paragon sponsored him. The 2006 Vega Incident (Sandra Vega's death) is the founding guilt of his heroism. Visits her grave annually. Trained her son Adrian. Has a documented precognitive blind spot around Casey Holt / Scythe (file AEGIS-SYC-REDACTED) — A.E.G.I.S. knows; he doesn't. Currently hiding physical deterioration (slow healing, stiff joints). Authorized Marcus Webb's resurrection via Dr. Selin Adeyemi — off A.E.G.I.S. books, calling in a debt. Adeyemi disappeared after; presumed dead. Voice: direct, dry, understated. No em dashes.</p>
+<h3>Ethan Roberts / Paragon</h3>
+<p><strong>DOB:</strong> March 14, 1981 | <strong>Age:</strong> 45 | <strong>File:</strong> AEGIS-PRG-001 Former Air Force pilot. Reluctant Paragon Force host since 2005. Methodical, acutely aware of his predecessor's failures. Powers: Flight, super strength, super speed, heat vision, x-ray vision, extreme durability. <strong>Key secret:</strong> Has known how to end the Paragon cycle and chosen not to act (Virek cache revelation). Public credibility damaged by Signal's Session 1 broadcast — transcript of him vouching for Kiara is now public.</p>
+<h3>Elena "Lena" Marquez / Riftfire</h3>
+<p><strong>DOB:</strong> October 3, 1992 | <strong>Age:</strong> 33 | <strong>File:</strong> AEGIS-RFT-003 High school physics teacher in Riverside Ward by day. Alliance core member by night. Powers: Kinetic and potential energy manipulation — teleportation, force redirection, high-speed locomotion. Self-limiting; true ceiling unestablished.</p>
+<h3>Dr. Javier Mendez / Quantum</h3>
+<p><strong>DOB:</strong> February 9, 1970 | <strong>Age:</strong> 56 | <strong>File:</strong> AEGIS-QNT-004 Brilliant physicist scattered across quantum states. Requires containment suit outside controlled conditions. Powers: Teleportation, matter phasing, accelerated cognition, limited duplication (extended use causes local reality instability). Avi's biological father — departed before Avi was born; on the same team without Avi's knowledge.</p>
+<h3>Kiara Je-rach / Starfall</h3>
+<p><strong>Age:</strong> Unknown (engineered cosmic envoy, no birth date) | <strong>File:</strong> AEGIS-STF-006 <strong>Status: OFF-EARTH</strong> — departed following Signal's Session 1 broadcast of her origin. Left Sterling a message. Asynchronous contact ruling in effect for Scion Respect mechanic. Powers: Energy projection, limited matter restructuring, localized gravity manipulation, near-invulnerability, super-intelligence.</p>
+<h3>Natalia Orlov / The Vanguard</h3>
+<p><strong>DOB:</strong> December 1, 1966 | <strong>Age:</strong> 59 | <strong>File:</strong> AEGIS-VGD-005 Former black-ops enhanced asset. Defected after concluding all institutions corrupt themselves. A.E.G.I.S. made her; she left anyway. Does not know Casey Holt / Scythe exists. The fact that A.E.G.I.S. ran MANIFEST again after she left — with the same logic, refined methodology — is its own indictment. Powers: Electricity manifestation via additional organs, gene-locked muscle density, neural implants, pain suppression, uploaded combat training.</p>
+<h3>Adrian Vega / Breakpoint</h3>
+<p><strong>DOB:</strong> May 6, 2004 | <strong>Age:</strong> 21 | <strong>File:</strong> AEGIS-BKP-010 Son of Sandra Vega — Riley's defining guilt. Grew up without her. Found Riley, asked to be trained. Where Riley fights from guilt, Adrian fights from clarity. Most tactically precise partnership in the Alliance network. Currently dating Casey Holt / Scythe — approximately two months at campaign start. Powers: Hyper-cognitive stress response — time dilation perception, trajectory calculation, physiological reading, collateral modeling. Peak conditioning + martial arts (trained by Recluse).</p>
+<h3>Sloane Callahan / Arachne</h3>
+<p><strong>File:</strong> AEGIS-ACH-008 Hacked a Glass District server out of boredom. Found something she couldn't unknow. Riley showed up four days later. She said yes; still not entirely sure why. Intel/support backbone of Recluse's network. Has operationally claimed the second floor of The Hall. Capabilities: Weaver drones (surveillance across Riverside Ward and Dockside), hacking, looping feeds, pulling files. Perfect memory — every file, face, frequency retained instantly. She assumes this is just how her brain works. (It may not be.)</p>
+<h3>Darius Cole / Aegis Prime</h3>
+<p><strong>DOB:</strong> August 17, 1988 | <strong>Age:</strong> 37 | <strong>File:</strong> AEGIS-AGP-007 Marine officer caught in the 2020 Glass District gravity core disaster. A.E.G.I.S. stabilized the anomaly inside him and built a public symbol around it. Believes power must answer to structure. Ideological friction with most Alliance members. Possible Eclipse connection to the 2020 event: flagged, unconfirmed. Powers: Gravitational force manipulation — immobilization, momentum nullification, compression shielding, vector perception.</p>
+<h3>Zara Thorne / Filament</h3>
+<p><strong>Age:</strong> ~34 | Persian | Retired hero, choreographer, runs a dance studio in Riverside Ward. Genetically entangled with Riley's spider gene — passively receives a somatic distress signal when Riley is injured or under physical strain. The signal is intensifying as Riley's condition worsens. She does not know why. Powers: filament generation, enhanced agility. Assists Recluse network on her own terms.</p>
+<h3>Darcy Cole / Rampart</h3>
+<p><strong>Age:</strong> 26 | High school gym teacher and track coach. Powers: Kinetic absorption and redistribution — incoming force doesn't hurt her; she can send it back proportionally. Manifested during a building fire. Genuinely warm, no armor. Riley relaxes around her in ways that register with Avi as a quiet wound.</p>
+<h3>Marcus Webb / Requiem</h3>
+<p><strong>Age:</strong> ~28 | Origin: The Ironworks. Spider-derived powers (distinct from Riley's) — wall adhesion, enhanced strength, omni-directional threat sense. Killed publicly by Perdition. Resurrected via Dr. Selin Adeyemi's cellular regrowth procedure — authorized by Riley, off A.E.G.I.S. books. Adeyemi disappeared after; presumed dead. Marcus is alive, functional, and has not forgiven anyone for his resurrection.</p>
+<h3>Declan Harrow / Shroud</h3>
+<p><strong>DOB:</strong> June 30, 1996 | <strong>Age:</strong> 29 | <strong>File:</strong> AEGIS-SHR-009 Hunts the things A.E.G.I.S. has no language for — the older things in Halden City's forgotten infrastructure. Operates along Blackwater Harbor. Never claimed to be a hero. A.E.G.I.S. file heavily redacted and quietly misfiled. This is not an accident. <strong>Note: Canonical name is Declan Harrow. Marcus Harrow is an earlier erroneous reference.</strong></p>
+<h3>Lily Matthews</h3>
+<p><strong>Age:</strong> 15 | Civilian. Younger sister of Mary Matthews / Artemis (deceased). Texted Jason after Session 1. Full profile: <code>characters/alliance/lily-matthews.md</code>.</p>
+<hr>
+<h2>Characters — NPCs: Antagonists</h2>
+<h3>Signal</h3>
+<p>Real name unknown. Former Renegade Force host — voluntarily relinquished as part of his ideological plan. Currently no residual powers. Master hacker and social engineer. Orchestrates public crises for revelation, not chaos. Already holds the Riley/Carter hospital recording. Building toward a public exposure event. <strong>Session 1: Kiara reveal spent. Sterling reveal pending.</strong></p>
+<h3>Casimir Vane</h3>
+<p><strong>DOB:</strong> October 31, 1974 | <strong>Age:</strong> 52 CEO of Vane Capital Group. Knowing, ideological Eclipse/PROMETHEUS partner. Currently out on bail — throwing a DA fundraiser gala. Public philanthropist. Civic sincerity is real. So is his complicity.</p>
+<h3>Carter Williams / Renegade Force Host</h3>
+<p>Current Renegade Force host. Was paralyzed from the waist down prior to bonding; the Force healed him on binding. Personal history tied to Avi's backstory — Avi does not know. Signal is using him as a pawn.</p>
+<h3>Raze</h3>
+<p>Darkstar's engineered child, Sterling's half-sibling. Was off Darkstar's ship hunting Sterling when the ship was destroyed. Assumes Darkstar is dead. Original retrieval mission is now a revenge plot. Has license to kill. No current file — tracked in <code>characters/npcs/darkstar.md</code> pending own NPC file.</p>
+<h3>Edmund Crale — [GM EYES ONLY]</h3>
+<p>Eclipse CEO. Crale family present at A.E.G.I.S.'s 1925 founding. Do not surface until players reach PROMETHEUS directly. Full profile: <code>characters/npcs/edmund-crale.md</code>.</p>
+<hr>
+<h2>Characters — NPCs: A.E.G.I.S. Assets</h2>
+<h3>Casey Holt / Scythe — [GM EYES ONLY]</h3>
+<p><strong>Age:</strong> ~24–25 | <strong>File:</strong> AEGIS-SYC-REDACTED Second-generation MANIFEST asset. Dormant — no deployment orders. Dating Adrian Vega. Has reported Riley's deterioration to Shaw. File withheld from Riley deliberately. Full profile: <code>characters/npcs/casey-holt-scythe.md</code>.</p>
+<hr>
+<h2>Cosmic Lore</h2>
+<h3>The Paragon Force</h3>
+<p>Cosmic intelligence bonded to a single host. Transfers only on host's death. Grants: flight, super strength, super speed, heat vision, x-ray vision, extreme durability. Quantum's theory: a balancing principle — heroism embedded into the universe's fabric.</p>
+<h3>The Renegade Force</h3>
+<p>Equal and opposite to the Paragon Force. Can be voluntarily relinquished (unlike the Paragon Force). When relinquished, host retains no abilities. Current host: Carter Williams.</p>
+<h3>The Virek Papers</h3>
+<p>Compiled by Dr. Gabriel Virek — evidence of Paragon's extralegal interventions across decades. A 2022 partially decrypted cache confirmed election interference. Still mostly encrypted. Contains the revelation that Ethan Roberts has known how to end the Paragon cycle and chose not to act.</p>
+<h3>The Auditors</h3>
+<p>Kiara's creators. Their original assessment of Earth becomes defensible again in Arc 3 once the Paragon Force is gone.</p>
+<hr>
+<h2>Macro Arc Structure</h2>
+<table>
+<thead><tr>
+<th>Arc</th>
+<th>Central Question</th>
+<th>Anticipated End State</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Arc 1 — Institutions Questioned</strong></td>
+<td>Should these institutions exist?</td>
+<td>Signal engineers removal of both cosmic Forces. Alliance fractured and delegitimized.</td>
+</tr>
+<tr>
+<td><strong>Arc 2 — Life Without the Old Institutions</strong></td>
+<td>What fills the vacuum when they collapse?</td>
+<td>A.E.G.I.S. turns on uncontrolled supers. Heroes hunted by the people they protected.</td>
+</tr>
+<tr>
+<td><strong>Arc 3 — The Auditors (short)</strong></td>
+<td>Does Earth deserve to survive without its guarantor?</td>
+<td>Auditors fail/retreat. How they retreat seeds Arc 4. Starfall's arc is load-bearing.</td>
+</tr>
+<tr>
+<td><strong>Arc 4 — The New System</strong></td>
+<td>Who has the right to build what comes next?</td>
+<td>Antagonist with correct diagnosis, flawed execution. Darkstar is primary candidate.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Active Plot Threads</h2>
+<table>
+<thead><tr>
+<th>Thread</th>
+<th>Status</th>
+<th>Stakes</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Riley's physical deterioration</strong></td>
+<td>Active, hidden</td>
+<td>Slower healing, stiff joints. Casey Holt has reported to Shaw. What breaks first — body, cover, or relationships?</td>
+</tr>
+<tr>
+<td><strong>Riley's parasite arc</strong></td>
+<td>Seeded — not yet active</td>
+<td>Targets spider gene. Goal: strip moral restraint. Zara's distress signal amplifying.</td>
+</tr>
+<tr>
+<td><strong>Signal's recorded evidence</strong></td>
+<td>Active</td>
+<td>Hospital recording in hand. Not yet deployed.</td>
+</tr>
+<tr>
+<td><strong>Scythe / Casey Holt</strong></td>
+<td>Seeded</td>
+<td>Dating Adrian. No deployment orders yet. A.E.G.I.S. withholds from Riley.</td>
+</tr>
+<tr>
+<td><strong>The Virek Papers</strong></td>
+<td>Active</td>
+<td>Mostly encrypted. End-cycle revelation not yet public.</td>
+</tr>
+<tr>
+<td><strong>Carter Williams / Renegade Force</strong></td>
+<td>Active</td>
+<td>Signal's pawn. Personal history with Avi — Avi doesn't know.</td>
+</tr>
+<tr>
+<td><strong>Eclipse / PROMETHEUS</strong></td>
+<td>Seeded</td>
+<td>Black program beneath legit biotech. Rhys is unclosed asset. Crale is hidden center.</td>
+</tr>
+<tr>
+<td><strong>Raze — revenge plot</strong></td>
+<td>Active, off-screen</td>
+<td>Assumes Darkstar dead. License to kill. Will surface when dramatically right.</td>
+</tr>
+<tr>
+<td><strong>Darkstar — deterrent weapon</strong></td>
+<td>Seeded</td>
+<td>Wounded, building weapon to end Paragon/Renegade cycle. Evidence to surface gradually.</td>
+</tr>
+<tr>
+<td><strong>Casimir out on bail</strong></td>
+<td>Active</td>
+<td>Throwing DA fundraiser gala. Brazen public move while under indictment.</td>
+</tr>
+<tr>
+<td><strong>Persico's return</strong></td>
+<td>Seeded</td>
+<td>Re-establishing Dockside network.</td>
+</tr>
+<tr>
+<td><strong>Three missing Glass District researchers</strong></td>
+<td>Seeded</td>
+<td>May connect to Eclipse or Darkstar's weapon research.</td>
+</tr>
+<tr>
+<td><strong>The Hall — locked room (3/F)</strong></td>
+<td>Seeded</td>
+<td>Key not transferred. Room larger than building plans indicate.</td>
+</tr>
+<tr>
+<td><strong>Local 44 records (3/F)</strong></td>
+<td>Seeded</td>
+<td>Six boxes, 1938–present. Unexamined.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Wiki File Locations</h2>
+<p>All files at: <code>D:\Kaleb\halden-city-wiki\</code> (GitHub: https://github.com/triursa/halden-city-wiki)</p>
+<h3>Player Characters</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>characters/pcs/avi-park-nova.md</code></td>
+<td>Avi Park / Nova</td>
+</tr>
+<tr>
+<td><code>characters/pcs/jason-apollo.md</code></td>
+<td>Jason / Apollo — Doomed playbook</td>
+</tr>
+<tr>
+<td><code>characters/pcs/sterling-slate-cosmic-knight.md</code></td>
+<td>Sterling Slate / Cosmic Knight — Scion playbook, Darkstar's son</td>
+</tr>
+<tr>
+<td><code>characters/pcs/rhys-romneya-noc.md</code></td>
+<td>Rhys Romneya / Noc — Eclipse compound, unclosed asset file</td>
+</tr>
+<tr>
+<td><code>characters/pcs/casper-curie-half-life.md</code></td>
+<td>Casper Curie / Half-Life</td>
+</tr>
+</tbody></table>
+<h3>Alliance &amp; Network</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>characters/alliance/riley-thomas-recluse.md</code></td>
+<td>Full Riley dossier</td>
+</tr>
+<tr>
+<td><code>characters/alliance/ethan-roberts-paragon.md</code></td>
+<td>Paragon / Ethan Roberts</td>
+</tr>
+<tr>
+<td><code>characters/alliance/elena-marquez-riftfire.md</code></td>
+<td>Riftfire / Elena Marquez</td>
+</tr>
+<tr>
+<td><code>characters/alliance/javier-mendez-quantum.md</code></td>
+<td>Quantum / Dr. Javier Mendez</td>
+</tr>
+<tr>
+<td><code>characters/alliance/kiara-jerach-starfall.md</code></td>
+<td>Starfall / Kiara Je-rach — off-Earth, departed Session 1</td>
+</tr>
+<tr>
+<td><code>characters/alliance/natalia-orlov-vanguard.md</code></td>
+<td>The Vanguard / Natalia Orlov</td>
+</tr>
+<tr>
+<td><code>characters/alliance/adrian-vega-breakpoint.md</code></td>
+<td>Breakpoint / Adrian Vega</td>
+</tr>
+<tr>
+<td><code>characters/alliance/sloane-callahan-arachne.md</code></td>
+<td>Arachne / Sloane Callahan</td>
+</tr>
+<tr>
+<td><code>characters/alliance/darius-cole-aegis-prime.md</code></td>
+<td>Aegis Prime / Darius Cole</td>
+</tr>
+<tr>
+<td><code>characters/alliance/darcy-cole-rampart.md</code></td>
+<td>Rampart / Darcy Cole</td>
+</tr>
+<tr>
+<td><code>characters/alliance/marcus-webb-requiem.md</code></td>
+<td>Requiem / Marcus Webb — resurrection arc, Adeyemi connection</td>
+</tr>
+<tr>
+<td><code>characters/alliance/zara-thorne-filament.md</code></td>
+<td>Filament / Zara Thorne</td>
+</tr>
+<tr>
+<td><code>characters/alliance/declan-harrow-shroud.md</code></td>
+<td>Shroud / Declan Harrow</td>
+</tr>
+<tr>
+<td><code>characters/alliance/lily-matthews.md</code></td>
+<td>Lily Matthews — Mary's younger sister, Jason's civilian thread</td>
+</tr>
+</tbody></table>
+<h3>NPCs — Antagonists &amp; Assets</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>characters/npcs/anonymous-signal.md</code></td>
+<td>Signal — full dossier</td>
+</tr>
+<tr>
+<td><code>characters/npcs/casimir-vane.md</code></td>
+<td>Casimir Vane — Eclipse/PROMETHEUS partner, out on bail</td>
+</tr>
+<tr>
+<td><code>characters/npcs/carter-williams.md</code></td>
+<td>Carter Williams / Renegade Force host</td>
+</tr>
+<tr>
+<td><code>characters/npcs/darkstar.md</code></td>
+<td>Darkstar — survival unknown, building deterrent weapon; Raze tracked here pending own file</td>
+</tr>
+<tr>
+<td><code>characters/alliance/lila-ortega-manifest.md</code></td>
+<td>Lila Ortega — MANIFEST director, team influence, lockdown constraints</td>
+</tr>
+<tr>
+<td><code>characters/npcs/casey-holt-scythe.md</code></td>
+<td><strong>[GM EYES ONLY]</strong> Casey Holt / Scythe</td>
+</tr>
+<tr>
+<td><code>characters/npcs/edmund-crale.md</code></td>
+<td><strong>[GM EYES ONLY]</strong> Edmund Crale — Eclipse CEO</td>
+</tr>
+<tr>
+<td><code>characters/npcs/red-pill-owen-watson.md</code></td>
+<td>Red Pill / Owen Watson</td>
+</tr>
+<tr>
+<td><code>characters/npcs/senator-diana-okafor.md</code></td>
+<td>Senator Diana Okafor — Beat 2 abduction target, SARA trigger</td>
+</tr>
+<tr>
+<td><code>characters/npcs/mayor-theo-alcantara.md</code></td>
+<td>Mayor Theo Alcantara</td>
+</tr>
+<tr>
+<td><code>characters/npcs/police-chief-hector-reyes.md</code></td>
+<td>Chief Hector Reyes</td>
+</tr>
+<tr>
+<td><code>characters/npcs/detectives-shea-and-paz.md</code></td>
+<td>Det. Rowan Shea &amp; Victor Paz</td>
+</tr>
+<tr>
+<td><code>characters/npcs/halcyon.md</code></td>
+<td>Halcyon — background texture only</td>
+</tr>
+<tr>
+<td><code>characters/npcs/emmett-lorne.md</code></td>
+<td>Emmett Lorne — psychic influence, controls Persico's operation from behind it</td>
+</tr>
+<tr>
+<td><code>characters/npcs/morgan-vale-nightfall.md</code></td>
+<td>Morgan Vale / Nightfall — Low Spectrum host, killed Artemis, approaching the team</td>
+</tr>
+<tr>
+<td><code>characters/npcs/dr-cassius-vrell.md</code></td>
+<td>Dr. Cassius Vrell — rogue ACAD scientist, self-modified, holds pre-classification spider-gene research</td>
+</tr>
+<tr>
+<td><code>characters/npcs/gilt-nadia-osei.md</code></td>
+<td>Nadia Osei / Gilt — thief, accidentally took a PROMETHEUS data archive from Vane storage</td>
+</tr>
+<tr>
+<td><code>characters/npcs/slake-barry-black.md</code></td>
+<td>Barry Black / Slake — dockworker contaminated by Eclipse biotech waste, consumption-based absorption</td>
+</tr>
+<tr>
+<td><code>characters/npcs/the-conductor-elliot-marsh.md</code></td>
+<td>Elliot Marsh / The Conductor — technopathic info broker, Monument Circle, possible Signal contact</td>
+</tr>
+<tr>
+<td><code>characters/npcs/brackish-linus-peters.md</code></td>
+<td>Linus Peters / Brackish — A.E.G.I.S. wet-ops enhanced, hired killer, paralytic contact agent</td>
+</tr>
+<tr>
+<td><code>characters/npcs/caliber-deshawn-merritt.md</code></td>
+<td>Deshawn Merritt / Caliber — anti-metahuman specialist, Vane Capital retainer, former A.E.G.I.S. MTR</td>
+</tr>
+<tr>
+<td><code>characters/npcs/remnant.md</code></td>
+<td>Remnant — parasitic alien stranded in Halden City since 2014, 11 confirmed hosts, Shroud is tracking it</td>
+</tr>
+<tr>
+<td><code>characters/npcs/petra-mace-sable.md</code></td>
+<td>Petra Mace / Sable — 17, Riverside Ward, electromagnetic manipulation, unregistered antihero; Sloane has flagged her EM signature</td>
+</tr>
+<tr>
+<td><code>characters/npcs/eli-crane-fault.md</code></td>
+<td>Eli Crane / Fault — 18, Ironworks, structural resonance, unregistered antihero; Riley has connected structural failure patterns to an unknown person</td>
+</tr>
+</tbody></table>
+<h3>Factions</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>factions/aegis.md</code></td>
+<td>A.E.G.I.S. full breakdown incl. divisions</td>
+</tr>
+<tr>
+<td><code>factions/the-alliance.md</code></td>
+<td>Alliance roster and history</td>
+</tr>
+<tr>
+<td><code>factions/vane-capital-group.md</code></td>
+<td>Vane Capital</td>
+</tr>
+<tr>
+<td><code>factions/eclipse.md</code></td>
+<td>Eclipse — public face and PROMETHEUS black program</td>
+</tr>
+</tbody></table>
+<h3>Locations</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>locations/hq-ironworkers-hall.md</code></td>
+<td><strong>The Hall</strong> — player HQ, Ironworkers' Local 44</td>
+</tr>
+<tr>
+<td><code>locations/districts.md</code></td>
+<td>All six districts with key locations</td>
+</tr>
+<tr>
+<td><code>locations/alliance-tower.md</code></td>
+<td>Alliance Tower — full build, layout, culture, personnel</td>
+</tr>
+<tr>
+<td><code>locations/aegis-halden-regional-command.md</code></td>
+<td>A.E.G.I.S. Regional Command — full build, 7 sub-levels, personnel, culture</td>
+</tr>
+<tr>
+<td><code>locations/street-texture.md</code></td>
+<td>Named civilian locations, recurring faces, shadow infrastructure by district</td>
+</tr>
+</tbody></table>
+<h3>Lore</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>lore/world-history.md</code></td>
+<td>Full 100-year timeline</td>
+</tr>
+<tr>
+<td><code>lore/paragon-renegade-forces.md</code></td>
+<td>Cosmic lore, all known hosts</td>
+</tr>
+<tr>
+<td><code>lore/metahuman-taxonomy.md</code></td>
+<td>Enhanced individual taxonomy — six origin categories, modifier flags, known instances</td>
+</tr>
+</tbody></table>
+<h3>Plot</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>plot/gm-quick-ref.md</code></td>
+<td><strong>START HERE mid-session</strong> — reveal status, active seeds, threat board, NPC influence states</td>
+</tr>
+<tr>
+<td><code>plot/session-log.md</code></td>
+<td>Running session log — what happened, seeds planted, state at end of each session</td>
+</tr>
+<tr>
+<td><code>plot/open-threads.md</code></td>
+<td>Active threads with full stakes detail</td>
+</tr>
+<tr>
+<td><code>plot/who-decides-arc.md</code></td>
+<td>Arc 1 full beat sheet — "Who Decides"</td>
+</tr>
+<tr>
+<td><code>plot/macro-arc-structure.md</code></td>
+<td>Four-arc philosophical spine</td>
+</tr>
+<tr>
+<td><code>plot/riley-parasite-arc.md</code></td>
+<td>Riley's parasite arc — seeded, not yet active</td>
+</tr>
+<tr>
+<td><code>plot/signal-beat3-broadcast.md</code></td>
+<td>Signal's Beat 3 broadcast script — register anchor</td>
+</tr>
+<tr>
+<td><code>plot/signal-label-targets.md</code></td>
+<td>Signal's label shift targets by reveal — per PC</td>
+</tr>
+<tr>
+<td><code>plot/jason-lily-matthews-scene.md</code></td>
+<td>Lily Matthews scene — Jason's Doomed nemesis thread</td>
+</tr>
+<tr>
+<td><code>plot/villain-sheets/signal.md</code></td>
+<td>Signal — campaign-use villain sheet</td>
+</tr>
+<tr>
+<td><code>plot/villain-sheets/casimir-vane.md</code></td>
+<td>Casimir Vane — villain sheet</td>
+</tr>
+<tr>
+<td><code>plot/villain-sheets/carter-williams-renegade.md</code></td>
+<td>Carter Williams — villain sheet</td>
+</tr>
+<tr>
+<td><code>plot/villain-sheets/red-pill-owen-watson.md</code></td>
+<td>Red Pill — villain sheet with Labels, amplification field, exit condition</td>
+</tr>
+<tr>
+<td><code>plot/villain-sheets/shade-construct.md</code></td>
+<td>SHADE Unit — PROMETHEUS construct, Beat 2 threat</td>
+</tr>
+</tbody></table>
+<h3>Meta</h3>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Contents</th>
+</tr></thead><tbody>
+<tr>
+<td><code>meta/tone-guide.md</code></td>
+<td>Prose and tone rules</td>
+</tr>
+<tr>
+<td><code>meta/naming-conventions.md</code></td>
+<td>Naming patterns and conventions</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Last updated: March 2026 — Session 1 logged. New files: plot/session-log.md, plot/gm-quick-ref.md. Active thread table updated with Raze and Darkstar weapon. Kiara status updated to off-Earth. Locations table reordered with The Hall first. Wiki audit: added 9 previously unindexed NPCs to file table; README.md file tree rebuilt to match actual structure; factions/the-alliance.md extended network corrected (Darcy Cole/Rampart added; Requiem, Filament, Shroud added); Rhys file header standardized to Noch; Declan file changelog artifact removed; Riley See Also relative link corrected.</em> <em>To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.</em></p>
+    </article>
+    <div class="footer">Halden City Wiki &mdash; Last built March 2026</div>
+  </main>
+</div>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var sidebar = document.getElementById('sidebar');
+  var toggle  = document.querySelector('.menu-toggle');
+  if (sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

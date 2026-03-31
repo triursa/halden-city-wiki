@@ -101,4 +101,15 @@ Sloane already owns the second floor. That is the first thing the players learn 
 
 ---
 
+## Unidentified Anomaly — Petra Mace / Sable
+
+Sloane's Weaver drones have flagged a recurring electromagnetic interference pattern across Riverside Ward and the Ironworks — camera glitches, compass drift, localized signal disruption — correlating with two specific incident sites in the past six weeks. The pattern is consistent enough to be a person, not equipment failure.
+
+She has not told Riley yet. She hasn't figured out what she's looking at. When she does, it will be the tripwire that pulls the Sable/Fault thread into the team's awareness.
+
+**What she knows:** A signature. Two locations. A rough movement corridor between Riverside Ward and the Ironworks.
+**What she doesn't know:** Who it is, what they're doing, or why the interference pattern matches nothing in any enhanced individual database she has access to.
+
+---
+
 *Last updated: March 2026*

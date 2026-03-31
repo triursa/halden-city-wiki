@@ -283,6 +283,8 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 | `characters/npcs/brackish-linus-peters.md` | Linus Peters / Brackish — A.E.G.I.S. wet-ops enhanced, hired killer, paralytic contact agent |
 | `characters/npcs/caliber-deshawn-merritt.md` | Deshawn Merritt / Caliber — anti-metahuman specialist, Vane Capital retainer, former A.E.G.I.S. MTR |
 | `characters/npcs/remnant.md` | Remnant — parasitic alien stranded in Halden City since 2014, 11 confirmed hosts, Shroud is tracking it |
+| `characters/npcs/petra-mace-sable.md` | Petra Mace / Sable — 17, Riverside Ward, electromagnetic manipulation, unregistered antihero; Sloane has flagged her EM signature |
+| `characters/npcs/eli-crane-fault.md` | Eli Crane / Fault — 18, Ironworks, structural resonance, unregistered antihero; Riley has connected structural failure patterns to an unknown person |
 
 ### Factions
 | File | Contents |

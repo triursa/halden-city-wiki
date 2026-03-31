@@ -10,52 +10,97 @@
 
 ```
 halden-city-wiki/
-├── README.md                        ← Start here
+├── README.md                              ← Start here
+├── WIKI-INDEX.md                          ← Master fast-load reference; update every session
 ├── characters/
-│   ├── — Alliance Members —
-│   ├── riley-thomas-recluse.md
-│   ├── ethan-roberts-paragon.md
-│   ├── elena-marquez-riftfire.md
-│   ├── javier-mendez-quantum.md
-│   ├── kiara-jerach-starfall.md
-│   ├── natalia-orlov-vanguard.md
-│   ├── — Recluse Network —
-│   ├── adrian-vega-breakpoint.md
-│   ├── sloane-callahan-arachne.md
-│   ├── — Other Heroes —
-│   ├── darius-cole-aegis-prime.md
-│   ├── declan-harrow-shroud.md
-│   ├── — Villains & Antagonists —
-│   ├── signal.md
-│   ├── casimir-vane.md
-│   ├── — Minor Villains —
-│   ├── gilt-nadia-osei.md
-│   ├── caliber-deshawn-merritt.md
-│   ├── dr-cassius-vrell.md
-│   ├── remnant.md
-│   ├── brackish-linus-peters.md
-│   ├── the-conductor-elliot-marsh.md
-│   ├── slake-barry-black.md
-│   └── _character-template.md
+│   ├── pcs/                               ← Player characters
+│   │   ├── avi-park-nova.md
+│   │   ├── jason-apollo.md
+│   │   ├── sterling-slate-cosmic-knight.md
+│   │   ├── rhys-romneya-noc.md
+│   │   └── casper-curie-half-life.md
+│   ├── alliance/                          ← Alliance members, network, and affiliated NPCs
+│   │   ├── riley-thomas-recluse.md
+│   │   ├── ethan-roberts-paragon.md
+│   │   ├── elena-marquez-riftfire.md
+│   │   ├── javier-mendez-quantum.md
+│   │   ├── kiara-jerach-starfall.md
+│   │   ├── natalia-orlov-vanguard.md
+│   │   ├── adrian-vega-breakpoint.md
+│   │   ├── sloane-callahan-arachne.md
+│   │   ├── darius-cole-aegis-prime.md
+│   │   ├── darcy-cole-rampart.md
+│   │   ├── marcus-webb-requiem.md
+│   │   ├── zara-thorne-filament.md
+│   │   ├── declan-harrow-shroud.md
+│   │   ├── lily-matthews.md
+│   │   ├── lila-ortega-manifest.md
+│   │   └── _character-template.md
+│   └── npcs/                              ← Antagonists, assets, civilians
+│       ├── anonymous-signal.md
+│       ├── carter-williams.md
+│       ├── casey-holt-scythe.md           [GM EYES ONLY]
+│       ├── casimir-vane.md
+│       ├── darkstar.md
+│       ├── edmund-crale.md                [GM EYES ONLY]
+│       ├── emmett-lorne.md
+│       ├── red-pill-owen-watson.md
+│       ├── morgan-vale-nightfall.md
+│       ├── raze.md
+│       ├── remnant.md
+│       ├── brackish-linus-peters.md
+│       ├── caliber-deshawn-merritt.md
+│       ├── slake-barry-black.md
+│       ├── the-conductor-elliot-marsh.md
+│       ├── gilt-nadia-osei.md
+│       ├── dr-cassius-vrell.md
+│       ├── daniel-rojas-burnout.md
+│       ├── ava-kincaid-circuit-breaker.md
+│       ├── danielle-whittaker-wraith.md
+│       ├── allison-bryne-carrion.md
+│       ├── senator-diana-okafor.md
+│       ├── mayor-theo-alcantara.md
+│       ├── police-chief-hector-reyes.md
+│       ├── detectives-shea-and-paz.md
+│       └── halcyon.md
 ├── factions/
 │   ├── aegis.md
 │   ├── the-alliance.md
 │   ├── vane-capital-group.md
+│   ├── eclipse.md
 │   └── _faction-template.md
 ├── locations/
-│   ├── halden-city-overview.md
+│   ├── hq-ironworkers-hall.md
 │   ├── districts.md
+│   ├── alliance-tower.md
+│   ├── aegis-halden-regional-command.md
+│   ├── street-texture.md
 │   └── _location-template.md
 ├── lore/
 │   ├── world-history.md
 │   ├── paragon-renegade-forces.md
-│   └── enhanced-individual-taxonomy.md
+│   ├── the-wavelengths.md
+│   └── metahuman-taxonomy.md
 ├── plot/
+│   ├── gm-quick-ref.md
+│   ├── session-log.md
 │   ├── open-threads.md
-│   └── timeline.md
+│   ├── who-decides-arc.md
+│   ├── macro-arc-structure.md
+│   ├── riley-parasite-arc.md
+│   ├── signal-beat3-broadcast.md
+│   ├── signal-label-targets.md
+│   ├── jason-lily-matthews-scene.md
+│   └── villain-sheets/
+│       ├── signal.md
+│       ├── casimir-vane.md
+│       ├── carter-williams-renegade.md
+│       ├── red-pill-owen-watson.md
+│       └── shade-construct.md
 └── meta/
     ├── tone-guide.md
-    └── naming-conventions.md
+    ├── naming-conventions.md
+    └── player-facing-doc.md
 ```
 
 ---

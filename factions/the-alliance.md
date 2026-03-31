@@ -43,6 +43,10 @@ Calypso attended the Alliance's first public address uninvited. She watched from
 | Adrian Vega | Breakpoint | Recluse's mentee. Hyper-cognitive stress response. |
 | Sloane Callahan | Arachne | Intel/support. Weaver drones, perfect memory, hacking. Riley recruited her. |
 | Darius Cole | Aegis Prime | A.E.G.I.S.-adjacent, ideological tension with most core members. Liaison quarters in Alliance Tower. |
+| Darcy Cole | Rampart | PE teacher and track coach, Riverside Ward. Kinetic absorption and redistribution. Unregistered. Riley recruited her. |
+| Marcus Webb | Requiem | Ironworks origin. Spider-derived powers. Killed publicly by Perdition; resurrected via Riley's off-books call. |
+| Zara Thorne | Filament | Retired hero. Genetically entangled with Riley's spider gene. Assists network on her own terms. |
+| Declan Harrow | Shroud | Hunts the older things in Halden City's infrastructure. Blackwater Harbor. Never claimed to be a hero. |
 
 ---
 

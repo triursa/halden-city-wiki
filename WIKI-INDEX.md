@@ -274,6 +274,15 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 | `characters/npcs/police-chief-hector-reyes.md` | Chief Hector Reyes |
 | `characters/npcs/detectives-shea-and-paz.md` | Det. Rowan Shea & Victor Paz |
 | `characters/npcs/halcyon.md` | Halcyon — background texture only |
+| `characters/npcs/emmett-lorne.md` | Emmett Lorne — psychic influence, controls Persico's operation from behind it |
+| `characters/npcs/morgan-vale-nightfall.md` | Morgan Vale / Nightfall — Low Spectrum host, killed Artemis, approaching the team |
+| `characters/npcs/dr-cassius-vrell.md` | Dr. Cassius Vrell — rogue ACAD scientist, self-modified, holds pre-classification spider-gene research |
+| `characters/npcs/gilt-nadia-osei.md` | Nadia Osei / Gilt — thief, accidentally took a PROMETHEUS data archive from Vane storage |
+| `characters/npcs/slake-barry-black.md` | Barry Black / Slake — dockworker contaminated by Eclipse biotech waste, consumption-based absorption |
+| `characters/npcs/the-conductor-elliot-marsh.md` | Elliot Marsh / The Conductor — technopathic info broker, Monument Circle, possible Signal contact |
+| `characters/npcs/brackish-linus-peters.md` | Linus Peters / Brackish — A.E.G.I.S. wet-ops enhanced, hired killer, paralytic contact agent |
+| `characters/npcs/caliber-deshawn-merritt.md` | Deshawn Merritt / Caliber — anti-metahuman specialist, Vane Capital retainer, former A.E.G.I.S. MTR |
+| `characters/npcs/remnant.md` | Remnant — parasitic alien stranded in Halden City since 2014, 11 confirmed hosts, Shroud is tracking it |
 
 ### Factions
 | File | Contents |
@@ -325,5 +334,5 @@ All files at: `D:\Kaleb\halden-city-wiki\` (GitHub: https://github.com/triursa/h
 
 ---
 
-*Last updated: March 2026 — Session 1 logged. New files: plot/session-log.md, plot/gm-quick-ref.md. Active thread table updated with Raze and Darkstar weapon. Kiara status updated to off-Earth. Locations table reordered with The Hall first.*
+*Last updated: March 2026 — Session 1 logged. New files: plot/session-log.md, plot/gm-quick-ref.md. Active thread table updated with Raze and Darkstar weapon. Kiara status updated to off-Earth. Locations table reordered with The Hall first. Wiki audit: added 9 previously unindexed NPCs to file table; README.md file tree rebuilt to match actual structure; factions/the-alliance.md extended network corrected (Darcy Cole/Rampart added; Requiem, Filament, Shroud added); Rhys file header standardized to Noch; Declan file changelog artifact removed; Riley See Also relative link corrected.*
 *To update this index: ask Claude to revise WIKI-INDEX.md after any significant worldbuilding session.*

@@ -121,7 +121,7 @@ The person he trusts most in the world inadvertently gave A.E.G.I.S. exactly wha
 - [Riley's Parasite Arc](../../../plot/riley-parasite-arc.md) — full seeding notes and progression
 - [Casey Holt / Scythe](../npcs/casey-holt-scythe.md) — [GM ONLY] precognitive blind spot; A.E.G.I.S. asset dating Adrian
 - [Adrian Vega / Breakpoint](../alliance/adrian-vega-breakpoint.md) — mentee; the Vega guilt made productive
-- [Zara Thorne / Filament](../alliance/zara-thorne-filament.md) — receiving his distress signal via spider-gene entanglement
+- [Zara Thorne / Filament](zara-thorne-filament.md) — receiving his distress signal via spider-gene entanglement
 
 ---
 

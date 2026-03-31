@@ -1,4 +1,4 @@
-# Rhys / Noc
+# Rhys Romneya / Noch
 
 > **PLAYER CHARACTER — Do not over-document internal states or future development. This file is a GM reference for arc planning, not a character bible.**
 

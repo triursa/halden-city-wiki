@@ -69,5 +69,5 @@ He operates at the edges of everything — not in the Alliance's network, not un
 
 ---
 
-*Last updated: March 2026 — Name corrected: Marcus Harrow → Declan Harrow (canonical first name confirmed).*
+*Last updated: March 2026*
 
